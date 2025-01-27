@@ -30,6 +30,16 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] bool jumpPressed;
 
 
+ [SerializeField]   float coyoteTime;
+    [SerializeField] float jumpBufferTime;
+
+    [SerializeField] bool jumping;
+
+    float coyoteTimeCurrent;
+    float jumpBufferTimeCurrent;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,22 +54,29 @@ public class PlayerMove : MonoBehaviour
         Vector3 start = new Vector3(groundCast.transform.position.x - groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         Vector3 end = new Vector3(groundCast.transform.position.x + groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         onGround = hit;
-        if (onGround)
+        if (onGround && !jumping)
         {
             rb2d.gravityScale = normalGravity;
+            coyoteTimeCurrent = coyoteTime;
 
         }
+        coyoteTimeCurrent-=Time.deltaTime;
+        jumpBufferTimeCurrent -= Time.deltaTime;
         Debug.DrawLine(start, end);
 
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb2d.AddForce(Vector2.up * jumpForce);
+            jumpBufferTimeCurrent = jumpBufferTime;
         }
         if (!onGround && (Input.GetKeyUp(KeyCode.Space) || rb2d.velocity.y <0))
         {
             rb2d.gravityScale = fallGravity;
         }
+        if(onGround && rb2d.velocity.y == 0)
+        {
+            jumping = false;
 
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
@@ -67,6 +84,12 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
+        }
+        if(coyoteTimeCurrent >0 && jumpBufferTimeCurrent > 0 && !jumping)
+        {
+            jumping = true;
+            rb2d.AddForce(Vector2.up * jumpForce);
+            coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
         }
     }
     private void FixedUpdate()
