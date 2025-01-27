@@ -12,10 +12,12 @@ public class baseGun : MonoBehaviour, IGun
 
     [SerializeField] GameObject bullet;
 
+    gunRotate rotate;
     private void Start()
     {
         Assert.IsNotNull(bullet);
         Assert.IsNotNull(bullet.GetComponent< IBullet>());
+        rotate = GetComponent<gunRotate>();
     }
 
     public void addBullets(int bul)
@@ -33,7 +35,8 @@ public class baseGun : MonoBehaviour, IGun
     }
     public void spawnBullet()
     {
-        
+     IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
+        bul.InstantiateBullet(rotate.transform.eulerAngles);
     }
     public void endShootAnim()
     {

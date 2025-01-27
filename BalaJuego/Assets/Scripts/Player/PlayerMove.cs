@@ -38,12 +38,14 @@ public class PlayerMove : MonoBehaviour
     float coyoteTimeCurrent;
     float jumpBufferTimeCurrent;
 
+   Animator anim;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponentsInChildren<Animator>()[0];
     }
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 start = new Vector3(groundCast.transform.position.x - groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         Vector3 end = new Vector3(groundCast.transform.position.x + groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         onGround = hit;
+        anim.SetBool("isGround", onGround);
         if (onGround && !jumping)
         {
             rb2d.gravityScale = normalGravity;
@@ -101,14 +104,20 @@ public class PlayerMove : MonoBehaviour
         if (Move.x == 0)
         {
             calcVelocity.x = Mathf.MoveTowards(calcVelocity.x,0, groundDecceleration * Time.fixedDeltaTime);
+            anim.SetBool("isRunning", false);
 
         }
         else {
+            anim.SetBool("isRunning", true);
+
             float useAccel = (Mathf.Abs(calcVelocity.x)==0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
            
             calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed, useAccel * Time.fixedDeltaTime);
         }
+        anim.SetFloat("velocity", calcVelocity.x);
+        anim.SetFloat("verticalVelocity", calcVelocity.y);
         rb2d.velocity = calcVelocity;
+       
 
     }
 }
