@@ -16,12 +16,10 @@ public class gunRotate:MonoBehaviour
     }
     public void setRotation(Vector3 obj)
     {
-        Vector3 direction = obj - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Vector3 reference = direction.x > 0 ? Vector3.back : Vector3.forward;
 
-        transform.rotation = Quaternion.AngleAxis(angle, reference);
-
+        Vector3 direction = obj - fullCharacter.position;
+        float angle = Mathf.Atan2(direction.y, Mathf.Abs(direction.x)) * Mathf.Rad2Deg;
+        print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
         if (direction.x > 0)
         {
             fullCharacter.localScale = new Vector3(-1, 1, 1);
@@ -29,7 +27,11 @@ public class gunRotate:MonoBehaviour
         else if (direction.x < 0)
         {
             fullCharacter.localScale = new Vector3(1, 1, 1);
-
         }
+        Vector3 reference = direction.x > 0 ? Vector3.forward : Vector3.back;
+
+        transform.rotation = Quaternion.AngleAxis(angle, reference);
+
+       
     }
 }
