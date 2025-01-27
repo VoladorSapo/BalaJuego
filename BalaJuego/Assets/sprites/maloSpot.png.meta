@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 146ce3dfc6c0c584e88953cdc76fa776
+guid: 5cf025e5919f8da4186aeb977ea2460b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,190 +97,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: protaCuerpo_0
+      name: maloSpot_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7089ab8071a6894e886213e5df264cc
-      internalID: -876669679
+      spriteID: b6e5413ce876b164d8f76bd417b5e0a0
+      internalID: 1895079697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaCuerpo_1
+      name: maloSpot_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 54
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ada785fd644715e4498125394ed45e76
-      internalID: -1660638860
+      spriteID: 5da4ee5376aca37499aae9d19020f78f
+      internalID: -2077554318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaCuerpo_2
+      name: maloSpot_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 108
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 801f8d1e1cd7e8e4b87066e8da41f882
-      internalID: 1365551787
+      spriteID: 4be96f908eda6f6429bb549edff8af59
+      internalID: -1044716149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaCuerpo_3
+      name: maloSpot_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 162
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e587dded369b45b489f699e6ce68fab5
-      internalID: -1567728311
+      spriteID: ab6d5bc2302ec8e4cb6bb57dc2fe5a00
+      internalID: 1395850785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaCuerpo_4
+      name: maloSpot_4
       rect:
         serializedVersion: 2
-        x: 280
+        x: 216
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf4964a01170ba24e868cfe7e4a18b50
-      internalID: -754772042
+      spriteID: d5934dc2fa198fd42aa8714d9c5d8ea4
+      internalID: 1466404549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaCuerpo_5
+      name: maloSpot_5
       rect:
         serializedVersion: 2
-        x: 350
+        x: 270
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d06f17be9bb49504eac4be64f4b70d43
-      internalID: 1795615401
+      spriteID: cc2e7dd6c177882418a0650fde003109
+      internalID: 541826464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaCuerpo_6
+      name: maloSpot_6
       rect:
         serializedVersion: 2
-        x: 420
+        x: 324
         y: 0
-        width: 70
+        width: 54
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2872394, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e016cf82cd5a6c48b9096e5bc8ec6ec
-      internalID: 2052474943
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: protaCuerpo_7
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 0
-        width: 70
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8ce724e4052aee4fb041a553a1d8e8c
-      internalID: -303852067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: protaCuerpo_8
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 0
-        width: 70
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cd3c87209f9f6f4ebdb8267fac43c23
-      internalID: -627599842
+      spriteID: 4671c7c48dfeb214aa063f6a10f03178
+      internalID: -1332906625
       vertices: []
       indices: 
       edges: []
@@ -296,15 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      protaCuerpo_0: -876669679
-      protaCuerpo_1: -1660638860
-      protaCuerpo_2: 1365551787
-      protaCuerpo_3: -1567728311
-      protaCuerpo_4: -754772042
-      protaCuerpo_5: 1795615401
-      protaCuerpo_6: 2052474943
-      protaCuerpo_7: -303852067
-      protaCuerpo_8: -627599842
+      maloSpot_0: 1895079697
+      maloSpot_1: -2077554318
+      maloSpot_2: -1044716149
+      maloSpot_3: 1395850785
+      maloSpot_4: 1466404549
+      maloSpot_5: 541826464
+      maloSpot_6: -1332906625
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
