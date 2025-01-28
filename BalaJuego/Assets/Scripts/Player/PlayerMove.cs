@@ -33,12 +33,14 @@ public class PlayerMove : MonoBehaviour
  [SerializeField]   float coyoteTime;
     [SerializeField] float jumpBufferTime;
 
-    [SerializeField] bool jumping;
+    [SerializeField] bool jumping,falling;
 
     float coyoteTimeCurrent;
     float jumpBufferTimeCurrent;
 
    Animator anim;
+
+    IShoot gun;
 
 
     // Start is called before the first frame update
@@ -46,13 +48,14 @@ public class PlayerMove : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>()[0];
+        gun = GetComponentInChildren<IShoot>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        RaycastHit2D hit = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0, Vector2.right,groudLayers);
+        RaycastHit2D hit = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0,Vector2.right, groundCast.size.y/2, groudLayers);
         Vector3 start = new Vector3(groundCast.transform.position.x - groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         Vector3 end = new Vector3(groundCast.transform.position.x + groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         onGround = hit;
@@ -75,9 +78,14 @@ public class PlayerMove : MonoBehaviour
         {
             rb2d.gravityScale = fallGravity;
         }
-        if(onGround && rb2d.velocity.y == 0)
+        if (rb2d.velocity.y < 0)
+        {
+            falling = true;
+        }
+        if(onGround && falling)
         {
             jumping = false;
+            falling = false;
 
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -88,11 +96,10 @@ public class PlayerMove : MonoBehaviour
         {
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
         }
-        if(coyoteTimeCurrent >0 && jumpBufferTimeCurrent > 0 && !jumping)
+        
+        if (Input.GetMouseButtonDown(0))
         {
-            jumping = true;
-            rb2d.AddForce(Vector2.up * jumpForce);
-            coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
+            gun.shoot();
         }
     }
     private void FixedUpdate()
@@ -117,7 +124,15 @@ public class PlayerMove : MonoBehaviour
         anim.SetFloat("velocity", calcVelocity.x);
         anim.SetFloat("verticalVelocity", calcVelocity.y);
         rb2d.velocity = calcVelocity;
-       
+        if (coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0 && !jumping)
+        {
+            jumping = true;
+            print("jump");
+            rb2d.gravityScale = normalGravity;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+            coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
+        }
 
     }
 }

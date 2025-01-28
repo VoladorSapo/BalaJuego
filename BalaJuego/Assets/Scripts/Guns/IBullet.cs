@@ -3,5 +3,7 @@ using UnityEngine;
 
 public interface IBullet
 {
-    public void InstantiateBullet(Vector3 direction);
+    public void InstantiateBullet(GameObject shooter, float angle);
+
+    public int getDamage();
 }

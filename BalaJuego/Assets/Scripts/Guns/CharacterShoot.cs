@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
-public class baseGun : MonoBehaviour, IGun
+public class CharacterShoot : MonoBehaviour,IShoot
 {
 
     [SerializeField] int currentBullets;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] GameObject character;
     [SerializeField] Animator anim;
 
     [SerializeField] bool shooting;
@@ -18,6 +19,7 @@ public class baseGun : MonoBehaviour, IGun
         Assert.IsNotNull(bullet);
         Assert.IsNotNull(bullet.GetComponent< IBullet>());
         rotate = GetComponent<gunRotate>();
+        anim = GetComponent<Animator>();
     }
 
     public void addBullets(int bul)
@@ -31,12 +33,13 @@ public class baseGun : MonoBehaviour, IGun
         {
             shooting = true;
             currentBullets--;
+            anim.Play("playerGunshot",-1,0);
         }
     }
     public void spawnBullet()
     {
      IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
-        bul.InstantiateBullet(rotate.transform.eulerAngles);
+        bul.InstantiateBullet(character,rotate.transform.eulerAngles.z);
     }
     public void endShootAnim()
     {

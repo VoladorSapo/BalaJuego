@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public interface IGun 
+public interface IShoot 
 {
     public void addBullets(int bul);
 
