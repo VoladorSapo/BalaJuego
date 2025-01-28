@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 9095672051862003678}
   - component: {fileID: 203304381074826425}
   - component: {fileID: 8039777573620418802}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (1)
   m_TagString: Bullet
   m_Icon: {fileID: 0}

@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432f879c480dc2c4e9e2b53b1d495390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
 --- !u!1 &689601440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9be4d655177c94381ef067a71b2967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBullets: 111
+  currentBullets: 1
   spawnPoint: {fileID: 1694024964}
   character: {fileID: 1393720560}
   anim: {fileID: 0}
@@ -2132,7 +2132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickable:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
 --- !u!1 &1397413574
 GameObject:
   m_ObjectHideFlags: 0

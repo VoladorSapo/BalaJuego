@@ -13,6 +13,8 @@ public interface IBullet
 
     public bool hurtAll();
 
+    public void tryGrab();
+
     //public bool damageType
     //{
     //    hurtOtherTeam,

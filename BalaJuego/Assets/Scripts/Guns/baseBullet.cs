@@ -65,4 +65,9 @@ public class baseBullet: MonoBehaviour, IBullet
     public CharacterLife.Team getTeam() => team;
 
     public bool hurtAll() => canHurtAll;
+
+    public void tryGrab()
+    {
+        throw new System.NotImplementedException();
+    }
 }

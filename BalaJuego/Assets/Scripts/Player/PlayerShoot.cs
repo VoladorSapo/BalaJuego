@@ -23,7 +23,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 shoot.shoot();
             }
-            if (true || stateManager.getState() == IGameState.gameState.SlowDown)
+            if (stateManager.getState() == IGameState.gameState.SlowDown)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
 
