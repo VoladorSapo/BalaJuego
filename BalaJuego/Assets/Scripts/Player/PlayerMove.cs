@@ -50,7 +50,6 @@ public class PlayerMove : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>()[0];
-        gun = GetComponentInChildren<IShoot>();
     }
 
     // Update is called once per frame
@@ -90,19 +89,9 @@ public class PlayerMove : MonoBehaviour
             falling = false;
 
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
-        }
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
-        }
+       
         
-        if (Input.GetMouseButtonDown(0))
-        {
-            gun.shoot();
-        }
+     
     }
     private void FixedUpdate()
     {
