@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class TimeManager : ITimeManager
 {
@@ -12,9 +13,10 @@ public class TimeManager : ITimeManager
 
     public void changeTimeMagnitude(float newMagnitude)
     {
+        Debug.Log("Change Time " + newMagnitude);
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;
-        onTimeChange.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
+        onTimeChange?.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
     }
 
     public void subscribeToTimeChange(EventHandler<timeData> response)

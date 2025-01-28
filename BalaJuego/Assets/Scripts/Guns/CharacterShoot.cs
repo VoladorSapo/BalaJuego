@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
+using TMPro;
 
 public class CharacterShoot : MonoBehaviour,IShoot
 {
@@ -13,6 +14,8 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
     [SerializeField] GameObject bullet;
 
+   [SerializeField] TMP_Text bulletCount;
+
     gunRotate rotate;
     private void Start()
     {
@@ -20,11 +23,15 @@ public class CharacterShoot : MonoBehaviour,IShoot
         Assert.IsNotNull(bullet.GetComponent< IBullet>());
         rotate = GetComponent<gunRotate>();
         anim = GetComponent<Animator>();
+        bulletCount.text = currentBullets.ToString();
+
     }
 
     public void addBullets(int bul)
     {
         currentBullets += bul;
+        bulletCount.text = currentBullets.ToString();
+
     }
 
     public void shoot()
@@ -33,6 +40,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
         {
             shooting = true;
             currentBullets--;
+            bulletCount.text = currentBullets.ToString();
             anim.Play("playerGunshot",-1,0);
         }
     }
@@ -45,4 +53,6 @@ public class CharacterShoot : MonoBehaviour,IShoot
     {
         shooting = false;
     }
+
+    public int getBullets() => currentBullets;
 }

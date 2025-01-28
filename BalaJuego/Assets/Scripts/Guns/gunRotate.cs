@@ -6,6 +6,8 @@ public class gunRotate:MonoBehaviour
  [SerializeField]   Transform fullCharacter;
 
   [SerializeField]   Animator anim;
+
+ [SerializeField]   Canvas canvas;
     private void FixedUpdate()
     
         
@@ -29,12 +31,15 @@ public class gunRotate:MonoBehaviour
         {
             anim.SetBool("direction",true);
             fullCharacter.localScale = new Vector3(-1, 1, 1);
+            canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x, 180, canvas.transform.eulerAngles.z);
+
         }
         else if (direction.x < 0)
         {
             anim.SetBool("direction", false);
 
             fullCharacter.localScale = new Vector3(1, 1, 1);
+            canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x,0, canvas.transform.eulerAngles.z);
         }
         Vector3 reference = direction.x > 0 ? Vector3.forward : Vector3.back;
 

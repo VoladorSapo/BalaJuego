@@ -7,5 +7,7 @@ public interface IShoot
 
     public void shoot();
 
+    public int getBullets();
+
 
 }
