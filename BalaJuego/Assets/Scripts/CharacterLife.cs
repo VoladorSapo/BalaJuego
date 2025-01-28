@@ -6,7 +6,7 @@ public class CharacterLife : MonoBehaviour
 {
     [SerializeField] int currentLife;
     [SerializeField] int maxLife;
-   public Team team;
+    public Team team;
 
 
     Animator anim;
