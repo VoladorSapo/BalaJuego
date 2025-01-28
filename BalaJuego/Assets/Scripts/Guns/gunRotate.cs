@@ -24,7 +24,7 @@ public class gunRotate:MonoBehaviour
 
         Vector3 gunDirection = obj - transform.position;
         float angle = Mathf.Round(Mathf.Atan2(gunDirection.y, Mathf.Abs(gunDirection.x)) * Mathf.Rad2Deg);
-        print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
+       // print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
         if (direction.x > 0)
         {
             anim.SetBool("direction",true);
