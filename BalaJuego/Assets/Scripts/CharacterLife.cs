@@ -6,16 +6,20 @@ public class CharacterLife : MonoBehaviour
 {
     [SerializeField] int currentLife;
     [SerializeField] int maxLife;
+   public Team team;
+
 
     Animator anim;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Bullet")
         {
+            print("tag bullet");
             IBullet bul = collision.GetComponent<IBullet>();
-            if (bul != null)
+            if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
-                Damage(bul.getDamage());               
+                Damage(bul.getDamage());
+                bul.hitSomething();
             }
         }
     }
@@ -29,7 +33,8 @@ public class CharacterLife : MonoBehaviour
     }
     protected void Die()
     {
-        anim.Play("Die");
+      //  anim.Play("Die");
+        finishDeath();
     }
     public void finishDeath()
     {
@@ -39,4 +44,11 @@ public class CharacterLife : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
+
+    public enum Team
+    {
+        Player,
+        Enemy,
+    }
+
 }

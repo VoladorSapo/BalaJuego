@@ -39,7 +39,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
     public void spawnBullet()
     {
      IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
-        bul.InstantiateBullet(character,rotate.transform.eulerAngles.z);
+        bul.InstantiateBullet(character.GetComponent<CharacterLife>(),rotate.transform.eulerAngles.z);
     }
     public void endShootAnim()
     {

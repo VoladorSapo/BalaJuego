@@ -38,6 +38,8 @@ public class PlayerMove : MonoBehaviour
     float coyoteTimeCurrent;
     float jumpBufferTimeCurrent;
 
+ [SerializeField]   float maxFallVelocity;
+
    Animator anim;
 
     IShoot gun;
@@ -123,6 +125,10 @@ public class PlayerMove : MonoBehaviour
         }
         anim.SetFloat("velocity", calcVelocity.x);
         anim.SetFloat("verticalVelocity", calcVelocity.y);
+        if(calcVelocity.y < -maxFallVelocity)
+        {
+            calcVelocity.y = -maxFallVelocity;
+        }
         rb2d.velocity = calcVelocity;
         if (coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0 && !jumping)
         {

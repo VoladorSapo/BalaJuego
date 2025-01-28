@@ -8,4 +8,6 @@ public interface ITimeManager : IService
 
     public void unSubscribeToTimeChange(EventHandler<timeData> response);
 
+    public float getMagnitude();
+
 }

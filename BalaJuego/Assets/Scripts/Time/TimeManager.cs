@@ -27,4 +27,6 @@ public class TimeManager : ITimeManager
         onTimeChange -= response;
 
     }
+
+    public float getMagnitude() => timeMagnitude;
 }

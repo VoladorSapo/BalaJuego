@@ -3,7 +3,19 @@ using UnityEngine;
 
 public interface IBullet
 {
-    public void InstantiateBullet(GameObject shooter, float angle);
+    public void InstantiateBullet(CharacterLife shooter, float angle);
 
     public int getDamage();
+
+    public void hitSomething();
+
+    public CharacterLife.Team getTeam();
+
+    public bool hurtAll();
+
+    //public bool damageType
+    //{
+    //    hurtOtherTeam,
+    //    hurtAll
+    //}
 }
