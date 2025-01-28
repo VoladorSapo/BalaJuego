@@ -29,14 +29,14 @@ public class gunRotate:MonoBehaviour
        // print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
         if (direction.x > 0)
         {
-            anim.SetBool("direction",true);
+            //anim.SetBool("direction",true);
             fullCharacter.localScale = new Vector3(-1, 1, 1);
             canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x, 180, canvas.transform.eulerAngles.z);
 
         }
         else if (direction.x < 0)
         {
-            anim.SetBool("direction", false);
+           // anim.SetBool("direction", false);
 
             fullCharacter.localScale = new Vector3(1, 1, 1);
             canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x,0, canvas.transform.eulerAngles.z);

@@ -6,9 +6,11 @@ public class gizmo : MonoBehaviour
 {
     [SerializeField] Color color;
     [SerializeField] float sphereSize;
+    [SerializeField] bool useScale;
     private void OnDrawGizmos()
     {
         Gizmos.color = color;
-        Gizmos.DrawSphere(transform.position, sphereSize);
+        float size = useScale ? (transform.localScale.x /2): sphereSize;
+        Gizmos.DrawSphere(transform.position, size);
     }
 }

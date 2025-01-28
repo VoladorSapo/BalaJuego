@@ -13,7 +13,7 @@ public interface IBullet
 
     public bool hurtAll();
 
-    public void tryGrab();
+    public void tryGrab(PlayerShoot player);
 
     //public bool damageType
     //{

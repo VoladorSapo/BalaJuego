@@ -1,20 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    IShoot shoot;
+   public IShoot shoot { get; private set; }
     IGameState stateManager;
 
     [SerializeField] LayerMask clickable;
+
+    ObjectDetector<IBullet> grabDetector;
     private void Start()
     {
         shoot = GetComponentInChildren<IShoot>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
+        grabDetector = GetComponentInChildren<ObjectDetector<IBullet>>();
+        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
+        grabDetector.gameObject.SetActive(false);
+
+
     }
-
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -29,7 +33,11 @@ public class PlayerShoot : MonoBehaviour
 
                 if (hit)
                 {
-                    print(hit.collider.gameObject.name);
+                    IBullet bul = hit.collider.GetComponent<IBullet>();
+                    if (grabDetector.reachableObjects.Contains(bul))
+                    {
+                        bul.tryGrab(this);
+                    }
                 }
             }
         }
@@ -37,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (stateManager.getState() == IGameState.gameState.NormalTime && shoot.getBullets() == 0)
                 {
-                    ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
+                    ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.1f);
                 }
             }
             if (Input.GetKeyUp(KeyCode.E))
@@ -50,5 +58,17 @@ public class PlayerShoot : MonoBehaviour
 
         
 
+    }
+    void changeTimeMagnitude(object sender, timeData data)
+    {
+        if (data.currentMagnitude == 1)
+        {
+            grabDetector.gameObject.SetActive(false);
+        }
+        else
+        {
+            grabDetector.gameObject.SetActive(true);
+
+        }
     }
 }

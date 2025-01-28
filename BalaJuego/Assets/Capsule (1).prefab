@@ -174,11 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dbc7352cd634449af940182db5338f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   damage: 1
   grabable: 1
   lifeTime: 12
   canHurtAll: 0
+  Infinite: 0
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

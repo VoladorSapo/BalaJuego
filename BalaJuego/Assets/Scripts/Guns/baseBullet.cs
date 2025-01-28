@@ -9,6 +9,8 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] float lifeTime;
     [SerializeField] bool canHurtAll;
 
+    [SerializeField] bool Infinite;
+
     CharacterLife.Team team;
     
 
@@ -27,10 +29,13 @@ public class baseBullet: MonoBehaviour, IBullet
     }
     private void Update()
     {
-        lifeTime -= Time.deltaTime * timeMagnitude;
-        if (lifeTime <= 0)
+        if (!Infinite)
         {
-            Destroy(gameObject);
+            lifeTime -= Time.deltaTime * timeMagnitude;
+            if (lifeTime <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
         transform.Translate(Vector2.left * speed * Time.deltaTime*timeMagnitude);
     }
@@ -66,8 +71,16 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public bool hurtAll() => canHurtAll;
 
-    public void tryGrab()
+    public virtual void tryGrab(PlayerShoot player)
     {
-        throw new System.NotImplementedException();
+        player.shoot.addBullets(1);
+        ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
+        Destroy(gameObject);
+        
+    }
+    private void OnDestroy()
+    {
+        ServiceLocator.Instance.Get<ITimeManager>().unSubscribeToTimeChange(changeTimeMagnitude);
+
     }
 }

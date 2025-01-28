@@ -8,7 +8,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
     [SerializeField] int currentBullets;
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject character;
-    [SerializeField] Animator anim;
+    [SerializeField] public Animator anim { get; private set; }
 
     [SerializeField] bool shooting;
 
@@ -41,7 +41,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
             shooting = true;
             currentBullets--;
             bulletCount.text = currentBullets.ToString();
-            anim.Play("playerGunshot",-1,0);
+            anim.Play("Gunshot",-1,0);
         }
     }
     public void spawnBullet()

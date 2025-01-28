@@ -37,4 +37,9 @@ public class fallObject : MonoBehaviour
         rb2d.gravityScale /= data.oldMagnitude;
         rb2d.gravityScale *= data.currentMagnitude;
     }
+    private void OnDestroy()
+    {
+        ServiceLocator.Instance.Get<ITimeManager>().unSubscribeToTimeChange(changeTimeMagnitude);
+
+    }
 }
