@@ -11,7 +11,13 @@ public class DialogueBehaviour: PlayableBehaviour
         TMP_Text text = playerData as TMP_Text;
         text.text = dialogText;
         text.ForceMeshUpdate();
-        Debug.Log("clip");
+        if(text != null)
+        {
+           Debug.Log(playable.GetDuration());
+            Debug.Log(info.frameId);
+            Debug.Log("clip");
+
+        }
         //text.maxVisibleCharacters = text.textInfo.characterCount / playable.GetDuration
     }
 }
