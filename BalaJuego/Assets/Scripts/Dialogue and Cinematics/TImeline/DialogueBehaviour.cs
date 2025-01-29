@@ -14,7 +14,7 @@ public class DialogueBehaviour: PlayableBehaviour
         if(text != null)
         {
            Debug.Log(playable.GetDuration());
-            Debug.Log(info.frameId);
+            Debug.Log(playable.GetTime());
             Debug.Log("clip");
 
         }
