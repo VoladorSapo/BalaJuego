@@ -2214,6 +2214,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1077499288700516356, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
     - target: {fileID: 1891909371031621859, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2270,14 +2274,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: dustWalk
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5734667672390154846, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Size.x
       value: 2.90625
@@ -2305,6 +2301,10 @@ PrefabInstance:
     - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: moveWithTransform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
