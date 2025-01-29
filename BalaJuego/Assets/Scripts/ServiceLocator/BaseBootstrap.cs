@@ -8,6 +8,8 @@ public class BaseBootstrap : MonoBehaviour, IServiceBootstrap
         {
             ServiceLocator.Instance.Register<ITimeManager>(new TimeManager());
             ServiceLocator.Instance.Register<IGameState>(FindObjectOfType<gameStateManager>());
+        ServiceLocator.Instance.Register<ILevelController>(FindObjectOfType<LevelController>());
+
 
     }
 

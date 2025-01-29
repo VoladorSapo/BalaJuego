@@ -15,6 +15,7 @@ public class LevelController : MonoBehaviour, ILevelController
     // Start is called before the first frame update
     void Start()
     {
+        areas = new List<LevelAreaController>();
         areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
       
     }

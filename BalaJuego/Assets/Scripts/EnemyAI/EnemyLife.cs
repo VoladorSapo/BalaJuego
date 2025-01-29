@@ -6,6 +6,7 @@
     }
     public void finishDeathAnim()
     {
-        Destroy(this);
+        GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
+        gameObject.SetActive(false);
     }
 }

@@ -82,7 +82,9 @@ public class UIManager : MonoBehaviour
 
     public void Restart() {
 
-
+        changeGroup(PauseScreen, false);
+        changeGroup(DeathScreen, false);
+        changeGroup(winScreen, false);
         ServiceLocator.Instance.Get<ILevelController>().reStart();
     }
 }

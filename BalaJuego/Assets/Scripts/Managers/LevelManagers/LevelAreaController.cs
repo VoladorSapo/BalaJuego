@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LevelAreaController : MonoBehaviour
 {
-    List<EnemyController> enemies;
+ [SerializeField]   List<EnemyController> enemies;
 
-    GameObject colliders;
+  [SerializeField]  GameObject colliders;
 
     public void enemyDie(EnemyController enemy)
     {
@@ -19,6 +19,8 @@ public class LevelAreaController : MonoBehaviour
     private void Start()
     {
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
+
+        restart();
     }
 
     void restart()
@@ -26,6 +28,8 @@ public class LevelAreaController : MonoBehaviour
       foreach(EnemyController enem in enemies)
         {
             enem.gameObject.SetActive(true);
+            enem.restart(this);
+          
         }
     }
 }
