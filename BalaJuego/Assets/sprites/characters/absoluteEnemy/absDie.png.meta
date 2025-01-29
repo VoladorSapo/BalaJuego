@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 874be8a18728c4549a4e7f635e15b126
+guid: 909d2f065ac876c4ab2755d1c377da8b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,190 +97,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: absRun_0
+      name: absDie_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5236, y: 0.341}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bab8c33472d611a4aa8c18c00584a34c
-      internalID: -421128822
+      spriteID: d3d2e0c5e209aea4c8ad9609324268c9
+      internalID: -1483579848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_1
+      name: absDie_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 106
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5236, y: 0.341}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f850d06ee024e814db0e43123222da5e
-      internalID: -2025794201
+      spriteID: ba0ad94abda9c574ca275b6c37d86250
+      internalID: -1112264613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_2
+      name: absDie_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 212
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5236, y: 0.341}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dadee5b287fcee9448bfb4a9c4cdb4dc
-      internalID: -416778775
+      spriteID: ad75a4ad61df91f4daba24dc7270fdb2
+      internalID: -1707282078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_3
+      name: absDie_3
       rect:
         serializedVersion: 2
-        x: 270
+        x: 318
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5236, y: 0.341}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7f3d8be0b7f79948a69b46987a47c49
-      internalID: 755965292
+      spriteID: 124114ce888276b4d8f1d190d94d2763
+      internalID: 801047777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_4
+      name: absDie_4
       rect:
         serializedVersion: 2
-        x: 360
+        x: 424
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5236, y: 0.341}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1de0a3458d8af7a4b85917c0f499b289
-      internalID: 1666849997
+      spriteID: 282bc821203aabf4e9c4a344e230c96d
+      internalID: -757881152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_5
+      name: absDie_5
       rect:
         serializedVersion: 2
-        x: 450
+        x: 530
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5236, y: 0.341}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fa8b3f941dc1434395dd5db04212ee4
-      internalID: -1266722368
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absRun_6
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19e2b0124552ff44cb8653cf195df08f
-      internalID: -568218844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absRun_7
-      rect:
-        serializedVersion: 2
-        x: 630
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61f1e0f1275ed564ab4a29f903d2e3bc
-      internalID: -95746242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absRun_8
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8be558d1c3c8e814c99ba4100a2419c6
-      internalID: 251653960
+      spriteID: 20f671a2a8e62e64fb0327e1e187047a
+      internalID: -74168899
       vertices: []
       indices: 
       edges: []
@@ -296,15 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      absRun_0: -421128822
-      absRun_1: -2025794201
-      absRun_2: -416778775
-      absRun_3: 755965292
-      absRun_4: 1666849997
-      absRun_5: -1266722368
-      absRun_6: -568218844
-      absRun_7: -95746242
-      absRun_8: 251653960
+      absDie_0: -1483579848
+      absDie_1: -1112264613
+      absDie_2: -1707282078
+      absDie_3: 801047777
+      absDie_4: -757881152
+      absDie_5: -74168899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

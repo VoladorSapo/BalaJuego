@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 874be8a18728c4549a4e7f635e15b126
+guid: fa98969849a3d294998643b675535f31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,190 +97,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: absRun_0
+      name: decoration_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 90
-        height: 94
+        y: 140
+        width: 108
+        height: 72
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bab8c33472d611a4aa8c18c00584a34c
-      internalID: -421128822
+      spriteID: 906e297151fbd7b49be7203e2a5b3335
+      internalID: 928036903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_1
+      name: decoration_1
       rect:
         serializedVersion: 2
-        x: 90
-        y: 0
-        width: 90
-        height: 94
+        x: 112
+        y: 139
+        width: 66
+        height: 102
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f850d06ee024e814db0e43123222da5e
-      internalID: -2025794201
+      spriteID: dfb4abcd9fa7d58469161fc89b30dc37
+      internalID: 312850823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_2
+      name: decoration_2
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 90
-        height: 94
+        x: 200
+        y: 189
+        width: 161
+        height: 150
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dadee5b287fcee9448bfb4a9c4cdb4dc
-      internalID: -416778775
+      spriteID: eb46a66d9ad085843bbd8775a00f4946
+      internalID: 1133226298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_3
+      name: decoration_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 0
-        width: 90
-        height: 94
+        x: 364
+        y: 193
+        width: 102
+        height: 181
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7f3d8be0b7f79948a69b46987a47c49
-      internalID: 755965292
+      spriteID: 9cd9a0506238bb24d9bcff631ac55fcc
+      internalID: 387120579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_4
+      name: decoration_4
       rect:
         serializedVersion: 2
-        x: 360
-        y: 0
-        width: 90
-        height: 94
+        x: 4
+        y: 73
+        width: 59
+        height: 54
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1de0a3458d8af7a4b85917c0f499b289
-      internalID: 1666849997
+      spriteID: 6d07190441a90594599e4726a9386442
+      internalID: 1754485745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_5
+      name: decoration_5
       rect:
         serializedVersion: 2
-        x: 450
-        y: 0
-        width: 90
-        height: 94
+        x: 64
+        y: 73
+        width: 122
+        height: 55
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.49586213, y: 0.0028343895}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fa8b3f941dc1434395dd5db04212ee4
-      internalID: -1266722368
+      spriteID: 5db15692023749f48b9ad649dcfe82ea
+      internalID: -854230644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_6
+      name: decoration_6
       rect:
         serializedVersion: 2
-        x: 540
+        x: 205
         y: 0
-        width: 90
-        height: 94
+        width: 161
+        height: 150
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19e2b0124552ff44cb8653cf195df08f
-      internalID: -568218844
+      spriteID: 76e0677f90bd02d4a8781328cab0146e
+      internalID: 1450157100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_7
+      name: decoration_7
       rect:
         serializedVersion: 2
-        x: 630
-        y: 0
-        width: 90
-        height: 94
+        x: 369
+        y: 4
+        width: 102
+        height: 181
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5, y: -0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61f1e0f1275ed564ab4a29f903d2e3bc
-      internalID: -95746242
+      spriteID: e33c71ed2a1b6a647b995731f8a84900
+      internalID: 1153904936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absRun_8
+      name: decoration_8
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 90
-        height: 94
+        x: 483
+        y: 5
+        width: 40
+        height: 125
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.5463188, y: -0.043705076}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be558d1c3c8e814c99ba4100a2419c6
-      internalID: 251653960
+      spriteID: a7b9d6c148476774381358032c518dba
+      internalID: -656881189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoration_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 6
+        width: 58
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: -0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27d2fb1a3c8f6e43a6b90520d716a07
+      internalID: 683998270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoration_10
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 8
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6db555003a2c274aab275780493d8f3
+      internalID: 452932020
       vertices: []
       indices: 
       edges: []
@@ -296,15 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      absRun_0: -421128822
-      absRun_1: -2025794201
-      absRun_2: -416778775
-      absRun_3: 755965292
-      absRun_4: 1666849997
-      absRun_5: -1266722368
-      absRun_6: -568218844
-      absRun_7: -95746242
-      absRun_8: 251653960
+      decoration_0: 928036903
+      decoration_1: 312850823
+      decoration_10: 452932020
+      decoration_2: 1133226298
+      decoration_3: 387120579
+      decoration_4: 1754485745
+      decoration_5: -854230644
+      decoration_6: 1450157100
+      decoration_7: 1153904936
+      decoration_8: -656881189
+      decoration_9: 683998270
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

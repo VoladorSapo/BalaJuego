@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 480d05e0a505a2d4aac209948adb161f
+guid: 6f2fcd716cdb75249bb76113d46e9ced
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,148 +97,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: absLoad_0
+      name: absStun_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.522, y: 0.348}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06e4a47e766e7fc4db2cb2084a3c43c6
-      internalID: -118037494
+      spriteID: 505791cd84c5b4b44bcb68e15f621dca
+      internalID: 1264978360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absLoad_1
+      name: absStun_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 106
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.522, y: 0.348}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d4338c4659834a4eb2ada53ea2e3141
-      internalID: -1164229020
+      spriteID: 7a75f707303f6a34894f0ee0b330f806
+      internalID: 2123123003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: absLoad_2
+      name: absStun_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 212
         y: 0
-        width: 90
-        height: 94
+        width: 106
+        height: 108
       alignment: 9
-      pivot: {x: 0.439, y: 0.367}
+      pivot: {x: 0.522, y: 0.348}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2c7fa8a77b9d644ad82d55271f75ab
-      internalID: 1245322094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absLoad_3
-      rect:
-        serializedVersion: 2
-        x: 270
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0828b30fdcbf934a9e0a6ef9b74d2ca
-      internalID: -1140870329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absLoad_4
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 843d35845511f1d438e09c8b463d6a02
-      internalID: 1348360310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absLoad_5
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b41388599baf0c14a85f5e451b775c38
-      internalID: 1002367189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: absLoad_6
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 90
-        height: 94
-      alignment: 9
-      pivot: {x: 0.439, y: 0.367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 511e570767b744546846b683a1097061
-      internalID: -1290160893
+      spriteID: 7113482d1afc8a243b2f3e5723ec851b
+      internalID: -1083161137
       vertices: []
       indices: 
       edges: []
@@ -254,13 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      absLoad_0: -118037494
-      absLoad_1: -1164229020
-      absLoad_2: 1245322094
-      absLoad_3: -1140870329
-      absLoad_4: 1348360310
-      absLoad_5: 1002367189
-      absLoad_6: -1290160893
+      absStun_0: 1264978360
+      absStun_1: 2123123003
+      absStun_2: -1083161137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
