@@ -8,12 +8,15 @@ public class LevelController : MonoBehaviour, ILevelController
     Action restartEvent;
     EventHandler<int> endAreaEvent;
 
-    List<LevelAreaController> areas;
+  List<LevelAreaController> areas;
+
+    [SerializeField] GameObject levelAreaParent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
+      
     }
 
     // Update is called once per frame

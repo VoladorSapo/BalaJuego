@@ -6,6 +6,6 @@
     }
     public void finishDeathAnim()
     {
-        ServiceLocator.Instance.Get<IGameState>().Die();
+        ServiceLocator.Instance.Get<ILevelController>().Lose();
     }
 }
