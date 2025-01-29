@@ -1035,8 +1035,8 @@ GameObject:
   - component: {fileID: 8564634351011582940}
   - component: {fileID: 4773227239308888931}
   - component: {fileID: 4919584621338682050}
-  - component: {fileID: 5191098355669505154}
   - component: {fileID: 64199479102123066}
+  - component: {fileID: 3695692683640956151}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -1158,21 +1158,6 @@ MonoBehaviour:
   jumping: 0
   falling: 0
   maxFallVelocity: 6
---- !u!114 &5191098355669505154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8799275002827292154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9183dc0f3e5454cbb1751b27a3a840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLife: 1
-  maxLife: 1
-  team: 0
 --- !u!114 &64199479102123066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,3 +1173,18 @@ MonoBehaviour:
   clickable:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &3695692683640956151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799275002827292154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea75d94a402eb349a392b4525fd0ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLife: 0
+  maxLife: 0
+  team: 0

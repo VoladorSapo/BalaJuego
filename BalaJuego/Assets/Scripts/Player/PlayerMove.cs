@@ -6,6 +6,8 @@ public class PlayerMove : MonoBehaviour
 {
     Vector2 Move;
 
+ Vector3 startPos;
+
    [SerializeField] Vector2 calcVelocity;
 
    [SerializeField] BoxCollider2D groundCast;
@@ -45,11 +47,13 @@ public class PlayerMove : MonoBehaviour
     IShoot gun;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>()[0];
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -129,5 +133,11 @@ public class PlayerMove : MonoBehaviour
             coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
         }
 
+    }
+
+    public void restart()
+    {
+        transform.position = startPos;
+        gun.setBullets(1);
     }
 }

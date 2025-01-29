@@ -31,14 +31,10 @@ public class CharacterLife : MonoBehaviour
             Die();
         }
     }
-    protected void Die()
+    protected virtual void Die()
     {
       //  anim.Play("Die");
-        finishDeath();
-    }
-    public void finishDeath()
-    {
-        Destroy(gameObject);
+        //finishDeath();
     }
     private void Start()
     {

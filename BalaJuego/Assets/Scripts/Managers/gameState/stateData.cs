@@ -1,7 +1,7 @@
 ﻿public class stateData
 {
-    IGameState.gameState oldState;
-    IGameState.gameState currentState;
+  public  IGameState.gameState oldState;
+  public  IGameState.gameState currentState;
 
     public stateData(IGameState.gameState _old, IGameState.gameState _new)
     {

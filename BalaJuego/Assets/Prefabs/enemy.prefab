@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 1299680029922915497}
   - component: {fileID: 4251604610716348795}
   - component: {fileID: 5357514079049555829}
-  - component: {fileID: 6235101727876437694}
+  - component: {fileID: 4959187758593255860}
   m_Layer: 2
   m_Name: enemy
   m_TagString: Untagged
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 1323886114722974759}
   <shootCadence>k__BackingField: 4
---- !u!114 &6235101727876437694
+--- !u!114 &4959187758593255860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -746,12 +746,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6334990230608845096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9183dc0f3e5454cbb1751b27a3a840, type: 3}
+  m_Script: {fileID: 11500000, guid: c28e8df26ef77e047b2133d4b570cd59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLife: 1
-  maxLife: 1
-  team: 1
+  currentLife: 0
+  maxLife: 0
+  team: 0
 --- !u!1 &6524739295276425207
 GameObject:
   m_ObjectHideFlags: 0

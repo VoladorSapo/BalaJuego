@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
 
     public float timeMagnitude { get; private set; }
 
+    Vector3 initialPos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +32,8 @@ public class EnemyController : MonoBehaviour
         IdleState idle = new IdleState(this);
         stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
         stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
-        stateMachine.SetState(idle);
 
-
+        initialPos = transform.position;
     }
 
     // Update is called once per frame
@@ -49,5 +50,12 @@ public class EnemyController : MonoBehaviour
     void changeTimeMagnitude(object sender, timeData data)
     {
         timeMagnitude = data.currentMagnitude;
+    }
+
+    public void restart()
+    {
+        transform.position = initialPos;
+        timeMagnitude = 1;
+
     }
 }

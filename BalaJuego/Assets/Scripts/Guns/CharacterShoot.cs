@@ -55,4 +55,9 @@ public class CharacterShoot : MonoBehaviour,IShoot
     }
 
     public int getBullets() => currentBullets;
+
+    public void setBullets(int bul)
+    {
+        currentBullets = bul;
+    }
 }
