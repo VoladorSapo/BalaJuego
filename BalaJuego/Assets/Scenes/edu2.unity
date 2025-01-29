@@ -2550,26 +2550,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1077499288700516356, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891909371031621859, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993152138652490845, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
-    - target: {fileID: 1993152138652490845, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
-    - target: {fileID: 1993152138652490845, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -64.47
@@ -2609,62 +2589,6 @@ PrefabInstance:
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5734667672390154846, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_Size.x
-      value: 2.90625
-      objectReference: {fileID: 0}
-    - target: {fileID: 5734667672390154846, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.34375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842182934450056211, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_Size.x
-      value: 1.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842182934450056211, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.09375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: stopAction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: startDelay.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354747225217159648, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354747225217159648, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354747225217159648, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726794470043459547, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8799275002827292154, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Name
