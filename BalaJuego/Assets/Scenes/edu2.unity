@@ -2218,6 +2218,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1993152138652490845, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
+    - target: {fileID: 1993152138652490845, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
+    - target: {fileID: 1993152138652490845, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -64.47
@@ -2258,6 +2270,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: dustWalk
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5734667672390154846, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Size.x
       value: 2.90625
@@ -2273,6 +2293,42 @@ PrefabInstance:
     - target: {fileID: 5842182934450056211, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Size.y
       value: 1.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912348773652833097, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354747225217159648, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354747225217159648, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354747225217159648, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726794470043459547, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8799275002827292154, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Name
@@ -5709,6 +5765,7 @@ MonoBehaviour:
   jumping: 0
   falling: 0
   maxFallVelocity: 0
+  particles: {fileID: 0}
 --- !u!4 &1103279981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
@@ -22811,7 +22868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2138043521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22851,10 +22908,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Xx_bugfucker_xX 77 omg
+  m_text: asdsadf
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
+  m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

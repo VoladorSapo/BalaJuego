@@ -7,7 +7,7 @@ public class gunRotate:MonoBehaviour
 
   [SerializeField]   Animator anim;
 
- [SerializeField]   Transform notTurn;
+    [SerializeField]   Transform notTurn;
     private void FixedUpdate()
     
         
@@ -30,14 +30,15 @@ public class gunRotate:MonoBehaviour
         if (direction.x > 0)
         {
             anim.SetBool("direction",true);
+            
             fullCharacter.localScale = new Vector3(-1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 180, notTurn.eulerAngles.z);
 
         }
         else if (direction.x < 0)
         {
-           anim.SetBool("direction", false);
-
+            anim.SetBool("direction", false);
+            
             fullCharacter.localScale = new Vector3(1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x,0, notTurn.eulerAngles.z);
         }
