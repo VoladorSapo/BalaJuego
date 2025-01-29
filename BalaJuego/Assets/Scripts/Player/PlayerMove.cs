@@ -46,11 +46,18 @@ public class PlayerMove : MonoBehaviour
     IShoot gun;
     int runningDirection;
 
+    Vector3 initialPos;
+
     [SerializeField] GameObject particles;
     ParticleSystem dustWalk, dustJump,
         dustFall;
     bool isRotating;
 
+    bool canMove;
+    private void Awake()
+    {
+        initialPos = transform.position;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +70,8 @@ public class PlayerMove : MonoBehaviour
         dustWalk.gameObject.SetActive(false);
         dustJump.gameObject.SetActive(false);
         dustFall.gameObject.SetActive(false);
+        ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
+        ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
     }
 
     // Update is called once per frame
@@ -117,57 +126,60 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        calcVelocity = rb2d.velocity;
-
-        if (Move.x == 0)
+        if (canMove)
         {
-            calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, 0, groundDecceleration * Time.fixedDeltaTime);
-            anim.SetBool("isRunning", false);
-            dustWalk.Stop();
+            Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        }
-        else
-        {
-            anim.SetBool("isRunning", true);
-            dustWalk.gameObject.SetActive(true);
-            if (onGround) dustWalk.Play();
-            float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
+            calcVelocity = rb2d.velocity;
 
-            calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed, useAccel * Time.fixedDeltaTime);
-        }
-        anim.SetFloat("velocity", calcVelocity.x);
-        if (calcVelocity.x > 0 && !isRotating && runningDirection != 1)
-        {
-            //dustWalk.transform.eulerAngles = new Vector3(0, 180, 0);
-            StartCoroutine("rotateParticle", true);
-            runningDirection = 1;
-        }
-        else if (calcVelocity.x < 0 && !isRotating && runningDirection != -1)
-        {
-            StartCoroutine("rotateParticle", false);
-            runningDirection = -1;
-            //dustWalk.transform.eulerAngles = new Vector3(0,0, 0);
-        }
+            if (Move.x == 0)
+            {
+                calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, 0, groundDecceleration * Time.fixedDeltaTime);
+                anim.SetBool("isRunning", false);
+                dustWalk.Stop();
 
-        anim.SetFloat("verticalVelocity", calcVelocity.y);
-        if (calcVelocity.y < -maxFallVelocity)
-        {
-            calcVelocity.y = -maxFallVelocity;
-        }
-        rb2d.velocity = calcVelocity;
-        if (coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0 && !jumping)
-        {
-            dustJump.gameObject.SetActive(true);
-            dustJump.Play();
+            }
+            else
+            {
+                anim.SetBool("isRunning", true);
+                dustWalk.gameObject.SetActive(true);
+                if (onGround) dustWalk.Play();
+                float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
 
-            jumping = true;
-            print("jump");
-            rb2d.gravityScale = normalGravity;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
+                calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed, useAccel * Time.fixedDeltaTime);
+            }
+            anim.SetFloat("velocity", calcVelocity.x);
+            if (calcVelocity.x > 0 && !isRotating && runningDirection != 1)
+            {
+                //dustWalk.transform.eulerAngles = new Vector3(0, 180, 0);
+                StartCoroutine("rotateParticle", true);
+                runningDirection = 1;
+            }
+            else if (calcVelocity.x < 0 && !isRotating && runningDirection != -1)
+            {
+                StartCoroutine("rotateParticle", false);
+                runningDirection = -1;
+                //dustWalk.transform.eulerAngles = new Vector3(0,0, 0);
+            }
+
+            anim.SetFloat("verticalVelocity", calcVelocity.y);
+            if (calcVelocity.y < -maxFallVelocity)
+            {
+                calcVelocity.y = -maxFallVelocity;
+            }
+            rb2d.velocity = calcVelocity;
+            if (coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0 && !jumping)
+            {
+                dustJump.gameObject.SetActive(true);
+                dustJump.Play();
+
+                jumping = true;
+                print("jump");
+                rb2d.gravityScale = normalGravity;
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
+            }
         }
 
     }
@@ -199,5 +211,33 @@ public class PlayerMove : MonoBehaviour
 
 
     }
+    public void restart()
+    {
+        transform.position = initialPos;
+        gameObject.SetActive(true);
+        GetComponentInChildren<CharacterShoot>().restart();
+
+    }
+    void changeState(object sender, stateData data)
+    {
+        switch (data.currentState)
+        {
+             default:
+                canMove = false;
+
+                break;
+            case IGameState.gameState.NormalTime:
+                canMove = true;
+
+
+                break;
+            case IGameState.gameState.SlowDown:
+                canMove = true;
+
+                break;
+            
+        }
+    }
+
 }
 

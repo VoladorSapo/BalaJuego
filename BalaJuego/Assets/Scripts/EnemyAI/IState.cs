@@ -6,5 +6,7 @@ public interface IState
     void FixedUpdate();
     void OnExit();
 
+   //public string name();
+
 
 }

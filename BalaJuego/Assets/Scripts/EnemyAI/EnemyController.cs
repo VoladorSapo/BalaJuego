@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public IState currentState() {
+        if (stateMachine == null)
+            return null;
 
-    StateMachine stateMachine;
+      return  stateMachine.currentState();
+
+        }
+
+  protected  StateMachine stateMachine;
 
     CharacterLife charater;
 
-   public playerDetector detector { get; private set; }
+    public playerDetector detector { get; private set; }
 
     [field:SerializeField]   public Animator anim {get;private set;}
 
@@ -19,22 +26,18 @@ public class EnemyController : MonoBehaviour
 
     Vector3 initialPos;
 
-public LevelAreaController area { get; private set; }
+  [field:SerializeField]  public Collider2D stunedCollider { get; private set; }
+
+    public LevelAreaController area { get; private set; }
 
 
     // Start is called before the first frame update
-    void Start()
+   protected virtual void Start()
     {
        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
-        stateMachine = new StateMachine();
 
         detector = GetComponentInChildren<playerDetector>();
-        ShootState shoot = new ShootState(this);
-        IdleState idle = new IdleState(this);
-        stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
-        stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
-        stateMachine.SetState(idle);
     }
 
     // Update is called once per frame
@@ -44,6 +47,7 @@ public LevelAreaController area { get; private set; }
         if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
         {
             stateMachine.Update();
+           print(stateMachine.currentState().ToString());
         }
 
     }
@@ -57,10 +61,13 @@ public LevelAreaController area { get; private set; }
         timeMagnitude = data.currentMagnitude;
     }
 
-    public void restart(LevelAreaController _area)
+    public virtual void restart(LevelAreaController _area)
     {
+        stunedCollider.gameObject.SetActive(false);
         transform.position = initialPos;
         timeMagnitude = 1;
         area = _area;
+       
+
     }
 }

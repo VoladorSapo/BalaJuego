@@ -13,8 +13,10 @@ public class gameStateManager : MonoBehaviour, IGameState
     void Start()
     {
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
+        ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -43,17 +45,28 @@ public class gameStateManager : MonoBehaviour, IGameState
         stateData data = new stateData(currentState, newState);
 
         currentState = newState;
+        switch (newState)
+        {
+            case IGameState.gameState.Paused:
+                Time.timeScale = 0;
+                break;
+            default:
+                Time.timeScale = 1;
+
+                break;
+        }
         onStateChange?.Invoke(this, data);
+        
     }
 
 
-    public void subscribeToTimeChange(EventHandler<stateData> response)
+    public void subscribeToStateChange(EventHandler<stateData> response)
     {
         onStateChange += response;
 
     }
 
-    public void unSubscribeToTimeChange(EventHandler<stateData> response)
+    public void unSubscribeToStateChange(EventHandler<stateData> response)
     {
         onStateChange -= response;
     }
@@ -62,19 +75,19 @@ public class gameStateManager : MonoBehaviour, IGameState
     {
         prePauseState = currentState;
         setState(IGameState.gameState.Paused);
-        Time.timeScale = 0;
     }
 
     public void UnPause()
     {
       
             setState(prePauseState);
-        Time.timeScale = 1;
 
     }
 
-    public void Die()
+   
+    public void restart()
     {
-        setState(IGameState.gameState.Death);
+        setState(IGameState.gameState.NormalTime);
+
     }
 }

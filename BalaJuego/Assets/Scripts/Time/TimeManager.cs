@@ -31,4 +31,9 @@ public class TimeManager : ITimeManager
     }
 
     public float getMagnitude() => timeMagnitude;
+
+    public void restart()
+    {
+
+    }
 }

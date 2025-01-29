@@ -19,9 +19,9 @@ public interface IGameState : IService
     public void UnPause();
 
 
-    public void subscribeToTimeChange(EventHandler<stateData> response);
+    public void subscribeToStateChange(EventHandler<stateData> response);
 
-    public void unSubscribeToTimeChange(EventHandler<stateData> response);
+    public void unSubscribeToStateChange(EventHandler<stateData> response);
 
 
 }

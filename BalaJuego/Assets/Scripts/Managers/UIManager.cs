@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ServiceLocator.Instance.Get<IGameState>().subscribeToTimeChange(changeTimeMagnitude);
+        ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
         changeGroup(PauseScreen, false);
         changeGroup(winScreen, false);
 
@@ -25,30 +25,12 @@ public class UIManager : MonoBehaviour
     {
         
     }
-    void changeTimeMagnitude(object sender, stateData data)
+    void changeState(object sender, stateData data)
     {
         switch (data.currentState)
         {
             case IGameState.gameState.Paused:
                 changeGroup(PauseScreen, true);
-                changeGroup(DeathScreen, false);
-                changeGroup(winScreen, false);
-
-                break;
-            case IGameState.gameState.NormalTime:
-                changeGroup(PauseScreen, false);
-                changeGroup(DeathScreen, false);
-                changeGroup(winScreen, false);
-
-                break;
-            case IGameState.gameState.Cinematic:
-                changeGroup(PauseScreen, false);
-                changeGroup(DeathScreen, false);
-                changeGroup(winScreen, false);
-
-                break;
-            case IGameState.gameState.SlowDown:
-                changeGroup(PauseScreen, false);
                 changeGroup(DeathScreen, false);
                 changeGroup(winScreen, false);
 
@@ -65,6 +47,9 @@ public class UIManager : MonoBehaviour
                 changeGroup(winScreen, true);
                 break;
             default:
+                changeGroup(PauseScreen, false);
+                changeGroup(DeathScreen, false);
+                changeGroup(winScreen, false);
                 break;
         }
     }

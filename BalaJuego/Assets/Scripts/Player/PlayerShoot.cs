@@ -9,12 +9,18 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] LayerMask clickable;
 
     ObjectDetector<IBullet> grabDetector;
+
+    EnemyDetector stunedDetector;
+
+
     private void Start()
     {
         shoot = GetComponentInChildren<IShoot>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
         grabDetector = GetComponentInChildren<ObjectDetector<IBullet>>();
-        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
+        stunedDetector = GetComponentInChildren<EnemyDetector>();
+        ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
+
         grabDetector.gameObject.SetActive(false);
 
 
@@ -55,19 +61,29 @@ public class PlayerShoot : MonoBehaviour
                     ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
                 }
             }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(stunedDetector.reachableObjects.Count > 0)
+            {
+                //Muerte Melee
+            }
+        }
 
         
 
     }
-    void changeTimeMagnitude(object sender, timeData data)
+    void changeState(object sender, stateData data)
     {
-        if (data.currentMagnitude == 1)
+        if (data.currentState == IGameState.gameState.SlowDown)
         {
-            grabDetector.gameObject.SetActive(false);
+            grabDetector.gameObject.SetActive(true);
+        }
+        else if (data.currentState == IGameState.gameState.Paused)
+        {
         }
         else
         {
-            grabDetector.gameObject.SetActive(true);
+            grabDetector.gameObject.SetActive(false);
 
         }
     }

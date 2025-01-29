@@ -5,7 +5,9 @@ using TMPro;
 public class CharacterShoot : MonoBehaviour,IShoot
 {
 
-    [SerializeField] int currentBullets;
+    int currentBullets;
+    [SerializeField] int startBullets;
+
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject character;
     [SerializeField] public Animator anim { get; private set; }
@@ -53,7 +55,11 @@ public class CharacterShoot : MonoBehaviour,IShoot
     {
         shooting = false;
     }
-
+    public void restart()
+    {
+        shooting = false;
+        currentBullets = startBullets;
+    }
     public int getBullets() => currentBullets;
 
     public void setBullets(int bul)

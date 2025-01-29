@@ -6,6 +6,7 @@
     }
     public void finishDeathAnim()
     {
+        gameObject.SetActive(false);
         ServiceLocator.Instance.Get<ILevelController>().Lose();
     }
 }
