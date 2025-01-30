@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dd0588066e1883d438046e6db5303a72
+guid: 5077d9a338805dd4f91786d87b0d615d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,169 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bala_0
+      name: maloMorir_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
-        height: 32
+        width: 99
+        height: 104
       alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
+      pivot: {x: 0.614, y: 0.3915}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0222b0692a57de4b974ddb722d325df
-      internalID: -1833477369
+      spriteID: 9ab8aa7bd26cf7e438a8d17a956736ee
+      internalID: 1816632902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bala_1
+      name: maloMorir_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 99
         y: 0
-        width: 50
-        height: 32
+        width: 99
+        height: 104
       alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
+      pivot: {x: 0.614, y: 0.3915}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f7dbc6dfb4c96544967b3a7bbdbb1a3
-      internalID: 815063093
+      spriteID: 0278067811b575a4696835c7cec62a91
+      internalID: 642500483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bala_2
+      name: maloMorir_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 198
         y: 0
-        width: 50
-        height: 32
+        width: 99
+        height: 104
       alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
+      pivot: {x: 0.614, y: 0.3915}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b39e82475b9d0d4bb002c4603d482fa
-      internalID: 1720770472
+      spriteID: 9be03e691d831e44193b4e6b1054d767
+      internalID: 1135378480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bala_3
+      name: maloMorir_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 297
         y: 0
-        width: 50
-        height: 32
+        width: 99
+        height: 104
       alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
+      pivot: {x: 0.614, y: 0.3915}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0b02a0da868b9842a19c332511faf2e
-      internalID: 1657309620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bala_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 32
-      alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 171ce1ead7e8ae94a8e063b31c79c08f
-      internalID: 1994987395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bala_5
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 50
-        height: 32
-      alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac90bc01028ee2649a6c8c349ac624ea
-      internalID: 1569418014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bala_6
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 50
-        height: 32
-      alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7330e665d0365d64395690427e7621d7
-      internalID: 42768670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bala_7
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 0
-        width: 50
-        height: 32
-      alignment: 9
-      pivot: {x: 0.6896866, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e908228fbce457d4e9f56cb98445efe4
-      internalID: 961604547
+      spriteID: 2596e61033e74f44cb52bd29dcca1d39
+      internalID: 1035429992
       vertices: []
       indices: 
       edges: []
@@ -275,14 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bala_0: -1833477369
-      bala_1: 815063093
-      bala_2: 1720770472
-      bala_3: 1657309620
-      bala_4: 1994987395
-      bala_5: 1569418014
-      bala_6: 42768670
-      bala_7: 961604547
+      maloMorir_0: 1816632902
+      maloMorir_1: 642500483
+      maloMorir_2: 1135378480
+      maloMorir_3: 1035429992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
