@@ -63,7 +63,7 @@ public class StartChargeState : BaseEnemyState
         enemy.finishCharging = false;
 
         enemy.direction = enemy.detector.reachableObjects[0].transform.position.x > enemy.transform.position.x ? Vector3.right : Vector3.left;
-        enemy.transform.localScale = new Vector3(enemy.direction.x, 1, 1);
+        enemy.transform.localScale = new Vector3(-enemy.direction.x, 1, 1);
 
     }
 }

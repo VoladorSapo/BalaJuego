@@ -19,8 +19,8 @@ TagManager:
   - CameraColliders
   - StunedLayer
   - Platform
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 

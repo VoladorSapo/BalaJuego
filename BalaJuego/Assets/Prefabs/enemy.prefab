@@ -618,6 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBullets: 1
+  currentBullets: 0
   spawnPoint: {fileID: 4444866350372652667}
   character: {fileID: 6334990230608845096}
   shooting: 0
@@ -636,7 +637,7 @@ GameObject:
   - component: {fileID: 4251604610716348795}
   - component: {fileID: 4959187758593255860}
   - component: {fileID: 4395345927782291892}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
