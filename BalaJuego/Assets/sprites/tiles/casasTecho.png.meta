@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 12d4d408a1c6c704b8fa9e42591c2688
+guid: 8eda9bb7c4d9cb44c829268e6a1ba7e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,10 +45,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,9 +70,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,85 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: protaIdle_0
+      name: casasTecho_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 70
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 570
+        y: 568
+        width: 140
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5125083, y: 0.31612998}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aa772987a20c814e9a6bfdc549eb8f2
-      internalID: -175038012
+      spriteID: 19b3a541d52f00c4e857e145747b2f59
+      internalID: -1650134799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaIdle_1
+      name: casasTecho_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 0
-        width: 70
-        height: 65
+        x: 928
+        y: 554
+        width: 128
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4166d982be4459441b905d174809ef48
-      internalID: 1409818990
+      spriteID: c93994432a5b63345bc979deaab8941a
+      internalID: -845956275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaIdle_2
+      name: casasTecho_2
       rect:
         serializedVersion: 2
-        x: 140
-        y: 0
-        width: 70
-        height: 65
+        x: 1442
+        y: 547
+        width: 156
+        height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4183707b176a2014aa268c56be2fddde
-      internalID: 1314468212
+      spriteID: 7db5724aa6be54a4ea35cb1fae909173
+      internalID: -1720880979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protaIdle_3
+      name: casasTecho_3
       rect:
         serializedVersion: 2
-        x: 210
-        y: 0
-        width: 70
-        height: 65
+        x: 1722
+        y: 561
+        width: 140
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68b4a667d1066f347833c60755647be3
-      internalID: 987254949
+      spriteID: be35924c3daea6c40b6dbf8473de050d
+      internalID: -1314324933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: casasTecho_4
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 216
+        width: 140
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5125083, y: 0.31613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3df3c5814e4db34ab7ac0a65b0b1066
+      internalID: 861016665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: casasTecho_5
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 202
+        width: 128
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3c06aa528dd3a4f8cb5769183e3870
+      internalID: -1683048129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: casasTecho_6
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 195
+        width: 156
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061e7dffa20f6e444ab95f7026a947e8
+      internalID: 1043560396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: casasTecho_7
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 209
+        width: 140
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82216eecccab0c4084aeaae5397e939
+      internalID: -23278363
       vertices: []
       indices: 
       edges: []
@@ -204,10 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      protaIdle_0: -175038012
-      protaIdle_1: 1409818990
-      protaIdle_2: 1314468212
-      protaIdle_3: 987254949
+      casasTecho_0: -1650134799
+      casasTecho_1: -845956275
+      casasTecho_2: -1720880979
+      casasTecho_3: -1314324933
+      casasTecho_4: 861016665
+      casasTecho_5: -1683048129
+      casasTecho_6: 1043560396
+      casasTecho_7: -23278363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
