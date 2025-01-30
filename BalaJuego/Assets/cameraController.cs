@@ -37,9 +37,13 @@ public class cameraController : MonoBehaviour
     }
     void startArea(object sender, LevelAreaController data)
     {
-        print("cambio");
+        print("cambio "+data.name + " " + data.endCollider.name);
         print(data.endCollider.transform.position.x + " + " + data.transform.position.x + " = " + (data.endCollider.transform.position.x + data.transform.position.x));
-        cameraConfinerCollider.SetPath(0, new[] { new Vector2(data.startCollider.transform.position.x , data.startCollider.transform.position.y+ data.startCollider.size.y / 2), new Vector2(data.startCollider.transform.position.x , data.endCollider.transform.position.y  - data.startCollider.size.y / 2), new Vector2(data.endCollider.transform.position.x, data.startCollider.transform.position.y - data.startCollider.size.y / 2), new Vector2(data.endCollider.transform.position.x , data.endCollider.transform.position.y+ data.startCollider.size.y / 2) });
+        cameraConfinerCollider.SetPath(0, new[] {
+            new Vector2(data.startCollider.transform.position.x , data.startCollider.transform.position.y+ data.startCollider.size.y / 2),
+            new Vector2(data.startCollider.transform.position.x , data.endCollider.transform.position.y  - data.startCollider.size.y / 2),
+            new Vector2(data.endCollider.transform.position.x, data.startCollider.transform.position.y - data.startCollider.size.y / 2),
+            new Vector2(data.endCollider.transform.position.x , data.endCollider.transform.position.y+ data.startCollider.size.y / 2) });
         confiner.InvalidateCache();
 
 

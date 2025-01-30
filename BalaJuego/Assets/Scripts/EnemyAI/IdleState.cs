@@ -12,7 +12,7 @@ public class IdleState : BaseEnemyState
         enemy.anim.Play("enemyIdle");
         if (enemy.GetComponentInChildren<CharacterShoot>() != null)
         {
-            Debug.Log(enemy.name + " " + enemy.GetComponentInChildren<CharacterShoot>().anim);
+            Debug.Log(enemy.GetComponentInChildren<CharacterShoot>().anim);
             enemy.GetComponentInChildren<CharacterShoot>().anim.Play("enemygunIdle");
         }
     }
