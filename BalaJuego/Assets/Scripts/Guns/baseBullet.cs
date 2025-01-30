@@ -12,7 +12,10 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] bool Infinite;
 
     CharacterLife.Team team;
-    
+
+    [SerializeField] ParticleSystem hitParticle;
+    [SerializeField] ParticleSystem impactParticle;
+
 
     float timeMagnitude;
 
@@ -24,7 +27,7 @@ public class baseBullet: MonoBehaviour, IBullet
     {
         if ((obstacleLayer & (1 << collision.gameObject.layer)) != 0)
         {
-            hitSomething();
+            hitSomething(collision.gameObject);
         }
     }
     private void Update()
@@ -61,10 +64,18 @@ public class baseBullet: MonoBehaviour, IBullet
 
     }
 
-    public void hitSomething()
+    public void hitSomething(GameObject obj)
     {
         //Animacion o algo
-        Destroy(gameObject);
+       if(obj.GetComponent<CharacterLife>() != null){
+            hitParticle.Play();
+        }
+        else
+        {
+            impactParticle.Play();
+        }
+        speed = 0;
+        Destroy(gameObject, 0.5f);
     }
 
     public CharacterLife.Team getTeam() => team;

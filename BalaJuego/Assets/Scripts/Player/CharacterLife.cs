@@ -19,7 +19,7 @@ public class CharacterLife : MonoBehaviour
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
                 Damage(bul.getDamage());
-                bul.hitSomething();
+                bul.hitSomething(gameObject);
             }
         }
     }

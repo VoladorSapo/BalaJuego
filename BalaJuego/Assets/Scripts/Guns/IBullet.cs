@@ -7,7 +7,7 @@ public interface IBullet
 
     public int getDamage();
 
-    public void hitSomething();
+    public void hitSomething(GameObject obj);
 
     public CharacterLife.Team getTeam();
 
