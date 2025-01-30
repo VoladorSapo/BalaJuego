@@ -31,7 +31,7 @@ public class CharacterLife : MonoBehaviour
             Die();
         }
     }
-    protected virtual void Die()
+    public virtual void Die()
     {
       //  anim.Play("Die");
         //finishDeath();

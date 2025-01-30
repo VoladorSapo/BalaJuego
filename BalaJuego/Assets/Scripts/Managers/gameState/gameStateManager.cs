@@ -88,6 +88,7 @@ public class gameStateManager : MonoBehaviour, IGameState
     public void restart()
     {
         setState(IGameState.gameState.NormalTime);
+        print("setState");
 
     }
 }

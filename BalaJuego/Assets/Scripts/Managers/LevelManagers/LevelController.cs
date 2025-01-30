@@ -21,8 +21,14 @@ public class LevelController : MonoBehaviour, ILevelController
         areas = new List<LevelAreaController>();
         areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
         player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
+        StartCoroutine(lateStart());
+        
     }
-
+    IEnumerator lateStart()
+    {
+        yield return new WaitForEndOfFrame();
+        reStart();
+    }
     // Update is called once per frame
     void Update()
     {

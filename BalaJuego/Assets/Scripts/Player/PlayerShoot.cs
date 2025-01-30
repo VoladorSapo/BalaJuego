@@ -10,7 +10,7 @@ public class PlayerShoot : MonoBehaviour
 
     ObjectDetector<IBullet> grabDetector;
 
-    EnemyDetector stunedDetector;
+    EnemyParentDetector stunedDetector;
 
 
     private void Start()
@@ -18,7 +18,7 @@ public class PlayerShoot : MonoBehaviour
         shoot = GetComponentInChildren<IShoot>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
         grabDetector = GetComponentInChildren<ObjectDetector<IBullet>>();
-        stunedDetector = GetComponentInChildren<EnemyDetector>();
+        stunedDetector = GetComponentInChildren<EnemyParentDetector>();
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
 
         grabDetector.gameObject.SetActive(false);
@@ -65,6 +65,8 @@ public class PlayerShoot : MonoBehaviour
         {
             if(stunedDetector.reachableObjects.Count > 0)
             {
+
+                stunedDetector.reachableObjects[0].GetComponent<CharacterLife>().Die();
                 //Muerte Melee
             }
         }

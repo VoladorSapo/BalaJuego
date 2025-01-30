@@ -216,16 +216,12 @@ public class PlayerMove : MonoBehaviour
         transform.position = initialPos;
         gameObject.SetActive(true);
         GetComponentInChildren<CharacterShoot>().restart();
-
+        canMove = true;
     }
     void changeState(object sender, stateData data)
     {
         switch (data.currentState)
         {
-             default:
-                canMove = false;
-
-                break;
             case IGameState.gameState.NormalTime:
                 canMove = true;
 
@@ -235,6 +231,11 @@ public class PlayerMove : MonoBehaviour
                 canMove = true;
 
                 break;
+            default:
+                canMove = false;
+
+                break;
+           
             
         }
     }

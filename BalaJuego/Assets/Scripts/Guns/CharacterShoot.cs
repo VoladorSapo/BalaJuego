@@ -59,6 +59,8 @@ public class CharacterShoot : MonoBehaviour,IShoot
     {
         shooting = false;
         currentBullets = startBullets;
+        bulletCount.text = currentBullets.ToString();
+
     }
     public int getBullets() => currentBullets;
 

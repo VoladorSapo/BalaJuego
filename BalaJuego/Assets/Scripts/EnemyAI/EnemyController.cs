@@ -47,7 +47,6 @@ public class EnemyController : MonoBehaviour
         if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
         {
             stateMachine.Update();
-           print(stateMachine.currentState().ToString());
         }
 
     }

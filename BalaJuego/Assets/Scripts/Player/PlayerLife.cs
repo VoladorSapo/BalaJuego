@@ -1,6 +1,6 @@
 ﻿public class PlayerLife: CharacterLife
 {
-    protected override void Die()
+    public override void Die()
     {
         finishDeathAnim();
     }
