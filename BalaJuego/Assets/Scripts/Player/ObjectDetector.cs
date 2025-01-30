@@ -11,7 +11,6 @@ public class ObjectDetector<T> : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("hey"+collision.name);
          T obj = collision.GetComponent<T>();
           if(obj != null)  {
                 print("Adding: " + collision.gameObject);

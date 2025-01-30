@@ -20,7 +20,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
    [SerializeField] TMP_Text bulletCount;
 
     gunRotate rotate;
-    private void Start()
+    private void Awake()
     {
         Assert.IsNotNull(bullet);
         Assert.IsNotNull(bullet.GetComponent< IBullet>());

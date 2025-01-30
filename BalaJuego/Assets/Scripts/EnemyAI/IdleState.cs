@@ -11,7 +11,10 @@ public class IdleState : BaseEnemyState
     {
         enemy.anim.Play("enemyIdle");
         if (enemy.GetComponentInChildren<CharacterShoot>() != null)
-        enemy.GetComponentInChildren<CharacterShoot>().anim.Play("enemygunIdle");
+        {
+            Debug.Log(enemy.name + " " + enemy.GetComponentInChildren<CharacterShoot>().anim);
+            enemy.GetComponentInChildren<CharacterShoot>().anim.Play("enemygunIdle");
+        }
     }
     public override void Update()
     {

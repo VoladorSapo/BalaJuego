@@ -174,7 +174,6 @@ public class PlayerMove : MonoBehaviour
                 dustJump.Play();
 
                 jumping = true;
-                print("jump");
                 rb2d.gravityScale = normalGravity;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
