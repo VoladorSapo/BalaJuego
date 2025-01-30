@@ -5182,6 +5182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBullets: 0
+  currentBullets: 0
   spawnPoint: {fileID: 4343821551712420905}
   character: {fileID: 8799275002827292154}
   shooting: 0
@@ -16052,7 +16053,7 @@ MonoBehaviour:
   fallGravity: 6
   groudLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2112
   onGround: 1
   jumpPressed: 0
   coyoteTime: 0.3
