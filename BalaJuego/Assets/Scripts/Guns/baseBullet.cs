@@ -16,7 +16,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
     float timeMagnitude;
 
-    LayerMask obstacleLayer;
+  [SerializeField]  LayerMask obstacleLayer;
 
 
 

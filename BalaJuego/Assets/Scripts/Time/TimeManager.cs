@@ -1,11 +1,22 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
-public class TimeManager : ITimeManager
+public class TimeManager : MonoBehaviour,ITimeManager
 {
     private float timeMagnitude;
+    [SerializeField] float timeLimit;
 
     public event EventHandler<timeData> onTimeChange;
+
+    Coroutine waiting;
+
+    bool hasChanged;
+
+    void Start()
+    {
+        ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
+    }
     public void Instantiate()
     {
         timeMagnitude = 1;
@@ -17,6 +28,7 @@ public class TimeManager : ITimeManager
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;
         onTimeChange?.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
+      waiting =  StartCoroutine(timeLimitReset());
     }
 
     public void subscribeToTimeChange(EventHandler<timeData> response)
@@ -35,5 +47,70 @@ public class TimeManager : ITimeManager
     public void restart()
     {
 
+    }
+    public void changeState(object sender, stateData data)
+    {
+        switch (data.currentState)
+        {
+            case IGameState.gameState.Paused:
+                
+                break;
+            case IGameState.gameState.NormalTime:
+                if (waiting != null)
+                {
+                    StopCoroutine(waiting);
+                }
+                hasChanged = true;
+                break;
+            case IGameState.gameState.Cinematic:
+                if (waiting != null)
+                {
+                    StopCoroutine(waiting);
+                }
+                hasChanged = true;
+                break;
+            case IGameState.gameState.SlowDown:
+                if (waiting != null)
+                {
+                    StopCoroutine(waiting);
+                }
+
+                break;
+            case IGameState.gameState.Death:
+                if (waiting != null)
+                {
+                    StopCoroutine(waiting);
+                }
+                hasChanged = true;
+
+                break;
+            case IGameState.gameState.Win:
+                if (waiting != null)
+                {
+                    StopCoroutine(waiting);
+                }
+                hasChanged = true;
+
+                break;
+            default:
+                break;
+        }
+    }
+    IEnumerator timeLimitReset() 
+    {
+        hasChanged = false;
+        int rounds = 10;
+        for (int i = 0; i < rounds; i++)
+        {
+            yield return new WaitForSeconds(timeLimit / rounds);
+            if(hasChanged)
+            {
+                yield break;
+            }
+        }
+        if (!hasChanged)
+        {
+            changeTimeMagnitude(1);
+        }
     }
 }

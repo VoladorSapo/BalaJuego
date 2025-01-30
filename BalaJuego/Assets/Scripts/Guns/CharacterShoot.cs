@@ -5,8 +5,9 @@ using TMPro;
 public class CharacterShoot : MonoBehaviour,IShoot
 {
 
-    int currentBullets;
     [SerializeField] int startBullets;
+    [SerializeField] int currentBullets;
+
 
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject character;
