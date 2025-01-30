@@ -50,6 +50,16 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+    private void FixedUpdate()
+    {
+       // print("fixedUpdate");
+        IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
+        if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
+        {
+           // print("yess");
+            stateMachine.FixedUpdate();
+        }
+    }
     private void Awake()
     {
         initialPos = transform.position;

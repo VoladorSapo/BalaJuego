@@ -13,8 +13,8 @@ public class HeavyEnemyController: EnemyController
 
     public override void restart(LevelAreaController _area)
     {
+        print("heavyRestart");
         base.restart(_area);
-        GetComponentInChildren<CharacterShoot>().restart();
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();

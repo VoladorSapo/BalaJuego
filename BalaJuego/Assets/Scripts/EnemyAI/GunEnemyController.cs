@@ -10,7 +10,7 @@
 
     public override void restart(LevelAreaController _area)
     {
-        print("restart");
+        print("GunRestart");
         base.restart(_area);
         GetComponentInChildren<CharacterShoot>().restart();
         if (stateMachine == null)

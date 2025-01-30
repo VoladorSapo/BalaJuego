@@ -84,7 +84,7 @@ public class LevelController : MonoBehaviour, ILevelController
     }
     public void startArea(LevelAreaController area)
     {
-        startAreaEvent.Invoke(this, area);
+        startAreaEvent?.Invoke(this, area);
     }
 
     public void Win()

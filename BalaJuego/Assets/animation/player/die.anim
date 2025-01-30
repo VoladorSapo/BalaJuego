@@ -34,15 +34,6 @@ AnimationClip:
     - time: 0
       value: {fileID: 0}
     attribute: m_Sprite
-    path: Gun
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
-  - serializedVersion: 2
-    curve:
-    - time: 0
-      value: {fileID: 0}
-    attribute: m_Sprite
     path: Head
     classID: 212
     script: {fileID: 0}
@@ -64,15 +55,6 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1926661051
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
       path: 130111906
       attribute: 0
       script: {fileID: 0}
@@ -84,7 +66,6 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 240466682, guid: 278763bef9139994faa3bcb53b8d7489, type: 3}
     - {fileID: 1396044879, guid: 278763bef9139994faa3bcb53b8d7489, type: 3}
-    - {fileID: 0}
     - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2

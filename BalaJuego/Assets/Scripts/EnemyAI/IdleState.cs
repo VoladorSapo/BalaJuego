@@ -10,11 +10,11 @@ public class IdleState : BaseEnemyState
     public override void OnEnter()
     {
         enemy.anim.Play("enemyIdle");
+        if (enemy.GetComponentInChildren<CharacterShoot>() != null)
         enemy.GetComponentInChildren<CharacterShoot>().anim.Play("enemygunIdle");
     }
     public override void Update()
     {
-        Debug.Log("idle");
     }
 }
 
@@ -58,7 +58,9 @@ public class StartChargeState : BaseEnemyState
     {
         enemy.anim.Play("enemySpot");
         enemy.finishCharging = false;
+
         enemy.direction = enemy.detector.reachableObjects[0].transform.position.x > enemy.transform.position.x ? Vector3.right : Vector3.left;
+        enemy.transform.localScale = new Vector3(enemy.direction.x, 1, 1);
 
     }
 }
@@ -81,6 +83,7 @@ public class ChargeState : BaseEnemyState
     }
     public override void FixedUpdate()
     {
+        Debug.Log("fixed");
         enemy.rb2d.MovePosition(enemy.transform.position + speed * enemy.direction * Time.fixedDeltaTime * enemy.timeMagnitude);
 
     }
