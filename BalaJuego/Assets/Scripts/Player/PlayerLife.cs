@@ -2,6 +2,7 @@
 {
     public override void Die()
     {
+        musicManager.Instance.PlaySound("snd_damage");
         finishDeathAnim();
     }
     public void finishDeathAnim()

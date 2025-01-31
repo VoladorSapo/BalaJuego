@@ -49,16 +49,18 @@ public class PlayerShoot : MonoBehaviour
         }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (stateManager.getState() == IGameState.gameState.NormalTime && shoot.getBullets() == 0)
-                {
-                    ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
+            if (stateManager.getState() == IGameState.gameState.NormalTime && shoot.getBullets() == 0)
+            {
+                musicManager.Instance.PlaySound("snd_startslowtime");
+                ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
                 }
             }
             if (Input.GetKeyUp(KeyCode.E))
             {
                 if (stateManager.getState() == IGameState.gameState.SlowDown && shoot.getBullets() == 0)
-                {
-                    ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
+            {
+                musicManager.Instance.PlaySound("snd_stopslowtime");
+                ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
                 }
             }
         if (Input.GetKeyDown(KeyCode.F))

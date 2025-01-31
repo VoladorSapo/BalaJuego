@@ -48,6 +48,7 @@ public class baseBullet: MonoBehaviour, IBullet
     }
     public void InstantiateBullet(CharacterLife shooter,float angle)
     {
+        musicManager.Instance.PlayDisparo();
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
@@ -74,10 +75,12 @@ public class baseBullet: MonoBehaviour, IBullet
         //Animacion o algo
        if(obj.GetComponent<CharacterLife>() != null){
             hitParticle.Play();
+            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
         }
         else
         {
             impactParticle.Play();
+            musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
         }
         speed = 0;
         Destroy(gameObject, 0.5f);

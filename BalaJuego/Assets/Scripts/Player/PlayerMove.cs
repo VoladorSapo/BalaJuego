@@ -92,6 +92,8 @@ public class PlayerMove : MonoBehaviour
         {
             dustFall.gameObject.SetActive(true);
             dustFall.Play();
+
+            musicManager.Instance.PlaySoundPitch("snd_aterriza",0.2f);
         }
         onGround = hit;
         if (!onGround)
@@ -125,7 +127,6 @@ public class PlayerMove : MonoBehaviour
             //dustJump.Play();
             jumping = false;
             falling = false;
-
         }
 
 
@@ -143,12 +144,16 @@ public class PlayerMove : MonoBehaviour
             {
                 calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, 0, groundDecceleration * Time.fixedDeltaTime);
                 anim.SetBool("isRunning", false);
+                musicManager.Instance.StopWalking();
+
                 dustWalk.Stop();
 
             }
             else
             {
                 anim.SetBool("isRunning", true);
+                if (onGround) { musicManager.Instance.StartWalking(); /*Debug.Log("PASOOOOOOOOOOOOOOOOOOO");*/ } else { musicManager.Instance.StopWalking(); }
+
                 dustWalk.gameObject.SetActive(true);
                 if (onGround) dustWalk.Play();
                 float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
@@ -179,6 +184,7 @@ public class PlayerMove : MonoBehaviour
             {
                 dustJump.gameObject.SetActive(true);
                 dustJump.Play();
+                musicManager.Instance.PlayJump();
 
                 jumping = true;
                 rb2d.gravityScale = normalGravity;
@@ -186,6 +192,10 @@ public class PlayerMove : MonoBehaviour
                 rb2d.AddForce(Vector2.up * jumpForce , ForceMode2D.Impulse);
                 coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
             }
+        }
+        else
+        {
+            musicManager.Instance.StopWalking();
         }
 
     }
