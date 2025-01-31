@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour,ITimeManager
 {
-    private float timeMagnitude;
+ [SerializeField]   private float timeMagnitude;
     [SerializeField] float timeLimit;
 
     public event EventHandler<timeData> onTimeChange;
@@ -16,6 +16,8 @@ public class TimeManager : MonoBehaviour,ITimeManager
     void Start()
     {
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
+        ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
+
     }
     public void Instantiate()
     {
@@ -28,7 +30,10 @@ public class TimeManager : MonoBehaviour,ITimeManager
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;
         onTimeChange?.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
-      waiting =  StartCoroutine(timeLimitReset());
+        if (newMagnitude < 1)
+        {
+            waiting = StartCoroutine(timeLimitReset());
+        }
     }
 
     public void subscribeToTimeChange(EventHandler<timeData> response)
@@ -46,6 +51,7 @@ public class TimeManager : MonoBehaviour,ITimeManager
 
     public void restart()
     {
+        changeTimeMagnitude(1);
 
     }
     public void changeState(object sender, stateData data)
@@ -113,4 +119,6 @@ public class TimeManager : MonoBehaviour,ITimeManager
             changeTimeMagnitude(1);
         }
     }
+
+  
 }

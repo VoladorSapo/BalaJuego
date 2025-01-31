@@ -61,6 +61,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
         shooting = false;
         currentBullets = startBullets;
         bulletCount.text = currentBullets.ToString();
+        anim.Play("gunIdle");
 
     }
     public int getBullets() => currentBullets;
@@ -69,4 +70,6 @@ public class CharacterShoot : MonoBehaviour,IShoot
     {
         currentBullets = bul;
     }
+
+    public Animator getAnim() => anim;
 }

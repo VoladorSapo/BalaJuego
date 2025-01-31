@@ -7,14 +7,24 @@ public class cameraController : MonoBehaviour
     CinemachineConfiner2D confiner;
 
   [SerializeField]  PolygonCollider2D cameraConfinerCollider;
+
+    Vector2[] Startvectors;
     // Start is called before the first frame update
     void Start()
     {
        ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaEnd(endArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaStart(startArea);
-        confiner = GetComponent<CinemachineConfiner2D>();
-    }
+        ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
 
+        confiner = GetComponent<CinemachineConfiner2D>();
+        Startvectors = cameraConfinerCollider.points;
+    }
+    void restart()
+    {
+        cameraConfinerCollider.SetPath(0,Startvectors);
+
+        confiner.InvalidateCache();
+    }
     // Update is called once per frame
     void Update()
     { 

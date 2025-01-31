@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public interface IShoot 
 {
@@ -9,7 +10,10 @@ public interface IShoot
 
     public void shoot();
 
+    public Animator getAnim();
     public int getBullets();
+
+    public void restart();
 
 
 }

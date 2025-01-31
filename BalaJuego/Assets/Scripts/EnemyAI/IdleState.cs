@@ -9,11 +9,11 @@ public class IdleState : BaseEnemyState
 
     public override void OnEnter()
     {
+        Debug.Log("start Idle");
         enemy.anim.Play("enemyIdle");
-        if (enemy.GetComponentInChildren<CharacterShoot>() != null)
+        if (enemy.GetComponentInChildren<IShoot>() != null)
         {
-            Debug.Log(enemy.GetComponentInChildren<CharacterShoot>().anim);
-            enemy.GetComponentInChildren<CharacterShoot>().anim.Play("enemygunIdle");
+            enemy.GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
         }
     }
     public override void Update()
@@ -33,7 +33,7 @@ public class ShootState : BaseEnemyState
     public override void OnEnter()
     {
         enemy.anim.Play("enemySpot");
-        enemy.GetComponentInChildren<CharacterShoot>().anim.Play("enemyGunSpot");
+        enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
         cadenceTime = enemy.shootCadence;
 
     }
@@ -44,7 +44,7 @@ public class ShootState : BaseEnemyState
         if(cadenceTime <= 0)
         {
             cadenceTime = enemy.shootCadence;
-            enemy.GetComponentInChildren<CharacterShoot>().shoot();
+            enemy.GetComponentInChildren<IShoot>().shoot();
         }
     }
 }
@@ -59,6 +59,7 @@ public class StartChargeState : BaseEnemyState
 
     public override void OnEnter()
     {
+        Debug.Log("start StartCHarge");
         enemy.anim.Play("enemySpot");
         enemy.finishCharging = false;
 

@@ -16,7 +16,7 @@ public class StateMachine
         {
             ChangeState(transition.To);
         }
-       // Debug.Log(current?.State?.ToString());
+       Debug.Log(current?.State?.ToString());
         current?.State?.Update();
     }
 
