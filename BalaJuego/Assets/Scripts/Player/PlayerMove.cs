@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     Vector2 Move;
 
+    [SerializeField] float trueMagnitude;
+
     [SerializeField] Vector2 calcVelocity;
 
     [SerializeField] BoxCollider2D groundCast;
@@ -43,6 +45,8 @@ public class PlayerMove : MonoBehaviour
 
     Animator anim;
 
+    float timeMagnitude;
+
     IShoot gun;
     int runningDirection;
 
@@ -62,6 +66,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeMagnitude = 1;
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>()[0];
         dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
@@ -72,6 +77,8 @@ public class PlayerMove : MonoBehaviour
         dustFall.gameObject.SetActive(false);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
+        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
+
     }
 
     // Update is called once per frame
@@ -146,7 +153,7 @@ public class PlayerMove : MonoBehaviour
                 if (onGround) dustWalk.Play();
                 float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
 
-                calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed, useAccel * Time.fixedDeltaTime);
+                calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed * timeMagnitude, useAccel * Time.fixedDeltaTime * timeMagnitude);
             }
             anim.SetFloat("velocity", calcVelocity.x);
             if (calcVelocity.x > 0 && !isRotating && runningDirection != 1)
@@ -176,7 +183,7 @@ public class PlayerMove : MonoBehaviour
                 jumping = true;
                 rb2d.gravityScale = normalGravity;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-                rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                rb2d.AddForce(Vector2.up * jumpForce , ForceMode2D.Impulse);
                 coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
             }
         }
@@ -214,7 +221,7 @@ public class PlayerMove : MonoBehaviour
     {
         transform.position = initialPos;
         gameObject.SetActive(true);
-        GetComponentInChildren<CharacterShoot>().restart();
+        GetComponentInChildren<IShoot>().restart();
         canMove = true;
     }
     void changeState(object sender, stateData data)
@@ -236,6 +243,43 @@ public class PlayerMove : MonoBehaviour
                 break;
            
             
+        }
+    }
+    void changeTimeMagnitude(object sender, timeData data)
+    {
+        float use = data.currentMagnitude == 1 ? 1 : trueMagnitude;
+        float mult = data.currentMagnitude / data.oldMagnitude;
+        timeMagnitude = use;
+
+        if (use == 1)
+        {
+            rb2d.velocity /= new Vector2(trueMagnitude, 1);
+        }
+        else
+        {
+            rb2d.velocity *= new Vector2(trueMagnitude, 1);
+
+        }
+        anim.speed = use;
+
+        //maxSpeed*=mult;
+        //acceleration*=mult;
+        //groundDecceleration*=mult;
+        //turnDecceleration*=mult;
+
+        //airDecceleration*=mult;
+        //jumpForce*=mult;
+        if (data.currentMagnitude != 1)
+        {
+            normalGravity = mult=1.5f;
+            fallGravity = mult=2;
+            jumpForce = 5;
+        }
+        else
+        {
+            normalGravity = mult = 4;
+            fallGravity = mult = 8;
+            jumpForce = 8;
         }
     }
 

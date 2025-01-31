@@ -13,6 +13,7 @@ public class HeavyEnemyController: EnemyController
 
     public override void restart(LevelAreaController _area)
     {
+        finishCharging = false;
         print("heavyRestart");
         base.restart(_area);
         if (stateMachine == null)

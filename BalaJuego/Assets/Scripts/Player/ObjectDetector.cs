@@ -30,7 +30,10 @@ public class ObjectDetector<T> : MonoBehaviour
             }
         
     }
-
+    public void restart()
+    {
+        reachableObjects.Clear();
+    }
 }
 
 public class ObjectParentDetector<T> : MonoBehaviour

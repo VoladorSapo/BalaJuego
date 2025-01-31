@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _divider: 2
-    - _isOutlined: 0
+    - _isOutlined: 1
     - _multiplyer: 6
     - _thickness: 0.01
     m_Colors:

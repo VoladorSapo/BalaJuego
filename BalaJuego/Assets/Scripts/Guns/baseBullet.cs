@@ -17,6 +17,7 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] ParticleSystem impactParticle;
 
 
+
     float timeMagnitude;
 
   [SerializeField]  LayerMask obstacleLayer;
@@ -77,7 +78,13 @@ public class baseBullet: MonoBehaviour, IBullet
         speed = 0;
         Destroy(gameObject, 0.5f);
     }
+    void Hover()
+    {
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+        block.SetInt("_isOutlined", 1);
+        GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block);
 
+    }
     public CharacterLife.Team getTeam() => team;
 
     public bool hurtAll() => canHurtAll;

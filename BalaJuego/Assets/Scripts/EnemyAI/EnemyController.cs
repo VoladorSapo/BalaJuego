@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
         IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
         if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
         {
-            stateMachine.Update();
+            stateMachine?.Update();
         }
 
     }
@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour
         if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
         {
            // print("yess");
-            stateMachine.FixedUpdate();
+            stateMachine?.FixedUpdate();
         }
     }
     private void Awake()
@@ -72,6 +72,7 @@ public class EnemyController : MonoBehaviour
 
     public virtual void restart(LevelAreaController _area)
     {
+        detector?.restart();
         stunedCollider.gameObject.SetActive(false);
         transform.position = initialPos;
         timeMagnitude = 1;

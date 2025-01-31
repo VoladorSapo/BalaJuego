@@ -51,7 +51,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (stateManager.getState() == IGameState.gameState.NormalTime && shoot.getBullets() == 0)
                 {
-                    ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.1f);
+                    ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
                 }
             }
             if (Input.GetKeyUp(KeyCode.E))
@@ -89,4 +89,6 @@ public class PlayerShoot : MonoBehaviour
 
         }
     }
+
+    
 }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class LevelAreaController : MonoBehaviour
 {
  [SerializeField]   List<EnemyController> enemies;
 
   [SerializeField]  GameObject colliders;
+
+    CinemachineVirtualCamera virtCamera;
 
 
   [field:SerializeField] public  BoxCollider2D startCollider { get; private set; }
@@ -39,7 +42,6 @@ public class LevelAreaController : MonoBehaviour
     private void Start()
     {
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
-        restart();
     }
 
     void restart()

@@ -12135,6 +12135,10 @@ PrefabInstance:
       propertyPath: normalGravity
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: trueMagnitude
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6144351892642108707, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -12881,6 +12885,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1657784752170592939, guid: 563189673227a71478d20f7d6e58c478, type: 3}
+      propertyPath: timeLimit
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3947349907422927085, guid: 563189673227a71478d20f7d6e58c478, type: 3}
       propertyPath: m_Name
       value: Managers (1)
@@ -13191,6 +13199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619394802}
   - component: {fileID: 619394801}
+  - component: {fileID: 619394803}
   m_Layer: 0
   m_Name: enviromentLight
   m_TagString: Untagged
@@ -13263,6 +13272,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619394803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619394800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68be14a8077d664090f5424f6b12fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark: 0.5
 --- !u!1 &641120168
 GameObject:
   m_ObjectHideFlags: 0
@@ -13770,7 +13792,7 @@ PrefabInstance:
       objectReference: {fileID: 1656470400}
     - target: {fileID: 2993366934970142978, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.224998
+      value: -43.3
       objectReference: {fileID: 0}
     - target: {fileID: 3742812212151943256, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: m_Size.x
@@ -13854,7 +13876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044617149079599391, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.2
+      value: 85.2
       objectReference: {fileID: 0}
     - target: {fileID: 8044617149079599391, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22099,6 +22121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a82ba31c3765bc4aa132fde09d3455f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trueMagnitude: 0
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 281882622}
   rb2d: {fileID: 1078324750}
