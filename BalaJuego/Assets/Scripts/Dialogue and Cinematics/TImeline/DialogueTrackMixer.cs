@@ -22,11 +22,36 @@ public class DialogueTrackMixer : PlayableBehaviour
                 ScriptPlayable<DialogueBehaviour> inputPlayable = (ScriptPlayable<DialogueBehaviour>)playable.GetInput(i);
                 DialogueBehaviour dialogue = inputPlayable.GetBehaviour();
                 text.text = dialogue.dialogText;
+                text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(dialogue.width, 2);
                 text.ForceMeshUpdate();
                 text.ForceMeshUpdate();
+
 
 
             }
         }
     }
+}
+
+public class cutsceneCaller
+{
+    [SerializeField] cutsceneManager.postCutsceneAction actionType;
+
+    [SerializeField] Tutorial _tutorial;
+}
+
+public class cutsceneManager{
+
+
+    public enum postCutsceneAction
+    {
+        Tutorial,
+        StartLevel,
+        Continue
+    }
+}
+
+public class Tutorial
+{
+
 }

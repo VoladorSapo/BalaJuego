@@ -8,7 +8,7 @@ public class IdleState : BaseEnemyState
     }
 
     public override void OnEnter()
-    {
+    { 
         Debug.Log("start Idle");
         enemy.anim.Play("enemyIdle");
         if (enemy.GetComponentInChildren<IShoot>() != null)
@@ -81,6 +81,7 @@ public class ChargeState : BaseEnemyState
     public override void OnEnter()
     {
         enemy.anim.Play("enemyRun");
+        enemy.wallDetect.gameObject.SetActive(true);
     }
     public override void Update()
     {
@@ -90,6 +91,10 @@ public class ChargeState : BaseEnemyState
         Debug.Log("fixed");
         enemy.rb2d.MovePosition(enemy.transform.position + speed * enemy.direction * Time.fixedDeltaTime * enemy.timeMagnitude);
 
+    }
+    public override void OnExit()
+    {
+        enemy.wallDetect.gameObject.SetActive(false);
     }
 }
 public class StunedState: BaseEnemyState

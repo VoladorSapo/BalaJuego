@@ -3,7 +3,7 @@
 public class HeavyEnemyController: EnemyController
 {
 
-    [SerializeField]WallDetector wallDetect;
+    [SerializeField]public WallDetector wallDetect;
     public Vector3 direction;
 
   public  Rigidbody2D rb2d;
@@ -16,6 +16,8 @@ public class HeavyEnemyController: EnemyController
         finishCharging = false;
         print("heavyRestart");
         base.restart(_area);
+        wallDetect.gameObject.SetActive(false);
+
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();

@@ -2,7 +2,8 @@
 
 public class WallDetector : MonoBehaviour
 {
-   public GameObject wall;
+ [HideInInspector]  public GameObject wall;
+    [SerializeField] LayerMask wallLayer;
     private void Start()
     {
         wall = null;

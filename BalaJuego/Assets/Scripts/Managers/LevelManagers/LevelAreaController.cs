@@ -11,7 +11,7 @@ public class LevelAreaController : MonoBehaviour
 
     CinemachineVirtualCamera virtCamera;
 
-
+    bool started;
   [field:SerializeField] public  BoxCollider2D startCollider { get; private set; }
     [field: SerializeField] public BoxCollider2D endCollider { get; private set; }
 
@@ -22,20 +22,28 @@ public class LevelAreaController : MonoBehaviour
         if(  collision.tag == "Player")
         {
             print("hey");
+            started = true;
             ServiceLocator.Instance.Get<ILevelController>().startArea(this);
+            
             startCollider.gameObject.SetActive(true);
             endCollider.gameObject.SetActive(true);
            startTrigger.gameObject.SetActive(false);
+
+            enemyDie(null);
 
         }
     }
     public void enemyDie(EnemyController enemy)
     {
-        enemies.Remove(enemy);
-        if(enemies.Count == 0)
+        if (enemy != null)
+        {
+            enemies.Remove(enemy);
+        }
+        if(started && enemies.Count == 0)
         {
             endCollider.gameObject.SetActive(false);
             startTrigger.gameObject.SetActive(false);
+            started = false;
             ServiceLocator.Instance.Get<ILevelController>().endArea(this);
         }
     }
@@ -46,6 +54,7 @@ public class LevelAreaController : MonoBehaviour
 
     void restart()
     {
+        started = false;
       foreach(EnemyController enem in enemies)
         {
             enem.gameObject.SetActive(true);

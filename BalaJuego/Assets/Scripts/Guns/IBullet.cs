@@ -15,6 +15,8 @@ public interface IBullet
 
     public void tryGrab(PlayerShoot player);
 
+    public void setHover(bool set);
+
     //public bool damageType
     //{
     //    hurtOtherTeam,

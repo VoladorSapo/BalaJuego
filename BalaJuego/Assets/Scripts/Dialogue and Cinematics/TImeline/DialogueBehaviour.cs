@@ -8,12 +8,21 @@ public class DialogueBehaviour: PlayableBehaviour
     public float leaveTime;
     public int startChars;
     int maxVisible;
+  public  float width;
+    bool first = true;
 
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
+    
         TMP_Text text = playerData as TMP_Text;
         text.ForceMeshUpdate();
         text.text = dialogText;
+        //if (first)
+        //{
+        //    Debug.Log("chunda");
+        //    first = false;
+        //    text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width, 2);
+        //}
         Debug.Log(playable);
         if (text != null)
         {
@@ -23,7 +32,7 @@ public class DialogueBehaviour: PlayableBehaviour
                 maxVisible = text.maxVisibleCharacters;
                if(maxVisible == startChars +1)
                 {
-                    text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2 (11, 2);
+                    text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2 (width, 2);
                     Debug.Log("PRIMERO");
                 }
                 if (text.textInfo.characterCount > 0)
@@ -37,6 +46,6 @@ public class DialogueBehaviour: PlayableBehaviour
             text.text = "";
         }
         //text.maxVisibleCharacters = text.textInfo.characterCount / playable.GetDuration
+        
     }
-
 }
