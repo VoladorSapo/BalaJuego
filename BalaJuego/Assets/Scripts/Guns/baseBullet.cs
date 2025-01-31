@@ -16,6 +16,9 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] ParticleSystem hitParticle;
     [SerializeField] ParticleSystem impactParticle;
 
+    bool inSelect;
+
+    [SerializeField] float HoverSize;
 
 
     float timeMagnitude;
@@ -62,6 +65,7 @@ public class baseBullet: MonoBehaviour, IBullet
         ITimeManager time = ServiceLocator.Instance.Get<ITimeManager>();
         timeMagnitude = time.getMagnitude();
         time.subscribeToTimeChange(changeTimeMagnitude);
+        setHover(false);
 
     }
 
@@ -78,13 +82,7 @@ public class baseBullet: MonoBehaviour, IBullet
         speed = 0;
         Destroy(gameObject, 0.5f);
     }
-    void Hover()
-    {
-        MaterialPropertyBlock block = new MaterialPropertyBlock();
-        block.SetInt("_isOutlined", 1);
-        GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block);
-
-    }
+  
     public CharacterLife.Team getTeam() => team;
 
     public bool hurtAll() => canHurtAll;
@@ -99,6 +97,34 @@ public class baseBullet: MonoBehaviour, IBullet
     private void OnDestroy()
     {
         ServiceLocator.Instance.Get<ITimeManager>().unSubscribeToTimeChange(changeTimeMagnitude);
+
+    }
+
+    public void setHover(bool set)
+    {
+        int setI = set ? 1 : 0;
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+      GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block,0);
+        block.SetInt("_isOutlined", setI);
+        print(GetComponentInChildren<SpriteRenderer>().name);
+        GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block,0);
+        inSelect = set;
+        if (!set)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+    private void OnMouseOver()
+    {
+        print("aaaa");
+        if (inSelect)
+        {
+            transform.localScale = new Vector3(HoverSize, HoverSize, HoverSize);
+        }
+    }
+    private void OnMouseExit()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
 
     }
 }

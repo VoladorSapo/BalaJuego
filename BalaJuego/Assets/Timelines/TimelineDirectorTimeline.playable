@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogText: eyo
   leaveTime: 2
   startChars: 0
-  width: 600
+  width: 5
 --- !u!114 &-5159052764224223458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +206,7 @@ MonoBehaviour:
   dialogText: eyo, mr white
   leaveTime: 2
   startChars: 3
-  width: 600
+  width: 5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

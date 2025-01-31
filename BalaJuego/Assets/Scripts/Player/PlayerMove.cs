@@ -253,7 +253,15 @@ public class PlayerMove : MonoBehaviour
 
         if (use == 1)
         {
-            rb2d.velocity /= new Vector2(trueMagnitude, 1);
+            Vector2 vel = rb2d.velocity / new Vector2(trueMagnitude, 1);
+            vel = new Vector2(Mathf.Clamp(vel.x, 0, 999), Mathf.Clamp(vel.y, 0, 999));
+            if(float.IsNaN(vel.x))
+            {
+                print("hola");
+                vel.x = 0;
+            }
+            print(vel.x);
+            rb2d.velocity = vel;
         }
         else
         {

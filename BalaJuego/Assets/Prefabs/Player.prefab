@@ -16125,6 +16125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a82ba31c3765bc4aa132fde09d3455f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trueMagnitude: 0.4
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 1007856941145358727}
   rb2d: {fileID: 4773227239308888931}
@@ -16133,9 +16134,9 @@ MonoBehaviour:
   groundDecceleration: 50
   turnDecceleration: 100
   airDecceleration: 30
-  jumpForce: 7
-  normalGravity: 2
-  fallGravity: 6
+  jumpForce: 8
+  normalGravity: 4
+  fallGravity: 8
   groudLayers:
     serializedVersion: 2
     m_Bits: 2112
