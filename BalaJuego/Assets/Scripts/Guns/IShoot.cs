@@ -8,7 +8,7 @@ public interface IShoot
     public void setBullets(int bul);
 
 
-    public void shoot();
+    public bool shoot();
 
     public Animator getAnim();
     public int getBullets();
