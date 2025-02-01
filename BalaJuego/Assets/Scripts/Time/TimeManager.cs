@@ -122,9 +122,8 @@ public class TimeManager : MonoBehaviour,ITimeManager
         }
         if (!hasChanged)
         {
-            changeTimeMagnitude(1);
+           // changeTimeMagnitude(1);
         }
     }
-
   
 }

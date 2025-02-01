@@ -458,6 +458,7 @@ public class musicManager : MonoBehaviour
 
     void changeTimeMagnitude(object sender, timeData data)
     {
+        print("change");
         if (data.currentMagnitude == 1)
         {
             pitchObjective = 1;

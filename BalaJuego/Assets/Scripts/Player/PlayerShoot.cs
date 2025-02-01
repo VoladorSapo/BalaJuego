@@ -12,7 +12,11 @@ public class PlayerShoot : MonoBehaviour
 
     EnemyParentDetector stunedDetector;
 
-
+    cursorController cursor;
+    private void Awake()
+    {
+        cursor = FindObjectOfType<cursorController>();
+    }
     private void Start()
     {
         shoot = GetComponentInChildren<IShoot>();
@@ -31,7 +35,10 @@ public class PlayerShoot : MonoBehaviour
         {
             if (stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
-                shoot.shoot();
+                if (shoot.shoot())
+                {
+                    cursor.empty();
+                }
             }
             if (stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
@@ -43,6 +50,8 @@ public class PlayerShoot : MonoBehaviour
                     if (grabDetector.reachableObjects.Contains(bul))
                     {
                         bul.tryGrab(this);
+                        cursor.full();
+
                     }
                 }
             }

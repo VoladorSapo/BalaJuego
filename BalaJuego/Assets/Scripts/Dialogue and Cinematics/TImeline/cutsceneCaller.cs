@@ -16,6 +16,14 @@ public class cutsceneCaller:MonoBehaviour
 
     [SerializeField] bool playOnAwakeNoLevel = false;
 
+    private void Start()
+    {
+        if (playOnAwakeNoLevel)
+        {
+            PlayCutscene();
+        }
+    }
+
     public void PlayCutscene()
     {
         Action _action = () => { };

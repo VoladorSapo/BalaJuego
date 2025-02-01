@@ -40,7 +40,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
     }
 
-    public void shoot()
+    public bool shoot()
     {
         if (currentBullets > 0 && !shooting)
         {
@@ -48,7 +48,9 @@ public class CharacterShoot : MonoBehaviour,IShoot
             currentBullets--;
             bulletCount.text = currentBullets.ToString();
             anim.Play("Gunshot",-1,0);
+            return true;
         }
+        return false;
     }
     public void spawnBullet()
     {
