@@ -72,19 +72,16 @@ public class StartChargeState : BaseEnemyState
 public class ReloadState : BaseEnemyState
 {
     new BossEnemyController enemy;
-    public ReloadState(HeavyEnemyController _enemy)
+    public ReloadState(BossEnemyController _enemy)
     {
         enemy = _enemy;
     }
 
     public override void OnEnter()
     {
-        Debug.Log("start StartCHarge");
+        enemy.GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
         enemy.anim.Play("enemySpot");
-        enemy.finishCharging = false;
 
-        enemy.direction = enemy.detector.reachableObjects[0].transform.position.x > enemy.transform.position.x ? Vector3.right : Vector3.left;
-        enemy.transform.localScale = new Vector3(-enemy.direction.x, 1, 1);
 
     }
 }
