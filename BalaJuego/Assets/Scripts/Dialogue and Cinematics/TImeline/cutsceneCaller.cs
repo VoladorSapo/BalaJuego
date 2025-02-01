@@ -30,6 +30,7 @@ public class cutsceneCaller:MonoBehaviour
         switch (actionType)
         {
             case postCutsceneAction.Tutorial:
+                print("preparaTutorial");
                 _action = () => { _tutorial.startTutorial(); };
                 break;
             case postCutsceneAction.StartLevel:
