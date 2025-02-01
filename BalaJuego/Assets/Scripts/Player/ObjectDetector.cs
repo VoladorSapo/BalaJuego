@@ -85,6 +85,7 @@ public class ObjectParentDetector<T> : MonoBehaviour
     {
         print("hey" + collision.name);
         T obj = collision.GetComponentInParent<T>();
+        print(obj);
         if (obj != null)
         {
             print("Adding: " + collision.gameObject);
@@ -94,8 +95,9 @@ public class ObjectParentDetector<T> : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        T obj = collision.GetComponentInParent<T>();
+        print("ontriggerexitparent");
+        T obj = collision.GetComponentInParent<T>(true);
+        print(obj);
         if (obj != null)
         {
             print("Removing: " + collision.gameObject);

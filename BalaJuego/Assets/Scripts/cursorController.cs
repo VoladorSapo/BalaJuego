@@ -13,30 +13,46 @@ public class cursorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         anim = GetComponent<Animator>();
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
         rb = GetComponent<Rigidbody2D>();
         shouldMove = false;
     }
-    
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
+
         if (shouldMove)
         {
             //pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //pos.z = 0;
-          Vector3  mousePosition = Input.mousePosition;
+            Vector3 mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            pos = Vector2.Lerp(transform.position, mousePosition, speed);
-            pos.z = 0;
-
+            mousePosition.z = 0;
+      Vector3      currentPOs = transform.position;
+            currentPOs.z = 0;
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
         }
+
     }
-    private void FixedUpdate()
-    {
-        rb.MovePosition(pos);
-    }
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    if (shouldMove)
+    //    {
+    //        //pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //        //pos.z = 0;
+    //      Vector3  mousePosition = Input.mousePosition;
+    //        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    //        pos = Vector2.Lerp(transform.position, mousePosition, speed);
+    //        pos.z = 0;
+
+    //    }
+    //}
+    //private void FixedUpdate()
+    //{
+    //    rb.MovePosition(pos);
+    //}
     void changeState(object sender, stateData data)
     {
         switch (data.currentState)

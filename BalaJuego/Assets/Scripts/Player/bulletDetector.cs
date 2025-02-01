@@ -1,10 +1,10 @@
-﻿public class bulletDetector: ObjectDetector<IBullet>
+﻿public class bulletDetector: ObjectDetector<baseBullet>
 {
-    public override void Hover(IBullet obj)
+    public override void Hover(baseBullet obj)
     {
         obj.setHover(true);
     }
-    public override void UnHover(IBullet obj)
+    public override void UnHover(baseBullet obj)
     {
         obj.setHover(false);
     }

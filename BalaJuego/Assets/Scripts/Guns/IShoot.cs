@@ -15,5 +15,6 @@ public interface IShoot
 
     public void restart();
 
+    public void setShooting(bool _shoot);
 
 }

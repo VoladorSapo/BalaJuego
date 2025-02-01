@@ -9,7 +9,7 @@ public class CharacterLife : MonoBehaviour
     public Team team;
 
 
-    Animator anim;
+  protected  Animator anim;
 
  protected   bool melee;
 

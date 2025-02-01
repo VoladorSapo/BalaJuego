@@ -6,20 +6,20 @@ public class CharacterShoot : MonoBehaviour,IShoot
 {
 
     [SerializeField] int startBullets;
-    [SerializeField] int currentBullets;
+    [SerializeField] protected int currentBullets;
 
 
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject character;
+    [SerializeField] public Transform spawnPoint;
+    [SerializeField] protected GameObject character;
     [SerializeField] public Animator anim { get; private set; }
 
-    [SerializeField] bool shooting;
+    [SerializeField] protected bool shooting;
 
-    [SerializeField] GameObject bullet;
+    [SerializeField] protected GameObject bullet;
 
-   [SerializeField] TMP_Text bulletCount;
+   [SerializeField] protected TMP_Text bulletCount;
 
-    gunRotate rotate;
+   protected gunRotate rotate;
     private void Awake()
     {
         Assert.IsNotNull(bullet);
@@ -33,14 +33,14 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
     }
 
-    public void addBullets(int bul)
+    public virtual void addBullets(int bul)
     {
         currentBullets += bul;
         bulletCount.text = currentBullets.ToString();
 
     }
 
-    public bool shoot()
+    public virtual bool shoot()
     {
         if (currentBullets > 0 && !shooting)
         {
@@ -60,7 +60,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
         }
         return false;
     }
-    public void spawnBullet()
+    public virtual void spawnBullet()
     {
      IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
         bul.InstantiateBullet(character.GetComponent<CharacterLife>(),rotate.transform.eulerAngles.z);
@@ -69,7 +69,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
     {
         shooting = false;
     }
-    public void restart()
+    public virtual void restart()
     {
         shooting = false;
         currentBullets = startBullets;
@@ -85,4 +85,9 @@ public class CharacterShoot : MonoBehaviour,IShoot
     }
 
     public Animator getAnim() => anim;
+
+    public void setShooting(bool _shoot)
+    {
+        shooting = _shoot;
+    }
 }

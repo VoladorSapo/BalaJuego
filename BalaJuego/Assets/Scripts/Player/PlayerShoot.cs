@@ -8,7 +8,9 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] LayerMask clickable;
 
-    ObjectDetector<IBullet> grabDetector;
+    ObjectDetector<baseBullet> grabDetector;
+  botleDetector botleDetector;
+
 
     EnemyParentDetector stunedDetector;
 
@@ -16,9 +18,19 @@ public class PlayerShoot : MonoBehaviour
 
     bool reloading;
 
-    IBullet bulletToGrab;
+    baseBullet bulletToGrab;
+
+    botella bottleToGrab;
+    [SerializeField] GameObject BottlePrefab;
+
 
     CharacterLife enemyMelee;
+
+    [SerializeField] Animator anim;
+
+[SerializeField]    GameObject[] hidewhenMelee;
+
+[SerializeField]    bool hasBottle;
     private void Awake()
     {
         cursor = FindObjectOfType<cursorController>();
@@ -26,9 +38,12 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Start()
     {
+        hasBottle = false;
         shoot = GetComponentInChildren<IShoot>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
-        grabDetector = GetComponentInChildren<ObjectDetector<IBullet>>();
+        grabDetector = GetComponentInChildren<ObjectDetector<baseBullet>>();
+        botleDetector = GetComponentInChildren<botleDetector>();
+
         stunedDetector = GetComponentInChildren<EnemyParentDetector>();
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
         reloading = false;
@@ -42,23 +57,42 @@ public class PlayerShoot : MonoBehaviour
         {
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
-                if (shoot.shoot())
+                if (hasBottle)
                 {
-                    cursor.empty();
+                    
+                    hasBottle = false;
+                    GetComponentInChildren<IShoot>().getAnim().Play("bottleThrow");
+                }
+                else
+                {
+                    if (shoot.shoot())
+                    {
+                        cursor.empty();
+                    }
                 }
             }
-            if (!reloading && stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
 
                 if (hit)
                 {
-                    bulletToGrab = hit.collider.GetComponentInParent<IBullet>();
-                    if (grabDetector.reachableObjects.Contains(bulletToGrab))
+                    bulletToGrab = hit.collider.GetComponentInParent<baseBullet>();
+                    if (bulletToGrab != null && grabDetector.reachableObjects.Contains(bulletToGrab) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
                         reloading = true;
                         GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
                         bulletToGrab.tryGrab(this);
+                        cursor.full();
+
+                    }
+                    bottleToGrab = hit.collider.GetComponentInParent<botella>();
+                    if (bottleToGrab !=null && botleDetector.reachableObjects.Contains(bottleToGrab))
+                    {
+                        reloading = true;
+                        GetComponentInChildren<IShoot>().getAnim().Play("bottlePick");
+                        hasBottle = true;
+                        bottleToGrab.tryGrab(this);
                         cursor.full();
 
                     }
@@ -91,7 +125,12 @@ public class PlayerShoot : MonoBehaviour
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<GunEnemyController>() != null)
                 {
+                    anim.Play("basicEnemyMelee");
 
+                }
+                foreach (GameObject item in hidewhenMelee)
+                {
+                    item.SetActive(false);
                 }
                 enemyMelee = stunedDetector.reachableObjects[0].GetComponent<CharacterLife>();
                 stunedDetector.reachableObjects[0].GetComponent<CharacterLife>().meleeDeath();
@@ -104,12 +143,23 @@ public class PlayerShoot : MonoBehaviour
     }
     public void endMeleeAnim()
     {
+        foreach (GameObject item in hidewhenMelee)
+        {
+            item.SetActive(true);
+        }
         enemyMelee.Die();
     }
     public void endReloadAnim()
     {
         reloading = false;
        
+    }
+    public void throwBottle()
+    {
+        botella botel = Instantiate(BottlePrefab, GetComponentInChildren<CharacterShoot>().spawnPoint.position, Quaternion.identity).GetComponent<botella>();
+        botel.InstantiateBullet(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
+        GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
+
     }
     void changeState(object sender, stateData data)
     {
@@ -130,6 +180,7 @@ public class PlayerShoot : MonoBehaviour
     {
         reloading = false;
         enemyMelee = null;
+        hasBottle = false;
         
     }
     

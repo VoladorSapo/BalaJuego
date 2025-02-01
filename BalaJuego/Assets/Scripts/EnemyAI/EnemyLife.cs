@@ -23,12 +23,19 @@ public class EnemyLife : CharacterLife
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+        print("trigger");
         if (collision.tag == "Botella")
         {
+            print("triggerBotella");
             botella botel = collision.GetComponent<botella>();
             if (botel.isThrown)
             {
                 GetComponent<EnemyController>().getStuned();
+                botel.hitSomething(gameObject);
+            }
+            else
+            {
+                print("cagaste");
             }
         }
 

@@ -13,7 +13,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public bool hit;
 
-    CharacterLife.Team team;
+ protected   CharacterLife.Team team;
 
     [SerializeField] protected ParticleSystem hitParticle;
     [SerializeField]protected  ParticleSystem impactParticle;
@@ -23,9 +23,11 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] float HoverSize;
 
 
-    float timeMagnitude;
+   protected float timeMagnitude;
 
   [SerializeField]  LayerMask obstacleLayer;
+
+  protected  Animator anim;
 
 
 
@@ -48,7 +50,7 @@ public class baseBullet: MonoBehaviour, IBullet
         }
         transform.Translate(Vector2.left * speed * Time.deltaTime*timeMagnitude);
     }
-    public void InstantiateBullet(CharacterLife shooter,float angle)
+    public virtual void InstantiateBullet(CharacterLife shooter,float angle)
     {
         musicManager.Instance.PlayDisparo();
         print(shooter.transform.localScale.x);
@@ -65,6 +67,7 @@ public class baseBullet: MonoBehaviour, IBullet
     }
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         ITimeManager time = ServiceLocator.Instance.Get<ITimeManager>();
         timeMagnitude = time.getMagnitude();
         time.subscribeToTimeChange(changeTimeMagnitude);
@@ -77,6 +80,7 @@ public class baseBullet: MonoBehaviour, IBullet
     {
         //Animacion o algo
         hit = true;
+        anim.Play("bulletDestroy");
        if(obj.GetComponent<CharacterLife>() != null){
             hitParticle.Play();
             musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
@@ -87,6 +91,7 @@ public class baseBullet: MonoBehaviour, IBullet
             musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
         }
         speed = 0;
+        GetComponent<Collider2D>().enabled = false;
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         Destroy(gameObject, 0.5f);
     }
@@ -138,44 +143,3 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public GameObject getObj() => gameObject;
 }
-
-public class botella : baseBullet
-{
-    public bool isThrown;
-    LevelAreaController area;
-    Vector3 initialPos;
-    private void Start()
-    {
-        isThrown = false;
-        initialPos = transform.position;
-    }
-
-    public void resTart(LevelAreaController _area)
-    {
-        isThrown = false;
-        area = _area;
-        transform.position = initialPos;
-
-    }
-    public override void hitSomething(GameObject obj)
-    {
-        
-            //Animacion o algo
-            if (obj.GetComponent<CharacterLife>() != null)
-            {
-                hitParticle.Play();
-                musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
-            }
-            else
-            {
-                impactParticle.Play();
-                musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
-            }
-            speed = 0;
-            Destroy(gameObject, 0.5f);
-        
-    }
-  
-}
-
-
