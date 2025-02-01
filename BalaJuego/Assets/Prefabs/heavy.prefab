@@ -644,6 +644,7 @@ MonoBehaviour:
   currentLife: 1
   maxLife: 1
   team: 1
+  spriteParent: {fileID: 9219923319264188495}
 --- !u!114 &5440004477592222517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +660,7 @@ MonoBehaviour:
   <anim>k__BackingField: {fileID: 4072682334336820030}
   <shootCadence>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 950568152328337870}
+  canBeKilledMelee: 1
   wallDetect: {fileID: 7434739824679542089}
   direction: {x: 0, y: 0, z: 0}
   rb2d: {fileID: 8443046818157481121}

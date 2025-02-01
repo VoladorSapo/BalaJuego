@@ -5057,6 +5057,7 @@ GameObject:
   - component: {fileID: 3111827170492394959}
   - component: {fileID: 7629799431082066048}
   - component: {fileID: 3283797607070126382}
+  - component: {fileID: 9118577169150043143}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -5188,6 +5189,18 @@ MonoBehaviour:
   shooting: 0
   bullet: {fileID: 4778922938256658580, guid: 9edd249629eec8e4299c3c10923a784c, type: 3}
   bulletCount: {fileID: 1993152138652490845}
+--- !u!114 &9118577169150043143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060920710229837519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1285673212739279301
 GameObject:
   m_ObjectHideFlags: 0
@@ -16178,3 +16191,4 @@ MonoBehaviour:
   currentLife: 0
   maxLife: 0
   team: 0
+  spriteParent: {fileID: 0}

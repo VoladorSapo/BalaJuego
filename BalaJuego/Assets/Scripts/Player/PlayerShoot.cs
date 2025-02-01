@@ -13,9 +13,16 @@ public class PlayerShoot : MonoBehaviour
     EnemyParentDetector stunedDetector;
 
     cursorController cursor;
+
+    bool reloading;
+
+    IBullet bulletToGrab;
+
+    CharacterLife enemyMelee;
     private void Awake()
     {
         cursor = FindObjectOfType<cursorController>();
+        enemyMelee = null;
     }
     private void Start()
     {
@@ -24,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
         grabDetector = GetComponentInChildren<ObjectDetector<IBullet>>();
         stunedDetector = GetComponentInChildren<EnemyParentDetector>();
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
-
+        reloading = false;
         grabDetector.gameObject.SetActive(false);
 
 
@@ -33,23 +40,25 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 if (shoot.shoot())
                 {
                     cursor.empty();
                 }
             }
-            if (stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading && stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
 
                 if (hit)
                 {
-                    IBullet bul = hit.collider.GetComponent<IBullet>();
-                    if (grabDetector.reachableObjects.Contains(bul))
+                    bulletToGrab = hit.collider.GetComponent<IBullet>();
+                    if (grabDetector.reachableObjects.Contains(bulletToGrab))
                     {
-                        bul.tryGrab(this);
+                        reloading = true;
+                        GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
+                        bulletToGrab.tryGrab(this);
                         cursor.full();
 
                     }
@@ -76,14 +85,31 @@ public class PlayerShoot : MonoBehaviour
         {
             if(stunedDetector.reachableObjects.Count > 0)
             {
+                if (stunedDetector.reachableObjects[0].GetComponent<HeavyEnemyController>() != null)
+                {
 
-                stunedDetector.reachableObjects[0].GetComponent<CharacterLife>().Die();
+                }
+                if (stunedDetector.reachableObjects[0].GetComponent<GunEnemyController>() != null)
+                {
+
+                }
+                enemyMelee = stunedDetector.reachableObjects[0].GetComponent<CharacterLife>();
+                stunedDetector.reachableObjects[0].GetComponent<CharacterLife>().meleeDeath();
                 //Muerte Melee
             }
         }
 
         
 
+    }
+    public void endMeleeAnim()
+    {
+        enemyMelee.Die();
+    }
+    public void endReloadAnim()
+    {
+        reloading = false;
+       
     }
     void changeState(object sender, stateData data)
     {
@@ -100,6 +126,11 @@ public class PlayerShoot : MonoBehaviour
 
         }
     }
-
+    public void restart()
+    {
+        reloading = false;
+        enemyMelee = null;
+        
+    }
     
 }

@@ -110,6 +110,7 @@ public class StunedState: BaseEnemyState
     public override void OnEnter()
     {
 enemy.stunedCollider.gameObject.SetActive(true);
+        enemy.anim.Play("enemyStun");
 
     }
     public override void OnExit()

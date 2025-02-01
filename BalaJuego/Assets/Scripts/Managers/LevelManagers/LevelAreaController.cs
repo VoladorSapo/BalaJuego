@@ -5,9 +5,13 @@ using Cinemachine;
 
 public class LevelAreaController : MonoBehaviour
 {
- [SerializeField]   List<EnemyController> enemies;
+ [SerializeField] public  List<EnemyController> enemies;
+    int aliveEnemies;
 
-  [SerializeField]  GameObject colliders;
+    [SerializeField] List<botella> botellas;
+   public int intactBottles;
+
+    [SerializeField]  GameObject colliders;
 
     CinemachineVirtualCamera virtCamera;
 
@@ -35,16 +39,26 @@ public class LevelAreaController : MonoBehaviour
     }
     public void enemyDie(EnemyController enemy)
     {
-        if (enemy != null)
+        if (enemy != null && enemy.gameObject.activeSelf)
         {
-            enemies.Remove(enemy);
+            aliveEnemies--;
+            ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         }
-        if(started && enemies.Count == 0)
+        if(started && aliveEnemies == 0)
         {
             endCollider.gameObject.SetActive(false);
             startTrigger.gameObject.SetActive(false);
             started = false;
             ServiceLocator.Instance.Get<ILevelController>().endArea(this);
+        }
+    }
+    public void destroyBottle(botella botel)
+    {
+        if (botel.gameObject.activeSelf)
+        {
+            intactBottles--;
+            ServiceLocator.Instance.Get<IsoftLock>().checkAll();
+
         }
     }
     private void Start()
@@ -54,11 +68,17 @@ public class LevelAreaController : MonoBehaviour
 
     void restart()
     {
+        aliveEnemies = enemies.Count;
         started = false;
       foreach(EnemyController enem in enemies)
         {
             enem.gameObject.SetActive(true);
             enem.restart(this);
+        }
+        foreach (botella botel in botellas)
+        {
+            botel.gameObject.SetActive(true);
+            botel.resTart(this);
         }
         print("restae");
         startTrigger.gameObject.SetActive(true);
