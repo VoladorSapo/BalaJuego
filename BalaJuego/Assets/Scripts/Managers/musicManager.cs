@@ -45,15 +45,18 @@ public class musicManager : MonoBehaviour
 
 
     private float walkSoundOffset = 0.3f;
+    private float heavyWalkSoundOffset = 0.3f;
     private bool isWalking = false;
+    private bool isHeavyWalking = false;
     private Coroutine walkCycleCoroutine;
+    private Coroutine heavyWalkCycleCoroutine;
 
 
     public void Start()
     {
 
-        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
-        pitchObjective = audioSourceA.pitch;
+        //ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
+        //pitchObjective = audioSourceA.pitch;
     }
 
 
@@ -87,9 +90,8 @@ public class musicManager : MonoBehaviour
         InitializeSoundPool();
 
 
-        // Inicializar (QUITAR Y PONER DONDE HAGA FALTA)
+        // Inicializar
         SetSong("main");
-        SetPhase(4);
     }
 
 
@@ -103,13 +105,13 @@ public class musicManager : MonoBehaviour
 
     private void Update()
     {
-
+        /*
         if (pitchObjective != audioSourceA.pitch)
         {
             audioSourceA.pitch = Mathf.MoveTowards(audioSourceA.pitch, pitchObjective, Time.deltaTime);
             audioSourceB.pitch = audioSourceA.pitch;
         }
-
+        //*/
 
         // Detectar cambios en los volumenes
         if (!Mathf.Approximately(volMusic, lastVolMusic))
@@ -519,8 +521,40 @@ public class musicManager : MonoBehaviour
         while (isWalking)
         {
             PlayWalk();
-            Debug.Log("PASO" + walkSoundOffset);
+            //Debug.Log("PASO" + walkSoundOffset);
             yield return new WaitForSeconds(walkSoundOffset);
         }
     }
+    
+    
+    public void StartHeavyWalking()
+    {
+        if (!isHeavyWalking)
+        {
+            isHeavyWalking = true;
+            heavyWalkCycleCoroutine = StartCoroutine(PlayHeavyWalkCycle());
+        }
+    }
+
+    public void StopHeavyWalking()
+    {
+        if (isHeavyWalking)
+        {
+            isHeavyWalking = false;
+            if (heavyWalkCycleCoroutine != null)
+                StopCoroutine(heavyWalkCycleCoroutine);
+        }
+    }
+
+    private IEnumerator PlayHeavyWalkCycle()
+    {
+        while (isHeavyWalking)
+        {
+            PlayHeavyWalk();
+            //Debug.Log("PASO" + walkSoundOffset);
+            yield return new WaitForSeconds(heavyWalkSoundOffset);
+        }
+    }
+
+
 }

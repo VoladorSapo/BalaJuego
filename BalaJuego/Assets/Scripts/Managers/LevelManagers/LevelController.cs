@@ -28,7 +28,9 @@ public class LevelController : MonoBehaviour, ILevelController
 
         cutsceneStart.PlayCutscene();
         //StartCoroutine(lateStart());
-        
+
+        // AQUI MUSICA
+        musicManager.Instance.SetPhase(3);
     }
     IEnumerator lateStart()
     {
