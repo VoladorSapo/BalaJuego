@@ -2,7 +2,7 @@
 
 public class WallDetector : MonoBehaviour
 {
- [HideInInspector]  public GameObject wall;
+  public GameObject wall;
     [SerializeField] LayerMask wallLayer;
     private void Start()
     {
@@ -13,6 +13,7 @@ public class WallDetector : MonoBehaviour
         if(collision.transform.tag == "Ground")
         {
             wall = collision.gameObject;
+            
         }
     }
     public void restart()

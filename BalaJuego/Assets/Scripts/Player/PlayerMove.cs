@@ -232,6 +232,8 @@ public class PlayerMove : MonoBehaviour
         transform.position = initialPos;
         gameObject.SetActive(true);
         GetComponentInChildren<IShoot>().restart();
+        GetComponentInChildren<PlayerShoot>().restart();
+        GetComponent<CharacterLife>().restart();
         canMove = true;
     }
     void changeState(object sender, stateData data)

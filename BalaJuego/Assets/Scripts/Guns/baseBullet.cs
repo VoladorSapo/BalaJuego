@@ -3,7 +3,7 @@
 public class baseBullet: MonoBehaviour, IBullet
 {
     Vector3 direction;
-    [SerializeField] float speed;
+    [SerializeField] protected float speed;
     [SerializeField] int damage = 1;
     [SerializeField] bool grabable = true;
     [SerializeField] float lifeTime;
@@ -11,10 +11,12 @@ public class baseBullet: MonoBehaviour, IBullet
 
     [SerializeField] bool Infinite;
 
+    public bool hit;
+
     CharacterLife.Team team;
 
-    [SerializeField] ParticleSystem hitParticle;
-    [SerializeField] ParticleSystem impactParticle;
+    [SerializeField] protected ParticleSystem hitParticle;
+    [SerializeField]protected  ParticleSystem impactParticle;
 
     bool inSelect;
 
@@ -67,12 +69,14 @@ public class baseBullet: MonoBehaviour, IBullet
         timeMagnitude = time.getMagnitude();
         time.subscribeToTimeChange(changeTimeMagnitude);
         setHover(false);
+        hit = false;
 
     }
 
-    public void hitSomething(GameObject obj)
+    public virtual void hitSomething(GameObject obj)
     {
         //Animacion o algo
+        hit = true;
        if(obj.GetComponent<CharacterLife>() != null){
             hitParticle.Play();
             musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
@@ -83,6 +87,7 @@ public class baseBullet: MonoBehaviour, IBullet
             musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
         }
         speed = 0;
+        ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         Destroy(gameObject, 0.5f);
     }
   
@@ -133,3 +138,44 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public GameObject getObj() => gameObject;
 }
+
+public class botella : baseBullet
+{
+    public bool isThrown;
+    LevelAreaController area;
+    Vector3 initialPos;
+    private void Start()
+    {
+        isThrown = false;
+        initialPos = transform.position;
+    }
+
+    public void resTart(LevelAreaController _area)
+    {
+        isThrown = false;
+        area = _area;
+        transform.position = initialPos;
+
+    }
+    public override void hitSomething(GameObject obj)
+    {
+        
+            //Animacion o algo
+            if (obj.GetComponent<CharacterLife>() != null)
+            {
+                hitParticle.Play();
+                musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
+            }
+            else
+            {
+                impactParticle.Play();
+                musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
+            }
+            speed = 0;
+            Destroy(gameObject, 0.5f);
+        
+    }
+  
+}
+
+

@@ -47,7 +47,15 @@ public class CharacterShoot : MonoBehaviour,IShoot
             shooting = true;
             currentBullets--;
             bulletCount.text = currentBullets.ToString();
-            anim.Play("Gunshot",-1,0);
+            if (GetComponentInParent<GunEnemyController>() != null)
+            {
+                anim.Play("gunLoad", -1, 0);
+
+            }
+            else
+            {
+                anim.Play("Gunshot", -1, 0);
+            }
             return true;
         }
         return false;

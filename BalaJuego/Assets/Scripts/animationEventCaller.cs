@@ -8,4 +8,11 @@ public class animationEventCaller : MonoBehaviour
     {
         GetComponentInParent<HeavyEnemyController>().finishCharging = true;
     }
+
+    public void endReloadEvent()
+    {
+        GetComponentInParent<PlayerShoot>().endReloadAnim();
+
+    }
+    
 }

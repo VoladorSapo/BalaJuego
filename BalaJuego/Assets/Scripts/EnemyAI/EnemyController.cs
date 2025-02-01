@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     public LevelAreaController area { get; private set; }
 
+    public bool canBeKilledMelee = true;
+
 
     // Start is called before the first frame update
    protected virtual void Start()
@@ -69,11 +71,15 @@ public class EnemyController : MonoBehaviour
     {
         timeMagnitude = data.currentMagnitude;
     }
-
+    public void getStuned()
+    {
+        stateMachine.SetState(new StunedState(this));
+    }
     public virtual void restart(LevelAreaController _area)
     {
         detector?.restart();
         stunedCollider.gameObject.SetActive(false);
+        GetComponent<CharacterLife>().restart();
         transform.position = initialPos;
         timeMagnitude = 1;
         area = _area;

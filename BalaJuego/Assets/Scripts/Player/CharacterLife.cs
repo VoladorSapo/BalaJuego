@@ -10,7 +10,11 @@ public class CharacterLife : MonoBehaviour
 
 
     Animator anim;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+ protected   bool melee;
+
+ [SerializeField]   GameObject spriteParent;
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Bullet")
         {
@@ -40,11 +44,19 @@ public class CharacterLife : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
+    public virtual void meleeDeath()
+    {
+        spriteParent.SetActive(false);
+        melee = true;
+    }
     public enum Team
     {
         Player,
         Enemy,
     }
-
+    public void restart()
+    {
+        currentLife = maxLife;
+        melee = false;
+    }
 }
