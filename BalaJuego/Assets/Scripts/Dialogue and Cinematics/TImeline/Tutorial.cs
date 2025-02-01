@@ -96,7 +96,7 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "Pulsa E para parar el Tiempo";
+            tutorial.TutorialText.text = "Cuando no tienes balas en el cargador puedes pulsar E para parar el Tiempo";
             tutorial.enemy.anim.Play("enemySpot");
             tutorial.enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
             tutorial.enemy.GetComponentInChildren<gunRotate>().setRotation(tutorial.player.transform.position);

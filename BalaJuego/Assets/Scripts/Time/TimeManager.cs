@@ -122,8 +122,15 @@ public class TimeManager : MonoBehaviour,ITimeManager
         }
         if (!hasChanged)
         {
-           // changeTimeMagnitude(1);
+         //  changeTimeMagnitude(1);
         }
     }
-  
+
+    public void endSlow()
+    {
+        if (!hasChanged)
+        {
+           changeTimeMagnitude(1);
+        }
+    }
 }

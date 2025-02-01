@@ -229,6 +229,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void restart()
     {
+        print("plyerRestart");
         transform.position = initialPos;
         gameObject.SetActive(true);
         GetComponentInChildren<IShoot>().restart();

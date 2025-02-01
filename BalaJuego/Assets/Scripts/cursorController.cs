@@ -98,6 +98,6 @@ public class cursorController : MonoBehaviour
 
     public void endSlow()
     {
-        ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
+        ServiceLocator.Instance.Get<ITimeManager>().endSlow();
     }
 }

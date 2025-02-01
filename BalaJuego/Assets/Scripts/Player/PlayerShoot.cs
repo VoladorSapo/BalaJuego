@@ -53,7 +53,7 @@ public class PlayerShoot : MonoBehaviour
 
                 if (hit)
                 {
-                    bulletToGrab = hit.collider.GetComponent<IBullet>();
+                    bulletToGrab = hit.collider.GetComponentInParent<IBullet>();
                     if (grabDetector.reachableObjects.Contains(bulletToGrab))
                     {
                         reloading = true;
