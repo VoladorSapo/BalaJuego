@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5103706723343130234}
   - component: {fileID: 8513068803425340481}
   - component: {fileID: 1657784752170592939}
+  - component: {fileID: 5543948199045982780}
+  - component: {fileID: 738955533902035285}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -88,6 +90,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areas: []
   levelAreaParent: {fileID: 0}
+  cutsceneStart: {fileID: 0}
+  cutsceneEnd: {fileID: 0}
 --- !u!114 &1657784752170592939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,4 +104,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0f76bef83239f48b75d02601507b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeMagnitude: 0
   timeLimit: 2
+--- !u!114 &5543948199045982780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947349907422927085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5dc5c88cf5c15469dca0eb1f33e03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 0}
+--- !u!114 &738955533902035285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947349907422927085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 8ac5c326724ba7f4395204f1c993ad7e, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5543948199045982780}
+          m_TargetAssemblyTypeName: cutsceneManager, Assembly-CSharp
+          m_MethodName: endAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

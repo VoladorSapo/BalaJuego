@@ -29,11 +29,11 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (stateManager.getState() == IGameState.gameState.NormalTime)
+            if (stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 shoot.shoot();
             }
-            if (stateManager.getState() == IGameState.gameState.SlowDown)
+            if (stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
 
@@ -55,14 +55,14 @@ public class PlayerShoot : MonoBehaviour
                 ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
                 }
             }
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                if (stateManager.getState() == IGameState.gameState.SlowDown && shoot.getBullets() == 0)
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (stateManager.getState() == IGameState.gameState.SlowDown && shoot.getBullets() == 0)
             {
                 musicManager.Instance.PlaySound("snd_stopslowtime");
                 ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
-                }
             }
+        }
         if (Input.GetKeyDown(KeyCode.F))
         {
             if(stunedDetector.reachableObjects.Count > 0)

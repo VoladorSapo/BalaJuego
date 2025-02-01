@@ -24,13 +24,13 @@ public class TimeManager : MonoBehaviour,ITimeManager
         timeMagnitude = 1;
     }
 
-    public void changeTimeMagnitude(float newMagnitude)
+    public void changeTimeMagnitude(float newMagnitude, bool inf = false)
     {
         Debug.Log("Change Time " + newMagnitude);
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;
         onTimeChange?.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
-        if (newMagnitude < 1)
+        if (newMagnitude < 1 && !inf)
         {
             waiting = StartCoroutine(timeLimitReset());
         }
@@ -99,6 +99,12 @@ public class TimeManager : MonoBehaviour,ITimeManager
 
                 break;
             default:
+                if (waiting != null)
+                {
+                    StopCoroutine(waiting);
+                }
+                hasChanged = true;
+
                 break;
         }
     }

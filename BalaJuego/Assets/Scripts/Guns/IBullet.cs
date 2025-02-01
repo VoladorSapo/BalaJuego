@@ -17,6 +17,8 @@ public interface IBullet
 
     public void setHover(bool set);
 
+    public GameObject getObj();
+
     //public bool damageType
     //{
     //    hurtOtherTeam,

@@ -31,13 +31,17 @@ public class gameStateManager : MonoBehaviour, IGameState
    
     void changeTimeMagnitude(object sender, timeData data)
     {
-       if(data.currentMagnitude == 1){
-            setState(IGameState.gameState.NormalTime);
-        }
-        else
+        if (currentState != IGameState.gameState.Tutorial)
         {
-            setState(IGameState.gameState.SlowDown);
+            if (data.currentMagnitude == 1)
+            {
+                setState(IGameState.gameState.NormalTime);
+            }
+            else
+            {
+                setState(IGameState.gameState.SlowDown);
 
+            }
         }
     }
   public  void setState(IGameState.gameState newState)

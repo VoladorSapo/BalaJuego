@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
             case IGameState.gameState.Win:
                 changeGroup(PauseScreen, false);
                 changeGroup(DeathScreen, false);
-                changeGroup(winScreen, true);
+                changeGroup(winScreen, false);
                 break;
             default:
                 changeGroup(PauseScreen, false);

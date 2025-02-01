@@ -32,26 +32,3 @@ public class DialogueTrackMixer : PlayableBehaviour
         }
     }
 }
-
-public class cutsceneCaller
-{
-    [SerializeField] cutsceneManager.postCutsceneAction actionType;
-
-    [SerializeField] Tutorial _tutorial;
-}
-
-public class cutsceneManager{
-
-
-    public enum postCutsceneAction
-    {
-        Tutorial,
-        StartLevel,
-        Continue
-    }
-}
-
-public class Tutorial
-{
-
-}

@@ -9,7 +9,8 @@ public interface IGameState : IService
         Cinematic,
         SlowDown,
         Death,
-        Win
+        Win,
+        Tutorial
     }
     public gameState getState();
 

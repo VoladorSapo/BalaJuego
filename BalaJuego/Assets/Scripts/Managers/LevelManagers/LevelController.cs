@@ -15,13 +15,19 @@ public class LevelController : MonoBehaviour, ILevelController
 
     GameObject player;
 
+  [SerializeField]  cutsceneCaller cutsceneStart;
+    [SerializeField] cutsceneCaller cutsceneEnd;
+
+
     // Start is called before the first frame update
     void Start()
     {
         areas = new List<LevelAreaController>();
         areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
         player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
-        StartCoroutine(lateStart());
+
+        cutsceneStart.PlayCutscene();
+        //StartCoroutine(lateStart());
         
     }
     IEnumerator lateStart()
@@ -89,7 +95,8 @@ public class LevelController : MonoBehaviour, ILevelController
 
     public void Win()
     {
-        ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Win);
+        cutsceneEnd.PlayCutscene();
+       ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Win);
     }
 
     public void Lose()

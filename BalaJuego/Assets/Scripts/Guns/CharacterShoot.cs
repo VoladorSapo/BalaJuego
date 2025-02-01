@@ -26,7 +26,10 @@ public class CharacterShoot : MonoBehaviour,IShoot
         Assert.IsNotNull(bullet.GetComponent< IBullet>());
         rotate = GetComponent<gunRotate>();
         anim = GetComponent<Animator>();
-        bulletCount.text = currentBullets.ToString();
+        if (bulletCount != null)
+        {
+            bulletCount.text = currentBullets.ToString();
+        }
 
     }
 

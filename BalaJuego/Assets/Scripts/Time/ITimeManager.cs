@@ -2,7 +2,7 @@
 
 public interface ITimeManager : IService
 {
-    public void changeTimeMagnitude(float newMagnitude);
+    public void changeTimeMagnitude(float newMagnitude,bool inf = false);
 
     public void subscribeToTimeChange(EventHandler<timeData> response);
 

@@ -249,6 +249,8 @@ public class PlayerMove : MonoBehaviour
                 break;
             default:
                 canMove = false;
+                rb2d.velocity = new Vector2(0,rb2d.velocity.y);
+                anim.SetBool("isRunning", false);
 
                 break;
            

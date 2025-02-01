@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class lightController : MonoBehaviour
 {
     Light2D light;
- [SerializeField]   float dark;
+ [SerializeField] public  float dark;
     // Start is called before the first frame update
     void Start()
     {

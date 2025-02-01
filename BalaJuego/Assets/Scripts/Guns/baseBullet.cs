@@ -57,7 +57,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public int getDamage() => damage;
 
-    void changeTimeMagnitude(object sender, timeData data)
+ public   void changeTimeMagnitude(object sender, timeData data)
     {
         timeMagnitude = data.currentMagnitude;
     }
@@ -130,4 +130,6 @@ public class baseBullet: MonoBehaviour, IBullet
         transform.localScale = new Vector3(1, 1, 1);
 
     }
+
+    public GameObject getObj() => gameObject;
 }
