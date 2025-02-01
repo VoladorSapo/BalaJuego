@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c68cde8fbd29d3d47bbccc7af41ea3d9
+guid: caf6f83261ea3004eb676c07e6cf0556
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,85 +97,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bossReload_0
+      name: bossDodge_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 73
-        height: 73
+        width: 89
+        height: 86
       alignment: 9
-      pivot: {x: 0.83, y: 0.46}
+      pivot: {x: 0.69, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e93c8796198199c4183d5136df5f6131
-      internalID: 682247519
+      spriteID: 0b7049dd098eb17469bdd862d866360e
+      internalID: 66285683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossReload_1
+      name: bossDodge_1
       rect:
         serializedVersion: 2
-        x: 73
+        x: 89
         y: 0
-        width: 73
-        height: 73
+        width: 89
+        height: 86
       alignment: 9
-      pivot: {x: 0.83, y: 0.46}
+      pivot: {x: 0.69, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cb1cdabf34ea05478f818360a71d8c0
-      internalID: -408044599
+      spriteID: 7b395fefbc2b1c4409c84090815db9f9
+      internalID: 2090683976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossReload_2
+      name: bossDodge_2
       rect:
         serializedVersion: 2
-        x: 146
+        x: 178
         y: 0
-        width: 73
-        height: 73
+        width: 89
+        height: 86
       alignment: 9
-      pivot: {x: 0.83, y: 0.46}
+      pivot: {x: 0.69, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 779c7f5274f12c74590a1abb877896e0
-      internalID: -689888563
+      spriteID: e04d69c15f152234d96272fa7f4b5ee7
+      internalID: 937830085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossReload_3
+      name: bossDodge_3
       rect:
         serializedVersion: 2
-        x: 219
+        x: 267
         y: 0
-        width: 73
-        height: 73
+        width: 89
+        height: 86
       alignment: 9
-      pivot: {x: 0.83, y: 0.46}
+      pivot: {x: 0.69, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6709c5bc40901ba44be67fe3b928a869
-      internalID: -1894247467
+      spriteID: 6c52f33c49c3aff4a8fb11ee7a4a6663
+      internalID: -511469089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossDodge_4
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 0
+        width: 89
+        height: 86
+      alignment: 9
+      pivot: {x: 0.69, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd70eb7a4bcd92f4fb28c96371cc922a
+      internalID: 1584609161
       vertices: []
       indices: 
       edges: []
@@ -191,10 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bossReload_0: 682247519
-      bossReload_1: -408044599
-      bossReload_2: -689888563
-      bossReload_3: -1894247467
+      bossDodge_0: 66285683
+      bossDodge_1: 2090683976
+      bossDodge_2: 937830085
+      bossDodge_3: -511469089
+      bossDodge_4: 1584609161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
