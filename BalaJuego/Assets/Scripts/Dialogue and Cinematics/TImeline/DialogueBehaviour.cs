@@ -13,7 +13,7 @@ public class DialogueBehaviour: PlayableBehaviour
 
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-    
+        
         TMP_Text text = playerData as TMP_Text;
         text.ForceMeshUpdate();
         text.text = dialogText;
@@ -38,6 +38,26 @@ public class DialogueBehaviour: PlayableBehaviour
                 if (text.textInfo.characterCount > 0)
                 {
                     Debug.Log(maxVisible + "Bip");
+
+                    int numeroAleatorio = Random.Range(0, 2);
+
+                    if (numeroAleatorio == 0)
+                    {
+                        if (QuienHabla() == 0) // Es la prota
+                        {
+                            musicManager.Instance.PlaySoundPitch("snd_voicemedium", 0.2f);
+                        }
+                        else if (QuienHabla() == 1) // Es el cura
+                        {
+                            musicManager.Instance.PlaySoundPitch("snd_voicehigh", 0.2f);
+                        }
+                        else // Otros
+                        {
+                            musicManager.Instance.PlaySoundPitch("snd_voicelow", 0.2f);
+                        }
+                    }
+
+
                 }
             }
         }
@@ -48,4 +68,11 @@ public class DialogueBehaviour: PlayableBehaviour
         //text.maxVisibleCharacters = text.textInfo.characterCount / playable.GetDuration
         
     }
+
+    int QuienHabla()
+    {
+        // devolver 0 si es la prota, 1 si es el cura y 2 si son los malos
+        return 2;
+    }
+
 }
