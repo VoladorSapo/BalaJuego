@@ -3632,7 +3632,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.75
+  orthographic size: 3.225
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4501,7 +4501,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -4711,7 +4711,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -41667,7 +41667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50f2ffc99592f846ab57e89be064795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 1150649665}
+  clips: []
+  volMusic: 1
+  volSounds: 1
   pitchMult: 0.6
   transitionSpeed: 0.5
 --- !u!1 &1164056830
@@ -54393,6 +54395,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138043520}
   m_CullTransparentMesh: 1
+--- !u!1001 &6568788316857920733
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70.439064
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.82562494
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051294939465296080, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: m_Name
+      value: botella1_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -54424,3 +54483,4 @@ SceneRoots:
   - {fileID: 1928329893}
   - {fileID: 1803593581}
   - {fileID: 1417018554}
+  - {fileID: 6568788316857920733}
