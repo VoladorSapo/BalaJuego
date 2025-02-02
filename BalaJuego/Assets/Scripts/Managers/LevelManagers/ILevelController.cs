@@ -2,6 +2,7 @@
 
 public interface ILevelController: IService
 {
+    public void trueStart();
     public void endArea(LevelAreaController area);
     public void startArea(LevelAreaController area);
 

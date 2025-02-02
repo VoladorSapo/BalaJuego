@@ -58,12 +58,16 @@ public class cursorController : MonoBehaviour
         switch (data.currentState)
         {
             case IGameState.gameState.SlowDown:
+                Cursor.visible = false;
+
                 slow();
                 shouldMove = true;
 
 
                 break;
             case IGameState.gameState.NormalTime:
+                Cursor.visible = false;
+
                 shouldMove = true;
 
                 if (bulets>0)
@@ -76,6 +80,8 @@ public class cursorController : MonoBehaviour
                 }
                 break;
             case IGameState.gameState.Tutorial:
+                Cursor.visible = false;
+
                 if (bulets > 0)
                 {
                     full();
@@ -86,8 +92,13 @@ public class cursorController : MonoBehaviour
                 }
                 shouldMove = true;
                 break;
+            case IGameState.gameState.Cinematic:
+                Cursor.visible = false;
+
+                break;
             default:
                 sprite.enabled = false;
+                Cursor.visible = true;
 
                 shouldMove = false;
                 break;

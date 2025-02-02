@@ -27,17 +27,16 @@ public class LevelController : MonoBehaviour, ILevelController
         areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
         player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
 
+     
+    }
+    public void trueStart()
+    {
         cutsceneStart.PlayCutscene();
         //StartCoroutine(lateStart());
 
         // AQUI MUSICA
         musicManager.Instance.SetSong("nivel");
         musicManager.Instance.SetPhase(0);
-    }
-    IEnumerator lateStart()
-    {
-        yield return new WaitForEndOfFrame();
-        reStart();
     }
     // Update is called once per frame
     void Update()

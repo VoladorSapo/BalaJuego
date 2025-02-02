@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ditherTransition : MonoBehaviour
 {
     [SerializeField] Material mat;
     [SerializeField] float dither;
+    Animator anim;
+    string NextScene;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
     public void goIn(string scene)
     {
+        anim.Play("ditherIn");
+        NextScene = scene;
 
     }
     public void finishIn()
     {
+        SceneManager.LoadScene(NextScene);
 
     }
     public void finishOut()
     {
+        ServiceLocator.Instance.Get<ILevelController>().trueStart();
 
     }
     public void goOut()
     {
-
+        anim.Play("ditherOut");
     }
     // Update is called once per frame
     void Update()

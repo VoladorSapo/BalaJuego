@@ -4,18 +4,19 @@ public class EnemyLife : CharacterLife
 {
     [SerializeField] GameObject gun;
     [SerializeField] GameObject head;
+    [SerializeField] GameObject countText;
     public override void Die()
     {
         dead = true;
         GetComponent<EnemyController>().stunedCollider.enabled = false;
-       // collider.gameObject.SetActive(false);
-
+        // collider.gameObject.SetActive(false);
         if (melee)
         {
 
             spriteParent.SetActive(true);
             if (GetComponent<GunEnemyController>() != null)
             {
+                countText.SetActive(false);
                 gun.SetActive(false);
                 head?.SetActive(false);
             }
@@ -27,6 +28,7 @@ public class EnemyLife : CharacterLife
         {
             if (GetComponent<GunEnemyController>() != null)
             {
+                countText.SetActive(false);
                 gun.SetActive(false);
                 head?.SetActive(false);
             }
@@ -55,6 +57,8 @@ public class EnemyLife : CharacterLife
 
         if (GetComponent<GunEnemyController>() != null)
         {
+            print("countext" + gameObject.name);
+            countText.SetActive(true);
             gun.SetActive(true);
             head?.SetActive(true);
         }

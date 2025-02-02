@@ -648,6 +648,7 @@ MonoBehaviour:
   spriteParent: {fileID: 9219923319264188495}
   gun: {fileID: 0}
   head: {fileID: 2612672710193005088}
+  countText: {fileID: 6705146216415341769}
 --- !u!114 &5440004477592222517
 MonoBehaviour:
   m_ObjectHideFlags: 0
