@@ -11,7 +11,14 @@ public class ditherTransition : MonoBehaviour
     {
         
     }
+    public void goIn()
+    {
 
+    }
+    public void goOut()
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {

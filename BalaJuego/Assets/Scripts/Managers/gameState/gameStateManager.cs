@@ -9,9 +9,11 @@ public class gameStateManager : MonoBehaviour, IGameState
     public IGameState.gameState prePauseState;
     public IGameState.gameState getState() => currentState;
     public IGameState.gameState currentState;
+    bool canPause;
     // Start is called before the first frame update
     void Start()
     {
+        canPause = false;
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
 
@@ -77,8 +79,11 @@ public class gameStateManager : MonoBehaviour, IGameState
   
     public void Pause()
     {
-        prePauseState = currentState;
-        setState(IGameState.gameState.Paused);
+        if (canPause && currentState != IGameState.gameState.Paused)
+        {
+            prePauseState = currentState;
+            setState(IGameState.gameState.Paused);
+        }
     }
 
     public void UnPause()
@@ -91,6 +96,7 @@ public class gameStateManager : MonoBehaviour, IGameState
    
     public void restart()
     {
+        canPause = true;
         setState(IGameState.gameState.NormalTime);
         print("setState");
 

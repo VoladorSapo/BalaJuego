@@ -20,7 +20,6 @@ public class LevelController : MonoBehaviour, ILevelController
   [SerializeField]  cutsceneCaller cutsceneStart;
     [SerializeField] cutsceneCaller cutsceneEnd;
 
-
     // Start is called before the first frame update
     void Start()
     {

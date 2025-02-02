@@ -109,7 +109,7 @@ public bool onGround;
         
         if (onGround && !jumping)
         {
-            rb2d.gravityScale = normalGravity;
+            rb2d.gravityScale = 0;
             coyoteTimeCurrent = coyoteTime;
 
         }
@@ -120,6 +120,10 @@ public bool onGround;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpBufferTimeCurrent = jumpBufferTime;
+        }
+        if (!onGround && (Input.GetKeyUp(KeyCode.Space) || rb2d.velocity.y >= 0))
+        {
+            rb2d.gravityScale = normalGravity;
         }
         if (!onGround && (Input.GetKeyUp(KeyCode.Space) || rb2d.velocity.y < 0))
         {
