@@ -55,6 +55,7 @@ public class softLockController : MonoBehaviour,IsoftLock
             PlayerMove player = FindObjectOfType<PlayerMove>();
             if (player)
             {
+                if(FindObjectOfType<PlayerMove>() != null)
                 numberAttack += FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IShoot>().getBullets();
             }
 

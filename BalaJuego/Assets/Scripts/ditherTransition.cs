@@ -12,6 +12,8 @@ public class ditherTransition : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        dither = 1;
+        goOut();
     }
     public void goIn(string scene)
     {
