@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/nivel2.unity
     guid: 4030b236974204542a0b3904d3b1fb7f
+  - enabled: 1
+    path: Assets/Scenes/iglesia.unity
+    guid: 560f98de1b45fd24aabef56fec611a7d
   m_configObjects: {}

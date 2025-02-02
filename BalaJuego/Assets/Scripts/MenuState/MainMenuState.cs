@@ -18,7 +18,7 @@ public class MainMenuState : AMenuState
         switch(i)
         {
             case "play":
-                //SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("iglesia");
                 break;
             case "exit":
                 Application.Quit();
