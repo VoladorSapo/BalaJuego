@@ -16356,7 +16356,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   stunedDetector: {fileID: 0}
-  BottlePrefab: {fileID: 0}
+  BottlePrefab: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
   anim: {fileID: 1950273975973327625}
   hidewhenMelee:
   - {fileID: 8567168156605546741}
