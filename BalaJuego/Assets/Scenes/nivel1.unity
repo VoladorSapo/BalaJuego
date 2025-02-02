@@ -1989,7 +1989,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 761393314f7166a4da89c6f10eff173c, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 40
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.data[2].key
@@ -2139,10 +2139,6 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[38].key
       value: 
       objectReference: {fileID: 6822834276406978991, guid: 761393314f7166a4da89c6f10eff173c, type: 2}
-    - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
-      propertyPath: m_SceneBindings.Array.data[39].key
-      value: 
-      objectReference: {fileID: -806211797323962414, guid: 761393314f7166a4da89c6f10eff173c, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
@@ -2295,10 +2291,6 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[38].value
       value: 
       objectReference: {fileID: 712771520}
-    - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
-      propertyPath: m_SceneBindings.Array.data[39].value
-      value: 
-      objectReference: {fileID: 506894782}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -11166,7 +11158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Sinclair.... ha prendido fuego a medio pueblo, Oh, Se\xF1or...."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
   m_sharedMaterial: {fileID: -6252668803742890292, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
@@ -131667,6 +131659,7 @@ MonoBehaviour:
   clipIglesia: []
   clipNivel: []
   clipBoss: []
+  clipCredits: []
   volMusic: 1
   volSounds: 1
   pitchMult: 0.6
@@ -135550,7 +135543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Padre...
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
@@ -143602,8 +143595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hab\xE9is cometido un error viniendo hasta aqu\xED. Ninguno de vosotros
-    saldr\xE1 con vida."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}

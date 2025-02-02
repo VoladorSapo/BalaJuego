@@ -21,18 +21,22 @@ public class LevelController : MonoBehaviour, ILevelController
   [SerializeField]  cutsceneCaller cutsceneStart;
     [SerializeField] cutsceneCaller cutsceneEnd;
 
+
+    [SerializeField] bool isChurch = false;
     // Start is called before the first frame update
     void Start()
     {
-        areas = new List<LevelAreaController>();
-        areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
-
-        PlayerMove move = FindObjectOfType<PlayerMove>();
-        if (move)
+        if (!isChurch)
         {
-            player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
+            areas = new List<LevelAreaController>();
+            areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
+
+            PlayerMove move = FindObjectOfType<PlayerMove>();
+            if (move)
+            {
+                player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
+            }
         }
-     
     }
     public void trueStart()
     {

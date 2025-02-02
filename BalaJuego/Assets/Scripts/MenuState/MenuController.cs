@@ -31,5 +31,8 @@ public class MenuController : MonoBehaviour
         currentState = state;
         currentState.OnEnter();
     }
-
+    public void callDithering(string scene)
+    {
+        FindObjectOfType<ditherTransition>().goIn(scene);
+    }
 }

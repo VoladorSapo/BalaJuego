@@ -28,7 +28,10 @@ public class ditherTransition : MonoBehaviour
     }
     public void finishOut()
     {
-        ServiceLocator.Instance.Get<ILevelController>().trueStart();
+        if (ServiceLocator.Instance != null)
+        {
+            ServiceLocator.Instance.Get<ILevelController>().trueStart();
+        }
 
     }
     public void goOut()
