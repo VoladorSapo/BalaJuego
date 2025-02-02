@@ -30,6 +30,7 @@ public class botella : baseBullet
             print(GetComponentInChildren<SpriteRenderer>().name);
             GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
             inSelect = set;
+            musicManager.Instance.PlaySoundPitch("bip", 0.2f);
         if (!set)
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -38,7 +39,7 @@ public class botella : baseBullet
     }
     public override void InstantiateBullet(CharacterLife shooter, float angle)
     {
-        musicManager.Instance.PlayDisparo();
+        musicManager.Instance.PlaySoundPitch("snd_lanzabotella");
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
@@ -52,6 +53,7 @@ public class botella : baseBullet
     {
         if (area)
         {
+            musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
             area.destroyBottle(this);
             gameObject.SetActive(false);
@@ -67,11 +69,12 @@ public class botella : baseBullet
             {
                // hitParticle.Play();
                 musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
+                musicManager.Instance.PlaySoundPitch("snd_botellarompe");
             }
             else
             {
                 //impactParticle.Play();
-                musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
+                musicManager.Instance.PlaySoundPitch("snd_botellarompe");
             }
             speed = 0;
             //Destroy(gameObject, 0.5f);
