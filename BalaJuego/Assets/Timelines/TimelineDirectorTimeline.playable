@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  dialogText: "No tema padre. \xC9l las tiene."
+  dialogText: "No tema, Padre. \xC9l las tiene."
   leaveTime: 2
   startChars: 0
   width: 6.9
@@ -1224,7 +1224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
-  dialogText: "Cre\xEDas que pod\xEDas matar a nuestros hombres y salirte de rositas.\r\n"
+  dialogText: "\xBFCre\xEDas que pod\xEDas matar a nuestros hombres y salirte de
+    rositas?\n"
   leaveTime: 1.2
   startChars: 0
   width: 5.19
@@ -2005,7 +2006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
-  dialogText: 'Hemos rodeado el pueblo, deja el arma en el suelo y ven con nosotros.
+  dialogText: 'Hemos rodeado el pueblo. Deja el arma en el suelo y ven con nosotros.
 
 '
   leaveTime: 1.2
