@@ -44,15 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50f2ffc99592f846ab57e89be064795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
+  clipsMenus:
   - {fileID: 8300000, guid: ac76b0a11254fce419668b937246d797, type: 3}
-  - {fileID: 8300000, guid: 01064cc09a47a0b4fa7a9f5baa3ee7b9, type: 3}
   - {fileID: 8300000, guid: de0608548ab90314cb8a6dd8221df0c0, type: 3}
-  - {fileID: 8300000, guid: ffaa58cecbaad364bb3039534eb3c2cd, type: 3}
   - {fileID: 8300000, guid: adba27e4b63a7804cb18c5c124d2d967, type: 3}
   - {fileID: 8300000, guid: 5d21d9b053babcd4990d8d810e959e0f, type: 3}
+  clipIglesia:
+  - {fileID: 8300000, guid: 01064cc09a47a0b4fa7a9f5baa3ee7b9, type: 3}
+  clipNivel:
+  - {fileID: 8300000, guid: ffaa58cecbaad364bb3039534eb3c2cd, type: 3}
+  clipBoss:
+  - {fileID: 8300000, guid: 01d9dbcac97e44547a13de17758a9022, type: 3}
   volMusic: 1
   volSounds: 1
   pitchMult: 0.6
   transitionSpeed: 0.5
-  walkSoundOffset: 0.5

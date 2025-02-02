@@ -5,7 +5,10 @@ using System.Collections;
 
 public class musicManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] clips;
+    [SerializeField] private AudioClip[] clipsMenus;
+    [SerializeField] private AudioClip[] clipIglesia;
+    [SerializeField] private AudioClip[] clipNivel;
+    [SerializeField] private AudioClip[] clipBoss;
     [Range(0, 1)] public float volMusic = 1.0f;
     [Range(0, 1)] public float volSounds = 1.0f;
 
@@ -85,13 +88,16 @@ public class musicManager : MonoBehaviour
         }
 
 
-        songs["main"] = clips;
+        songs["menu"] = clipsMenus;
+        songs["nivel"] = clipNivel;
+        songs["iglesia"] = clipNivel;
+        songs["boss"] = clipBoss;
 
         InitializeSoundPool();
 
 
         // Inicializar
-        SetSong("main");
+        SetSong("menu");
     }
 
 

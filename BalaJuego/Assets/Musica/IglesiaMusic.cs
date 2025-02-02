@@ -6,7 +6,8 @@ public class IglesiaMusic : MonoBehaviour
 {
     void Start()
     { 
-        musicManager.Instance.SetPhase(1);
+        musicManager.Instance.SetSong("iglesia");
+        musicManager.Instance.SetPhase(0);
     }
     void Awake()
     { 
