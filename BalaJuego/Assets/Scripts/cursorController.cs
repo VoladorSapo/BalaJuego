@@ -26,12 +26,9 @@ public class cursorController : MonoBehaviour
         {
             //pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //pos.z = 0;
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+          Vector3  mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
-      Vector3      currentPOs = transform.position;
-            currentPOs.z = 0;
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+            transform.position = mousePosition;
         }
 
     }

@@ -12127,10 +12127,6 @@ PrefabInstance:
       propertyPath: BottlePrefab
       value: 
       objectReference: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
-    - target: {fileID: 168046957760335528, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -64.47
@@ -12266,9 +12262,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 246704284570004590, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1811581746}
-    - targetCorrespondingSourceObject: {fileID: 1726265795023342833, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1605211124}
   m_SourcePrefab: {fileID: 100100000, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
 --- !u!1 &511559655
 GameObject:
@@ -22729,6 +22722,7 @@ MonoBehaviour:
   jumpBufferTime: 5
   jumping: 0
   falling: 0
+  isMeleeing: 0
   maxFallVelocity: 0
   anim: {fileID: 0}
   particles: {fileID: 0}
@@ -132055,24 +132049,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1605211119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1726265795023342833, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-  m_PrefabInstance: {fileID: 506894781}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1605211124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605211119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30daeef47ce1edd4dae7be131bd13b52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reachableObjects: []
 --- !u!1 &1608381960
 GameObject:
   m_ObjectHideFlags: 0
@@ -138424,6 +138400,8 @@ MonoBehaviour:
   grabDetector: {fileID: 543711459}
   bul: {fileID: 0}
   changeTutWait: 0
+  restart: 0
+  failDetector: {fileID: 0}
 --- !u!4 &2031469454
 Transform:
   m_ObjectHideFlags: 0

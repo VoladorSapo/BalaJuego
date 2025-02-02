@@ -5331,6 +5331,7 @@ GameObject:
   - component: {fileID: 1406891487395577695}
   - component: {fileID: 168046957760335528}
   - component: {fileID: 992518910498057006}
+  - component: {fileID: 7813377346217723865}
   m_Layer: 8
   m_Name: BottleDetector
   m_TagString: Untagged
@@ -5395,7 +5396,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726265795023342833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5467,6 +5468,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7813377346217723865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726265795023342833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30daeef47ce1edd4dae7be131bd13b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reachableObjects: []
 --- !u!1 &1891909371031621859
 GameObject:
   m_ObjectHideFlags: 0
@@ -16322,7 +16336,9 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   jumping: 0
   falling: 0
+  isMeleeing: 0
   maxFallVelocity: 6
+  anim: {fileID: 0}
   particles: {fileID: 8026676139916127036}
 --- !u!114 &64199479102123066
 MonoBehaviour:
@@ -16339,6 +16355,7 @@ MonoBehaviour:
   clickable:
     serializedVersion: 2
     m_Bits: 128
+  stunedDetector: {fileID: 0}
   BottlePrefab: {fileID: 0}
   anim: {fileID: 1950273975973327625}
   hidewhenMelee:
@@ -16359,5 +16376,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 1
+  dead: 0
   team: 0
   spriteParent: {fileID: 246704284570004590}

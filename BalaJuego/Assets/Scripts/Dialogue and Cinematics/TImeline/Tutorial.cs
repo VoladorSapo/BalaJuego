@@ -201,5 +201,64 @@ namespace tutorial
             tutorial.endTutorial();
         }
     }
+    public class StartBotelTutorial : BaseTutorialState
+    {
+        botelTutorial tuto;
+        public StartBotelTutorial(botelTutorial _tut)
+        {
+            tuto = _tut;
+        }
+        public override void OnEnter()
+        {
+
+            tuto.TutorialText.text = "Las botellas pueden aturdir a los enemigos, los enemigos estuneados pueden remartarse a corta distancia";
+
+            tuto.botela.gameObject.SetActive(true);
+            tuto.changeTutWait = false;
+            tuto.waitTime(0.5f);
+
+
+        }
+        public override void OnExit()
+        {
+        }
+    }
+    public class GrabBotelState : BaseTutorialState
+    {
+        public GrabBotelState(Tutorial _tut)
+        {
+            tutorial = _tut;
+        }
+        public override void OnEnter()
+        {
+            tutorial.TutorialText.text = "Haz click en la botella para agarrarla";
+            tutorial.changeTutWait = false;
+            tutorial.waitTime(0.5f);
+
+        }
+        public override void OnExit()
+        {
+        }
+    }
+    public class ThrowBotelState : BaseTutorialState
+    {
+        public ThrowBotelState(Tutorial _tut)
+        {
+            tutorial = _tut;
+        }
+        public override void OnEnter()
+        {
+            tutorial.TutorialText.text = "Haz click al enemigo para lanzar la botella y aturdirle";
+            tutorial.changeTutWait = false;
+            tutorial.waitTime(0.5f);
+
+        }
+        public override void OnExit()
+        {
+            tutorial.TutorialText.text = "";
+
+            tutorial.endTutorial();
+        }
+    }
 
 }

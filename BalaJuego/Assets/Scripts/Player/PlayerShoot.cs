@@ -30,7 +30,7 @@ public class PlayerShoot : MonoBehaviour
 
 [SerializeField]    GameObject[] hidewhenMelee;
 
-[SerializeField]    bool hasBottle;
+[SerializeField]  public  bool hasBottle;
     private void Awake()
     {
         cursor = FindObjectOfType<cursorController>();
