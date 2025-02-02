@@ -45,6 +45,7 @@ public class EnemyLife : CharacterLife
         GetComponent<EnemyController>().setColor(false);
 
         GetComponent<EnemyController>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         // gameObject.SetActive(false);
     }

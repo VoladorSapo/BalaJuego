@@ -128,6 +128,10 @@ public class StunedState: BaseEnemyState
     {
 enemy.stunedCollider.gameObject.SetActive(true);
         enemy.anim.Play("enemyStun");
+        if(enemy.GetComponent<HeavyEnemyController>() != null)
+        {
+            enemy.GetComponentInChildren<WallDetector>().gameObject.SetActive(false);
+        }
 
     }
     public override void OnExit()
