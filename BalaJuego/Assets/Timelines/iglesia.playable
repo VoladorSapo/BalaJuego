@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
-  dialogText: "SAL DE UNA VEZ <nombre>. SABEMOS QUE EST\xC1S AH\xCD.\r\nVENIMOS A
-    DARTE TU MERECIDO.\r\n"
+  dialogText: "SAL DE UNA VEZ AGATHA. SABEMOS QUE EST\xC1S AH\xCD.\r\nVENIMOS A DARTE
+    TU MERECIDO.\r\n"
   leaveTime: 1.6
   startChars: 46
   width: 913.5
@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
-  dialogText: "SAL DE UNA VEZ <nombre>. SABEMOS QUE EST\xC1S AH\xCD.\r\n"
+  dialogText: "SAL DE UNA VEZ AGATHA. SABEMOS QUE EST\xC1S AH\xCD.\r\n"
   leaveTime: 1.6
   startChars: 0
   width: 913.5
