@@ -31,7 +31,8 @@ public class LevelController : MonoBehaviour, ILevelController
         //StartCoroutine(lateStart());
 
         // AQUI MUSICA
-        musicManager.Instance.SetPhase(3);
+        musicManager.Instance.SetSong("nivel");
+        musicManager.Instance.SetPhase(0);
     }
     IEnumerator lateStart()
     {
