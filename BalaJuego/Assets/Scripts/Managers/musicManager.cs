@@ -90,7 +90,7 @@ public class musicManager : MonoBehaviour
 
         songs["menu"] = clipsMenus;
         songs["nivel"] = clipNivel;
-        songs["iglesia"] = clipNivel;
+        songs["iglesia"] = clipIglesia;
         songs["boss"] = clipBoss;
 
         InitializeSoundPool();
