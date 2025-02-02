@@ -20,7 +20,7 @@ public class CharacterLife : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bullet")
+        if(collision.tag == "Bullet" && !dead)
         {
             print("tag bullet");
             IBullet bul = collision.GetComponent<IBullet>();

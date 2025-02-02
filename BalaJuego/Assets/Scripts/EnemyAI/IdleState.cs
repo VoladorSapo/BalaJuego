@@ -35,7 +35,7 @@ public class ShootState : BaseEnemyState
         enemy.GetComponentInChildren<IShoot>().setShooting(false);
         enemy.anim.Play("enemySpot");
         enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
-        cadenceTime = enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange, enemy.shootCadenceRandomRange);
+        cadenceTime = enemy.shootOnShight ? 0.1f : enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange, enemy.shootCadenceRandomRange);
 
     }
     public override void Update()

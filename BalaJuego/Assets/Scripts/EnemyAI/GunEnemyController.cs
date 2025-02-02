@@ -1,7 +1,7 @@
-﻿public class GunEnemyController : EnemyController
+﻿using UnityEngine;
+public class GunEnemyController : EnemyController
 {
     IShoot Charshoot;
-
     protected override void Start()
     {
         base.Start();

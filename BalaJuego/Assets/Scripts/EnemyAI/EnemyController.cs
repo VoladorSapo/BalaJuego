@@ -32,8 +32,10 @@ public class EnemyController : MonoBehaviour
     public LevelAreaController area { get; private set; }
 
     public bool canBeKilledMelee = true;
+    [SerializeField] public bool shootOnShight = false;
 
-  public  CharacterLife life;
+
+    public CharacterLife life;
     // Start is called before the first frame update
    protected virtual void Start()
     {
@@ -90,6 +92,7 @@ public class EnemyController : MonoBehaviour
     }
     public void setColor(bool on)
     {
+        print("setColor" + on);
         if (!on)
         {
             foreach (var item in GetComponentsInChildren<SpriteRenderer>())

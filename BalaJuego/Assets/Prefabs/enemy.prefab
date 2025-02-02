@@ -812,7 +812,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 7157ccfbe6859c24c969caf2d0493263, type: 2}
+  m_Material: {fileID: 6200000, guid: d4dde62abaeae2349b24b401f67d4b42, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -837,6 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 1
   maxLife: 1
+  dead: 0
   team: 1
   spriteParent: {fileID: 3249136476636654881}
   gun: {fileID: 4787871131937498700}
@@ -858,6 +859,7 @@ MonoBehaviour:
   <shootCadenceRandomRange>k__BackingField: 0.5
   <stunedCollider>k__BackingField: {fileID: 976643818112589819}
   canBeKilledMelee: 1
+  life: {fileID: 0}
 --- !u!1 &6524739295276425207
 GameObject:
   m_ObjectHideFlags: 0

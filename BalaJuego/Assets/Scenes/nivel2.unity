@@ -63505,6 +63505,7 @@ MonoBehaviour:
   - {fileID: 1028033603}
   - {fileID: 962973901}
   - {fileID: 99213395}
+  aliveEnemies: 0
   botellas: []
   intactBottles: 0
   colliders: {fileID: 451893816}
@@ -94333,6 +94334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7404789}
+  aliveEnemies: 0
   botellas:
   - {fileID: 646860659}
   intactBottles: 0
@@ -94522,7 +94524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994439719249578173, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.15726
+      value: -17.47
       objectReference: {fileID: 0}
     - target: {fileID: 1994439719249578173, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
       propertyPath: m_LocalPosition.z

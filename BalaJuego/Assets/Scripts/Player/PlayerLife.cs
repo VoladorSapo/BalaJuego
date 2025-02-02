@@ -12,7 +12,7 @@
     }
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if(collision.gameObject.GetComponentInParent<HeavyEnemyController>() != null)
+        if(collision.gameObject.GetComponentInParent<HeavyEnemyController>() != null && !collision.gameObject.GetComponentInParent<EnemyLife>().dead)
         {
             Die();
         }

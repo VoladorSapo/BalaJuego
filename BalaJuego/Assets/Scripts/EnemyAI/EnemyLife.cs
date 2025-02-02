@@ -7,10 +7,13 @@ public class EnemyLife : CharacterLife
     public override void Die()
     {
         dead = true;
+        GetComponent<EnemyController>().stunedCollider.enabled = false;
+       // collider.gameObject.SetActive(false);
+
         if (melee)
         {
-            spriteParent.SetActive(true);
 
+            spriteParent.SetActive(true);
             if (GetComponent<GunEnemyController>() != null)
             {
                 gun.SetActive(false);
@@ -27,6 +30,10 @@ public class EnemyLife : CharacterLife
                 gun.SetActive(false);
                 head?.SetActive(false);
             }
+            if (GetComponent<HeavyEnemyController>() != null)
+            {
+                head?.SetActive(false);
+            }
             anim.Play("enemyDie");
 
             //Animacion morir
@@ -35,7 +42,8 @@ public class EnemyLife : CharacterLife
     public void finishDeathAnim()
     {
         GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
-       
+        GetComponent<EnemyController>().setColor(false);
+
         GetComponent<EnemyController>().enabled = false;
 
         // gameObject.SetActive(false);
@@ -43,18 +51,27 @@ public class EnemyLife : CharacterLife
     public override void restart()
     {
         base.restart();
+
         if (GetComponent<GunEnemyController>() != null)
         {
             gun.SetActive(true);
             head?.SetActive(true);
         }
+        if (GetComponent<HeavyEnemyController>() != null)
+        {
+            head?.SetActive(true);
+        }
         GetComponent<EnemyController>().enabled = true;
+        GetComponent<EnemyController>().setColor(false);
+        GetComponent<EnemyController>().stunedCollider.enabled = true;
+
+
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
         print("trigger");
-        if (collision.tag == "Botella")
+        if (collision.tag == "Botella" && !dead)
         {
             print("triggerBotella");
             baseBullet botel = collision.GetComponent<baseBullet>();
