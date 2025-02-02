@@ -130,7 +130,7 @@ public class PlayerShoot : MonoBehaviour
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<BossEnemyController>() != null)
                 {
-                    anim.Play("basicEnemyMelee");
+                    ServiceLocator.Instance.Get<ILevelController>().playLastCutscene();
 
                 }
                 foreach (GameObject item in hidewhenMelee)
