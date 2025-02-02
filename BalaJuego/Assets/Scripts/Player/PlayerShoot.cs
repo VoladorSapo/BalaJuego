@@ -123,11 +123,12 @@ public class PlayerShoot : MonoBehaviour
                 if (stunedDetector.reachableObjects[0].GetComponent<HeavyEnemyController>() != null)
                 {
                     anim.Play("heavyMelee");
+                    musicManager.Instance.PlaySoundPitch("snd_melee");
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<GunEnemyController>() != null)
                 {
                     anim.Play("basicEnemyMelee");
-
+                    musicManager.Instance.PlaySoundPitch("snd_melee");
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<BossEnemyController>() != null)
                 {
