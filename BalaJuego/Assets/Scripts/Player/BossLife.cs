@@ -11,8 +11,9 @@ public class BossLife: CharacterLife
             IBullet bul = collision.GetComponent<IBullet>();
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
+                anim.Play("enemyDodge");
                 //esquivar
-               // anim.Play();
+                // anim.Play();
             }
         }
     }

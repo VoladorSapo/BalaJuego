@@ -14,7 +14,8 @@ public class breakableBox:MonoBehaviour
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
                 print("set active false");
-                gameObject.SetActive(false);
+                GetComponent<Animator>().Play("break");
+                GetComponent<Collider2D>().enabled = false;
             }
         }
     }
@@ -27,6 +28,8 @@ public class breakableBox:MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.position = initPos;
+        GetComponent<Animator>().Play("idle");
+        GetComponent<Collider2D>().enabled = true;
 
     }
 }
