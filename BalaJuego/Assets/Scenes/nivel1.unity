@@ -11158,7 +11158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Sinclair.... ha prendido fuego a medio pueblo, Oh, Se\xF1or...."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
   m_sharedMaterial: {fileID: -6252668803742890292, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
@@ -12111,6 +12111,10 @@ PrefabInstance:
     - target: {fileID: 3165519720949599296, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
       propertyPath: m_Name
       value: MockPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165519720949599296, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7494115864873014525, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
       propertyPath: m_LocalScale.x
@@ -15689,7 +15693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &712771521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133003,7 +133007,7 @@ MonoBehaviour:
   actionType: 3
   _tutorial: {fileID: 1484469368}
   nextScene: nivel2
-  timeline: {fileID: 11400000, guid: 7be4eec11d91e064e97bf62ab863f54a, type: 2}
+  timeline: {fileID: 11400000, guid: 761393314f7166a4da89c6f10eff173c, type: 2}
   playOnAwakeNoLevel: 0
   startPos: {fileID: 349434267}
   onTrigger: 1
