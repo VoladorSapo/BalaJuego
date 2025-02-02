@@ -80,6 +80,7 @@ public class PlayerShoot : MonoBehaviour
                     bulletToGrab = hit.collider.GetComponentInParent<baseBullet>();
                     if (bulletToGrab != null && grabDetector.reachableObjects.Contains(bulletToGrab) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
+                        musicManager.Instance.PlaySoundPitch("snd_reload");
                         reloading = true;
                         GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
                         bulletToGrab.tryGrab(this);
