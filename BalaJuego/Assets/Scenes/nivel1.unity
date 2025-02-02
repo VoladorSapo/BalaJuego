@@ -1986,7 +1986,7 @@ PrefabInstance:
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 761393314f7166a4da89c6f10eff173c, type: 2}
+      objectReference: {fileID: 11400000, guid: 01ab71fc4f9a2474aa31c405ebf170bd, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 42
@@ -12132,6 +12132,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1324425142}
     m_Modifications:
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: color.r
+      value: 0.9810977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: sphereSize
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3165519720949599296, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
       propertyPath: m_Name
       value: MockPlayer
@@ -13759,7 +13775,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 6.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15493,6 +15509,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021382764}
     m_Modifications:
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: color.r
+      value: 0.9810977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735702186375489834, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
+      propertyPath: sphereSize
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3165519720949599296, guid: 624d7b88242f7d140b0603f98dd09966, type: 3}
       propertyPath: m_Name
       value: MockPlayer

@@ -12,7 +12,7 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] bool Infinite;
 
     public bool hit;
-
+    float z;
  protected   CharacterLife.Team team;
 
     [SerializeField] protected ParticleSystem hitParticle;
@@ -48,11 +48,13 @@ public class baseBullet: MonoBehaviour, IBullet
             }
         }
         transform.Translate(Vector2.left * speed * Time.deltaTime*timeMagnitude);
+        transform.position = new Vector3(transform.position.x, transform.position.y, z);
     }
     public virtual void InstantiateBullet(CharacterLife shooter,float angle)
     {
         musicManager.Instance.PlayDisparo();
         print(shooter.transform.localScale.x);
+        z = -0.1f;
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         team = shooter.team;

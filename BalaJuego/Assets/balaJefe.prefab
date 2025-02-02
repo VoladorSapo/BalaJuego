@@ -24517,7 +24517,7 @@ Transform:
   m_GameObject: {fileID: 4778922938256658580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.9, y: 1.35, z: -0.022378426}
+  m_LocalPosition: {x: -68.9, y: 1.35, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -24594,9 +24594,11 @@ MonoBehaviour:
   hitParticle: {fileID: 1690490075298846511}
   impactParticle: {fileID: 8840982200996023175}
   inSelect: 0
+  onFire: 0
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  anim: {fileID: 0}
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     public void endAnimation()
     {
         print("helou");
+        print(endCutsceneAction.ToString());
         endCutsceneAction.Invoke();
     }
 

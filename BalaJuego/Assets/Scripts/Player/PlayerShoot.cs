@@ -80,11 +80,14 @@ public class PlayerShoot : MonoBehaviour
                     bulletToGrab = hit.collider.GetComponentInParent<baseBullet>();
                     if (bulletToGrab != null && grabDetector.reachableObjects.Contains(bulletToGrab) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
-                        musicManager.Instance.PlaySoundPitch("snd_reload");
-                        reloading = true;
-                        GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
-                        bulletToGrab.tryGrab(this);
-                        cursor.full();
+                        if (bulletToGrab.GetComponent<botella>() == null)
+                        {
+                            musicManager.Instance.PlaySoundPitch("snd_reload");
+                            reloading = true;
+                            GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
+                            bulletToGrab.tryGrab(this);
+                            cursor.full();
+                        }
 
                     }
                     bottleToGrab = hit.collider.GetComponentInParent<botella>();

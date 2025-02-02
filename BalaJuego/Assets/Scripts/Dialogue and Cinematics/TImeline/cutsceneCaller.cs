@@ -69,6 +69,14 @@ public class cutsceneCaller : MonoBehaviour
             case postCutsceneAction.changeScene:
                 _action = () => {FindObjectOfType<ditherTransition>().goIn(nextScene); };
                 break;
+            case postCutsceneAction.continuewithbossmusic:
+                print("boos music");
+                _action = () => { ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.NormalTime);
+                    print("empezar boss");
+                    musicManager.Instance.SetSong("boss");
+                    musicManager.Instance.SetPhase(0);
+                };
+                break;
             default:
                 break;
         }
@@ -83,7 +91,8 @@ public class cutsceneCaller : MonoBehaviour
         Tutorial,
         StartLevel,
         Continue,
-        changeScene
+        changeScene,
+        continuewithbossmusic
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
