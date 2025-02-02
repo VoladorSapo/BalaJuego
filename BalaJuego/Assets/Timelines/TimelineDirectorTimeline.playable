@@ -179,6 +179,7 @@ MonoBehaviour:
   leaveTime: 2
   startChars: 0
   width: 6.9
+  personaje: 0
 --- !u!74 &-6115957706036065149
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -706,6 +707,7 @@ MonoBehaviour:
   leaveTime: 3
   startChars: 0
   width: 10
+  personaje: 1
 --- !u!114 &-4208553745236705441
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1226,6 +1228,7 @@ MonoBehaviour:
   leaveTime: 1.2
   startChars: 0
   width: 5.19
+  personaje: 2
 --- !u!74 &1237348531532868197
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -1989,6 +1992,7 @@ MonoBehaviour:
   leaveTime: 2
   startChars: 0
   width: 6.9
+  personaje: 0
 --- !u!114 &6015316563416498530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2007,6 +2011,7 @@ MonoBehaviour:
   leaveTime: 1.2
   startChars: 0
   width: 5
+  personaje: 2
 --- !u!114 &6187431491616961102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2174,6 +2179,7 @@ MonoBehaviour:
   leaveTime: 1.6
   startChars: 21
   width: 10
+  personaje: 1
 --- !u!114 &8463183987418554542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2190,6 +2196,7 @@ MonoBehaviour:
   leaveTime: 2
   startChars: 0
   width: 300
+  personaje: 0
 --- !u!114 &8484917369349117173
 MonoBehaviour:
   m_ObjectHideFlags: 1

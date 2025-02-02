@@ -40,6 +40,7 @@ MonoBehaviour:
   leaveTime: 1.6
   startChars: 0
   width: 6
+  personaje: 2
 --- !u!114 &-7792608110723882931
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,6 +93,7 @@ MonoBehaviour:
   leaveTime: 1.6
   startChars: 0
   width: 6
+  personaje: 2
 --- !u!114 &-2969295819440028110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -952,6 +954,7 @@ MonoBehaviour:
   leaveTime: 1.6
   startChars: 0
   width: 25.3
+  personaje: 2
 --- !u!114 &6389050594811549020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1232,6 +1235,7 @@ MonoBehaviour:
   leaveTime: 1.6
   startChars: 0
   width: 3
+  personaje: 0
 --- !u!114 &7963660106589960192
 MonoBehaviour:
   m_ObjectHideFlags: 1
