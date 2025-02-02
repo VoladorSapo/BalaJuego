@@ -10,6 +10,7 @@ public class DialogueBehaviour: PlayableBehaviour
     int maxVisible;
   public  float width;
     bool first = true;
+    public int personaje;
 
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
@@ -43,11 +44,11 @@ public class DialogueBehaviour: PlayableBehaviour
 
                     if (numeroAleatorio == 0)
                     {
-                        if (QuienHabla() == 0) // Es la prota
+                        if (personaje == 0) // Es la prota
                         {
                             musicManager.Instance.PlaySoundPitch("snd_voicemedium", 0.2f);
                         }
-                        else if (QuienHabla() == 1) // Es el cura
+                        else if (personaje == 1) // Es el cura
                         {
                             musicManager.Instance.PlaySoundPitch("snd_voicehigh", 0.2f);
                         }

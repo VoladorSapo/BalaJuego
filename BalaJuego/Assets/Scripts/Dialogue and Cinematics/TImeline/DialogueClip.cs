@@ -8,6 +8,7 @@ public class DialogueClip : PlayableAsset
     public float leaveTime;
     public int startChars;
     public float width;
+    public int personaje;
 
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
@@ -18,6 +19,7 @@ public class DialogueClip : PlayableAsset
         behaviour.leaveTime = leaveTime;
         behaviour.startChars = startChars;
         behaviour.width = width;
+        behaviour.personaje = personaje;
         return playable;
 
     }

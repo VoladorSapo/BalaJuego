@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
   [field:SerializeField]  public Collider2D stunedCollider { get; private set; }
 
-    public LevelAreaController area { get; private set; }
+   [field:SerializeField] public LevelAreaController area { get; private set; }
 
     public bool canBeKilledMelee = true;
     [SerializeField] public bool shootOnShight = false;

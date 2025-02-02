@@ -122,7 +122,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (stunedDetector.reachableObjects[0].GetComponent<HeavyEnemyController>() != null)
                 {
-
+                    anim.Play("heavyMelee");
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<GunEnemyController>() != null)
                 {
