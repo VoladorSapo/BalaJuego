@@ -24676,9 +24676,11 @@ MonoBehaviour:
   hitParticle: {fileID: 1690490075298846511}
   impactParticle: {fileID: 8840982200996023175}
   inSelect: 0
+  onFire: 1
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  anim: {fileID: 0}
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
   public  bool inSelect;
 
-
+    [SerializeField] bool onFire;
 
    protected float timeMagnitude;
 
@@ -120,7 +120,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public virtual void setHover(bool set)
     {
-        if (tag != "Botella")
+        if (tag != "Botella" && !onFire)
         {
             int setI = set ? 1 : 0;
             MaterialPropertyBlock block = new MaterialPropertyBlock();
