@@ -572,26 +572,27 @@ public class musicManager : MonoBehaviour
 
     private IEnumerator FadeOutCurrentSongCoroutine(float duration)
     {
-        // Determina cuál AudioSource está reproduciendo la canción actualmente.
         AudioSource currentSource = isPlayingA ? audioSourceA : audioSourceB;
 
-        // Guarda el volumen actual para interpolar desde ese valor hasta 0.
         float startVolume = currentSource.volume;
         float elapsed = 0f;
 
-        // Mientras no se complete la duración, reduce progresivamente el volumen.
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
             currentSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / duration);
             yield return null;
         }
-
-        // Asegura que el volumen quede en 0 y detiene el AudioSource.
+        
         currentSource.volume = 0f;
         currentSource.Stop();
     }
 
+    public bool IsMusicPlaying()
+    {
+        return (audioSourceA != null && audioSourceA.isPlaying) ||
+               (audioSourceB != null && audioSourceB.isPlaying);
+    }
 
 
 
