@@ -4103,6 +4103,10 @@ PrefabInstance:
       propertyPath: shootOnShight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: canBeKilledMelee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (2)
@@ -113834,6 +113838,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 763776533}
     m_Modifications:
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: canBeKilledMelee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (4)
