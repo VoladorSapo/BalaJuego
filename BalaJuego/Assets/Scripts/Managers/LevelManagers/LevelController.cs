@@ -26,7 +26,7 @@ public class LevelController : MonoBehaviour, ILevelController
         areas = new List<LevelAreaController>();
         areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
         player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
-
+        trueStart();
      
     }
     public void trueStart()
