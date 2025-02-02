@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
 
 
     public CharacterLife life;
+
+    [SerializeField] GameObject FMarker;
     // Start is called before the first frame update
    protected virtual void Start()
     {
@@ -94,6 +96,8 @@ public class EnemyController : MonoBehaviour
     public void setColor(bool on)
     {
         print("setColor" + on);
+        FMarker.SetActive(on);
+
         if (!on)
         {
             foreach (var item in GetComponentsInChildren<SpriteRenderer>())
@@ -105,7 +109,8 @@ public class EnemyController : MonoBehaviour
         {
             foreach (var item in GetComponentsInChildren<SpriteRenderer>())
             {
-                item.color = new Color32(179, 42, 42, 255);
+                if (item.name != "F")
+                    item.color = new Color32(179, 42, 42, 255);
             }
         }
     }

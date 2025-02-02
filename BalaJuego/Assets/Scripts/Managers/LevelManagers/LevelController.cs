@@ -26,7 +26,12 @@ public class LevelController : MonoBehaviour, ILevelController
     {
         areas = new List<LevelAreaController>();
         areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
-        player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
+
+        PlayerMove move = FindObjectOfType<PlayerMove>();
+        if (move)
+        {
+            player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
+        }
      
     }
     public void trueStart()
@@ -35,7 +40,7 @@ public class LevelController : MonoBehaviour, ILevelController
         //StartCoroutine(lateStart());
 
         // AQUI MUSICA
-        if ((SceneManager.GetActiveScene().name == "nivel1") && (SceneManager.GetActiveScene().name == "nivel1"))
+        if ((SceneManager.GetActiveScene().name == "nivel1") || (SceneManager.GetActiveScene().name == "nivel2"))
         {
             musicManager.Instance.SetSong("nivel");
             musicManager.Instance.SetPhase(0);
@@ -48,14 +53,7 @@ public class LevelController : MonoBehaviour, ILevelController
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            startArea(areas[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            endArea(areas[0]);
-        }
+      
 
     }
     public void subscribeToRestart(Action response)
@@ -126,6 +124,11 @@ public class LevelController : MonoBehaviour, ILevelController
             {
                 Destroy(item.gameObject);
             }
+        }
+        if ((SceneManager.GetActiveScene().name == "nivel3"))
+        {
+            musicManager.Instance.SetSong("boss");
+            musicManager.Instance.SetPhase(0);
         }
         restartEvent.Invoke();
     }
