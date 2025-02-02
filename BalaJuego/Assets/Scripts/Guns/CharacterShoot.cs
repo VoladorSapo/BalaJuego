@@ -48,8 +48,6 @@ public class CharacterShoot : MonoBehaviour,IShoot
         {
             print("caca");
             shooting = true;
-            currentBullets--;
-            bulletCount.text = currentBullets.ToString();
             if (GetComponentInParent<GunEnemyController>() != null)
             {
                 anim.Play("gunLoad", -1, 0);
@@ -65,7 +63,10 @@ public class CharacterShoot : MonoBehaviour,IShoot
     }
     public virtual void spawnBullet()
     {
-     IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
+
+        currentBullets--;
+        bulletCount.text = currentBullets.ToString();
+        IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
         bul.InstantiateBullet(character.GetComponent<CharacterLife>(),rotate.transform.eulerAngles.z);
     }
     public void endShootAnim()

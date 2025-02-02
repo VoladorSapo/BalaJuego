@@ -31,14 +31,17 @@ public class softLockController : MonoBehaviour,IsoftLock
         {
             foreach (var enemy in currentArea.enemies)
             {
-                numberEnemies++;
-                if (enemy.GetComponent<IShoot>() != null)
+                if (!enemy.life.dead)
                 {
-                    numberAttack += enemy.GetComponent<IShoot>().getBullets();
-                }
-                if (enemy.canBeKilledMelee)
-                {
-                    numberAttack++;
+                    numberEnemies++;
+                    if (enemy.GetComponentInChildren<IShoot>() != null)
+                    {
+                        numberAttack += enemy.GetComponentInChildren<IShoot>().getBullets();
+                    }
+                    if (enemy.canBeKilledMelee)
+                    {
+                        numberAttack++;
+                    }
                 }
             }
             numberAttack += currentArea.intactBottles;
