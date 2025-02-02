@@ -44,12 +44,12 @@ public class LevelController : MonoBehaviour, ILevelController
         //StartCoroutine(lateStart());
 
         // AQUI MUSICA
-        if ((SceneManager.GetActiveScene().name == "nivel1") || (SceneManager.GetActiveScene().name == "nivel2"))
+        if (SceneManager.GetActiveScene().name == "nivel1") //|| (SceneManager.GetActiveScene().name == "nivel2"))
         {
             musicManager.Instance.SetSong("nivel");
             musicManager.Instance.SetPhase(0);
         }
-        else
+        else if(SceneManager.GetActiveScene().name == "nivel3")
         {
             if (!isChurch)
             {
