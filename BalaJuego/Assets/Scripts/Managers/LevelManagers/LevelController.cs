@@ -51,7 +51,10 @@ public class LevelController : MonoBehaviour, ILevelController
         }
         else
         {
-            musicManager.Instance.MuteSong();
+            if (isChurch)
+            {
+                musicManager.Instance.MuteSong();
+            }
         }
     }
     // Update is called once per frame

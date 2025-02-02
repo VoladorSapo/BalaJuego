@@ -17,6 +17,9 @@
         GetComponentInChildren<CharacterShoot>().restart();
         if (stateMachine == null)
         {
+            musicManager.Instance.SetSong("boss");
+            musicManager.Instance.SetPhase(0);
+
             stateMachine = new StateMachine();
             ShootState shoot = new ShootState(this);
             IdleState idle = new IdleState(this);
@@ -26,7 +29,6 @@
             stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
             stateMachine.AddAnyTransition(reload, new FuncPredicate(() => Charshoot.getBullets() == 0));
             stateMachine.AddTransition(reload, idle, new FuncPredicate(() => Charshoot.getBullets() > 0));
-
         }
 
         stateMachine.SetState(new IdleState(this));
