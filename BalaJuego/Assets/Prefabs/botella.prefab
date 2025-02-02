@@ -56,10 +56,11 @@ MonoBehaviour:
   hit: 0
   hitParticle: {fileID: 0}
   impactParticle: {fileID: 0}
-  HoverSize: 0
+  inSelect: 0
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+  anim: {fileID: 0}
   isThrown: 0
 --- !u!70 &6983924782972634724
 CapsuleCollider2D:
@@ -149,7 +150,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d0e68fee90190534c9c29adf2b058df4, type: 2}
+  - {fileID: 2100000, guid: 67cac9567f97bd24f8e67ed171d1ec38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -212,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7926905555980134807}
   - component: {fileID: 5592714373710698219}
+  - component: {fileID: 8062113786293491393}
   m_Layer: 7
   m_Name: grab
   m_TagString: Untagged
@@ -269,3 +271,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04, y: 0}
   m_Size: {x: 0.61, y: 1.32}
   m_Direction: 0
+--- !u!114 &8062113786293491393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676521921521116941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2125c9cf4b0827f419e47ffde2270895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.5

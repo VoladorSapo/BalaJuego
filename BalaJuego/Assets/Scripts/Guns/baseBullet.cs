@@ -3,7 +3,7 @@
 public class baseBullet: MonoBehaviour, IBullet
 {
     Vector3 direction;
-    [SerializeField] protected float speed;
+    [SerializeField] public float speed;
     [SerializeField] int damage = 1;
     [SerializeField] bool grabable = true;
     [SerializeField] float lifeTime;
@@ -56,6 +56,8 @@ public class baseBullet: MonoBehaviour, IBullet
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         team = shooter.team;
+        anim.Play("fly");
+
     }
 
     public int getDamage() => damage;
@@ -114,16 +116,19 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public virtual void setHover(bool set)
     {
-        int setI = set ? 1 : 0;
-        MaterialPropertyBlock block = new MaterialPropertyBlock();
-        GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
-        block.SetInt("_isOutlined", setI);
-        print(GetComponentInChildren<SpriteRenderer>().name);
-        GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
-        inSelect = set;
-        if (!set)
+        if (tag != "Botella")
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            int setI = set ? 1 : 0;
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
+            GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
+            block.SetInt("_isOutlined", setI);
+            print(GetComponentInChildren<SpriteRenderer>().name);
+            GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
+            inSelect = set;
+            if (!set)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
     //private void OnMouseOver()

@@ -11,18 +11,30 @@ public class botella : baseBullet
         initialPos = transform.position;
         ITimeManager time = ServiceLocator.Instance.Get<ITimeManager>();
         timeMagnitude = time.getMagnitude();
-        setHover(false);
         hit = false;
     }
-    public override void setHover(bool set)
-    {
-        base.setHover(set);
-    }
+
     public void resTart(LevelAreaController _area)
     {
         area = _area;
         transform.position = initialPos;
 
+    }
+    public override void setHover(bool set)
+    {
+        print("setHover" + set);
+            int setI = set ? 1 : 0;
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
+            GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
+            block.SetInt("_isOutlined", setI);
+            print(GetComponentInChildren<SpriteRenderer>().name);
+            GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
+            inSelect = set;
+        if (!set)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+
+        }
     }
     public override void InstantiateBullet(CharacterLife shooter, float angle)
     {

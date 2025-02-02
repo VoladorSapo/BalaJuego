@@ -57,8 +57,8 @@ public class EnemyLife : CharacterLife
         if (collision.tag == "Botella")
         {
             print("triggerBotella");
-            botella botel = collision.GetComponent<botella>();
-            if (botel.isThrown)
+            baseBullet botel = collision.GetComponent<baseBullet>();
+            if (botel.speed > 0)
             {
                 GetComponent<EnemyController>().getStuned();
                 botel.hitSomething(gameObject);

@@ -4,6 +4,7 @@ namespace tutorial
 {
     public class firstTutorial: Tutorial
     {
+     [SerializeField]   bulletDetector failDetector;
         protected override void Start()
         {
             print("setTUT");
@@ -19,6 +20,8 @@ namespace tutorial
             machine.AddTransition(pressE, idle, new FuncPredicate(() => Input.GetKeyDown(KeyCode.E)));
             machine.AddTransition(idle, clickBala, new FuncPredicate(() =>grabDetector.reachableObjects.Count > 0));
             machine.AddTransition(clickBala, dispararTipo, new FuncPredicate(() => grabDetector.reachableObjects.Count == 0));
+            machine.AddTransition(dispararTipo, pressE, new FuncPredicate(() => failDetector.reachableObjects.Count > 0));
+
             machine.AddTransition(dispararTipo, fin, new FuncPredicate(() => enemy == null));
             machine.AddTransition(fin, idle, new FuncPredicate(() => changeTutWait == true));
 

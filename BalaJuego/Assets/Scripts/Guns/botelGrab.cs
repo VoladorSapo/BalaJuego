@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 
-public class bulletGrabable : MonoBehaviour
+public class botelGrab : MonoBehaviour
 {
-    baseBullet bul;
+   [SerializeField] botella bul;
     [SerializeField] float HoverSize;
 
     private void Start()
     {
-        bul = GetComponentInParent<baseBullet>();
+        bul = GetComponentInParent<botella>();
     }
     private void OnMouseOver()
     {
         print("aaaa");
         if (bul.inSelect)
         {
-           bul.transform.localScale = new Vector3(HoverSize, HoverSize, HoverSize);
+            bul.transform.localScale = new Vector3(HoverSize, HoverSize, HoverSize);
         }
     }
     private void OnMouseExit()

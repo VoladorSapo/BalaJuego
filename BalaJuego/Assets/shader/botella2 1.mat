@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8183737802857886209
+--- !u!114 &-8489242158817389422
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: botella2
+  m_Name: botella2 1
   m_Shader: {fileID: -6465566751694194690, guid: 70929c12e9fcf314d9482e0658764174, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -55,9 +55,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _divider: 1
-    - _isOutlined: 1
+    - _isOutlined: 0
     - _multiplyer: 1
-    - _thickness: 1.12
+    - _thickness: 0.02
     m_Colors:
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

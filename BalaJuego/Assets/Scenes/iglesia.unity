@@ -305,6 +305,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 30.63536, y: 17.927485}
   m_EdgeRadius: 0
+--- !u!1 &108904709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108904711}
+  - component: {fileID: 108904710}
+  m_Layer: 0
+  m_Name: cutsceneCaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &108904710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108904709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7114e4f1875e048b8f417629e69fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionType: 3
+  _tutorial: {fileID: 0}
+  nextScene: edu2
+  timeline: {fileID: 11400000, guid: 9f73bee056cfd2243bb7474faa044277, type: 2}
+  playOnAwakeNoLevel: 1
+  startPos: {fileID: 0}
+  onTrigger: 0
+  hasStarted: 0
+  hasFinished: 0
+--- !u!4 &108904711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108904709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -45.18573, y: 10.934374, z: 0.26774633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132959362
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +776,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -185.88, y: 298.1}
-  m_SizeDelta: {x: 1000, y: 2}
+  m_SizeDelta: {x: 800, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311408484
 MonoBehaviour:
@@ -745,7 +798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Buenos d\xEDas, Padre. S\xE9 que acaba de amanecer, pero necesito confesarme.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
@@ -1303,6 +1356,10 @@ PrefabInstance:
       propertyPath: prePauseState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5543948199045982780, guid: 563189673227a71478d20f7d6e58c478, type: 3}
+      propertyPath: director
+      value: 
+      objectReference: {fileID: 1992974926}
     - target: {fileID: 7282924345223952457, guid: 563189673227a71478d20f7d6e58c478, type: 3}
       propertyPath: m_LocalPosition.x
       value: 81.51512
@@ -1819,7 +1876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA1Son ellos!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
   m_sharedMaterial: {fileID: -6252668803742890292, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
@@ -8284,6 +8341,17 @@ MonoBehaviour:
   <startCollider>k__BackingField: {fileID: 208369317}
   <endCollider>k__BackingField: {fileID: 387913234}
   <startTrigger>k__BackingField: {fileID: 70688804}
+--- !u!114 &1985398483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
+  m_PrefabInstance: {fileID: 578251021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1992974925
 GameObject:
   m_ObjectHideFlags: 0
@@ -8311,7 +8379,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 9f73bee056cfd2243bb7474faa044277, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -8332,6 +8400,8 @@ PlayableDirector:
     value: {fileID: 641762861}
   - key: {fileID: 2536654995196784089, guid: 9f73bee056cfd2243bb7474faa044277, type: 2}
     value: {fileID: 641762861}
+  - key: {fileID: -4208553745236705441, guid: 9f73bee056cfd2243bb7474faa044277, type: 2}
+    value: {fileID: 1985398483}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1992974927
@@ -8555,3 +8625,4 @@ SceneRoots:
   - {fileID: 678280538}
   - {fileID: 1992974927}
   - {fileID: 1327693619}
+  - {fileID: 108904711}
