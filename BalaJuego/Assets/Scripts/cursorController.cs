@@ -10,6 +10,7 @@ public class cursorController : MonoBehaviour
     Rigidbody2D rb;
     Vector3 pos;
     [SerializeField] float speed;
+    SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class cursorController : MonoBehaviour
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
         rb = GetComponent<Rigidbody2D>();
         shouldMove = false;
+        sprite = GetComponent<SpriteRenderer>();
     }
     private void LateUpdate()
     {
@@ -52,6 +54,7 @@ public class cursorController : MonoBehaviour
     //}
     void changeState(object sender, stateData data)
     {
+        sprite.enabled = true;
         switch (data.currentState)
         {
             case IGameState.gameState.SlowDown:
@@ -84,6 +87,8 @@ public class cursorController : MonoBehaviour
                 shouldMove = true;
                 break;
             default:
+                sprite.enabled = false;
+
                 shouldMove = false;
                 break;
         }

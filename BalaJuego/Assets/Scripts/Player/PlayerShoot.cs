@@ -140,6 +140,10 @@ public class PlayerShoot : MonoBehaviour
                 //Muerte Melee
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ServiceLocator.Instance.Get<IGameState>().Pause();
+        }
 
         
 
