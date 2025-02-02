@@ -99976,9 +99976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7114e4f1875e048b8f417629e69fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionType: 0
+  actionType: 3
   _tutorial: {fileID: 0}
-  nextScene: nivel2
+  nextScene: nivel3
   timeline: {fileID: 11400000, guid: 01ab71fc4f9a2474aa31c405ebf170bd, type: 2}
   playOnAwakeNoLevel: 0
   startPos: {fileID: 2111596696}
@@ -99994,7 +99994,7 @@ Transform:
   m_GameObject: {fileID: 1255898752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.71, y: 11.05, z: 0}
+  m_LocalPosition: {x: 145.7, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
