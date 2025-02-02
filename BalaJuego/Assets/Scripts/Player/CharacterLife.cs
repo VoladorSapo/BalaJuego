@@ -14,6 +14,8 @@ public class CharacterLife : MonoBehaviour
  protected   bool melee;
 
  [SerializeField]   GameObject spriteParent;
+
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Bullet")
@@ -42,7 +44,7 @@ public class CharacterLife : MonoBehaviour
     }
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
     public virtual void meleeDeath()
     {
@@ -54,7 +56,7 @@ public class CharacterLife : MonoBehaviour
         Player,
         Enemy,
     }
-    public void restart()
+    public virtual void restart()
     {
         currentLife = maxLife;
         melee = false;

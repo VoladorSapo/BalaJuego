@@ -25,5 +25,10 @@ public class animationEventCaller : MonoBehaviour
         GetComponentInParent<PlayerShoot>().throwBottle();
 
     }
+    public void finishDeeathAnim()
+    {
+        GetComponentInParent<EnemyLife>().finishDeathAnim();
+
+    }
 
 }

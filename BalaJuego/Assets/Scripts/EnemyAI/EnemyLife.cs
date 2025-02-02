@@ -2,23 +2,49 @@
 
 public class EnemyLife : CharacterLife
 {
+    [SerializeField] GameObject gun;
+    [SerializeField] GameObject head;
     public override void Die()
     {
         if (melee)
         {
+            if (GetComponent<GunEnemyController>() != null)
+            {
+                gun.SetActive(false);
+                head?.SetActive(false);
+            }
             //Sprite muerto melee
+            anim.Play("enemyDeadMelee");
             finishDeathAnim();
         }
         else
         {
+            if (GetComponent<GunEnemyController>() != null)
+            {
+                gun.SetActive(false);
+                head?.SetActive(false);
+            }
+            anim.Play("enemyDie");
+
             //Animacion morir
         }
-        finishDeathAnim();
     }
     public void finishDeathAnim()
     {
         GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
-        gameObject.SetActive(false);
+       
+        GetComponent<EnemyController>().enabled = false;
+
+        // gameObject.SetActive(false);
+    }
+    public override void restart()
+    {
+        if (GetComponent<GunEnemyController>() != null)
+        {
+            gun.SetActive(true);
+            head?.SetActive(true);
+        }
+        GetComponent<EnemyController>().enabled = true;
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {

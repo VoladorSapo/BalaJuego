@@ -18,9 +18,8 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] protected ParticleSystem hitParticle;
     [SerializeField]protected  ParticleSystem impactParticle;
 
-    bool inSelect;
+  public  bool inSelect;
 
-    [SerializeField] float HoverSize;
 
 
    protected float timeMagnitude;
@@ -127,19 +126,19 @@ public class baseBullet: MonoBehaviour, IBullet
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
-    private void OnMouseOver()
-    {
-        print("aaaa");
-        if (inSelect)
-        {
-            transform.localScale = new Vector3(HoverSize, HoverSize, HoverSize);
-        }
-    }
-    private void OnMouseExit()
-    {
-        transform.localScale = new Vector3(1, 1, 1);
+    //private void OnMouseOver()
+    //{
+    //    print("aaaa");
+    //    if (inSelect)
+    //    {
+    //        transform.localScale = new Vector3(HoverSize, HoverSize, HoverSize);
+    //    }
+    //}
+    //private void OnMouseExit()
+    //{
+    //    transform.localScale = new Vector3(1, 1, 1);
 
-    }
+    //}
 
     public GameObject getObj() => gameObject;
 }

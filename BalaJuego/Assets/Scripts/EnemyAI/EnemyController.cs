@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     [field:SerializeField]   public Animator anim {get;private set;}
 
    [field:SerializeField] public float shootCadence { get; private set; }
+    [field: SerializeField] public float shootCadenceRandomRange { get; private set; }
 
     public float timeMagnitude { get; private set; }
 

@@ -21,7 +21,7 @@
             StunedState stuned = new StunedState(this);
             stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
             stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
-            stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0));
+            stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee));
         }
         stateMachine.SetState(new IdleState(this));
     }

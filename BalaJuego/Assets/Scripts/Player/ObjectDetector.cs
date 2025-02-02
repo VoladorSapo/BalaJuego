@@ -89,7 +89,13 @@ public class ObjectParentDetector<T> : MonoBehaviour
         if (obj != null)
         {
             print("Adding: " + collision.gameObject);
-            reachableObjects.Add(obj);
+            reachableObjects.Insert(0, obj);
+            Hover(obj);
+            BecomeFirst(obj);
+            if (reachableObjects.Count > 1)
+            {
+                UnBecomeFirst(reachableObjects[1]);
+            }
         }
 
     }
@@ -101,9 +107,36 @@ public class ObjectParentDetector<T> : MonoBehaviour
         if (obj != null)
         {
             print("Removing: " + collision.gameObject);
-
+            UnHover(obj);
+            bool wasFirst = false;
+            if (reachableObjects.IndexOf(obj) == 0)
+            {
+                wasFirst = true;
+                UnBecomeFirst(obj);
+            }
             reachableObjects.Remove(obj);
+            if (reachableObjects.Count > 0 && wasFirst)
+            {
+
+                BecomeFirst(obj);
+            }
         }
+
+    }
+    public virtual void Hover(T obj)
+    {
+
+    }
+    public virtual void UnHover(T obj)
+    {
+
+    }
+    public virtual void BecomeFirst(T obj)
+    {
+
+    }
+    public virtual void UnBecomeFirst(T obj)
+    {
 
     }
 }

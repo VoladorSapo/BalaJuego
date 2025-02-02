@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 8344591796564426674}
   - component: {fileID: 1323886114722974759}
   - component: {fileID: 3126374515742135871}
+  - component: {fileID: 2104721920269176979}
   m_Layer: 2
   m_Name: SpriteParent
   m_TagString: Untagged
@@ -430,6 +431,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2104721920269176979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249136476636654881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3385076538322299424
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +839,8 @@ MonoBehaviour:
   maxLife: 1
   team: 1
   spriteParent: {fileID: 3249136476636654881}
+  gun: {fileID: 4787871131937498700}
+  head: {fileID: 8298916624352723955}
 --- !u!114 &4395345927782291892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +854,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 1323886114722974759}
-  <shootCadence>k__BackingField: 4
+  <shootCadence>k__BackingField: 2
+  <shootCadenceRandomRange>k__BackingField: 0.5
   <stunedCollider>k__BackingField: {fileID: 976643818112589819}
   canBeKilledMelee: 1
 --- !u!1 &6524739295276425207
