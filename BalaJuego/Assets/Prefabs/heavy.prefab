@@ -646,8 +646,8 @@ MonoBehaviour:
   dead: 0
   team: 1
   spriteParent: {fileID: 9219923319264188495}
-  gun: {fileID: 2612672710193005088}
-  head: {fileID: 0}
+  gun: {fileID: 0}
+  head: {fileID: 2612672710193005088}
 --- !u!114 &5440004477592222517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +665,7 @@ MonoBehaviour:
   <shootCadenceRandomRange>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 950568152328337870}
   canBeKilledMelee: 1
+  shootOnShight: 0
   life: {fileID: 0}
   wallDetect: {fileID: 7434739824679542089}
   direction: {x: 0, y: 0, z: 0}

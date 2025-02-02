@@ -128,6 +128,11 @@ public class PlayerShoot : MonoBehaviour
                     anim.Play("basicEnemyMelee");
 
                 }
+                if (stunedDetector.reachableObjects[0].GetComponent<BossEnemyController>() != null)
+                {
+                    anim.Play("basicEnemyMelee");
+
+                }
                 foreach (GameObject item in hidewhenMelee)
                 {
                     item.SetActive(false);

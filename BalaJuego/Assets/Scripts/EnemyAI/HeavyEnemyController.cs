@@ -28,10 +28,10 @@ public class HeavyEnemyController: EnemyController
             stateMachine.AddTransition(idle, startCharge, new FuncPredicate(() => detector.reachableObjects.Count > 0));
             //stateMachine.AddTransition(startCharge, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
             stateMachine.AddTransition(startCharge, charge, new FuncPredicate(() => finishCharging == true));
-            stateMachine.AddTransition(charge, idle, new FuncPredicate(() => finishCharging == false));
+           // stateMachine.AddTransition(charge, idle, new FuncPredicate(() => finishCharging == false));
 
 
-            stateMachine.AddTransition(charge, stuned, new FuncPredicate(() => wallDetect.wall != null));
+            stateMachine.AddTransition(charge, idle, new FuncPredicate(() => wallDetect.wall != null));
         }
         stateMachine.SetState(new IdleState(this));
     }

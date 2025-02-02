@@ -102,7 +102,7 @@ public class LevelController : MonoBehaviour, ILevelController
     public void Win()
     {
         cutsceneEnd.PlayCutscene();
-       ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Win);
+      // ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Win);
     }
 
     public void Lose()
@@ -119,5 +119,10 @@ public class LevelController : MonoBehaviour, ILevelController
     public void Instantiate()
     {
 
+    }
+
+    public void playLastCutscene()
+    {
+        cutsceneEnd.PlayCutscene();
     }
 }
