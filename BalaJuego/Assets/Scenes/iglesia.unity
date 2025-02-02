@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionType: 3
   _tutorial: {fileID: 0}
-  nextScene: edu2
+  nextScene: nivel1
   timeline: {fileID: 11400000, guid: 9f73bee056cfd2243bb7474faa044277, type: 2}
   playOnAwakeNoLevel: 1
   startPos: {fileID: 0}
