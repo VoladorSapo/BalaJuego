@@ -105,10 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
-  dialogText: Puedo seguirlos usando las antiguas minas
+  dialogText: Puedo seguirlos usando las antiguas minas.
   leaveTime: 1.6
   startChars: 0
   width: 6
+  personaje: 0
 --- !u!114 &-2144138599994906933
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,6 +296,7 @@ MonoBehaviour:
   leaveTime: 1.6
   startChars: 0
   width: 25.3
+  personaje: 0
 --- !u!114 &6389050594811549020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,11 +551,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  dialogText: "Aunque con mi suerte, seguro que tambi\xE9n est\xE1n infestadas de
-    Antperton."
+  dialogText: "Aunque, con mi suerte, seguro que tambi\xE9n est\xE1n infestadas de
+    agentes de Antperton."
   leaveTime: 1.6
   startChars: 0
   width: 9.79
+  personaje: 0
 --- !u!114 &8018356207306023851
 MonoBehaviour:
   m_ObjectHideFlags: 1
