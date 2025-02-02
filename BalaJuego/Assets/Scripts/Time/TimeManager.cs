@@ -26,6 +26,8 @@ public class TimeManager : MonoBehaviour,ITimeManager
 
     public void changeTimeMagnitude(float newMagnitude, bool inf = false)
     {
+        musicManager.Instance.changeTimeMagnitude(newMagnitude);
+
         Debug.Log("Change Time " + newMagnitude);
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;

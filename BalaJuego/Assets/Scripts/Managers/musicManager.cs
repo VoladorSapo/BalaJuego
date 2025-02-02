@@ -57,9 +57,9 @@ public class musicManager : MonoBehaviour
 
     public void Start()
     {
+        
 
-        //ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
-        //pitchObjective = audioSourceA.pitch;
+        pitchObjective = audioSourceA.pitch;
     }
 
 
@@ -90,7 +90,7 @@ public class musicManager : MonoBehaviour
 
         songs["menu"] = clipsMenus;
         songs["nivel"] = clipNivel;
-        songs["iglesia"] = clipNivel;
+        songs["iglesia"] = clipIglesia;
         songs["boss"] = clipBoss;
 
         InitializeSoundPool();
@@ -98,6 +98,7 @@ public class musicManager : MonoBehaviour
 
         // Inicializar
         SetSong("menu");
+        PlayBackgroundSound("amb_desierto");
     }
 
 
@@ -111,7 +112,7 @@ public class musicManager : MonoBehaviour
 
     private void Update()
     {
-        /*
+        
         if (pitchObjective != audioSourceA.pitch)
         {
             audioSourceA.pitch = Mathf.MoveTowards(audioSourceA.pitch, pitchObjective, Time.deltaTime);
@@ -464,10 +465,10 @@ public class musicManager : MonoBehaviour
 
 
 
-    void changeTimeMagnitude(object sender, timeData data)
+    public void changeTimeMagnitude(float value)
     {
         print("change");
-        if (data.currentMagnitude == 1)
+        if (value == 1)
         {
             pitchObjective = 1;
         }
