@@ -135,6 +135,7 @@ public class PlayerShoot : MonoBehaviour
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<BossEnemyController>() != null)
                 {
+                    musicManager.Instance.PlaySoundPitch("snd_melee");
                     ServiceLocator.Instance.Get<ILevelController>().playLastCutscene();
 
                 }

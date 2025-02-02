@@ -53,7 +53,8 @@ public class LevelController : MonoBehaviour, ILevelController
         {
             if (!isChurch)
             {
-                musicManager.Instance.MuteSong();
+                musicManager.Instance.FadeOutCurrentSong();
+                //musicManager.Instance.MuteSong();
             }
         }
     }
