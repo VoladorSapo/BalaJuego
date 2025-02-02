@@ -78,6 +78,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
         shooting = false;
         currentBullets = startBullets;
         bulletCount.text = currentBullets.ToString();
+        GetComponent<SpriteRenderer>().enabled = true;
         anim.Play("gunIdle");
 
     }
