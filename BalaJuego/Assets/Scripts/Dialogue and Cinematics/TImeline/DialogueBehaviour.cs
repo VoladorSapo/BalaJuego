@@ -38,7 +38,7 @@ public class DialogueBehaviour: PlayableBehaviour
                 }
                 if (text.textInfo.characterCount > 0)
                 {
-                    Debug.Log(maxVisible + "Bip");
+                    //Debug.Log(maxVisible + "Bip");
 
                     int numeroAleatorio = Random.Range(0, 3);
 
