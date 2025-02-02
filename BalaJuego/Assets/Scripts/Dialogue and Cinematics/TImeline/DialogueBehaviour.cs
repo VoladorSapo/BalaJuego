@@ -39,7 +39,7 @@ public class DialogueBehaviour: PlayableBehaviour
                 {
                     Debug.Log(maxVisible + "Bip");
 
-                    int numeroAleatorio = Random.Range(0, 2);
+                    int numeroAleatorio = Random.Range(0, 3);
 
                     if (numeroAleatorio == 0)
                     {
@@ -72,7 +72,7 @@ public class DialogueBehaviour: PlayableBehaviour
     int QuienHabla()
     {
         // devolver 0 si es la prota, 1 si es el cura y 2 si son los malos
-        return 2;
+        return 1;
     }
 
 }

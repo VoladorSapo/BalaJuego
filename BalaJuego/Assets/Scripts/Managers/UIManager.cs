@@ -30,23 +30,29 @@ public class UIManager : MonoBehaviour
         switch (data.currentState)
         {
             case IGameState.gameState.Paused:
+                musicManager.Instance.PlaySoundPitch("snd_menu");
                 changeGroup(PauseScreen, true);
                 changeGroup(DeathScreen, false);
                 changeGroup(winScreen, false);
 
                 break;
             case IGameState.gameState.Death:
+                musicManager.Instance.PlaySound("snd_muerte");
+                musicManager.Instance.StopWalking();
+                musicManager.Instance.StopHeavyWalking();
                 changeGroup(PauseScreen, false);
                 changeGroup(DeathScreen, true);
                             changeGroup(winScreen, false);
 
                 break;
             case IGameState.gameState.Win:
+                musicManager.Instance.PlaySoundPitch("snd_aceptar");
                 changeGroup(PauseScreen, false);
                 changeGroup(DeathScreen, false);
                 changeGroup(winScreen, false);
                 break;
             default:
+                musicManager.Instance.PlaySoundPitch("snd_aceptar");
                 changeGroup(PauseScreen, false);
                 changeGroup(DeathScreen, false);
                 changeGroup(winScreen, false);
@@ -67,6 +73,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart() {
 
+        //musicManager.Instance.PlaySoundPitch("snd_aceptar");
         changeGroup(PauseScreen, false);
         changeGroup(DeathScreen, false);
         changeGroup(winScreen, false);
