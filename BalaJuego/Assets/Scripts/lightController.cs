@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class lightController : MonoBehaviour
 {
     Light2D light;
+ [SerializeField] float intensity;
  [SerializeField] public  float dark;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,6 @@ public class lightController : MonoBehaviour
     }
     void changeTimeMagnitude(object sender, timeData data)
     {
-        light.intensity = data.currentMagnitude == 1 ? 1 : dark;
+        light.intensity = data.currentMagnitude == 1 ? intensity : dark;
     }
 }
