@@ -16,6 +16,14 @@ public class WallDetector : MonoBehaviour
             
         }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Ground" && wall == collision.gameObject)
+        {
+            wall = null;
+
+        }
+    }
     public void restart()
     {
         wall = null;
