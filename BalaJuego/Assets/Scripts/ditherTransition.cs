@@ -11,7 +11,15 @@ public class ditherTransition : MonoBehaviour
     {
         
     }
-    public void goIn()
+    public void goIn(string scene)
+    {
+
+    }
+    public void finishIn()
+    {
+
+    }
+    public void finishOut()
     {
 
     }

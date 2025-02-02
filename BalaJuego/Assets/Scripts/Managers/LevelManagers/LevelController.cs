@@ -113,6 +113,13 @@ public class LevelController : MonoBehaviour, ILevelController
 
     public void reStart()
     {
+        foreach (var item in FindObjectsOfType<baseBullet>())
+        {
+            if(item.GetComponent<botella>() == null)
+            {
+                Destroy(item.gameObject);
+            }
+        }
         restartEvent.Invoke();
     }
 
