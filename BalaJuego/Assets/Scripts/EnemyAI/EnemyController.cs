@@ -85,6 +85,7 @@ public class EnemyController : MonoBehaviour
         stunedCollider.gameObject.SetActive(false);
         GetComponent<CharacterLife>().restart();
         transform.position = initialPos;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         timeMagnitude = 1;
         area = _area;
        

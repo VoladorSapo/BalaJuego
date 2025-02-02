@@ -67,7 +67,7 @@ public class cutsceneCaller : MonoBehaviour
                 _action = () => { ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.NormalTime); };
                 break;
             case postCutsceneAction.changeScene:
-                _action = () => { SceneManager.LoadScene(nextScene); };
+                _action = () => {FindObjectOfType<ditherTransition>().goIn(nextScene); };
                 break;
             default:
                 break;
@@ -96,6 +96,7 @@ public class cutsceneCaller : MonoBehaviour
             player.anim.SetFloat("velocity", dir);
             player.anim.SetBool("isRunning", true);
             player.anim.SetBool("direction", player.transform.position.x > startPos.position.x);
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
 
         }

@@ -191,7 +191,7 @@ namespace tutorial
         {
             tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos sin balas pueden rematarse a corta distancia pulsando F.";
             tutorial.changeTutWait = false;
-            tutorial.enemy.GetComponent<EnemyLife>().enabled = false;
+            tutorial.enemy.GetComponent<TutorialLife>().enabled = false;
 
             tutorial.waitTime(2f);
 
@@ -199,7 +199,7 @@ namespace tutorial
         public override void OnExit()
         {
             tutorial.TutorialText.text = "";
-            tutorial.enemy.GetComponent<EnemyLife>().enabled = true;
+            tutorial.enemy.GetComponent<TutorialLife>().enabled = true;
             tutorial.endTutorial();
         }
     }
