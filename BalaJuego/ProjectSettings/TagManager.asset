@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Cursor
   - Botella
+  - TurnStun
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] BoxCollider2D groundCast;
     [SerializeField] private Rigidbody2D rb2d;
 
-    [SerializeField] float maxSpeed;
+    [SerializeField]public float maxSpeed;
     [SerializeField] float acceleration;
     [SerializeField] float groundDecceleration;
     [SerializeField] float turnDecceleration;
@@ -43,7 +43,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] float maxFallVelocity;
 
-    Animator anim;
+ public   Animator anim;
 
     float timeMagnitude;
 

@@ -1277,6 +1277,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &140373365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140373367}
+  - component: {fileID: 140373366}
+  m_Layer: 0
+  m_Name: Stunner
+  m_TagString: TurnStun
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &140373366
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140373365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1241951, y: -0.28660324}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9297943, y: 0.42679352}
+  m_EdgeRadius: 0
+--- !u!4 &140373367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140373365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -56.88, y: -0.43, z: -0.007457952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163699354
 GameObject:
   m_ObjectHideFlags: 0
@@ -13877,7 +13954,7 @@ PrefabInstance:
     - target: {fileID: 2097444941914610614, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 4395345927024648146}
+      objectReference: {fileID: 8495180782858932929}
     - target: {fileID: 2097444941914610614, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: enemies.Array.data[1]
       value: 
@@ -139361,22 +139438,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4395345927024648146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6334990230225772366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0b15bc515a0e064980a62272dc419a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <anim>k__BackingField: {fileID: 1323886113798834753}
-  <shootCadence>k__BackingField: 4
-  <stunedCollider>k__BackingField: {fileID: 976643818965260701}
-  canBeKilledMelee: 1
 --- !u!4 &4444866350760017949
 Transform:
   m_ObjectHideFlags: 0
@@ -139592,8 +139653,8 @@ GameObject:
   - component: {fileID: 8495180782858932927}
   - component: {fileID: 1299680029736088271}
   - component: {fileID: 4251604610999318301}
-  - component: {fileID: 4395345927024648146}
   - component: {fileID: 8495180782858932928}
+  - component: {fileID: 8495180782858932929}
   m_Layer: 12
   m_Name: jefe
   m_TagString: Untagged
@@ -139854,8 +139915,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 1
   maxLife: 1
+  dead: 0
   team: 1
   spriteParent: {fileID: 3249136476350245703}
+--- !u!114 &8495180782858932929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334990230225772366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6283ad0597982b64f990a64cc98f5a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <anim>k__BackingField: {fileID: 1323886113798834753}
+  <shootCadence>k__BackingField: 2
+  <shootCadenceRandomRange>k__BackingField: 0.5
+  <stunedCollider>k__BackingField: {fileID: 976643818965260701}
+  canBeKilledMelee: 1
 --- !u!114 &8512468460518675729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140066,3 +140145,4 @@ SceneRoots:
   - {fileID: 1572737718}
   - {fileID: 665279776}
   - {fileID: 180516053}
+  - {fileID: 140373367}

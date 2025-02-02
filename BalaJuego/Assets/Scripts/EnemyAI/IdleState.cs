@@ -41,6 +41,7 @@ public class ShootState : BaseEnemyState
     public override void Update()
     {
         cadenceTime -= Time.deltaTime * enemy.timeMagnitude;
+       
         enemy.GetComponentInChildren<gunRotate>().setRotation(enemy.detector.reachableObjects[0].transform.position);
         if(cadenceTime <= 0)
         {
@@ -79,8 +80,7 @@ public class ReloadState : BaseEnemyState
 
     public override void OnEnter()
     {
-        enemy.GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
-        enemy.anim.Play("enemySpot");
+        enemy.GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
 
 
     }

@@ -156,7 +156,7 @@ public class PlayerShoot : MonoBehaviour
     }
     public void throwBottle()
     {
-        botella botel = Instantiate(BottlePrefab, GetComponentInChildren<CharacterShoot>().spawnPoint.position, Quaternion.identity).GetComponent<botella>();
+        baseBullet botel = Instantiate(BottlePrefab, GetComponentInChildren<CharacterShoot>().spawnPoint.position, Quaternion.identity).GetComponent<baseBullet>();
         botel.InstantiateBullet(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
         GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
 

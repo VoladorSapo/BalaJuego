@@ -21,6 +21,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     public void startCutscene(PlayableAsset timeline, Action endAction)
     {
         ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Cinematic);
+
         director.playableAsset = timeline;
         endCutsceneAction = endAction;
         director.time = 0;

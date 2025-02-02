@@ -11,8 +11,13 @@ public class botella : baseBullet
         initialPos = transform.position;
         ITimeManager time = ServiceLocator.Instance.Get<ITimeManager>();
         timeMagnitude = time.getMagnitude();
+        setHover(false);
+        hit = false;
     }
-
+    public override void setHover(bool set)
+    {
+        base.setHover(set);
+    }
     public void resTart(LevelAreaController _area)
     {
         area = _area;
@@ -27,7 +32,7 @@ public class botella : baseBullet
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         team = shooter.team;
         anim = GetComponentInChildren<Animator>(true);
-        anim.Play("bottleFly", -1, 0);
+        anim.Play("bottleFly");
 
     }
 
@@ -43,7 +48,7 @@ public class botella : baseBullet
     }
     public override void hitSomething(GameObject obj)
     {
-        anim.Play("bottleCrash", -1, 0);
+        anim.Play("bottleCrash");
 
         //Animacion o algo
         if (obj.GetComponent<CharacterLife>() != null)

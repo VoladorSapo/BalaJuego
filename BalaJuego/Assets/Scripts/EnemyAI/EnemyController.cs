@@ -33,13 +33,13 @@ public class EnemyController : MonoBehaviour
 
     public bool canBeKilledMelee = true;
 
-
+    CharacterLife life;
     // Start is called before the first frame update
    protected virtual void Start()
     {
        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
-
+        life = GetComponent<CharacterLife>();
         detector = GetComponentInChildren<playerDetector>();
     }
 
@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
-        if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
+        if ((state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown )&& !life.dead)
         {
             stateMachine?.Update();
         }
@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour
     {
        // print("fixedUpdate");
         IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
-        if (state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown)
+        if ((state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown) && !life.dead)
         {
            // print("yess");
             stateMachine?.FixedUpdate();
@@ -79,6 +79,7 @@ public class EnemyController : MonoBehaviour
     public virtual void restart(LevelAreaController _area)
     {
         detector?.restart();
+        setColor(false);
         stunedCollider.gameObject.SetActive(false);
         GetComponent<CharacterLife>().restart();
         transform.position = initialPos;
@@ -86,5 +87,22 @@ public class EnemyController : MonoBehaviour
         area = _area;
        
 
+    }
+    public void setColor(bool on)
+    {
+        if (!on)
+        {
+            foreach (var item in GetComponentsInChildren<SpriteRenderer>())
+            {
+                item.color = new Color(1, 1, 1, 1);
+            }
+        }
+        else
+        {
+            foreach (var item in GetComponentsInChildren<SpriteRenderer>())
+            {
+                item.color = new Color32(179, 42, 42, 255);
+            }
+        }
     }
 }

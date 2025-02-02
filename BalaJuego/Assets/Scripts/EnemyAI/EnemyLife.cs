@@ -6,8 +6,11 @@ public class EnemyLife : CharacterLife
     [SerializeField] GameObject head;
     public override void Die()
     {
+        dead = true;
         if (melee)
         {
+            spriteParent.SetActive(true);
+
             if (GetComponent<GunEnemyController>() != null)
             {
                 gun.SetActive(false);
@@ -39,6 +42,7 @@ public class EnemyLife : CharacterLife
     }
     public override void restart()
     {
+        base.restart();
         if (GetComponent<GunEnemyController>() != null)
         {
             gun.SetActive(true);

@@ -6,6 +6,8 @@ public class CharacterLife : MonoBehaviour
 {
     [SerializeField] int currentLife;
     [SerializeField] int maxLife;
+    public bool dead;
+
     public Team team;
 
 
@@ -13,7 +15,7 @@ public class CharacterLife : MonoBehaviour
 
  protected   bool melee;
 
- [SerializeField]   GameObject spriteParent;
+ [SerializeField] protected  GameObject spriteParent;
 
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +60,9 @@ public class CharacterLife : MonoBehaviour
     }
     public virtual void restart()
     {
+        dead = false;
         currentLife = maxLife;
         melee = false;
+        spriteParent.SetActive(true);
     }
 }

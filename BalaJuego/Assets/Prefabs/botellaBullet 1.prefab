@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 570246489670816653}
   - component: {fileID: 6983924782972634724}
-  - component: {fileID: 8921932622332787181}
+  - component: {fileID: 5420065209420153401}
   m_Layer: 14
-  m_Name: botellaBullet
+  m_Name: botellaBullet 1
   m_TagString: Botella
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04, y: 0}
   m_Size: {x: 0.4, y: 1.08}
   m_Direction: 0
---- !u!114 &8921932622332787181
+--- !u!114 &5420065209420153401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   speed: 10
   damage: 0
   grabable: 1
-  lifeTime: 5
+  lifeTime: 10
   canHurtAll: 0
   Infinite: 0
   hit: 0
@@ -95,7 +95,6 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 2650032920086899954}
 --- !u!1 &6389520299271862978
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +148,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 70929c12e9fcf314d9482e0658764174, type: 3}
+  - {fileID: 2100000, guid: d0e68fee90190534c9c29adf2b058df4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -194,7 +193,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 165188c72cf443d4d86b9d229020c8fc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

@@ -17,9 +17,7 @@ public class BossShoot : CharacterShoot
         if (currentBullets > 0 && !shooting)
         {
             shooting = true;
-            currentBullets--;
-            bulletCount.text = currentBullets.ToString();
-            if (GetComponentInParent<GunEnemyController>() != null)
+            if (GetComponentInParent<GunEnemyController>() != null || GetComponentInParent<BossEnemyController>() != null)
             {
                 anim.Play("gunLoad", -1, 0);
 
@@ -34,6 +32,9 @@ public class BossShoot : CharacterShoot
     }
     public override void spawnBullet()
     {
+        currentBullets--;
+        bulletCount.text = currentBullets.ToString();
+
         IBullet bul = null;
         if (currentRate < specialBulletRate)
         {

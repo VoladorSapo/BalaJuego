@@ -26,7 +26,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
   [SerializeField]  LayerMask obstacleLayer;
 
-  protected  Animator anim;
+ [SerializeField] protected  Animator anim;
 
 
 
@@ -112,14 +112,14 @@ public class baseBullet: MonoBehaviour, IBullet
 
     }
 
-    public void setHover(bool set)
+    public virtual void setHover(bool set)
     {
         int setI = set ? 1 : 0;
         MaterialPropertyBlock block = new MaterialPropertyBlock();
-      GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block,0);
+        GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
         block.SetInt("_isOutlined", setI);
         print(GetComponentInChildren<SpriteRenderer>().name);
-        GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block,0);
+        GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
         inSelect = set;
         if (!set)
         {

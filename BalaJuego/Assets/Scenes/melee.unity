@@ -160,7 +160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bienvendio al betatest
+  m_text: . . .
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
@@ -1740,8 +1740,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a24ba1a709848e45a4280514e79bb6c, type: 2}
+    - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.data[2].key
@@ -1750,7 +1754,7 @@ PrefabInstance:
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.data[3].key
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -2144138599994906933, guid: 5a24ba1a709848e45a4280514e79bb6c, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
@@ -1762,7 +1766,7 @@ PrefabInstance:
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.data[3].value
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2061789470}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22726,6 +22730,7 @@ MonoBehaviour:
   jumping: 0
   falling: 0
   maxFallVelocity: 0
+  anim: {fileID: 0}
   particles: {fileID: 0}
 --- !u!1001 &1079603745
 PrefabInstance:
@@ -22783,15 +22788,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d0e68fee90190534c9c29adf2b058df4, type: 2}
-    - target: {fileID: 2534503266039321681, guid: 306974ec23836c241a7caf037daf433a, type: 3}
+    - target: {fileID: 0}
       propertyPath: hit
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2534503266039321681, guid: 306974ec23836c241a7caf037daf433a, type: 3}
+    - target: {fileID: 0}
       propertyPath: speed
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2534503266039321681, guid: 306974ec23836c241a7caf037daf433a, type: 3}
+    - target: {fileID: 0}
       propertyPath: Infinite
       value: 1
       objectReference: {fileID: 0}
@@ -131804,8 +131809,12 @@ MonoBehaviour:
   actionType: 1
   _tutorial: {fileID: 2031469453}
   nextScene: 
-  timeline: {fileID: 11400000, guid: 76f53d62ddeceb74da4abae1517df725, type: 2}
+  timeline: {fileID: 11400000, guid: 5a24ba1a709848e45a4280514e79bb6c, type: 2}
   playOnAwakeNoLevel: 0
+  startPos: {fileID: 0}
+  onTrigger: 0
+  hasStarted: 0
+  hasFinished: 0
 --- !u!4 &1572737718
 Transform:
   m_ObjectHideFlags: 0
