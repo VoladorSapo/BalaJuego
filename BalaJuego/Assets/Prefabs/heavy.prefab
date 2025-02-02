@@ -307,7 +307,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.44}
-  m_Size: {x: 2.05, y: 1.61}
+  m_Size: {x: 2.16, y: 1.61}
   m_Direction: 1
 --- !u!114 &7434739824679542089
 MonoBehaviour:
@@ -664,6 +664,7 @@ MonoBehaviour:
   <shootCadence>k__BackingField: 0
   <shootCadenceRandomRange>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 950568152328337870}
+  <area>k__BackingField: {fileID: 0}
   canBeKilledMelee: 1
   shootOnShight: 0
   life: {fileID: 0}
