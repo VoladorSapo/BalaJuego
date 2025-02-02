@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
                 changeGroup(winScreen, false);
                 break;
             default:
-                musicManager.Instance.PlaySoundPitch("snd_aceptar");
+                //musicManager.Instance.PlaySoundPitch("snd_aceptar");
                 changeGroup(PauseScreen, false);
                 changeGroup(DeathScreen, false);
                 changeGroup(winScreen, false);
