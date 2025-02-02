@@ -331,7 +331,7 @@ MonoBehaviour:
   shooting: 0
   bullet: {fileID: 4778922938256658580, guid: 778565312524a23479186de939b5b6f1, type: 3}
   bulletCount: {fileID: 6237966528918518849}
-  fireBullet: {fileID: 4778922938256658580, guid: 9edd249629eec8e4299c3c10923a784c, type: 3}
+  fireBullet: {fileID: 4778922938256658580, guid: 6672e934426e181449449e9d67cd7d8d, type: 3}
   specialBulletRate: 5
 --- !u!1 &2655644706422927123
 GameObject:
@@ -770,6 +770,7 @@ MonoBehaviour:
   <shootCadenceRandomRange>k__BackingField: 0.5
   <stunedCollider>k__BackingField: {fileID: 8935794645892986426}
   canBeKilledMelee: 1
+  shootOnShight: 0
   life: {fileID: 0}
 --- !u!1 &4936072014143216314
 GameObject:
