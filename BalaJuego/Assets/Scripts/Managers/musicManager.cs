@@ -331,7 +331,7 @@ public class musicManager : MonoBehaviour
 
         if (currentClips == null || currentClips.Length == 0)
         {
-            Debug.LogError("No hay clips disponibles para la transici�n.");
+            //Debug.LogError("No hay clips disponibles para la transici�n.");
             return;
         }
 
