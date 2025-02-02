@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
 
         }
 
-  protected  StateMachine stateMachine;
+  public  StateMachine stateMachine;
 
     CharacterLife charater;
 
@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour
     }
     public void getStuned()
     {
-        stateMachine.SetState(new StunedState(this));
+        stateMachine.ForceSetState(new StunedState(this));
     }
     public virtual void restart(LevelAreaController _area)
     {

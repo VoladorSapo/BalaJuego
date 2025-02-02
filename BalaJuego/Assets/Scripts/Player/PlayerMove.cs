@@ -28,8 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] LayerMask groudLayers;
 
-
-    [SerializeField] bool onGround;
+public bool onGround;
     [SerializeField] bool jumpPressed;
 
 
@@ -38,10 +37,14 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] bool jumping, falling;
 
+  public  bool isMeleeing;
+
     float coyoteTimeCurrent;
     float jumpBufferTimeCurrent;
 
     [SerializeField] float maxFallVelocity;
+
+    PlayerShoot shoot;
 
  public   Animator anim;
 
@@ -67,11 +70,13 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         timeMagnitude = 1;
+        isMeleeing = false;
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>()[0];
         dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
         dustJump = GetComponentsInChildren<ParticleSystem>()[1];
         dustFall = GetComponentsInChildren<ParticleSystem>()[2];
+        shoot = GetComponent<PlayerShoot>();
         dustWalk.gameObject.SetActive(false);
         dustJump.gameObject.SetActive(false);
         dustFall.gameObject.SetActive(false);
@@ -99,6 +104,9 @@ public class PlayerMove : MonoBehaviour
         if (!onGround)
             dustWalk.Stop();
         anim.SetBool("isGround", onGround);
+      
+            shoot.stunedDetector.gameObject.SetActive(onGround);
+        
         if (onGround && !jumping)
         {
             rb2d.gravityScale = normalGravity;
@@ -134,7 +142,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && !isMeleeing)
         {
             Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -236,6 +244,8 @@ public class PlayerMove : MonoBehaviour
         GetComponentInChildren<PlayerShoot>().restart();
         GetComponent<CharacterLife>().restart();
         canMove = true;
+        isMeleeing = false;
+
     }
     void changeState(object sender, stateData data)
     {

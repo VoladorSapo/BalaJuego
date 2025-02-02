@@ -25,6 +25,8 @@ namespace tutorial
 
        public bool changeTutWait;
 
+        [SerializeField]        bool restart;
+
         private void Update()
         {
             machine.Update();
@@ -36,7 +38,14 @@ namespace tutorial
         }
         public void endTutorial()
         {
-            ServiceLocator.Instance.Get<ILevelController>().reStart();
+            if (restart)
+            {
+                ServiceLocator.Instance.Get<ILevelController>().reStart();
+            }
+            else
+            {
+                ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.NormalTime);
+            }
             Destroy(gameObject);
         }
         public void startTutorial()
@@ -171,4 +180,26 @@ namespace tutorial
             tutorial = _tut;
         }
     }
+
+    public class StartMeleeTutorial : BaseTutorialState
+    {
+        public StartMeleeTutorial(Tutorial _tut)
+        {
+            tutorial = _tut;
+        }
+        public override void OnEnter()
+        {
+            tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos sin balas pueden rematarse a corta distancia pulsando F.";
+            tutorial.changeTutWait = false;
+            tutorial.waitTime(0.5f);
+
+        }
+        public override void OnExit()
+        {
+            tutorial.TutorialText.text = "";
+
+            tutorial.endTutorial();
+        }
+    }
+
 }

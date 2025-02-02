@@ -85,6 +85,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
     public void setBullets(int bul)
     {
         currentBullets = bul;
+        bulletCount.text = currentBullets.ToString();
     }
 
     public Animator getAnim() => anim;

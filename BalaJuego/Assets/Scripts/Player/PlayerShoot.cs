@@ -12,7 +12,7 @@ public class PlayerShoot : MonoBehaviour
   botleDetector botleDetector;
 
 
-    EnemyParentDetector stunedDetector;
+  public  EnemyParentDetector stunedDetector;
 
     cursorController cursor;
 
@@ -117,7 +117,7 @@ public class PlayerShoot : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(stunedDetector.reachableObjects.Count > 0)
+            if(stunedDetector.reachableObjects.Count > 0 && GetComponent<PlayerMove>().onGround)
             {
                 if (stunedDetector.reachableObjects[0].GetComponent<HeavyEnemyController>() != null)
                 {
@@ -132,6 +132,9 @@ public class PlayerShoot : MonoBehaviour
                 {
                     item.SetActive(false);
                 }
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<PlayerMove>().isMeleeing = true;
+
                 enemyMelee = stunedDetector.reachableObjects[0].GetComponent<CharacterLife>();
                 stunedDetector.reachableObjects[0].GetComponent<CharacterLife>().meleeDeath();
                 //Muerte Melee
@@ -147,6 +150,7 @@ public class PlayerShoot : MonoBehaviour
         {
             item.SetActive(true);
         }
+        GetComponent<PlayerMove>().isMeleeing = false;
         enemyMelee.Die();
     }
     public void endReloadAnim()
