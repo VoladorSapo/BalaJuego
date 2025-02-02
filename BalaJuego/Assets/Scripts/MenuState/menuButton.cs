@@ -21,6 +21,7 @@ public class menuButton : MonoBehaviour
 
     public void OnClick()
     {
+        musicManager.Instance.PlaySoundPitch("snd_aceptar");
         menu.currentState.HandleButton(name);
     }
 }
