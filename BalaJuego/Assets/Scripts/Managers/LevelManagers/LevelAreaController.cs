@@ -6,7 +6,7 @@ using Cinemachine;
 public class LevelAreaController : MonoBehaviour
 {
  [SerializeField] public  List<EnemyController> enemies;
-    int aliveEnemies;
+  [SerializeField]  int aliveEnemies;
 
     [SerializeField] List<botella> botellas;
    public int intactBottles;

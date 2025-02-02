@@ -155,6 +155,7 @@ public class PlayerShoot : MonoBehaviour
     }
     public void endReloadAnim()
     {
+        ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         reloading = false;
        
     }

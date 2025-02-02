@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour, ILevelController
 {
+
+ [SerializeField]   LevelAreaController currentArea;
     Action restartEvent;
     EventHandler<AreaData> endAreaEvent;
     EventHandler<LevelAreaController> startAreaEvent;
@@ -87,11 +89,14 @@ public class LevelController : MonoBehaviour, ILevelController
 
     public void endArea(LevelAreaController area)
     {
+        currentArea = null;
+
         AreaData data = new AreaData(area, areas[areas.IndexOf(area) +1]);
         endAreaEvent.Invoke(this, data);
     }
     public void startArea(LevelAreaController area)
     {
+        currentArea = area;
         startAreaEvent?.Invoke(this, area);
     }
 

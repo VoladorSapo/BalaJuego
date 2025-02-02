@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
 
     public bool canBeKilledMelee = true;
 
-    CharacterLife life;
+  public  CharacterLife life;
     // Start is called before the first frame update
    protected virtual void Start()
     {
