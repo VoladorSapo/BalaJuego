@@ -9,6 +9,7 @@ public class musicManager : MonoBehaviour
     [SerializeField] private AudioClip[] clipIglesia;
     [SerializeField] private AudioClip[] clipNivel;
     [SerializeField] private AudioClip[] clipBoss;
+    [SerializeField] private AudioClip[] clipCredits;
     [Range(0, 1)] public float volMusic = 1.0f;
     [Range(0, 1)] public float volSounds = 1.0f;
 
@@ -92,6 +93,7 @@ public class musicManager : MonoBehaviour
         songs["nivel"] = clipNivel;
         songs["iglesia"] = clipIglesia;
         songs["boss"] = clipBoss;
+        songs["credits"] = clipCredits;
 
         InitializeSoundPool();
 
