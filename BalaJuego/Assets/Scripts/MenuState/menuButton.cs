@@ -22,6 +22,17 @@ public class menuButton : MonoBehaviour
     public void OnClick()
     {
         musicManager.Instance.PlaySoundPitch("snd_aceptar");
+
+
+        if ((name == "play") || (name == "exit"))
+        {
+            musicManager.Instance.SetPhase(0);
+        }
+        else
+        {
+            musicManager.Instance.SetPhase(1);
+        }
+
         menu.currentState.HandleButton(name);
     }
 }

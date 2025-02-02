@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour, ILevelController
 {
@@ -35,8 +36,15 @@ public class LevelController : MonoBehaviour, ILevelController
         //StartCoroutine(lateStart());
 
         // AQUI MUSICA
-        musicManager.Instance.SetSong("nivel");
-        musicManager.Instance.SetPhase(0);
+        if ((SceneManager.GetActiveScene().name == "nivel1") && (SceneManager.GetActiveScene().name == "nivel1"))
+        {
+            musicManager.Instance.SetSong("nivel");
+            musicManager.Instance.SetPhase(0);
+        }
+        else
+        {
+            musicManager.Instance.MuteSong();
+        }
     }
     // Update is called once per frame
     void Update()

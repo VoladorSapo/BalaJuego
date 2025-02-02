@@ -21,7 +21,8 @@ public class MenuController : MonoBehaviour
     }
 
     public void SetState(AMenuState state)
-    { 
+    {
+
         if (currentState != null)
         {
             currentState.OnExit();
