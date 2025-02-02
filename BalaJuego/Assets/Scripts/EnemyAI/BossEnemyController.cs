@@ -17,9 +17,6 @@
         GetComponentInChildren<CharacterShoot>().restart();
         if (stateMachine == null)
         {
-            musicManager.Instance.SetSong("boss");
-            musicManager.Instance.SetPhase(0);
-
             stateMachine = new StateMachine();
             ShootState shoot = new ShootState(this);
             IdleState idle = new IdleState(this);

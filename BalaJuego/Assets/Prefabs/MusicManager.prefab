@@ -55,6 +55,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ffaa58cecbaad364bb3039534eb3c2cd, type: 3}
   clipBoss:
   - {fileID: 8300000, guid: 01d9dbcac97e44547a13de17758a9022, type: 3}
+  clipCredits:
+  - {fileID: 8300000, guid: adba27e4b63a7804cb18c5c124d2d967, type: 3}
   volMusic: 0.5
   volSounds: 1
   pitchMult: 0.6

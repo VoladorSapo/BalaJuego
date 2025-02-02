@@ -51,7 +51,7 @@ public class LevelController : MonoBehaviour, ILevelController
         }
         else
         {
-            if (isChurch)
+            if (!isChurch)
             {
                 musicManager.Instance.MuteSong();
             }
@@ -131,11 +131,6 @@ public class LevelController : MonoBehaviour, ILevelController
             {
                 Destroy(item.gameObject);
             }
-        }
-        if ((SceneManager.GetActiveScene().name == "nivel3"))
-        {
-            musicManager.Instance.SetSong("boss");
-            musicManager.Instance.SetPhase(0);
         }
         restartEvent.Invoke();
     }
