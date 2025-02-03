@@ -26,12 +26,13 @@ public class TimeManager : MonoBehaviour,ITimeManager
 
     public void changeTimeMagnitude(float newMagnitude, bool inf = false)
     {
-        musicManager.Instance.changeTimeMagnitude(newMagnitude);
 
         Debug.Log("Change Time " + newMagnitude);
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;
         onTimeChange?.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
+        musicManager.Instance.changeTimeMagnitude(newMagnitude);
+
         if (newMagnitude < 1 && !inf)
         {
             waiting = StartCoroutine(timeLimitReset());

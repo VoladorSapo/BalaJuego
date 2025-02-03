@@ -5,7 +5,8 @@ using UnityEngine;
 public class CreditsMusic : MonoBehaviour
 {
     void Start()
-    { 
+    {
+        Cursor.visible = true;
         musicManager.Instance.SetSong("credits");
         musicManager.Instance.SetPhase(0);
     }

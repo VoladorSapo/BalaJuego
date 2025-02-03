@@ -189,9 +189,10 @@ namespace tutorial
         }
         public override void OnEnter()
         {
+            Debug.Log("guachamin");
             tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos SIN BALAS pueden rematarse a CORTA DISTANCIA pulsando F.";
             tutorial.changeTutWait = false;
-            tutorial.waitTime(2f);
+            tutorial.waitTime(6f);
             tutorial.enemy.GetComponent<TutorialLife>().enabled = false;
 
 
