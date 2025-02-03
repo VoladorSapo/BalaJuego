@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     public float timeMagnitude { get; private set; }
 
-    Vector3 initialPos;
+  protected  Vector3 initialPos;
 
   [field:SerializeField]  public Collider2D stunedCollider { get; private set; }
 

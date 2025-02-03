@@ -1450,7 +1450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1483,6 +1483,10 @@ PrefabInstance:
     - target: {fileID: 2051294939465296080, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
       propertyPath: m_Name
       value: botella
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534503266039321681, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: z
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48252,7 +48256,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 26
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 69
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -71323,8 +71327,8 @@ Tilemap:
     m_Data: {fileID: -4399761, guid: 8b0c29b7eb081c449a98921a1606ca77, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1021160758, guid: 8b0c29b7eb081c449a98921a1606ca77, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1267699278, guid: 81ce0a71a1cf29047af0f55997fa4bec, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 187
     m_Data: {fileID: -1215387924, guid: 8b0c29b7eb081c449a98921a1606ca77, type: 3}
   - m_RefCount: 2
@@ -71431,8 +71435,8 @@ Tilemap:
     m_Data: {fileID: 1324403697, guid: 8b0c29b7eb081c449a98921a1606ca77, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -207331878, guid: 81ce0a71a1cf29047af0f55997fa4bec, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1267699278, guid: 81ce0a71a1cf29047af0f55997fa4bec, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 6611
     m_Data:
@@ -77064,7 +77068,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.1625
+  orthographic size: 6.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -117380,7 +117384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9be4d655177c94381ef067a71b2967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBullets: 2
+  startBullets: 4
   currentBullets: 0
   spawnPoint: {fileID: 4444866349519353067}
   character: {fileID: 6334990229320903608}

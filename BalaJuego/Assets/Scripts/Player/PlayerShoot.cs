@@ -31,6 +31,9 @@ public class PlayerShoot : MonoBehaviour
 [SerializeField]    GameObject[] hidewhenMelee;
 
 [SerializeField]  public  bool hasBottle;
+
+    [SerializeField] protected ParticleSystem bulletPick;
+
     private void Awake()
     {
         cursor = FindObjectOfType<cursorController>();
@@ -84,6 +87,7 @@ public class PlayerShoot : MonoBehaviour
                         {
                             musicManager.Instance.PlaySoundPitch("snd_reload");
                             reloading = true;
+                            bulletPick.Play();
                             GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
                             bulletToGrab.tryGrab(this);
                             cursor.full();
@@ -95,6 +99,7 @@ public class PlayerShoot : MonoBehaviour
                     {
                         reloading = true;
                         GetComponentInChildren<IShoot>().getAnim().Play("bottlePick");
+                        bulletPick.Play();
                         hasBottle = true;
                         bottleToGrab.tryGrab(this);
                         cursor.full();

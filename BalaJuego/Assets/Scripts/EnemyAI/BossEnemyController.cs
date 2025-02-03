@@ -30,11 +30,18 @@ public class BossEnemyController : EnemyController
         }
 
         stateMachine.SetState(new IdleState(this));
+        transform.position = initialPos;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
     }
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         if(collision.tag == "TurnStun")
         {
+            foreach (var item in FindObjectsOfType<baseBullet>())
+            {
+                Destroy(item.gameObject);
+            }
             gun.SetActive(false);
             stateMachine.ForceSetState(new StunedState(this));
         }
