@@ -36,7 +36,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  dialogText: Pero...
+  dialogText: "Ni si quiera pod\xEDa lanzar 6 balas sin fallar"
   leaveTime: 1.6
   startChars: 0
   width: 6
@@ -201,7 +201,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -7066746100537852831}
-    m_Duration: 29.1
+    m_Duration: 32.38333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2655418548863462219}
     m_EaseInDuration: 0
@@ -269,6 +269,24 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &-2630270354292244923
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc63693dd854f54780d8b7b6cc934dd, type: 3}
+  m_Name: DialogueClip(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  dialogText: "\xBFC\xF3mo es posible que el revolver de ese bastardo tuviera un
+    fallo as\xED?"
+  leaveTime: 1.6
+  startChars: 0
+  width: 6
+  personaje: 2
 --- !u!114 &-2144138599994906933
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 24.6
+  m_Time: 29.1
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 8ac5c326724ba7f4395204f1c993ad7e, type: 2}
@@ -732,7 +750,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 6976478897455073307}
-    m_Duration: 29.1
+    m_Duration: 32.38333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1094103822746447665}
     m_EaseInDuration: 0
@@ -1115,7 +1133,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
   - m_Version: 1
-    m_Start: 12.966666666666667
+    m_Start: 16.916666666666668
     m_ClipIn: 0
     m_Asset: {fileID: -8107640088571887775}
     m_Duration: 5.249999999999998
@@ -1127,49 +1145,46 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
+  - m_Version: 1
+    m_Start: 11.033333333333333
+    m_ClipIn: 0
+    m_Asset: {fileID: -2630270354292244923}
+    m_Duration: 4.883333333333333
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 6389050594811549020}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1258,7 +1273,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 19.683333333333334
+    m_Start: 25.583333333333332
     m_ClipIn: 0
     m_Asset: {fileID: 7856766542958885540}
     m_Duration: 3.5166666666666675
@@ -1415,11 +1430,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 9.45
+    m_PostExtrapolationTime: 12.2
     m_PreExtrapolationTime: 0.23333333333333334
     m_DisplayName: bossKill 1
   - m_Version: 1
-    m_Start: 10.933333333333334
+    m_Start: 13.683333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 8981891622605165667}
     m_Duration: 2.7083333333333335
@@ -1484,11 +1499,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 4.041666666666666
+    m_PostExtrapolationTime: 7.416666666666668
     m_PreExtrapolationTime: 0
     m_DisplayName: bossKill 2
   - m_Version: 1
-    m_Start: 17.683333333333334
+    m_Start: 23.808333333333334
     m_ClipIn: 0
     m_Asset: {fileID: -113829936896457766}
     m_Duration: 0.7916666666666679
