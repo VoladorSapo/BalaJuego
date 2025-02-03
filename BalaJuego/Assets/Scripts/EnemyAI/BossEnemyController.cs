@@ -1,8 +1,8 @@
-﻿public class BossEnemyController : EnemyController
+﻿using UnityEngine;
+public class BossEnemyController : EnemyController
 {
     IShoot Charshoot;
-
-
+    [SerializeField] GameObject gun;
 
     protected override void Start()
     {
@@ -14,7 +14,8 @@
     {
         print("GunRestart");
         base.restart(_area);
-        GetComponentInChildren<CharacterShoot>().restart();
+       gun.SetActive(true);
+        GetComponentInChildren<BossShoot>().restart();
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();
@@ -34,6 +35,7 @@
     {
         if(collision.tag == "TurnStun")
         {
+            gun.SetActive(false);
             stateMachine.ForceSetState(new StunedState(this));
         }
     }

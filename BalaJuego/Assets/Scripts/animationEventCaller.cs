@@ -33,7 +33,7 @@ public class animationEventCaller : MonoBehaviour
 
     public void bossStun()
     {
-        GetComponentInChildren<IShoot>().getAnim().gameObject.GetComponent<SpriteRenderer>().enabled = false;
+      // GetComponentInChildren<BossShoot>().gameObject.SetActive(false);
 
     }
 

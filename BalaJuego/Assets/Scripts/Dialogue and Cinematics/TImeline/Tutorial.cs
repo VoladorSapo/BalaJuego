@@ -105,7 +105,7 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "Cuando no tienes balas en el cargador puedes pulsar E para parar el Tiempo";
+            tutorial.TutorialText.text = "Tu revolver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E para REALENTIZAR EL TIEMPO";
             tutorial.enemy.anim.Play("enemySpot");
             tutorial.enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
             tutorial.enemy.GetComponentInChildren<gunRotate>().setRotation(tutorial.player.transform.position);
@@ -128,7 +128,7 @@ namespace tutorial
         public override void OnEnter()
         {
             tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<baseBullet>().changeTimeMagnitude(this, new timeData(1,0));
-            tutorial.TutorialText.text = "Haz Click a la bala para recogerla";
+            tutorial.TutorialText.text = "Cuando el tiempo está realentizado puedes hacer click en las BALAS de los enemigos para AGARRARLAS y así conseguir munición";
         }
         public override void OnExit()
         {
@@ -161,9 +161,9 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "Enhorabuena";
+            tutorial.TutorialText.text = "Los enemigos tienen BALAS LIMITADAS. Gestiona el tiempo y la munición o tendrás que REINICIAR EL NIVEL dandole a ESC";
             tutorial.changeTutWait = false;
-            tutorial.waitTime(0.5f);
+            tutorial.waitTime(3f);
             
         }
         public override void OnExit()
@@ -189,11 +189,11 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos sin balas pueden rematarse a corta distancia pulsando F.";
+            tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos SIN BALAS pueden rematarse a CORTA DISTANCIA pulsando F.";
             tutorial.changeTutWait = false;
+            tutorial.waitTime(2f);
             tutorial.enemy.GetComponent<TutorialLife>().enabled = false;
 
-            tutorial.waitTime(2f);
 
         }
         public override void OnExit()

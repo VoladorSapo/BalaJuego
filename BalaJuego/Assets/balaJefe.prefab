@@ -24591,6 +24591,7 @@ MonoBehaviour:
   canHurtAll: 0
   Infinite: 0
   hit: 0
+  z: -2
   hitParticle: {fileID: 1690490075298846511}
   impactParticle: {fileID: 8840982200996023175}
   inSelect: 0
@@ -24690,8 +24691,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4331522163561599241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

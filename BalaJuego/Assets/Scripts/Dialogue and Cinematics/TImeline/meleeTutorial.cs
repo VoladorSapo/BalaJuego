@@ -13,6 +13,7 @@ namespace tutorial
             StartMeleeTutorial startMel = new StartMeleeTutorial(this);
             FinTutorial1State fin = new FinTutorial1State(this);
             idleTutorialState idle = new idleTutorialState(this);
+            changeTutWait = false;
 
             machine.AddTransition(start, startMel, new FuncPredicate(() => true));
           

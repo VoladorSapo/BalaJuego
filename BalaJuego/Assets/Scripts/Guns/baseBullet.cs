@@ -12,7 +12,7 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] bool Infinite;
 
     public bool hit;
-    float z;
+  [SerializeField]  float z;
  protected   CharacterLife.Team team;
 
     [SerializeField] protected ParticleSystem hitParticle;
@@ -54,7 +54,6 @@ public class baseBullet: MonoBehaviour, IBullet
     {
         musicManager.Instance.PlayDisparo();
         print(shooter.transform.localScale.x);
-        z = -0.2f;
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         team = shooter.team;
