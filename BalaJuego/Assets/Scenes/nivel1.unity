@@ -17496,6 +17496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dithering
       objectReference: {fileID: 0}
+    - target: {fileID: 2725569559903222060, guid: aaabab133b0c4aa499624d6843f7ddb5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4220397979161477513, guid: aaabab133b0c4aa499624d6843f7ddb5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
