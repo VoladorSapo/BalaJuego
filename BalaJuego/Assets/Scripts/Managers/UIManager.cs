@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
    [SerializeField] CanvasGroup PauseScreen;
 
     [SerializeField] CanvasGroup winScreen;
+    Animator deathAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,8 @@ public class UIManager : MonoBehaviour
 
                 break;
             case IGameState.gameState.Death:
+                deathAnim = DeathScreen.gameObject.GetComponent<Animator>();
+                deathAnim.Play("die", -1, 0);
                 musicManager.Instance.PlaySound("snd_muerte");
                 musicManager.Instance.StopWalking();
                 musicManager.Instance.StopHeavyWalking();
