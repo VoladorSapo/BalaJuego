@@ -26,8 +26,11 @@ public class cutsceneCaller : MonoBehaviour
 
   [SerializeField]  bool hasStarted, hasFinished;
 
+
     private void Start()
     {
+        ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
+
         hasStarted = false;
         hasFinished = false;
         if (playOnAwakeNoLevel)
@@ -49,6 +52,10 @@ public class cutsceneCaller : MonoBehaviour
                 PlayCutscene();
             }
         }
+    }
+    public void restart()
+    {
+
     }
     public void PlayCutscene()
     {

@@ -85,7 +85,10 @@ public bool onGround;
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
 
     }
-
+    public void changeSpawnPoint(Vector3 pos)
+    {
+        initialPos = pos;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -107,8 +110,9 @@ public bool onGround;
       
             shoot.stunedDetector.gameObject.SetActive(onGround);
         
-        if (onGround && !jumping)
+        if (onGround && !jumping/* && rb2d.velocity.y <= 0*/)
         {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.gravityScale = 0;
             coyoteTimeCurrent = coyoteTime;
 

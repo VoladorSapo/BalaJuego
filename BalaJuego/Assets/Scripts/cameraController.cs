@@ -8,7 +8,7 @@ public class cameraController : MonoBehaviour
 
   [SerializeField]  PolygonCollider2D cameraConfinerCollider;
 
-    Vector2[] Startvectors;
+ [SerializeField]   Vector2[] Startvectors;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,10 @@ public class cameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
+    }
+    public void changeRestartConfiners(Vector2[] newPoints)
+    {
+        Startvectors = newPoints;
     }
     void endArea(object sender, AreaData data)
     {

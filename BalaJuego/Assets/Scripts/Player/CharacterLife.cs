@@ -11,9 +11,9 @@ public class CharacterLife : MonoBehaviour
     public Team team;
 
 
-  protected  Animator anim;
+  [SerializeField]protected  Animator anim;
 
- protected   bool melee;
+    [SerializeField] protected bool melee;
 
  [SerializeField] protected  GameObject spriteParent;
 

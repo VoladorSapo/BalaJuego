@@ -22,7 +22,7 @@ namespace tutorial
             machine.AddTransition(clickBala, dispararTipo, new FuncPredicate(() => grabDetector.reachableObjects.Count == 0));
             machine.AddTransition(dispararTipo, pressE, new FuncPredicate(() => failDetector.reachableObjects.Count > 0));
 
-            machine.AddTransition(dispararTipo, fin, new FuncPredicate(() => enemy == null));
+            machine.AddTransition(dispararTipo, fin, new FuncPredicate(() => enemy.GetComponent<EnemyLife>().dead == true));
             machine.AddTransition(fin, idle, new FuncPredicate(() => changeTutWait == true));
 
 

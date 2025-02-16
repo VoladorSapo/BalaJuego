@@ -27,7 +27,11 @@ public class animationEventCaller : MonoBehaviour
     }
     public void finishDeeathAnim()
     {
+        if(GetComponentInParent<EnemyLife>())
         GetComponentInParent<EnemyLife>().finishDeathAnim();
+
+        if (GetComponentInParent<TutorialLife>())
+            GetComponentInParent<TutorialLife>().finishDeathAnim();
 
     }
 

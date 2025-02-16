@@ -163,7 +163,7 @@ namespace tutorial
         {
             tutorial.TutorialText.text = "Los enemigos tienen BALAS LIMITADAS. Gestiona el tiempo y la munición o tendrás que REINICIAR EL NIVEL dandole a ESC";
             tutorial.changeTutWait = false;
-            tutorial.waitTime(3f);
+            tutorial.waitTime(5f);
             
         }
         public override void OnExit()
@@ -193,14 +193,15 @@ namespace tutorial
             tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos SIN BALAS pueden rematarse a CORTA DISTANCIA pulsando F.";
             tutorial.changeTutWait = false;
             tutorial.waitTime(6f);
-            tutorial.enemy.GetComponent<TutorialLife>().enabled = false;
+            tutorial.enemy.GetComponent<TutorialLife>().blockKill = true;
+            tutorial.enemy.anim.Play("enemyStun");
 
 
         }
         public override void OnExit()
         {
             tutorial.TutorialText.text = "";
-            tutorial.enemy.GetComponent<TutorialLife>().enabled = true;
+            tutorial.enemy.GetComponent<TutorialLife>().blockKill = false;
             tutorial.endTutorial();
         }
     }

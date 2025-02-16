@@ -43,7 +43,10 @@ public class EnemyLife : CharacterLife
     }
     public void finishDeathAnim()
     {
-        GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
+        if (GetComponent<EnemyController>().area != null)
+        {
+            GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
+        }
         GetComponent<EnemyController>().setColor(false);
 
         GetComponent<EnemyController>().enabled = false;
