@@ -5426,7 +5426,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -21268,4 +21268,6 @@ MonoBehaviour:
   maxLife: 1
   dead: 0
   team: 0
+  anim: {fileID: 0}
+  melee: 0
   spriteParent: {fileID: 246704284570004590}
