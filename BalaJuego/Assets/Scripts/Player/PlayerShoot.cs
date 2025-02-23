@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
@@ -34,14 +35,20 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] protected ParticleSystem bulletPick;
 
+    GameObject executionCamera;
+
+    public float shakeIntensity;
+
     private void Awake()
     {
         cursor = FindObjectOfType<cursorController>();
+        executionCamera = GetComponentInChildren<CinemachineVirtualCamera>().gameObject;
         enemyMelee = null;
     }
     private void Start()
     {
         hasBottle = false;
+        executionCamera.SetActive(false);
         shoot = GetComponentInChildren<IShoot>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
         grabDetector = GetComponentInChildren<ObjectDetector<baseBullet>>();
@@ -130,11 +137,13 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (stunedDetector.reachableObjects[0].GetComponent<HeavyEnemyController>() != null)
                 {
+                    executionCamera.SetActive(true);
                     anim.Play("heavyMelee");
                     musicManager.Instance.PlaySoundPitch("snd_melee");
                 }
                 if (stunedDetector.reachableObjects[0].GetComponent<GunEnemyController>() != null)
                 {
+                    executionCamera.SetActive(true);
                     anim.Play("basicEnemyMelee");
                     musicManager.Instance.PlaySoundPitch("snd_melee");
                 }
@@ -210,4 +219,8 @@ public class PlayerShoot : MonoBehaviour
         
     }
     
+    public void returnToNormalCamera()
+    {
+        executionCamera.SetActive(false);
+    }
 }

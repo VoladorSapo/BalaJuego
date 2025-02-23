@@ -46,6 +46,9 @@ TagManager:
   - name: BackGround
     uniqueID: 2145205505
     locked: 0
+  - name: decoration
+    uniqueID: 3633125393
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -54,6 +57,9 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 4254811463
+    locked: 0
+  - name: particles
+    uniqueID: 3423462949
     locked: 0
   - name: Canvas
     uniqueID: 1484339603
