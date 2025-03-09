@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 public class BossEnemyController : EnemyController
 {
     IShoot Charshoot;
@@ -32,7 +34,17 @@ public class BossEnemyController : EnemyController
         stateMachine.SetState(new IdleState(this));
         transform.position = initialPos;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(waitrestart());
 
+    }
+    IEnumerator waitrestart()
+    {
+        yield return new WaitForSeconds(0.1f);
+        transform.position = initialPos;
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().gravityScale = 1;
     }
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {

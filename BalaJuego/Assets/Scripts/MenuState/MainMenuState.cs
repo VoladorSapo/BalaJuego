@@ -18,7 +18,15 @@ public class MainMenuState : AMenuState
         switch(i)
         {
             case "play":
-                menu.callDithering("iglesia");
+               string scene = new SaveManager().getSavedScene();
+                if (Application.CanStreamedLevelBeLoaded(scene))
+                {
+                    menu.callDithering(scene);
+                }
+                else
+                {
+                    menu.callDithering("iglesia");
+                }
                 break;
             case "exit":
                 Application.Quit();

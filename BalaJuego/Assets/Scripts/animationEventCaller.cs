@@ -88,4 +88,10 @@ public class animationEventCaller : MonoBehaviour
         StartCoroutine(shakeCamera(cam, shakeIntensity));
 
     }
+
+    public void playSound(string sound)
+    {
+        musicManager.Instance.PlaySoundPitch(sound);
+
+    }
 }

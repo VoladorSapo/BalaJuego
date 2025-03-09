@@ -24,7 +24,6 @@ public class DialogueBehaviour: PlayableBehaviour
         //    first = false;
         //    text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width, 2);
         //}
-        Debug.Log(playable);
         if (text != null)
         {
             text.maxVisibleCharacters = startChars + Mathf.CeilToInt((text.textInfo.characterCount-startChars) * Mathf.Clamp(System.Convert.ToSingle(playable.GetTime() / (Mathf.Max(System.Convert.ToSingle(playable.GetDuration()-leaveTime),0))),0,1));

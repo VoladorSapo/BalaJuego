@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup winScreen;
     Animator deathAnim;
 
+    [SerializeField] string menuName = "MainMenu";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +83,12 @@ public class UIManager : MonoBehaviour
         changeGroup(DeathScreen, false);
         changeGroup(winScreen, false);
         ServiceLocator.Instance.Get<ILevelController>().reStart();
+    }
+    public void Menu()
+    {
+        ServiceLocator.Instance.Get<ISaveManager>().saveGame(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+        FindObjectOfType<ditherTransition>().goIn(menuName);
     }
 }
 

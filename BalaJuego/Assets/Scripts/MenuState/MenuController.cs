@@ -17,7 +17,13 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ISaveManager save = new SaveManager();
+            string s = save.getSavedScene();
+            if(s != null)
+            callDithering(s);
+        }
     }
 
     public void SetState(AMenuState state)

@@ -12,6 +12,7 @@ public class BaseBootstrap : MonoBehaviour, IServiceBootstrap
         ServiceLocator.Instance.Register<IcutsceneManager>(FindObjectOfType<cutsceneManager>());
 
         ServiceLocator.Instance.Register<IsoftLock>(FindObjectOfType<softLockController>());
+        ServiceLocator.Instance.Register<ISaveManager>(new SaveManager());
 
     }
 

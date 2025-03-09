@@ -23,8 +23,13 @@ public class cutsceneCaller : MonoBehaviour
     PlayerMove player;
 
     [SerializeField] bool onTrigger;
+    [SerializeField] bool canSkipped;
 
   [SerializeField]  bool hasStarted, hasFinished;
+
+    [SerializeField] GameObject[] objectsTurnOff; 
+
+    
 
 
     private void Start()
@@ -87,8 +92,8 @@ public class cutsceneCaller : MonoBehaviour
             default:
                 break;
         }
-
-        ServiceLocator.Instance.Get<IcutsceneManager>().startCutscene(timeline, _action);
+        CutsceneData data = new CutsceneData(canSkipped,objectsTurnOff);
+        ServiceLocator.Instance.Get<IcutsceneManager>().startCutscene(timeline, _action,data);
     }
 
 

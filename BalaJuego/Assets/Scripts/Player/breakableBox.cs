@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class breakableBox:MonoBehaviour
 {
@@ -30,7 +31,16 @@ public class breakableBox:MonoBehaviour
         gameObject.SetActive(true);
         transform.position = initPos;
         GetComponent<Animator>().Play("idle");
-        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        StartCoroutine(waitrestart());
+    }
 
+    IEnumerator waitrestart()
+    {
+        yield return new WaitForSeconds(0.1f);
+        transform.position = initPos;
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().gravityScale = 1;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-
 public interface ILevelController: IService
 {
     public void trueStart();

@@ -1575,8 +1575,10 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 2017078215}
   onTrigger: 1
+  canSkipped: 1
   hasStarted: 0
   hasFinished: 0
+  objectsTurnOff: []
 --- !u!4 &44199386
 Transform:
   m_ObjectHideFlags: 0
@@ -113279,8 +113281,10 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
+  canSkipped: 0
   hasStarted: 0
   hasFinished: 0
+  objectsTurnOff: []
 --- !u!4 &1560017838
 Transform:
   m_ObjectHideFlags: 0
@@ -114477,8 +114481,10 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
+  canSkipped: 1
   hasStarted: 0
   hasFinished: 0
+  objectsTurnOff: []
 --- !u!4 &1761899841
 Transform:
   m_ObjectHideFlags: 0

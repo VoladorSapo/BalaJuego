@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108904711}
   - component: {fileID: 108904710}
+  - component: {fileID: 108904712}
   m_Layer: 0
   m_Name: cutsceneCaller
   m_TagString: Untagged
@@ -281,6 +282,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108904712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108904709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52205d5897458f4f83dcee38a4fc749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &132959362
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraConfinerCollider: {fileID: 0}
+  Startvectors: []
 --- !u!114 &132959367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7107,7 +7121,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -6
   m_Sprite: {fileID: 21300000, guid: 09ec3ff13dc40b54bae777ead0ffa983, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
