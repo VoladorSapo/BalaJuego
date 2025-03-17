@@ -87,7 +87,7 @@ public class baseBullet: MonoBehaviour, IBullet
         anim.Play("bulletDestroy");
        if(obj.GetComponent<CharacterLife>() != null){
             if(hitParticle)
-            hitParticle.Play();
+            //hitParticle.Play();
             musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
         }
         else

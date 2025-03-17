@@ -5,6 +5,7 @@ public class EnemyLife : CharacterLife
     [SerializeField] GameObject gun;
     [SerializeField] GameObject head;
     [SerializeField] GameObject countText;
+    [SerializeField] ParticleSystem hitParticles;
     public override void Die()
     {
         dead = true;
@@ -37,7 +38,7 @@ public class EnemyLife : CharacterLife
                 head?.SetActive(false);
             }
             anim.Play("enemyDie");
-
+            hitParticles.Play();
             //Animacion morir
         }
     }
