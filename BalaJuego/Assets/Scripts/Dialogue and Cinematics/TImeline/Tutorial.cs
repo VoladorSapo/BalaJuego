@@ -51,7 +51,14 @@ namespace tutorial
         public void startTutorial()
         {
             print("startTutorial");
-            machine.SetState(new startTutorialState(this));
+            if (!settingManager.Instance.modeSpeedRun)
+            {
+                machine.SetState(new startTutorialState(this));
+            }
+            else
+            {
+                endTutorial();
+            }
         }
         public void waitTime(float time)
         {

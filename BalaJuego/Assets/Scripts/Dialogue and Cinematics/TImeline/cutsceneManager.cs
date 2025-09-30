@@ -14,7 +14,6 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         {
             if(currentData != null && currentData.canBeSkipped == true)
            skipCutscene();
-
         }
     }
     public void endAnimation()
@@ -35,8 +34,18 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         currentData = data;
         director.playableAsset = timeline;
         endCutsceneAction = endAction;
-        director.time = 0;
-        director.Play();
+        if (!settingManager.Instance.modeSpeedRun || !currentData.canBeSkipped)
+        {
+            director.time = 0;
+            director.Play();
+        }
+        else
+        {
+            print("SALTANDO CINEMATICA");
+            director.RebuildGraph(); // the graph must be created before getting the playable graph
+            director.playableGraph.GetRootPlayable(0).SetSpeed(9999999);
+            director.Play();
+        }
     }
     public void skipCutscene()
     {
@@ -48,8 +57,9 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         //        item.SetActive(false);
         //    }
         //}
-        director.time = director.duration;
-        endCutsceneAction.Invoke();
+        director.RebuildGraph(); // the graph must be created before getting the playable graph
+        director.playableGraph.GetRootPlayable(0).SetSpeed(9999999);
+        director.Play();
     }
 
     public void PlaySound(string sound)

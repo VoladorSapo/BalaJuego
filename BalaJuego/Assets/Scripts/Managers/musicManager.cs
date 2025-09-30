@@ -375,7 +375,7 @@ public class musicManager : MonoBehaviour
             Debug.LogError($"El sonido '{soundName}' no se encontr� en la carpeta Resources/Sonidos.");
             return;
         }
-
+        print($"Poniendo sonido {soundName}");
         AudioSource audioSource = GetAvailableAudioSource();
         audioSource.pitch = 1.0f;
         audioSource.clip = clip;

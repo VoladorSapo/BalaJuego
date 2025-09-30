@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1657784752170592939}
   - component: {fileID: 5543948199045982780}
   - component: {fileID: 738955533902035285}
+  - component: {fileID: 1497540997750516141}
+  - component: {fileID: 3959773303927180720}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -88,10 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9315cd228b00d4f4a8394326538a9d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentArea: {fileID: 0}
   areas: []
   levelAreaParent: {fileID: 0}
   cutsceneStart: {fileID: 0}
   cutsceneEnd: {fileID: 0}
+  isChurch: 0
 --- !u!114 &1657784752170592939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +153,44 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1497540997750516141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947349907422927085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d2a1de2eca7cb4f8513c9179f0fe73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalAssetEventPairs:
+  - signalAsset: {fileID: 11400000, guid: 190e78cdf285a3f4eb5a21869cb3b956, type: 2}
+    events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3959773303927180720}
+          m_TargetAssemblyTypeName: CutsceneMusicCaller, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &3959773303927180720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947349907422927085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5513d440dd0f7044f81a5acee3bf05ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
