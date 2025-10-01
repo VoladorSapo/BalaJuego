@@ -13,21 +13,21 @@ public class DialogueClip : PlayableAsset
     public int[] startCharsList;
     public float width;
     public int personaje;
-    public Language language;
+    public Language LanguageForEditor;
 
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
         var playable = ScriptPlayable<DialogueBehaviour>.Create(graph);
 
         DialogueBehaviour behaviour = playable.GetBehaviour();
-        behaviour.dialogText = dialogText;
+        //behaviour.dialogText = dialogText;
         behaviour.leaveTime = leaveTime;
         behaviour.startChars = startChars;
         behaviour.width = width;
         behaviour.personaje = personaje;
         behaviour.dialogTexts = dialogTexts;
         behaviour.startCharsList = startCharsList;
-        behaviour.languageForEditor = language;
+        behaviour.languageForEditor = LanguageForEditor;
         return playable;
 
     }

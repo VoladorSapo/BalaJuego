@@ -112,7 +112,7 @@ MonoBehaviour:
   startCharsList: 
   width: 6
   personaje: 0
-  language: 0
+  LanguageForEditor: 0
 --- !u!114 &-2144138599994906933
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,14 +298,14 @@ MonoBehaviour:
   dialogText: Intentan Escapar....g
   dialogTexts:
   - Intentan Escapar....
-  - "They\u2019re trying to escape\u2026"
-  - "Intenten escapar\u2026"
+  - They're trying to escape...
+  - Intenten escapar...
   leaveTime: 1.6
   startChars: 0
   startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 0
-  language: 0
+  LanguageForEditor: 2
 --- !u!114 &6389050594811549020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,7 +568,7 @@ MonoBehaviour:
   startCharsList: 
   width: 9.79
   personaje: 0
-  language: 0
+  LanguageForEditor: 0
 --- !u!114 &8018356207306023851
 MonoBehaviour:
   m_ObjectHideFlags: 1

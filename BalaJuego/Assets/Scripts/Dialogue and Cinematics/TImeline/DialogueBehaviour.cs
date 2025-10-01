@@ -5,7 +5,7 @@ using Unity.VisualScripting.FullSerializer;
 
 public class DialogueBehaviour: PlayableBehaviour
 {
-    public string dialogText;
+    //public string dialogText;
     public string[] dialogTexts;
     public float leaveTime;
     public int startChars;
@@ -15,10 +15,10 @@ public class DialogueBehaviour: PlayableBehaviour
   public  float width;
     bool first = true;
     public int personaje;
-
+    public int lang;
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-        int lang = 0;
+         lang = 0;
         if (settingManager.Instance != null)
         {
             Debug.Log("findinstance");
@@ -39,7 +39,7 @@ public class DialogueBehaviour: PlayableBehaviour
         }
         else
         {
-            text.text = dialogText;
+           // text.text = dialogText;
             Debug.Log("Fac");
         }
         //if (first)
@@ -58,7 +58,7 @@ public class DialogueBehaviour: PlayableBehaviour
             {
                  startCharacters = startChars;
             }
-                text.maxVisibleCharacters = startCharacters + Mathf.CeilToInt((text.textInfo.characterCount - startCharacters) * Mathf.Clamp(System.Convert.ToSingle(playable.GetTime() / (Mathf.Max(System.Convert.ToSingle(playable.GetDuration() - leaveTime), 0))), 0, 1));
+            text.maxVisibleCharacters = startCharacters + Mathf.CeilToInt((text.textInfo.characterCount - startCharacters) * Mathf.Clamp(System.Convert.ToSingle(playable.GetTime() / (Mathf.Max(System.Convert.ToSingle(playable.GetDuration() - leaveTime), 0))), 0, 1));
             if(maxVisible != text.maxVisibleCharacters)
             {
                 maxVisible = text.maxVisibleCharacters;
