@@ -5,10 +5,15 @@ public class DialogueClip : PlayableAsset
 {
     [TextArea(15, 20)]
     public string dialogText;
+    [TextArea(15, 20)]
+    public string[] dialogTexts;
+
     public float leaveTime;
     public int startChars;
+    public int[] startCharsList;
     public float width;
     public int personaje;
+    public Language language;
 
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
@@ -20,6 +25,9 @@ public class DialogueClip : PlayableAsset
         behaviour.startChars = startChars;
         behaviour.width = width;
         behaviour.personaje = personaje;
+        behaviour.dialogTexts = dialogTexts;
+        behaviour.startCharsList = startCharsList;
+        behaviour.languageForEditor = language;
         return playable;
 
     }

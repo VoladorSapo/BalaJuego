@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class settingManager : MonoBehaviour
 {
+ [SerializeField]   Language currentLanguage;
+
     public static settingManager Instance;
     [field:SerializeField] public bool modeSpeedRun { get; private set; }
     [field:SerializeField] public bool activatedTimer{ get; private set; }
@@ -29,6 +31,14 @@ public class settingManager : MonoBehaviour
     {
         activatedTimer = timerOn;
     }
+    public Language getLanguage() => currentLanguage;
+
+    public void changeLanguage(Language language)
+    {
+        print("me cambiaron el idioma a");
+        currentLanguage = language;
+    }
+
 }
 public class menuSettingChanger:MonoBehaviour
 {
@@ -55,4 +65,11 @@ public class menuSettingChanger:MonoBehaviour
         settingManager.Instance.activateTimer(timerOn);
 
     }
+}
+[System.Serializable]
+public enum Language
+{
+    Spanish = 0,
+    English = 1,
+    Catalan = 2
 }

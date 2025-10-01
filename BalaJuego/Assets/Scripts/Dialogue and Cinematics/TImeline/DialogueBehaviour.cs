@@ -1,12 +1,16 @@
 ﻿using UnityEngine.Playables;
 using TMPro;
 using UnityEngine;
+using Unity.VisualScripting.FullSerializer;
 
 public class DialogueBehaviour: PlayableBehaviour
 {
     public string dialogText;
+    public string[] dialogTexts;
     public float leaveTime;
     public int startChars;
+    public int[] startCharsList;
+    public Language languageForEditor;
     int maxVisible;
   public  float width;
     bool first = true;
@@ -14,10 +18,30 @@ public class DialogueBehaviour: PlayableBehaviour
 
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-        
+        int lang = 0;
+        if (settingManager.Instance != null)
+        {
+            Debug.Log("findinstance");
+            lang = (int)settingManager.Instance.getLanguage();
+        }
+        else
+        {
+
+            lang = (int)languageForEditor;
+            Debug.Log("findeditor" + lang+" " + startCharsList.Length);
+        }
         TMP_Text text = playerData as TMP_Text;
         text.ForceMeshUpdate();
-        text.text = dialogText;
+        if (lang < startCharsList.Length)
+        {
+            text.text = dialogTexts[lang];
+            Debug.Log(dialogTexts[lang]);
+        }
+        else
+        {
+            text.text = dialogText;
+            Debug.Log("Fac");
+        }
         //if (first)
         //{
         //    Debug.Log("chunda");
@@ -26,11 +50,19 @@ public class DialogueBehaviour: PlayableBehaviour
         //}
         if (text != null)
         {
-            text.maxVisibleCharacters = startChars + Mathf.CeilToInt((text.textInfo.characterCount-startChars) * Mathf.Clamp(System.Convert.ToSingle(playable.GetTime() / (Mathf.Max(System.Convert.ToSingle(playable.GetDuration()-leaveTime),0))),0,1));
+            int startCharacters;
+            if (lang < startCharsList.Length) {
+                 startCharacters = startCharsList[lang];
+            }
+            else
+            {
+                 startCharacters = startChars;
+            }
+                text.maxVisibleCharacters = startCharacters + Mathf.CeilToInt((text.textInfo.characterCount - startCharacters) * Mathf.Clamp(System.Convert.ToSingle(playable.GetTime() / (Mathf.Max(System.Convert.ToSingle(playable.GetDuration() - leaveTime), 0))), 0, 1));
             if(maxVisible != text.maxVisibleCharacters)
             {
                 maxVisible = text.maxVisibleCharacters;
-               if(maxVisible == startChars +1)
+               if(maxVisible == startCharacters +1)
                 {
                     text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2 (width, 2);
                     Debug.Log("PRIMERO");
