@@ -1733,6 +1733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8790976912560413995, guid: 7e9fdd40d9786c64f9007dd85b9f4fd2, type: 3}
+      propertyPath: currentLanguage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3684,7 +3688,7 @@ PrefabInstance:
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 49df81633407609439fb24ddf3532f95, type: 2}
+      objectReference: {fileID: 11400000, guid: 5a24ba1a709848e45a4280514e79bb6c, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 26
@@ -77130,7 +77134,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 6.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -77155,7 +77159,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.47, y: 1.52, z: -10}
+  m_LocalPosition: {x: -64.47, y: 2.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -106538,7 +106542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Intentan Escapar....g
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
@@ -106632,7 +106636,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1024.4501, y: -536.14}
-  m_SizeDelta: {x: 9.79, y: 2}
+  m_SizeDelta: {x: 25.3, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1500399388
 GameObject:
