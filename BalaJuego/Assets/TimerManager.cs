@@ -3,17 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class timecounter : MonoBehaviour
+public class TimerManager : MonoBehaviour, ITimer
 {
     bool runningTime = false;
     [SerializeField] float TimePassed;
-    public static timecounter Instance;
+    static TimerManager Instance;  
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,7 +25,6 @@ public class timecounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
 
     }
 
@@ -41,6 +41,10 @@ public class timecounter : MonoBehaviour
                 runningTime = true;
 
                 break;
+            //case IGameState.gameState.Death:
+            //    runningTime = true;
+
+            //    break;
             default:
                 runningTime = false;
 
@@ -57,5 +61,30 @@ public class timecounter : MonoBehaviour
         {
             TimePassed += Time.deltaTime;
         }
+    }
+
+    public void Instantiate()
+    {
+        ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
+    }
+
+    public TimePoints getSeconds()
+    {
+        return new TimePoints(TimePassed);
+    }
+}
+public interface ITimer : IService
+{
+    public TimePoints getSeconds();
+}
+public struct TimePoints
+{
+ public   float hours, minutes, seconds;
+
+   public TimePoints(float allSeconds)
+    {
+        hours =MathF.Floor(allSeconds / 3600);
+        minutes = MathF.Floor(allSeconds-hours*3660) / 60;
+        seconds = (allSeconds - hours * 3600) % 60;
     }
 }

@@ -6,6 +6,7 @@ public class EnemyLife : CharacterLife
     [SerializeField] GameObject head;
     [SerializeField] GameObject countText;
     [SerializeField] ParticleSystem hitParticles;
+    [SerializeField] Vector3 bodyMovePos;
     public override void Die()
     {
         dead = true;
@@ -44,6 +45,8 @@ public class EnemyLife : CharacterLife
     }
     public void finishDeathAnim()
     {
+        if(melee)
+        transform.position = FindObjectOfType<PlayerMove>().transform.position + bodyMovePos;
         if (GetComponent<EnemyController>().area != null)
         {
             GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());

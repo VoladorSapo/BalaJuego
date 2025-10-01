@@ -36,7 +36,10 @@ public class animationEventCaller : MonoBehaviour
             GetComponentInParent<TutorialLife>().finishDeathAnim();
 
     }
-
+    public void deathHitStop(float time)
+    {
+        ServiceLocator.Instance.Get<IHitStop>().HitStop(time);
+    }
     public void bossStun()
     {
       // GetComponentInChildren<BossShoot>().gameObject.SetActive(false);

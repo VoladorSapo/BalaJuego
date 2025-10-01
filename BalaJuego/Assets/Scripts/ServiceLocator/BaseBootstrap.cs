@@ -13,6 +13,9 @@ public class BaseBootstrap : MonoBehaviour, IServiceBootstrap
 
         ServiceLocator.Instance.Register<IsoftLock>(FindObjectOfType<softLockController>());
         ServiceLocator.Instance.Register<ISaveManager>(new SaveManager());
+        ServiceLocator.Instance.Register<ITimer>(FindObjectOfType<TimerManager>());
+            ServiceLocator.Instance.Register<IHitStop>(FindObjectOfType<HitStopManager>());
+
 
     }
 
