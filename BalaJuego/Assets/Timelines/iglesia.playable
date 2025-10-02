@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Hice una masacre, Padre, no qued\xF3 ni uno solo de ellos en pie. "
+  dialogTexts:
+  - "Hice una masacre, Padre, no qued\xF3 ni uno solo de ellos en pie. "
+  - "I made a massacre, Father, there wasn\u2019t a single one of them left standing.\r\n"
+  - 'Vaig fer una massacre, Pare, no en va quedar ni un sol dret.
+
+'
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 992.6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-8047621656583283256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,10 +121,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "SAL DE UNA VEZ AGATHA. SABEMOS QUE EST\xC1S AH\xCD.\r\nVENIMOS A DARTE
     TU MERECIDO.\r\n"
+  dialogTexts:
+  - "SAL DE UNA VEZ AGATHA. SABEMOS QUE EST\xC1S AH\xCD.\r\nVENIMOS A DARTE TU MERECIDO.\r\n"
+  - "GET OUT ALREADY, AGATHA. WE KNOW YOU\u2019RE IN THERE. WE\u2019VE COME TO GIVE
+    YOU WHAT YOU DESERVE."
+  - "SURT D\u2019UNA VEGADA, AGATHA. SABEM QUE HI ETS. HEM VINGUT A DONAR-TE EL QUE
+    ET MEREIXES."
   leaveTime: 1.6
   startChars: 46
+  startCharsList: 2e000000310000002c000000
   width: 913.5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-7012302857522422252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,10 +147,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Buenos d\xEDas, Padre. S\xE9 que acaba de amanecer, pero necesito
     confesarme.\r\n"
+  dialogTexts:
+  - "Buenos d\xEDas, Padre. S\xE9 que acaba de amanecer, pero necesito confesarme.\r\n"
+  - Good morning, Father. I know it's just dawn, but I need to confess.
+  - "Bon dia, Pare. S\xE9 que tot just \xE9s l\u2019alba, per\xF2 necessito confessar-me."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 800
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-6973001733160435521
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,10 +171,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "No pod\xEDa dejar las cosas as\xED. Cuando me llegaron las noticias
     cog\xED mi rev\xF3lver y les segu\xED hasta un pueblo a las afueras. "
+  dialogTexts:
+  - "No pod\xEDa dejar las cosas as\xED. Cuando me llegaron las noticias cog\xED
+    mi rev\xF3lver y les segu\xED hasta un pueblo a las afueras. "
+  - "I couldn\u2019t leave things like that. When the news reached me I grabbed my
+    revolver and followed them to a nearby village."
+  - "No podia deixar les coses aix\xED. Quan em van arribar les not\xEDcies vaig
+    agafar el meu rev\xF2lver i els vaig seguir fins a un poble a les afores"
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 992.6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-6797685291095438895
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,10 +198,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Pero le recuerdo que no est\xE1n permitidas las armas en el hogar
     del Se\xF1or.\r\n"
+  dialogTexts:
+  - "Pero le recuerdo que no est\xE1n permitidas las armas en el hogar del Se\xF1or.\r\n"
+  - "But I remind you that weapons are not allowed in the Lord\u2019s house.\r\n"
+  - "Per\xF2 et recordo que les armes no estan permeses a la casa del Senyor.\r\n"
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-6375366669986874717
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,10 +222,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Est\xE1n en busca de unos rev\xF3lveres con unas habilidades poderosas,
     iguales al de mi marido y al m\xEDo."
+  dialogTexts:
+  - "Est\xE1n en busca de unos rev\xF3lveres con unas habilidades poderosas, iguales
+    al de mi marido y al m\xEDo."
+  - "They\u2019re looking for some revolvers with powerful abilities, the same as
+    my husband\u2019s and mine.\r\n"
+  - "Busquen uns rev\xF2lvers amb habilitats poderoses, iguals als del meu marit
+    i al meu.\r\n"
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 992.6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-6293086160439060863
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,10 +359,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Mi m\xE1s sincero p\xE9same,  hija.\nPuedo asegurarte que Dios est\xE1
     contigo."
+  dialogTexts:
+  - "Mi m\xE1s sincero p\xE9same,  hija.\nPuedo asegurarte que Dios est\xE1 contigo."
+  - My deepest condolences, daughter. I can assure you God is with you.
+  - "El meu m\xE9s sincer condol, filla. Et puc assegurar que D\xE9u \xE9s amb tu."
   leaveTime: 1.2
   startChars: 29
+  startCharsList: 1d0000002100000020000000
   width: 1064.63
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-5558989551457446003
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -493,10 +545,16 @@ MonoBehaviour:
   dialogText: 'No se preocupe, Padre.
 
 '
+  dialogTexts:
+  - No se preocupe, Padre.
+  - " Don\u2019t worry, Father."
+  - No pateixi, Pare.
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 800
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-4684959403776807528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1768,10 +1826,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Pero ya te confesaste ayer, hija m\xEDa."
+  dialogTexts:
+  - "Pero ya te confesaste ayer, hija m\xEDa."
+  - But you already confessed yesterday, my child.
+  - "per\xF2 ja et vas confessar ahir, filla meva. \n"
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-3779448723126467310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1787,10 +1851,20 @@ MonoBehaviour:
   dialogText: 'No vengo a confesar lo que ya he hecho, Padre.
 
 '
+  dialogTexts:
+  - 'No vengo a confesar lo que ya he hecho, Padre.
+
+'
+  - "I\u2019m not here to confess what I\u2019ve already done, Father."
+  - 'No vinc a confessar el que ja he fet, Pare.
+
+'
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-2961759890861426895
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1804,10 +1878,18 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xC9l tuvo la mala suerte de ir en esa diligencia.\r\n"
+  dialogTexts:
+  - "\xC9l tuvo la mala suerte de ir en esa diligencia.\r\n"
+  - 'He was unlucky enough to be on that stagecoach.
+
+'
+  - "Ell va tenir la mala sort d\u2019anar en aquella dilig\xE8ncia."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 992.6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-2731676119102436306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1843,10 +1925,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Hija m\xEDa, no cometas ninguna locura.\r\n"
+  dialogTexts:
+  - "Hija m\xEDa, no cometas ninguna locura.\r"
+  - "My daughter, don\u2019t do anything foolish."
+  - Filla meva, no facis cap bogeria.
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-2349184110310980101
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1862,10 +1950,16 @@ MonoBehaviour:
   dialogText: ' Entonces, habla.
 
 '
+  dialogTexts:
+  - ' Entonces, habla.'
+  - Then speak.
+  - ' Doncs parla.'
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-1859206452136263385
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1879,10 +1973,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: Sino lo que voy a hacer.
+  dialogTexts:
+  - Sino lo que voy a hacer.
+  - "But what I\u2019m going to do."
+  - "Sin\xF3 el que far\xE9."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 0
+  LanguageForEditor: 0
 --- !u!74 &-1793532644216869095
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -2107,10 +2207,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "No se preocupe, Padre.\nest\xE1 descargada.\r"
+  dialogTexts:
+  - "No se preocupe, Padre.\nest\xE1 descargada.\r"
+  - "Don\u2019t worry, Father. It\u2019s unloaded."
+  - "No pateixi, Pare. Est\xE0 descarregada."
   leaveTime: 1.2
   startChars: 21
+  startCharsList: 150000001500000011000000
   width: 800
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-1205461654746776039
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2124,10 +2230,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Cu\xE9ntame, hija. \nCu\xE9ntame y se te perdonar\xE1. \r\n"
+  dialogTexts:
+  - "Cu\xE9ntame, hija. \nCu\xE9ntame y se te perdonar\xE1. \r\n"
+  - Tell me, daughter. Tell me and you will be forgiven.
+  - "Explica-m\u2019ho, filla.\nExplica-m\u2019ho i ser\xE0s perdonada."
   leaveTime: 1.2
   startChars: 13
+  startCharsList: 0d0000001200000014000000
   width: 900
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-29328084504434488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2187,10 +2299,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Hace unos d\xEDas los hombres de Antperton asaltaron una diligencia
     en las afueras. "
+  dialogTexts:
+  - "Hace unos d\xEDas los hombres de Antperton asaltaron una diligencia en las afueras. "
+  - ' A few days ago the men from Antperton robbed a stagecoach outside of town.
+
+'
+  - "Fa uns dies els homes d\u2019Antperton van assaltar una dilig\xE8ncia a les
+    afores."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 800
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &1224783452261815374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2205,10 +2326,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Tranquilo, Padre, no tengo miedo. Usted me ha dicho que Dios est\xE1
     conmigo.\r\n"
+  dialogTexts:
+  - "Tranquilo, Padre, no tengo miedo. Usted me ha dicho que Dios est\xE1 conmigo.\r\n"
+  - 'Calm down, Father, I am not afraid. You told me God is with me.
+
+'
+  - "Tranquil, Pare, no tinc por. Vost\xE8 m\u2019ha dit que D\xE9u \xE9s amb mi."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 913.5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &1482339963142837552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2222,10 +2351,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xA1Son ellos!"
+  dialogTexts:
+  - "\xA1Son ellos!"
+  - "It\u2019s them!"
+  - "S\xF3n ells!"
   leaveTime: 1
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &1646932572124097711
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2239,10 +2374,16 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: "Cu\xE9ntame, hija."
+  dialogTexts:
+  - "Cu\xE9ntame, hija."
+  - 'Tell me, daughter. '
+  - "Explica-m\u2019ho, filla."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 800
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &2003784999258656166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2256,10 +2397,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xA1Son ellos! \nR\xE1pido hija, hay una salida en la pa-"
+  dialogTexts:
+  - "\xA1Son ellos! \nR\xE1pido hija, hay una salida en la pa-"
+  - "It\u2019s them! Quick, daughter, there\u2019s a way out th-"
+  - "S\xF3n ells! De pressa, filla, hi ha una sortida a la pa\u2014"
   leaveTime: 0
   startChars: 10
+  startCharsList: 0a0000000a00000009000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &2192087826918491401
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2273,10 +2420,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Ya te di mi perd\xF3n. "
+  dialogTexts:
+  - "Ya te di mi perd\xF3n. "
+  - I already gave you my forgiveness.
+  - "Ja et vaig donar el meu perd\xF3."
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &2536654995196784089
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2371,10 +2524,16 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: "SAL DE UNA VEZ AGATHA. SABEMOS QUE EST\xC1S AH\xCD.\r\n"
+  dialogTexts:
+  - "SAL DE UNA VEZ AGATHA. SABEMOS QUE EST\xC1S AH\xCD.\r"
+  - "GET OUT ALREADY, AGATHA. WE KNOW YOU\u2019RE IN THERE."
+  - " SURT D\u2019UNA VEGADA, AGATHA. SABEM QUE HI ETS."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 913.5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &3223710085544410098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2388,10 +2547,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: . . .
+  dialogTexts:
+  - . . .
+  - . . .
+  - . . .
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &3824724582224214345
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2405,10 +2570,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Dios te dio su perd\xF3n. "
+  dialogTexts:
+  - "Dios te dio su perd\xF3n. "
+  - "God already forgave you.\r"
+  - "D\xE9u ja t\u2019ha perdonat.\r\n"
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &3964174590570576399
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2422,10 +2593,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Mi m\xE1s sincero p\xE9same,  hija.\n"
+  dialogTexts:
+  - "Mi m\xE1s sincero p\xE9same,  hija.\n"
+  - "El meu m\xE9s sincer condol, filla."
+  - My deepest condolences, daughter.
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 1000
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &5768857371893562407
 MonoBehaviour:
   m_ObjectHideFlags: 1
