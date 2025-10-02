@@ -51,7 +51,7 @@ namespace tutorial
         public void startTutorial()
         {
             print("startTutorial");
-            if (!settingManager.Instance.modeSpeedRun)
+            if (!settingManager.Instance.skipTutorial)
             {
                 machine.SetState(new startTutorialState(this));
             }

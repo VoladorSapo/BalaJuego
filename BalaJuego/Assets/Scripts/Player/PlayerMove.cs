@@ -51,7 +51,7 @@ public bool onGround;
     float timeMagnitude;
 
     IShoot gun;
-    int runningDirection;
+ public   int runningDirection{get;private set;}    
 
     Vector3 initialPos;
 

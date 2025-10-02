@@ -45,8 +45,13 @@ public class EnemyLife : CharacterLife
     }
     public void finishDeathAnim()
     {
-        if(melee)
-        transform.position = FindObjectOfType<PlayerMove>().transform.position + bodyMovePos;
+        if (melee)
+        {
+            PlayerMove player = FindObjectOfType<PlayerMove>();
+            transform.position = player.transform.position + new Vector3(bodyMovePos.x * player.runningDirection, bodyMovePos.y, bodyMovePos.z);
+            transform.localScale = new Vector3(player.runningDirection, 1, 1);
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
         if (GetComponent<EnemyController>().area != null)
         {
             GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
@@ -79,6 +84,14 @@ public class EnemyLife : CharacterLife
 
 
     }
+    //int checkPlayerDir()
+    //{
+    //    if(FindObjectOfType<PlayerMove>().transform.position.x > gameObject.transform.position.x)
+    //    {
+    //        return 1;
+    //    }
+    //    return -1;
+    //}
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);

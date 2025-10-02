@@ -5850,6 +5850,7 @@ MonoBehaviour:
   head: {fileID: 8298916624352723955}
   countText: {fileID: 3385076538322299424}
   hitParticles: {fileID: 7864260828813986825}
+  bodyMovePos: {x: 1.57, y: 0.26, z: 0}
 --- !u!114 &4395345927782291892
 MonoBehaviour:
   m_ObjectHideFlags: 0

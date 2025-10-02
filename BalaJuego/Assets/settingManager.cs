@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,10 @@ public class settingManager : MonoBehaviour
  [SerializeField]   Language currentLanguage;
 
     public static settingManager Instance;
-    [field:SerializeField] public bool modeSpeedRun { get; private set; }
+    [field:SerializeField] public bool skipCutscenes { get; private set; }
+    [field: SerializeField] public bool skipTutorial { get; private set; }
     [field:SerializeField] public bool activatedTimer{ get; private set; }
-
+    public event EventHandler<Language> changeLanguageEvent;
 
     private void Awake()
     {
@@ -23,22 +25,31 @@ public class settingManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void changeMode(bool speedRun)
+    public void changeCutsceneSetting(bool speedRun)
     {
-        modeSpeedRun = speedRun;
+        skipCutscenes = speedRun;
     }
     public void activateTimer(bool timerOn)
     {
         activatedTimer = timerOn;
     }
+    public void changeTutorialSetting(bool on)
+    {
+        skipTutorial = on;
+    }
     public Language getLanguage() => currentLanguage;
 
     public void changeLanguage(Language language)
     {
-        print("me cambiaron el idioma a");
-        currentLanguage = language;
+        print("me cambiaron el idioma a" + language);
+        currentLanguage =language;
+        changeLanguageEvent.Invoke(this,currentLanguage);
     }
+    public void subscribeToStateChange(EventHandler<Language> response)
+    {
+        changeLanguageEvent += response;
 
+    }
 }
 public class menuSettingChanger:MonoBehaviour
 {
@@ -54,8 +65,8 @@ public class menuSettingChanger:MonoBehaviour
     }
     public void changeModeToggle(bool speedRun)
     {
-       settingManager.Instance.changeMode(speedRun);
-        if (settingManager.Instance.modeSpeedRun)
+       settingManager.Instance.changeCutsceneSetting(speedRun);
+        if (settingManager.Instance.skipCutscenes)
         {
             timerToggle.isOn = true;
         }

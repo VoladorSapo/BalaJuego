@@ -6,6 +6,6 @@ public class CutsceneMusicCaller : MonoBehaviour
 {
     public void PlaySound(string soundName)
     {
-        musicManager.Instance.PlaySound(soundName);
+      ServiceLocator.Instance.Get<IcutsceneManager>().PlaySound(soundName);
     }
 }
