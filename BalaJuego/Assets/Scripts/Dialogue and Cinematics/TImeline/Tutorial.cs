@@ -112,7 +112,21 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "Tu revolver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E para REALENTIZAR EL TIEMPO";
+            switch (settingManager.Instance.getLanguage())
+            {
+                case Language.Spanish:
+                    tutorial.TutorialText.text = "Tu revolver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E para REALENTIZAR EL TIEMPO";
+
+                    break;
+                case Language.English:
+                    tutorial.TutorialText.text = "Your revolver can only hold one bullet. But when it’s OUT OF BULLETS you can press E to SLOW DOWN TIME.";
+
+                    break;
+                case Language.Catalan:
+                    tutorial.TutorialText.text = "El teu revòlver només pot tenir una bala. Però quan està SENSE BALA pots prémer E per RALENTIR EL TEMPS.";
+
+                    break;
+            }
             tutorial.enemy.anim.Play("enemySpot");
             tutorial.enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
             tutorial.enemy.GetComponentInChildren<gunRotate>().setRotation(tutorial.player.transform.position);
@@ -135,7 +149,21 @@ namespace tutorial
         public override void OnEnter()
         {
             tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<baseBullet>().changeTimeMagnitude(this, new timeData(1,0));
-            tutorial.TutorialText.text = "Cuando el tiempo está realentizado puedes hacer click en las BALAS de los enemigos para AGARRARLAS y así conseguir munición";
+            switch (settingManager.Instance.getLanguage())
+            {
+                case Language.Spanish:
+                    tutorial.TutorialText.text = "Cuando el tiempo está realentizado puedes hacer click en las BALAS de los enemigos para AGARRARLAS y así conseguir munición";
+
+                    break;
+                case Language.English:
+                    tutorial.TutorialText.text = "When time is slowed you can click on ENEMIES’ BULLETS to GRAB THEM and gain ammo.";
+
+                    break;
+                case Language.Catalan:
+                    tutorial.TutorialText.text = "Quan el temps està alentit pots fer clic a les BALES dels enemics per AGAFAR-LES i així aconseguir munició.";
+
+                    break;
+            }
         }
         public override void OnExit()
         {
@@ -153,7 +181,21 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "Haz Click en el enemigo para disparar";
+            switch (settingManager.Instance.getLanguage())
+            {
+                case Language.Spanish:
+                    tutorial.TutorialText.text = "Haz Click en el enemigo para disparar";
+
+                    break;
+                case Language.English:
+                    tutorial.TutorialText.text = "When time is slowed you can click on ENEMIES’ BULLETS to GRAB THEM and gain ammo.";
+
+                    break;
+                case Language.Catalan:
+                    tutorial.TutorialText.text = "Quan el temps està alentit pots fer clic a les BALES dels enemics per AGAFAR-LES i així aconseguir munició.";
+
+                    break;
+            }
         }
         public override void OnExit()
         {
@@ -168,7 +210,21 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.TutorialText.text = "Los enemigos tienen BALAS LIMITADAS. Gestiona el tiempo y la munición o tendrás que REINICIAR EL NIVEL dandole a ESC";
+            switch (settingManager.Instance.getLanguage())
+            {
+                case Language.Spanish:
+                    tutorial.TutorialText.text = "Los enemigos tienen BALAS LIMITADAS. Gestiona el tiempo y la munición o tendrás que REINICIAR EL NIVEL dandole a ESC";
+
+                    break;
+                case Language.English:
+                    tutorial.TutorialText.text = "Enemies have LIMITED BULLETS. Manage time and ammo or you’ll have to RESTART THE LEVEL by pressing ESC.";
+
+                    break;
+                case Language.Catalan:
+                    tutorial.TutorialText.text = "Els enemics tenen BALES LIMITADES. Gestiona el temps i la munició o hauràs de REINICIAR EL NIVELL prement ESC.";
+
+                    break;
+            }
             tutorial.changeTutWait = false;
             tutorial.waitTime(5f);
             
@@ -197,7 +253,21 @@ namespace tutorial
         public override void OnEnter()
         {
             Debug.Log("guachamin");
-            tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos SIN BALAS pueden rematarse a CORTA DISTANCIA pulsando F.";
+            switch (settingManager.Instance.getLanguage())
+            {
+                case Language.Spanish:
+                    tutorial.TutorialText.text = "No siempre podrás llegar armado a las peleas. Los enemigos SIN BALAS pueden rematarse a CORTA DISTANCIA pulsando F.";
+
+                    break;
+                case Language.English:
+                    tutorial.TutorialText.text = "You won’t always be able to enter fights already armed. Enemies WITH NO BULLETS can be finished off at CLOSE RANGE by pressing F.";
+
+                    break;
+                case Language.Catalan:
+                    tutorial.TutorialText.text = "No sempre podràs arribar armat a les baralles. Els enemics SENSE BALES es poden rematar a CURTA DISTÀNCIA prement F.";
+
+                    break;
+            }
             tutorial.changeTutWait = false;
             tutorial.waitTime(6f);
             tutorial.enemy.GetComponent<TutorialLife>().blockKill = true;
@@ -242,6 +312,7 @@ namespace tutorial
         }
         public override void OnEnter()
         {
+         
             tutorial.TutorialText.text = "Haz click en la botella para agarrarla";
             tutorial.changeTutWait = false;
             tutorial.waitTime(0.5f);

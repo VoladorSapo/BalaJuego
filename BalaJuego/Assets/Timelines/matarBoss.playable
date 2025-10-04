@@ -37,10 +37,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Ni si quiera pod\xEDa lanzar 6 balas sin fallar"
+  dialogTexts:
+  - "Ni si quiera pod\xEDa lanzar seis balas sin fallar"
+  - It couldn't even fire six bullets without missing.
+  - Ni tan sols podia disparar sis bales sense fallar.
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-7792608110723882931
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,10 +96,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Se supon\xEDa que no podrias agarrar las balas...."
+  dialogTexts:
+  - "Se supon\xEDa que no podrias agarrar las balas...."
+  - You weren't supposed to be able to grab the bullets....
+  - "Se suposava que no podries agafar les bales\u2026\r\n"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-2969295819440028110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,10 +295,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "\xBFC\xF3mo es posible que el revolver de ese bastardo tuviera un
     fallo as\xED?"
+  dialogTexts:
+  - "\xBFC\xF3mo es posible que el revolver de ese bastardo tuviera un fallo as\xED?"
+  - How could that bastard's revolver have such a malfunction?
+  - "Com \xE9s possible que el rev\xF2lver d\u2019aquell bastard tingu\xE9s un defecte
+    aix\xED?\r"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-2144138599994906933
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -969,10 +988,16 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: "\xA1No puede ser!"
+  dialogTexts:
+  - "\xA1No puede ser!"
+  - No pot ser!
+  - It can't be!
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &6389050594811549020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,10 +1272,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xC9l nunca necesit\xF3 las seis balas."
+  dialogTexts:
+  - "\xC9l nunca necesit\xF3 las seis balas."
+  - He never needed the six bullets.
+  - "Ell mai va necessitar\_les\_sis\_bales."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 3
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &7963660106589960192
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -146,10 +146,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Las huellas son frescas. No andar\xE1n muy lejos."
+  dialogTexts:
+  - "Las huellas son frescas. No andar\xE1n muy lejos."
+  - "The tracks are fresh. They\u2019re not far."
+  - "Les petjades s\xF3n fresques. No poden estar gaire lluny."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-1750619231004377609
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -622,10 +628,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Esos desgraciados deben haber acampado en alg\xFAn sitio."
+  dialogTexts:
+  - "Esos desgraciados deben haber acampado en alg\xFAn sitio."
+  - Those bastards must have made camp somewhere.
+  - Aquells desgraciats deuen haver acampat en algun lloc.
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &960289615337559336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,10 +748,18 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: "La noche est\xE1 al caer."
+  dialogTexts:
+  - "La noche est\xE1 al caer."
+  - 'Night is falling.
+
+'
+  - "La nit est\xE0 a punt de caure."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 0
+  LanguageForEditor: 0
 --- !u!74 &8867717586412588251
 AnimationClip:
   m_ObjectHideFlags: 0

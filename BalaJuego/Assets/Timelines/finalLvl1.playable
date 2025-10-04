@@ -173,10 +173,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: Sinclair...
+  dialogTexts:
+  - Sinclair...
+  - Sinclair...
+  - Sinclair...
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-6237690248699593275
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,10 +196,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xA1Padre!... \xBFQu\xE9 ha pasado? "
+  dialogTexts:
+  - "\xA1Padre!... \xBFQu\xE9 ha pasado? "
+  - Father!... What happened?
+  - "Pare!... Qu\xE8 ha passat?"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-5839392767743088796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -382,10 +394,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Te busca, hija m\xEDa."
+  dialogTexts:
+  - "Te busca, hija m\xEDa."
+  - "He\u2019s looking for you, my daughter."
+  - Et busca, filla meva.
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-806211797323962414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,10 +441,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: Padre...
+  dialogTexts:
+  - Padre...
+  - Father...
+  - "Pare\u2026"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,10 +972,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "No se preocupe. Har\xE9 que pague."
+  dialogTexts:
+  - "No se preocupe. Har\xE9 que pague."
+  - "Don\u2019t worry. I\u2019ll make him pay."
+  - "Es preocupi. Far\xE9 que ho pagui."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &4528151083784143723
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -965,10 +995,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xA1Hija m\xEDa! "
+  dialogTexts:
+  - "\xA1Hija m\xEDa! "
+  - My child!
+  - Filla meva!
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &4615088355671090283
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1296,10 +1332,16 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: Esos malditos desgraciados...
+  dialogTexts:
+  - Esos malditos desgraciados...
+  - Those damned bastards...
+  - "Male\xEFts desgraciats\u2026"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &5824170442270840657
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1469,10 +1511,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Sinclair.... ha prendido fuego a medio pueblo, Oh, Se\xF1or...."
+  dialogTexts:
+  - "Sinclair.... ha prendido fuego a medio pueblo, Oh, Se\xF1or...."
+  - "Sinclair... He set half the town on fire. Oh, Lord\u2026"
+  - "Sinclair\u2026 Ha calat foc a mig poble. Oh, Senyor\u2026\r\n"
   leaveTime: 1.6
   startChars: 9
+  startCharsList: 090000000900000009000000
   width: 5
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &8528080952808649220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1486,10 +1534,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Que el se\xF1or vaya contigo."
+  dialogTexts:
+  - "Que el se\xF1or vaya contigo."
+  - "May the Lord be with you.\r"
+  - Que el Senyor vagi amb tu.
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 1
+  LanguageForEditor: 0
 --- !u!74 &9143176712643026298
 AnimationClip:
   m_ObjectHideFlags: 0

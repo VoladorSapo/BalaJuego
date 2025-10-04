@@ -106,10 +106,15 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: Puedo seguirlos usando las antiguas minas.
-  dialogTexts: []
+  dialogTexts:
+  - Puedo seguirlos usando las antiguas minas.
+  - "I can track them using the old mines.\r"
+  - 'Els puc seguir fent servir les antigues mines.
+
+'
   leaveTime: 1.6
   startChars: 0
-  startCharsList: 
+  startCharsList: 000000000000000000000000
   width: 6
   personaje: 0
   LanguageForEditor: 0
@@ -299,7 +304,7 @@ MonoBehaviour:
   dialogTexts:
   - Intentan Escapar....
   - They're trying to escape...
-  - Intenten escapar...
+  - "Intenten escapar\u2026"
   leaveTime: 1.6
   startChars: 0
   startCharsList: 000000000000000000000000
@@ -562,10 +567,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Aunque, con mi suerte, seguro que tambi\xE9n est\xE1n infestadas de
     agentes de Antperton."
-  dialogTexts: []
+  dialogTexts:
+  - "Aunque, con mi suerte, seguro que tambi\xE9n est\xE1n infestadas de agentes
+    de Antperton."
+  - "Although, with my luck, they\u2019re probably infested with Antperton agents
+    too.\r\n"
+  - "Tot i que, amb la meva sort, segur que tamb\xE9 estan infestades d\u2019agents
+    d\u2019Antperton."
   leaveTime: 1.6
   startChars: 0
-  startCharsList: 
+  startCharsList: 000000000000000000000000
   width: 9.79
   personaje: 0
   LanguageForEditor: 0

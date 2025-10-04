@@ -48,7 +48,7 @@ public class EnemyLife : CharacterLife
         if (melee)
         {
             PlayerMove player = FindObjectOfType<PlayerMove>();
-            transform.position = player.transform.position + new Vector3(bodyMovePos.x * player.runningDirection, bodyMovePos.y, bodyMovePos.z);
+            transform.position = player.transform.position + new Vector3(bodyMovePos.x * -player.transform.localScale.x, bodyMovePos.y, bodyMovePos.z);
             transform.localScale = new Vector3(player.runningDirection, 1, 1);
             GetComponent<Rigidbody2D>().isKinematic = true;
         }

@@ -2595,8 +2595,8 @@ MonoBehaviour:
   dialogText: "Mi m\xE1s sincero p\xE9same,  hija.\n"
   dialogTexts:
   - "Mi m\xE1s sincero p\xE9same,  hija.\n"
-  - "El meu m\xE9s sincer condol, filla."
   - My deepest condolences, daughter.
+  - "El meu m\xE9s sincer condol, filla."
   leaveTime: 1.2
   startChars: 0
   startCharsList: 000000000000000000000000

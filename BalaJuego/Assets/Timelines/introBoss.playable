@@ -106,10 +106,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Dime, \xBFTe suena este revolver?"
+  dialogTexts:
+  - "Dime, \xBFTe suena este revolver?"
+  - Tell me, does this revolver look familiar?
+  - "Digues-me, et sona aquest rev\xF2lver?"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-7770406382010881167
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,10 +141,18 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Por fin has llegado, \nCuernoveloz."
+  dialogTexts:
+  - "Por fin has llegado, \nCuernoveloz."
+  - "Finally you\u2019ve arrived, \nCuernoveloz."
+  - 'Finalment has arribat,
+
+    Cuernoveloz'
   leaveTime: 1.6
   startChars: 20
+  startCharsList: 140000001700000016000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-7066746100537852831
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,10 +178,18 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "De limpiar estas tierras\nde escoria como t\xFA."
+  dialogTexts:
+  - "De limpiar estas tierras\nde escoria como t\xFA."
+  - 'About cleaning this land
+
+    Of scum like you.'
+  - "De netejar aquestes terres\r\nD\u2019esc\xF2ria com tu."
   leaveTime: 1.6
   startChars: 23
+  startCharsList: 17000000180000001a000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-4332626706277786118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,10 +296,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Sab\xEDa que te encontrar\xEDa aqu\xED, Detective Sinclair."
+  dialogTexts:
+  - "Sab\xEDa que te encontrar\xEDa aqu\xED, Detective Sinclair."
+  - "I knew I\u2019d find you here, Detective Sinclair."
+  - "Sabia que et trobaria aqu\xED, detectiu Sinclair."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 10.41
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-2969295819440028110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,10 +360,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: De limpiar estas tierras
+  dialogTexts:
+  - De limpiar estas tierras
+  - About cleaning this land
+  - "De netejar aquestes terres\r"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-2655418548863462219
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,10 +500,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "\xBFDe qu\xE9 est\xE1s hablando?"
+  dialogTexts:
+  - "\xBFDe qu\xE9 est\xE1s hablando?"
+  - What are you talking about?
+  - "De qu\xE8 est\xE0s parlant?"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 10.41
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &-1308207894102440981
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -505,10 +545,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Una l\xE1stima que no pudieses preveer\nlo que le pas\xF3 a tu marido."
+  dialogTexts:
+  - "Una l\xE1stima que no pudieses preveer\nlo que le pas\xF3 a tu marido."
+  - "It's a shame you couldn\u2019t foresee what happened to your husband.\r\n"
+  - "Una ll\xE0stima que no poguessis preveure el que li va passar al teu marit."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &-1108846061313926781
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,10 +860,18 @@ MonoBehaviour:
   dialogText: 'Por fin has llegado,
 
 '
+  dialogTexts:
+  - 'Por fin has llegado,
+
+'
+  - "Finally you\u2019ve arrived,"
+  - Finalment has arribat,
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &2325676098311515293
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -831,10 +885,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: ...
+  dialogTexts:
+  - . . .
+  - . . .
+  - . . .
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 10.41
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &2825564185750392343
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -992,10 +1052,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Es solo que, con su rev\xF3lver domador de llamas..."
+  dialogTexts:
+  - "Es solo que, con su rev\xF3lver domador de llamas..."
+  - "It\u2019s just that, with his flame-tamer revolver..."
+  - "\xC9s nom\xE9s que, amb el seu rev\xF2lver domador de flames\u2026\r\n"
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &6389050594811549020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1239,10 +1305,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: No fue nada personal.
+  dialogTexts:
+  - No fue nada personal.
+  - "It wasn\u2019t personal."
+  - No va ser res personal.
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &6745985037518246292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1256,10 +1328,16 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Puedo terminar mi trabajo mucho mas r\xE1pido."
+  dialogTexts:
+  - "Puedo terminar mi trabajo mucho mas r\xE1pido."
+  - I can finish my work a lot faster.
+  - "Puc acabar la meva feina molt m\xE9s r\xE0pid."
   leaveTime: 1.6
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 25.3
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &6976478897455073307
 MonoBehaviour:
   m_ObjectHideFlags: 1

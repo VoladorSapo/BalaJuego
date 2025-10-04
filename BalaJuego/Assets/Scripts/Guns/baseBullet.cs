@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class baseBullet: MonoBehaviour, IBullet
+public class baseBullet : MonoBehaviour, IBullet
 {
     Vector3 direction;
     [SerializeField] public float speed;
@@ -12,21 +12,21 @@ public class baseBullet: MonoBehaviour, IBullet
     [SerializeField] bool Infinite;
 
     public bool hit;
-  [SerializeField]  float z;
- protected   CharacterLife.Team team;
+    [SerializeField] float z;
+    protected CharacterLife.Team team;
 
     [SerializeField] protected ParticleSystem hitParticle;
-    [SerializeField]protected  ParticleSystem impactParticle;
+    [SerializeField] protected ParticleSystem impactParticle;
 
-  public  bool inSelect;
+    public bool inSelect;
 
     [SerializeField] bool onFire;
 
-   protected float timeMagnitude;
+    protected float timeMagnitude;
 
-  [SerializeField]  LayerMask obstacleLayer;
+    [SerializeField] LayerMask obstacleLayer;
 
- [SerializeField] protected  Animator anim;
+    [SerializeField] protected Animator anim;
 
 
 
@@ -47,17 +47,18 @@ public class baseBullet: MonoBehaviour, IBullet
                 Destroy(gameObject);
             }
         }
-        transform.Translate(Vector2.left * speed * Time.deltaTime*timeMagnitude);
+        transform.Translate(Vector2.left * speed * Time.deltaTime * timeMagnitude);
         transform.position = new Vector3(transform.position.x, transform.position.y, z);
     }
-    public virtual void InstantiateBullet(CharacterLife shooter,float angle)
+    public virtual void InstantiateBullet(CharacterLife shooter, float angle)
     {
         musicManager.Instance.PlayDisparo();
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         team = shooter.team;
-        if(anim){
+        if (anim)
+        {
             anim.Play("fly");
         }
 
@@ -65,7 +66,7 @@ public class baseBullet: MonoBehaviour, IBullet
 
     public int getDamage() => damage;
 
- public   void changeTimeMagnitude(object sender, timeData data)
+    public void changeTimeMagnitude(object sender, timeData data)
     {
         timeMagnitude = data.currentMagnitude;
     }
@@ -85,33 +86,38 @@ public class baseBullet: MonoBehaviour, IBullet
         //Animacion o algo
         hit = true;
         anim.Play("bulletDestroy");
-       if(obj.GetComponent<CharacterLife>() != null){
-            if(hitParticle)
-            //hitParticle.Play();
-            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
-        }
-        else
+        if (obj.GetComponent<CharacterLife>() != null)
         {
-            if(impactParticle)
-            impactParticle.Play();
-            musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
+            if (hitParticle)
+            {
+                float bulletAngle = transform.eulerAngles.z;
+                float rad = bulletAngle * Mathf.Deg2Rad;
+                Vector2 bulletDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+                hitParticle.transform.forward = -bulletDir;
+            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
+            }
+            else
+            {
+                if (impactParticle)
+                    impactParticle.Play();
+                musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
+            }
+            speed = 0;
+            GetComponent<Collider2D>().enabled = false;
+            ServiceLocator.Instance.Get<IsoftLock>().checkAll();
+            Destroy(gameObject, 0.5f);
         }
-        speed = 0;
-        GetComponent<Collider2D>().enabled = false;
-        ServiceLocator.Instance.Get<IsoftLock>().checkAll();
-        Destroy(gameObject, 0.5f);
-    }
-  
-    public CharacterLife.Team getTeam() => team;
 
-    public bool hurtAll() => canHurtAll;
+        public CharacterLife.Team getTeam() => team;
+
+        public bool hurtAll() => canHurtAll;
 
     public virtual void tryGrab(PlayerShoot player)
     {
         player.shoot.addBullets(1);
         ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
         Destroy(gameObject);
-        
+
     }
     private void OnDestroy()
     {

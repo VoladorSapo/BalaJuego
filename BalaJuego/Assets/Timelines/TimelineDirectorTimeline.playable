@@ -176,10 +176,18 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "No tema, Padre. \xC9l las tiene."
+  dialogTexts:
+  - "No tema, Padre. \xC9l las tiene."
+  - 'Do not fear, Father. He has them.
+
+'
+  - "No pateixi, Pare. Ell les t\xE9."
   leaveTime: 2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6.9
   personaje: 0
+  LanguageForEditor: 0
 --- !u!74 &-6115957706036065149
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -704,10 +712,16 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: "Pero, hija, tu arma\u2026\r\n"
+  dialogTexts:
+  - "Pero, hija, tu arma\u2026\r\n"
+  - But, daughter, your gun...
+  - "Per\xF2, filla, la teva arma\u2026 "
   leaveTime: 3
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 10
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &-4208553745236705441
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1226,10 +1240,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "\xBFCre\xEDas que pod\xEDas matar a nuestros hombres y salirte de
     rositas?\n"
+  dialogTexts:
+  - "\xBFCre\xEDas que pod\xEDas matar a nuestros hombres y salirte de rositas?\n"
+  - Did you think you could kill our men and get away with it?
+  - Et pensaves que podies matar els nostres homes i sortir-ne de rosetes?
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5.19
   personaje: 2
+  LanguageForEditor: 0
 --- !u!74 &1237348531532868197
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -1678,7 +1698,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
   - m_Version: 1
-    m_Start: 12.216666666666667
+    m_Start: 13.3
     m_ClipIn: 0
     m_Asset: {fileID: 5615717734434200826}
     m_Duration: 5.416666666666666
@@ -1990,10 +2010,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: "Hab\xE9is cometido un error viniendo hasta aqu\xED. Ninguno de vosotros
     saldr\xE1 con vida."
+  dialogTexts:
+  - "Hab\xE9is cometido un error viniendo hasta aqu\xED. Ninguno de vosotros saldr\xE1
+    con vida."
+  - 'You made a mistake coming here. None of you will leave alive.
+
+'
+  - "Heu com\xE8s un error venint fins aqu\xED. Cap de vosaltres en sortir\xE0 viu."
   leaveTime: 2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 6.9
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &6015316563416498530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2009,10 +2038,18 @@ MonoBehaviour:
   dialogText: 'Hemos rodeado el pueblo. Deja el arma en el suelo y ven con nosotros.
 
 '
+  dialogTexts:
+  - 'Hemos rodeado el pueblo. Deja el arma en el suelo y ven con nosotros.
+
+'
+  - " We\u2019ve surrounded the town. Drop the gun and come with us."
+  - "Hem envoltat el poble. Deixa l\u2019arma a terra i vine amb "
   leaveTime: 1.2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 5
   personaje: 2
+  LanguageForEditor: 0
 --- !u!114 &6187431491616961102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2177,10 +2214,18 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   dialogText: "Pero, hija, tu arma\u2026\r\nNo tiene ninguna bala.\r\n\n"
+  dialogTexts:
+  - "Pero, hija, tu arma\u2026\r\nNo tiene ninguna bala.\r"
+  - 'But, daughter, your gun...
+
+    It has no bullets.'
+  - "Per\xF2, filla, la teva arma\u2026 \nNo t\xE9 cap bala."
   leaveTime: 1.6
   startChars: 21
+  startCharsList: 150000001a0000001b000000
   width: 10
   personaje: 1
+  LanguageForEditor: 0
 --- !u!114 &8463183987418554542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2194,10 +2239,16 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   dialogText: . . .
+  dialogTexts:
+  - . . .
+  - . . .
+  - . . .
   leaveTime: 2
   startChars: 0
+  startCharsList: 000000000000000000000000
   width: 300
   personaje: 0
+  LanguageForEditor: 0
 --- !u!114 &8484917369349117173
 MonoBehaviour:
   m_ObjectHideFlags: 1
