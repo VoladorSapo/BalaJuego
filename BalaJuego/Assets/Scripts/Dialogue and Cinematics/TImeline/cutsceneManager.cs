@@ -11,9 +11,9 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(currentData != null && currentData.canBeSkipped == true)
+            if(currentData != null && currentData.canBeSkipped == true && director.state == PlayState.Playing)
            skipCutscene();
         }
     }
