@@ -134303,7 +134303,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pero, hija, tu arma\u2026\r\n"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
   m_sharedMaterial: {fileID: -6252668803742890292, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}

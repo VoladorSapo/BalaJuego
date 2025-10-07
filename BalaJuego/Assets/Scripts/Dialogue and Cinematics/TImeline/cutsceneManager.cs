@@ -8,12 +8,13 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     [SerializeField] PlayableDirector director;
     CutsceneData currentData;
     public bool isSkipingCutscene;
+    public bool cutscenPlaying;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (currentData != null && currentData.canBeSkipped == true && director.state == PlayState.Playing && !isSkipingCutscene)
+            if (currentData != null && currentData.canBeSkipped == true && cutscenPlaying && !isSkipingCutscene)
             {
                 skipCutscene();
             }
@@ -26,6 +27,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     }
     public void endAnimation()
     {
+        cutscenPlaying = false;
         isSkipingCutscene = false;
         print("helou");
         print(endCutsceneAction.ToString());
@@ -47,10 +49,12 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         {
             isSkipingCutscene = false;
             director.time = 0;
+            cutscenPlaying = true;
             director.Play();
         }
         else
         {
+            cutscenPlaying = false;
             isSkipingCutscene = true;
             print("SALTANDO CINEMATICA");
             director.RebuildGraph(); // the graph must be created before getting the playable graph
@@ -76,8 +80,10 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
 
     public void PlaySound(string sound)
     {
-        if(!isSkipingCutscene)
-        musicManager.Instance.PlaySoundPitch(sound);
+        if (cutscenPlaying && !isSkipingCutscene)
+        {
+            musicManager.Instance.PlaySoundPitch(sound);
+        }
     }
 }
 
