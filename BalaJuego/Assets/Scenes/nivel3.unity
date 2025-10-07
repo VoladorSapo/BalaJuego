@@ -6530,7 +6530,7 @@ PrefabInstance:
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 4d526eb1f227add47bf4600c1b3565b8, type: 2}
+      objectReference: {fileID: 11400000, guid: 801b0efc9c7b8f740ab3e7bef8876f9f, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 42
@@ -37569,7 +37569,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.47, y: 1.53, z: -10}
+  m_LocalPosition: {x: -7.4, y: -2.91, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50660,7 +50660,7 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
-  canSkipped: 0
+  canSkipped: 1
   hasStarted: 0
   hasFinished: 0
   objectsTurnOff: []

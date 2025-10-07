@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-
-public class SignalReceiverString : MonoBehaviour, INotificationReceiver
+public class SignalReceiverFloat : MonoBehaviour, INotificationReceiver
 {
     public SignalAssetEventPair[] signalAssetEventPairs;
 
@@ -19,18 +16,18 @@ public class SignalReceiverString : MonoBehaviour, INotificationReceiver
         public ParameterizedEvent events;
 
         [Serializable]
-        public class ParameterizedEvent : UnityEvent<string> { }
+        public class ParameterizedEvent : UnityEvent<float> { }
     }
 
     public void OnNotify(Playable origin, INotification notification, object context)
     {
         print("TESTTNotified");
-        if (notification is ParameterizedEmitter<string> stringEmitter)
+        if (notification is ParameterizedEmitter<float> floatEmitter)
         {
-            var matches = signalAssetEventPairs.Where(x => ReferenceEquals(x.signalAsset, stringEmitter.asset));
+            var matches = signalAssetEventPairs.Where(x => ReferenceEquals(x.signalAsset, floatEmitter.asset));
             foreach (var m in matches)
             {
-                m.events.Invoke(stringEmitter.parameter);
+                m.events.Invoke(floatEmitter.parameter);
             }
         }
     }

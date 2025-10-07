@@ -13,9 +13,16 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(currentData != null && currentData.canBeSkipped == true && director.state == PlayState.Playing)
-           skipCutscene();
+            if (currentData != null && currentData.canBeSkipped == true && director.state == PlayState.Playing && !isSkipingCutscene)
+            {
+                skipCutscene();
+            }
+            else
+            {
+                print("No se pue saltar");
+            }
         }
+       
     }
     public void endAnimation()
     {

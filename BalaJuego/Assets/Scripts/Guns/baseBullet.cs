@@ -94,7 +94,7 @@ public class baseBullet : MonoBehaviour, IBullet
                 float rad = bulletAngle * Mathf.Deg2Rad;
                 Vector2 bulletDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
                 hitParticle.transform.forward = -bulletDir;
-            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
+                musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
             }
             else
             {
@@ -108,6 +108,7 @@ public class baseBullet : MonoBehaviour, IBullet
             Destroy(gameObject, 0.5f);
         }
 
+    }
         public CharacterLife.Team getTeam() => team;
 
         public bool hurtAll() => canHurtAll;

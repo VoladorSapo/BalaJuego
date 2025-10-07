@@ -72,6 +72,11 @@ public class TimerManager : MonoBehaviour, ITimer
     {
         return new TimePoints(TimePassed);
     }
+
+    public void Reset()
+    {
+        TimePassed = 0;
+    }
 }
 public interface ITimer : IService
 {
@@ -84,7 +89,7 @@ public struct TimePoints
    public TimePoints(float allSeconds)
     {
         hours =MathF.Floor(allSeconds / 3600);
-        minutes = MathF.Floor(allSeconds-hours*3660) / 60;
+        minutes = MathF.Floor((allSeconds-hours*3660) / 60);
         seconds = (allSeconds - hours * 3600) % 60;
     }
 }

@@ -12,17 +12,28 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         SetState(new MainMenuState(this));
+        FindObjectOfType<TimerManager>().Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt))
         {
-            ISaveManager save = new SaveManager();
-            string s = save.getSavedScene();
-            if(s != null)
-            callDithering(s);
+            if (Input.GetKeyDown("1"))
+            {
+                callDithering("nivel1");
+            }
+
+         else if (Input.GetKeyDown("2"))
+            {
+                callDithering("nivel2");
+            }
+
+         else   if (Input.GetKeyDown("3"))
+            {
+                callDithering("nivel3");
+            }
         }
     }
 
