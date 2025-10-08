@@ -1716,7 +1716,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
   - m_Version: 1
-    m_Start: 13.3
+    m_Start: 12.033333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 5615717734434200826}
     m_Duration: 5.416666666666666

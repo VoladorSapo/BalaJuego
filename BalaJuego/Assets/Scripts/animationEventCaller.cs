@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class animationEventCaller : MonoBehaviour
 {
+    [SerializeField] ParticleSystem meleeParticles, meleeParticles1;
    public void endChrageHeavyEvent()
     {
         GetComponentInParent<HeavyEnemyController>().finishCharging = true;
@@ -96,5 +97,25 @@ public class animationEventCaller : MonoBehaviour
     {
         musicManager.Instance.PlaySoundPitch(sound);
 
+    }
+
+    public void playMeleeParticles(int n)
+    {
+        switch(n)
+        {
+            case 0:
+                if (meleeParticles != null)
+                {
+                    meleeParticles.Play();
+                }
+                break;
+            case 1:
+                if (meleeParticles1 != null)
+                {
+                    meleeParticles1.Play();
+                }
+                break;
+        }
+      
     }
 }
