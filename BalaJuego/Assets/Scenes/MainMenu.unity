@@ -1077,8 +1077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Texts:
   - "Programaci\xF3n"
-  - Coding
-  - "Programaci\xF3 "
+  - Programming
+  - "Programaci\xF3n "
 --- !u!1 &292486774
 GameObject:
   m_ObjectHideFlags: 0

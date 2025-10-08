@@ -106,7 +106,6 @@ public class ChargeState : BaseEnemyState
     }
     public override void FixedUpdate()
     {
-        Debug.Log("fixed");
         enemy.rb2d.MovePosition(enemy.transform.position + speed * enemy.direction * Time.fixedDeltaTime * enemy.timeMagnitude);
 
     }
