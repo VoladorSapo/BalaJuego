@@ -31,7 +31,6 @@ public class ObjectDetector<T> : MonoBehaviour
             T obj = collision.GetComponent<T>();
         if (obj != null)
         {
-            print("Removing: " + collision.gameObject);
             UnHover(obj);
             bool wasFirst = false;
             if (reachableObjects.IndexOf(obj) == 0)

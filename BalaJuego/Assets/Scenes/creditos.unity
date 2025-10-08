@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 566320795}
   - component: {fileID: 566320797}
   - component: {fileID: 566320796}
+  - component: {fileID: 566320798}
   m_Layer: 5
   m_Name: title (2)
   m_TagString: Untagged
@@ -1072,6 +1073,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566320794}
   m_CullTransparentMesh: 1
+--- !u!114 &566320798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566320794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - Arte
+  - Art
+  - Art
 --- !u!1 &656474214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2080,7 @@ GameObject:
   - component: {fileID: 1249913679}
   - component: {fileID: 1249913681}
   - component: {fileID: 1249913680}
+  - component: {fileID: 1249913682}
   m_Layer: 5
   m_Name: title (4)
   m_TagString: Untagged
@@ -2186,6 +2204,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249913678}
   m_CullTransparentMesh: 1
+--- !u!114 &1249913682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249913678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - "M\xFAsica"
+  - Music
+  - "M\xFAsica"
 --- !u!1 &1408387113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2524,7 @@ GameObject:
   - component: {fileID: 1579708896}
   - component: {fileID: 1579708898}
   - component: {fileID: 1579708897}
+  - component: {fileID: 1579708899}
   m_Layer: 5
   m_Name: title (1)
   m_TagString: Untagged
@@ -2613,6 +2648,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579708895}
   m_CullTransparentMesh: 1
+--- !u!114 &1579708899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579708895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - "Programaci\xF3n"
+  - Programming
+  - "Programaci\xF3n"
 --- !u!1 &1594431094
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,11 +42,9 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
     public virtual bool shoot()
     {
-        print("culo");
 
         if (currentBullets > 0 && !shooting)
         {
-            print("caca");
             shooting = true;
             if (GetComponentInParent<GunEnemyController>() != null)
             {

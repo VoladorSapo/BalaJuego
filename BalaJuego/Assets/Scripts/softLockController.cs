@@ -40,27 +40,35 @@ public class softLockController : MonoBehaviour,IsoftLock
                     numberEnemies++;
                     if (enemy.GetComponentInChildren<IShoot>() != null)
                     {
-                        numberAttack += enemy.GetComponentInChildren<IShoot>().getBullets();
+                        addAttack(enemy.GetComponentInChildren<IShoot>().getBullets());
+
                     }
                     if (enemy.canBeKilledMelee)
                     {
-                        numberAttack++;
+                        addAttack(1);
                     }
                 }
             }
-            numberAttack += currentArea.intactBottles;
+            addAttack(currentArea.intactBottles);
             foreach (baseBullet bul in FindObjectsOfType<baseBullet>())
             {
-                if (!bul.hit)
+
+                print(bul.name + bul.GetType());
+                if (bul.GetType() != typeof(botella) && !bul.hit)
                 {
-                    numberAttack++;
+                    addAttack(1);
                 }
             }
             PlayerMove player = FindObjectOfType<PlayerMove>();
             if (player)
             {
-                if(FindObjectOfType<PlayerMove>() != null)
-                numberAttack += FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IShoot>().getBullets();
+                if (FindObjectOfType<PlayerMove>() != null)
+                {
+                    if (FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IShoot>() != null)
+                    {
+                        addAttack(FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IShoot>().getBullets());
+                    }
+                }
             }
 
             if (numberEnemies > numberAttack)
@@ -100,6 +108,14 @@ public class softLockController : MonoBehaviour,IsoftLock
     public void Instantiate()
     {
 
+    }
+    void addAttack(int add)
+    {
+        if (add > 0)
+        {
+            print("addattack " +add);
+        }
+        numberAttack += add;
     }
 }
 

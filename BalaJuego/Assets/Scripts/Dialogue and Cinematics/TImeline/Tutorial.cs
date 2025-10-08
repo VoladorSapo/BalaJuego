@@ -115,7 +115,7 @@ namespace tutorial
             switch (settingManager.Instance.getLanguage())
             {
                 case Language.Spanish:
-                    tutorial.TutorialText.text = "Tu revolver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E para REALENTIZAR EL TIEMPO";
+                    tutorial.TutorialText.text = "Tu revólver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E para REALENTIZAR EL TIEMPO";
 
                     break;
                 case Language.English:
