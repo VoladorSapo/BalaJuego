@@ -23,4 +23,9 @@ public class languageButton : MonoBehaviour
     {
         
     }
+    private void OnDestroy()
+    {
+        settingManager.Instance.unsubscribeToStateChange(changeLanguage);
+
+    }
 }

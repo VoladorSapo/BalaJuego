@@ -51,6 +51,11 @@ public class settingManager : MonoBehaviour
         changeLanguageEvent += response;
 
     }
+    public void unsubscribeToStateChange(EventHandler<Language> response)
+    {
+        changeLanguageEvent -= response;
+
+    }
 }
 public class menuSettingChanger:MonoBehaviour
 {

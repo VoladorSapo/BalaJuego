@@ -23,4 +23,9 @@ public class MenuLanguageText : MonoBehaviour
         text.text = Texts[(int)settingManager.Instance.getLanguage()];
 
     }
+    private void OnDestroy()
+    {
+        settingManager.Instance.unsubscribeToStateChange(changeLanguage);
+
+    }
 }
