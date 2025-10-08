@@ -1097,7 +1097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &292486775
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1925,6 +1925,8 @@ MonoBehaviour:
   MainStateParent: {fileID: 2082065678}
   OptionStateParent: {fileID: 861490066}
   CreditsStateParent: {fileID: 1013282672}
+  skipCutsceneTogle: {fileID: 1028538018}
+  skipTutorialTogge: {fileID: 648222227}
 --- !u!4 &537625728
 Transform:
   m_ObjectHideFlags: 0
@@ -2519,9 +2521,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 774586614}
-        m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: changeTutorialSetting
+      - m_Target: {fileID: 537625727}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: changeSkipTutorial
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3049,7 +3051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352.00012, y: 12}
+  m_AnchoredPosition: {x: -352.00012, y: 85}
   m_SizeDelta: {x: 1434, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783788793
@@ -3696,7 +3698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352, y: -110}
+  m_AnchoredPosition: {x: -352, y: -37}
   m_SizeDelta: {x: 1434, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902881314
@@ -4244,9 +4246,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 774586614}
-        m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: changeCutsceneSetting
+      - m_Target: {fileID: 537625727}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: changeSkipCutscene
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

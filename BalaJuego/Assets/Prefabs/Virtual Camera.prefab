@@ -211,6 +211,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraConfinerCollider: {fileID: 0}
   Startvectors: []
+  fromPoints: []
+  currentPoints: []
+  toPoints: []
+  transitionTime: 4
+  transitionTimePassed: 0
 --- !u!114 &4155504609654096180
 MonoBehaviour:
   m_ObjectHideFlags: 0
