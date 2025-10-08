@@ -39,7 +39,7 @@ public class animationEventCaller : MonoBehaviour
     }
     public void deathHitStop(float time)
     {
-      //  ServiceLocator.Instance.Get<IHitStop>().HitStop(time);
+        ServiceLocator.Instance.Get<IHitStop>().HitStop(time);
     }
     public void bossStun()
     {
@@ -117,5 +117,10 @@ public class animationEventCaller : MonoBehaviour
                 break;
         }
       
+    }
+
+    public void heavyStep()
+    {
+        musicManager.Instance.PlayHeavyWalk();
     }
 }
