@@ -41,7 +41,6 @@ public class UIManager : MonoBehaviour
                 changeGroup(PauseScreen, true);
                 changeGroup(DeathScreen, false);
                 changeGroup(winScreen, false);
-
                 break;
             case IGameState.gameState.Death:
                 deathAnim = DeathScreen.gameObject.GetComponent<Animator>();

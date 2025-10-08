@@ -538,22 +538,23 @@ public class musicManager : MonoBehaviour
     
     public void StartHeavyWalking()
     {
-        if (!isHeavyWalking)
-        {
-            isHeavyWalking = true;
-            heavyWalkCycleCoroutine = StartCoroutine(PlayHeavyWalkCycle());
-        }
+        return;
+        //if (!isHeavyWalking)
+        //{
+        //    isHeavyWalking = true;
+        //    heavyWalkCycleCoroutine = StartCoroutine(PlayHeavyWalkCycle());
+        //}
     }
 
     public void StopHeavyWalking()
     {
-        print("stopHeavyWalking");
-        if (isHeavyWalking)
-        {
-            isHeavyWalking = false;
-            if (heavyWalkCycleCoroutine != null)
-                StopCoroutine(heavyWalkCycleCoroutine);
-        }
+        return;
+        //if (isHeavyWalking)
+        //{
+        //    isHeavyWalking = false;
+        //    if (heavyWalkCycleCoroutine != null)
+        //        StopCoroutine(heavyWalkCycleCoroutine);
+        //}
     }
 
     private IEnumerator PlayHeavyWalkCycle()

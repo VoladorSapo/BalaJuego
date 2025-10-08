@@ -16,7 +16,10 @@ public class TimerCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimePoints time = timer.getSeconds();
-     text.text =   string.Format("{0:00}:{1:00}:{2:00}", time.hours, time.minutes, time.seconds);
+        if (timer != null)
+        {
+            TimePoints time = timer.getSeconds();
+            text.text = string.Format("{0:00}:{1:00}:{2:00}", time.hours, time.minutes, time.seconds);
+        }
     }
 }
