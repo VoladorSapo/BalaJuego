@@ -97,6 +97,7 @@ public class ChargeState : BaseEnemyState
 
     public override void OnEnter()
     {
+        musicManager.Instance.StartHeavyWalking();
         enemy.anim.Play("enemyRun");
         enemy.wallDetect.gameObject.SetActive(true);
     }
@@ -126,7 +127,8 @@ public class StunedState: BaseEnemyState
     }
     public override void OnEnter()
     {
-enemy.stunedCollider.gameObject.SetActive(true);
+        musicManager.Instance.StopHeavyWalking();
+        enemy.stunedCollider.gameObject.SetActive(true);
         enemy.anim.Play("enemyStun");
         if(enemy.GetComponent<HeavyEnemyController>() != null)
         {

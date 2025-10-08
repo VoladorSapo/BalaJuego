@@ -126,6 +126,9 @@ MonoBehaviour:
   director: {fileID: 0}
   isSkipingCutscene: 0
   cutscenPlaying: 0
+  currrentSkipPressTime: 0
+  SkipPressTime: 1.5
+  skipCupstecenesBar: {fileID: 0}
 --- !u!114 &738955533902035285
 MonoBehaviour:
   m_ObjectHideFlags: 0

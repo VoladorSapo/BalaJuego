@@ -24,6 +24,8 @@ public class EnemyLife : CharacterLife
             }
             //Sprite muerto melee
             anim.Play("enemyDeadMelee");
+            musicManager.Instance.StopHeavyWalking();
+
             finishDeathAnim();
         }
         else

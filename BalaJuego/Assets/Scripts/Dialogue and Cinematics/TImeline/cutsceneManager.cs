@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class cutsceneManager : MonoBehaviour,IcutsceneManager{
 
@@ -9,24 +10,45 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     CutsceneData currentData;
     public bool isSkipingCutscene;
     public bool cutscenPlaying;
+    [SerializeField] float currrentSkipPressTime;
+    [SerializeField] float SkipPressTime;
+   [SerializeField] Image skipCupstecenesBar;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (currentData != null && currentData.canBeSkipped == true && cutscenPlaying && !isSkipingCutscene)
             {
-                skipCutscene();
+                currrentSkipPressTime += Time.deltaTime;
+                if (currrentSkipPressTime >= SkipPressTime)
+                {
+                    skipCutscene();
+                }
             }
             else
             {
                 print("No se pue saltar");
             }
         }
-       
+        else
+        {
+            currrentSkipPressTime -= Time.deltaTime;
+            if(currrentSkipPressTime < 0)
+            {
+                currrentSkipPressTime = 0;
+            }
+        }
+        skipCupstecenesBar.fillAmount = currrentSkipPressTime / SkipPressTime;
+
+    }
+    private void Start()
+    {
+        skipCupstecenesBar = GameObject.FindGameObjectWithTag("SkipUI").GetComponent<Image>();
     }
     public void endAnimation()
     {
+        skipCupstecenesBar.enabled = false;
         cutscenPlaying = false;
         isSkipingCutscene = false;
         print("helou");
@@ -52,6 +74,8 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
             director.time = 0;
             cutscenPlaying = true;
             director.Play();
+            skipCupstecenesBar.enabled = true;
+
         }
         else
         {
@@ -75,6 +99,8 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     {
         print("SKIP");
         isSkipingCutscene = true;
+        skipCupstecenesBar.enabled = false;
+
         //if (currentData.objectsToTurnOff != null && currentData.objectsToTurnOff.Length > 0)
         //{
         //    foreach (var item in currentData.objectsToTurnOff)

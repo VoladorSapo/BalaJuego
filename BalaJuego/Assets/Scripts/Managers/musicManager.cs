@@ -547,6 +547,7 @@ public class musicManager : MonoBehaviour
 
     public void StopHeavyWalking()
     {
+        print("stopHeavyWalking");
         if (isHeavyWalking)
         {
             isHeavyWalking = false;

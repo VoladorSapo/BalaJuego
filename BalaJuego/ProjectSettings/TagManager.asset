@@ -9,6 +9,7 @@ TagManager:
   - Cursor
   - Botella
   - TurnStun
+  - SkipUI
   layers:
   - Default
   - TransparentFX
