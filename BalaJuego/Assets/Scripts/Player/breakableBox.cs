@@ -10,11 +10,11 @@ public class breakableBox:MonoBehaviour
         print("breakable" + collision.name);
         if (collision.tag == "Bullet")
         {
-            musicManager.Instance.PlaySoundPitch("snd_rocarompe");
             print("tag bullet");
             IBullet bul = collision.GetComponent<IBullet>();
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
+                musicManager.Instance.PlaySoundPitch("snd_rocarompe");
                 print("set active false");
                 GetComponent<Animator>().Play("break");
                 GetComponent<Collider2D>().enabled = false;

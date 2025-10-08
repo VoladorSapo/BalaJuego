@@ -1008,8 +1008,8 @@ MonoBehaviour:
   dialogText: "\xA1No puede ser!"
   dialogTexts:
   - "\xA1No puede ser!"
-  - No pot ser!
   - It can't be!
+  - No pot ser!
   leaveTime: 1.6
   startChars: 0
   startCharsList: 000000000000000000000000

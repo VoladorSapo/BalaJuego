@@ -15630,7 +15630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370996184991948707, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4398775811906513253, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -25667,7 +25667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9054033260984113442, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: currentBullets
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4959187758593255860, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
