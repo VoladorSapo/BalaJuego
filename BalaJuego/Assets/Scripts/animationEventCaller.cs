@@ -38,7 +38,7 @@ public class animationEventCaller : MonoBehaviour
     }
     public void deathHitStop(float time)
     {
-        ServiceLocator.Instance.Get<IHitStop>().HitStop(time);
+      //  ServiceLocator.Instance.Get<IHitStop>().HitStop(time);
     }
     public void bossStun()
     {

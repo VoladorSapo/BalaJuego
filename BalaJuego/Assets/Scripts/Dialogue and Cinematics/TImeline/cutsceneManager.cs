@@ -41,6 +41,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
 
     public void startCutscene(PlayableAsset timeline, Action endAction,CutsceneData data)
     {
+        
         ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Cinematic);
         currentData = data;
         director.playableAsset = timeline;
@@ -57,9 +58,17 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
             cutscenPlaying = false;
             isSkipingCutscene = true;
             print("SALTANDO CINEMATICA");
-            director.RebuildGraph(); // the graph must be created before getting the playable graph
-            director.playableGraph.GetRootPlayable(0).SetSpeed(9999999);
-            director.Play();
+            if (!currentData.isEndLevel)
+            {
+            
+                director.RebuildGraph(); // the graph must be created before getting the playable graph
+                director.playableGraph.GetRootPlayable(0).SetSpeed(9999999);
+                director.Play();
+            }
+            else
+            {
+                endAnimation();
+            }
         }
     }
     public void skipCutscene()
@@ -72,10 +81,16 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         //    {
         //        item.SetActive(false);
         //    }
-        //}
-        director.RebuildGraph(); // the graph must be created before getting the playable graph
-        director.playableGraph.GetRootPlayable(0).SetSpeed(9999999);
-        director.Play();
+        if (!currentData.isEndLevel)
+        {
+            director.RebuildGraph(); // the graph must be created before getting the playable graph
+            director.playableGraph.GetRootPlayable(0).SetSpeed(9999999);
+            director.Play();
+        }
+        else
+        {
+            endAnimation();
+        }
     }
 
     public void PlaySound(string sound)
@@ -85,6 +100,8 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
             musicManager.Instance.PlaySoundPitch(sound);
         }
     }
+
+    public bool isSkippingCutscene() => isSkipingCutscene;
 }
 
 public interface IcutsceneManager : IService
@@ -92,13 +109,16 @@ public interface IcutsceneManager : IService
     public void startCutscene(PlayableAsset timeline, Action endAction, CutsceneData data);
     public void skipCutscene();
     public void PlaySound(string sound);
+    public bool isSkippingCutscene();
 }
 public class CutsceneData{
  public   GameObject[] objectsToTurnOff;
     public bool canBeSkipped;
-    public CutsceneData(bool _canSkipped,GameObject[] _objectsOff = null)
+    public bool isEndLevel;
+    public CutsceneData(bool _canSkipped,bool isEndLevel,GameObject[] _objectsOff = null)
     {
         objectsToTurnOff = _objectsOff;
         canBeSkipped = _canSkipped;
+        this.isEndLevel = isEndLevel;
     } 
 }

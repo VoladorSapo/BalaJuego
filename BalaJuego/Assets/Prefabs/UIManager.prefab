@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5386102153017924234}
   - component: {fileID: 1429428473212618112}
   - component: {fileID: 5305223134315310630}
+  - component: {fileID: 3815540770173905953}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -134,6 +135,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3815540770173905953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536148025602597101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - MENU
+  - MENU
+  - MENU
 --- !u!1 &603689801357796083
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +828,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3542652119157959209}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 1
@@ -847,6 +864,7 @@ GameObject:
   - component: {fileID: 3339086199067671728}
   - component: {fileID: 660213525781507971}
   - component: {fileID: 3484313616175013250}
+  - component: {fileID: 3429621177345343005}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -970,6 +988,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3429621177345343005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641531759577456613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - REINICIAR
+  - RESTART
+  - 'REINICIAR '
 --- !u!1 &4370486128025014298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2051,7 @@ GameObject:
   - component: {fileID: 681527187808509645}
   - component: {fileID: 5121090745569685560}
   - component: {fileID: 2577275936498126540}
+  - component: {fileID: 5205808429916441308}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2071,9 +2106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    REAPARECER
+  m_text: 'REAPARECER
 
 '
   m_isRightToLeft: 0
@@ -2144,6 +2177,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5205808429916441308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349493302147412542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - REAPARECER
+  - RESPAWN
+  - "REAPAR\xC8IXER"
 --- !u!1 &8409322374375934630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2539,7 @@ GameObject:
   - component: {fileID: 3466982613087067721}
   - component: {fileID: 7113836633736336215}
   - component: {fileID: 1249168065927994121}
+  - component: {fileID: 6541683726806621745}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2613,3 +2663,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6541683726806621745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221506119683074969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f743894296021478172ab69d3a3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - REANUDAR
+  - RESUME
+  - REPRENDRE

@@ -24606,7 +24606,7 @@ MonoBehaviour:
   speed: 12
   damage: 1
   grabable: 1
-  lifeTime: 12
+  lifeTime: 6
   canHurtAll: 0
   Infinite: 0
   hit: 0

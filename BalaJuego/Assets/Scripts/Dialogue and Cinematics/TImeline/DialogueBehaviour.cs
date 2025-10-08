@@ -70,24 +70,26 @@ public class DialogueBehaviour: PlayableBehaviour
                 if (text.textInfo.characterCount > 0)
                 {
                     //Debug.Log(maxVisible + "Bip");
-
-                    int numeroAleatorio = Random.Range(0, 3);
-
-                    if (numeroAleatorio == 0)
+                    if (!ServiceLocator.Instance.Get<IcutsceneManager>().isSkippingCutscene())
                     {
-                        if (musicManager.Instance != null)
+                        int numeroAleatorio = Random.Range(0, 3);
+
+                        if (numeroAleatorio == 0)
                         {
-                            if (personaje == 0) // Es la prota
+                            if (musicManager.Instance != null)
                             {
-                                musicManager.Instance.PlaySoundPitch("snd_voicemedium", 0.2f);
-                            }
-                            else if (personaje == 1) // Es el cura
-                            {
-                                musicManager.Instance.PlaySoundPitch("snd_voicehigh", 0.2f);
-                            }
-                            else // Otros
-                            {
-                                musicManager.Instance.PlaySoundPitch("snd_voicelow", 0.2f);
+                                if (personaje == 0) // Es la prota
+                                {
+                                    musicManager.Instance.PlaySoundPitch("snd_voicemedium", 0.2f);
+                                }
+                                else if (personaje == 1) // Es el cura
+                                {
+                                    musicManager.Instance.PlaySoundPitch("snd_voicehigh", 0.2f);
+                                }
+                                else // Otros
+                                {
+                                    musicManager.Instance.PlaySoundPitch("snd_voicelow", 0.2f);
+                                }
                             }
                         }
                     }

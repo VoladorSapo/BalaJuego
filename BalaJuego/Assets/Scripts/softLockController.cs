@@ -16,12 +16,16 @@ public class softLockController : MonoBehaviour,IsoftLock
     {
         ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaStart(startArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
+        print("Softlock" + name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            checkAll();
+        }
     }
     public void checkAll()
     {
@@ -61,6 +65,20 @@ public class softLockController : MonoBehaviour,IsoftLock
 
             if (numberEnemies > numberAttack)
             {
+                switch (settingManager.Instance.getLanguage())
+                {
+                    case Language.Spanish:
+                        restart_Text.text = "Sin Balas: Reinicia desde el Menú de Pausa";
+                        break;
+                    case Language.English:
+                        restart_Text.text = "Out of Bullets: Restart from Pause Menu";
+
+                        break;
+                    case Language.Catalan:
+                        restart_Text.text = "Sense Bales: Reinicia des del Menú de Pausa";
+
+                        break;
+                }
                 restart_Text.gameObject.SetActive(true);
 
             }

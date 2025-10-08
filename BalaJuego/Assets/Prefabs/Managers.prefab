@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 0}
   isSkipingCutscene: 0
+  cutscenPlaying: 0
 --- !u!114 &738955533902035285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,12 +141,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 8ac5c326724ba7f4395204f1c993ad7e, type: 2}
+    - {fileID: 11400000, guid: a686780cd0eba454eba86ffadb84a285, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 5543948199045982780}
           m_TargetAssemblyTypeName: cutsceneManager, Assembly-CSharp
           m_MethodName: endAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3959773303927180720}
+          m_TargetAssemblyTypeName: CutsceneMusicCaller, Assembly-CSharp
+          m_MethodName: PlayPaso
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

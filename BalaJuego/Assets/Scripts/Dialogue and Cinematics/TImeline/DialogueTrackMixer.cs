@@ -21,11 +21,14 @@ public class DialogueTrackMixer : PlayableBehaviour
             {
                 ScriptPlayable<DialogueBehaviour> inputPlayable = (ScriptPlayable<DialogueBehaviour>)playable.GetInput(i);
                 DialogueBehaviour dialogue = inputPlayable.GetBehaviour();
-                text.text = dialogue.dialogTexts[dialogue.lang];
-                text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(dialogue.width, 2);
-                text.ForceMeshUpdate();
-                text.ForceMeshUpdate();
+                if (dialogue != null)
+                {
+                    text.text = dialogue.dialogTexts[dialogue.lang];
 
+                    text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(dialogue.width, 2);
+                    text.ForceMeshUpdate();
+                    text.ForceMeshUpdate();
+                }
 
 
             }

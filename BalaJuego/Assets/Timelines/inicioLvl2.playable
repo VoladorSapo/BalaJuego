@@ -108,7 +108,7 @@ MonoBehaviour:
   dialogText: Puedo seguirlos usando las antiguas minas.
   dialogTexts:
   - Puedo seguirlos usando las antiguas minas.
-  - "I can track them using the old mines.\r"
+  - "I can catch up to them using the old mines.\r"
   - 'Els puc seguir fent servir les antigues mines.
 
 '
@@ -117,7 +117,7 @@ MonoBehaviour:
   startCharsList: 000000000000000000000000
   width: 6
   personaje: 0
-  LanguageForEditor: 0
+  LanguageForEditor: 1
 --- !u!114 &-2144138599994906933
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -570,8 +570,9 @@ MonoBehaviour:
   dialogTexts:
   - "Aunque, con mi suerte, seguro que tambi\xE9n est\xE1n infestadas de agentes
     de Antperton."
-  - "Although, with my luck, they\u2019re probably infested with Antperton agents
-    too.\r\n"
+  - 'Although, with my luck, they''re probably infested with Antperton agents too.
+
+'
   - "Tot i que, amb la meva sort, segur que tamb\xE9 estan infestades d\u2019agents
     d\u2019Antperton."
   leaveTime: 1.6

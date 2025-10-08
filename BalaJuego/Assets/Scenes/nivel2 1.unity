@@ -1502,8 +1502,10 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 2017078215}
   onTrigger: 1
+  canSkipped: 0
   hasStarted: 0
   hasFinished: 0
+  objectsTurnOff: []
 --- !u!4 &44199386
 Transform:
   m_ObjectHideFlags: 0
@@ -1593,7 +1595,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: 09a11f2fb4472a54083c2d1354083e9e, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -74143,7 +74145,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.75
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -74168,7 +74170,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.47, y: 2.33, z: -10}
+  m_LocalPosition: {x: -64.47, y: 1.52, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -74310,7 +74312,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 545b34c7e4f4ba240bee4c2a96c37da2, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -75569,7 +75571,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: c5cef8c4ae5f0e244850b330485ebe97, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -75906,7 +75908,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 545b34c7e4f4ba240bee4c2a96c37da2, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -99880,7 +99882,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: c5cef8c4ae5f0e244850b330485ebe97, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -99980,7 +99982,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: c5cef8c4ae5f0e244850b330485ebe97, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -100181,7 +100183,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -6
   m_Sprite: {fileID: 21300000, guid: 09ec3ff13dc40b54bae777ead0ffa983, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -107428,8 +107430,10 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
+  canSkipped: 0
   hasStarted: 0
   hasFinished: 0
+  objectsTurnOff: []
 --- !u!4 &1560017838
 Transform:
   m_ObjectHideFlags: 0
@@ -107519,7 +107523,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: 09a11f2fb4472a54083c2d1354083e9e, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -108207,7 +108211,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 545b34c7e4f4ba240bee4c2a96c37da2, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -108750,8 +108754,10 @@ MonoBehaviour:
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
+  canSkipped: 0
   hasStarted: 0
   hasFinished: 0
+  objectsTurnOff: []
 --- !u!4 &1761899841
 Transform:
   m_ObjectHideFlags: 0
@@ -109112,7 +109118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2145205505
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: 09a11f2fb4472a54083c2d1354083e9e, type: 3}
   m_Color: {r: 0.8156863, g: 0.84313726, b: 0.9137255, a: 1}
@@ -109567,7 +109573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "La noche est\xE1 al caer."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
@@ -111055,10 +111061,14 @@ MonoBehaviour:
   maxLife: 1
   dead: 0
   team: 1
+  anim: {fileID: 0}
+  melee: 0
   spriteParent: {fileID: 3249136477523517361}
   gun: {fileID: 4787871131044926684}
   head: {fileID: 8298916623329030499}
   countText: {fileID: 0}
+  hitParticles: {fileID: 0}
+  bodyMovePos: {x: 0, y: 0, z: 0}
 --- !u!114 &4989959373422140020
 MonoBehaviour:
   m_ObjectHideFlags: 0

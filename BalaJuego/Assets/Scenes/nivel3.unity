@@ -6530,7 +6530,7 @@ PrefabInstance:
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 801b0efc9c7b8f740ab3e7bef8876f9f, type: 2}
+      objectReference: {fileID: 11400000, guid: 01ab71fc4f9a2474aa31c405ebf170bd, type: 2}
     - target: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 42
@@ -37569,7 +37569,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: -2.91, z: -10}
+  m_LocalPosition: {x: -64.47, y: 1.53, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47413,7 +47413,7 @@ MonoBehaviour:
   m_Intensity: 0.58
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 252e005b
+  m_ApplyToSortingLayers: 252e005b25e60dcc
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -47912,6 +47912,7 @@ MonoBehaviour:
   _tutorial: {fileID: 0}
   nextScene: creditos
   timeline: {fileID: 11400000, guid: 801b0efc9c7b8f740ab3e7bef8876f9f, type: 2}
+  isEndLevel: 0
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
@@ -50657,6 +50658,7 @@ MonoBehaviour:
   _tutorial: {fileID: 0}
   nextScene: 
   timeline: {fileID: 11400000, guid: 959c9a7a01d2d9845af7f36fe1e4ea38, type: 2}
+  isEndLevel: 0
   playOnAwakeNoLevel: 0
   startPos: {fileID: 0}
   onTrigger: 0
@@ -56841,6 +56843,7 @@ MonoBehaviour:
   _tutorial: {fileID: 0}
   nextScene: nivel2
   timeline: {fileID: 11400000, guid: 4d526eb1f227add47bf4600c1b3565b8, type: 2}
+  isEndLevel: 0
   playOnAwakeNoLevel: 0
   startPos: {fileID: 1154386710}
   onTrigger: 1

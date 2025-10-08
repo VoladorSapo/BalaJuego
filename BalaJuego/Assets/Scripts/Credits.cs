@@ -12,7 +12,7 @@ public class Credits : MonoBehaviour
     void Start()
     {
         TimePoints time = ServiceLocator.Instance.Get<ITimer>().getSeconds();
-        text.text = getlanguage(settingManager.Instance.getLanguage()) + string.Format("{0:00}:{1:00}:{2:00}", time.hours, time.minutes, time.seconds);
+        text.text = getlanguage(settingManager.Instance.getLanguage()) + ": " + string.Format("{0:00}:{1:00}:{2:00}", time.hours, time.minutes, time.seconds);
     }
     string getlanguage(Language language)
     {

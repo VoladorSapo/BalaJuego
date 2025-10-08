@@ -18,6 +18,7 @@ public class breakableBox:MonoBehaviour
                 print("set active false");
                 GetComponent<Animator>().Play("break");
                 GetComponent<Collider2D>().enabled = false;
+                Destroy(bul.getObj());
             }
         }
     }

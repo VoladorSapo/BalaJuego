@@ -13,6 +13,8 @@ public class cutsceneCaller : MonoBehaviour
     [SerializeField] string nextScene;
 
     public PlayableAsset timeline;
+    [SerializeField] bool isEndLevel = false;
+
 
     [SerializeField] bool playOnAwakeNoLevel = false;
 
@@ -42,6 +44,10 @@ public class cutsceneCaller : MonoBehaviour
         {
             hasStarted = hasFinished = true;
             PlayCutscene();
+        }
+        if (actionType == postCutsceneAction.changeScene)
+        {
+            isEndLevel = true;
         }
     }
     private void Update()
@@ -92,7 +98,7 @@ public class cutsceneCaller : MonoBehaviour
             default:
                 break;
         }
-        CutsceneData data = new CutsceneData(canSkipped,objectsTurnOff);
+        CutsceneData data = new CutsceneData(canSkipped,isEndLevel,objectsTurnOff);
         ServiceLocator.Instance.Get<IcutsceneManager>().startCutscene(timeline, _action,data);
     }
 

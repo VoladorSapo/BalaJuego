@@ -44,6 +44,7 @@ public class baseBullet : MonoBehaviour, IBullet
             lifeTime -= Time.deltaTime * timeMagnitude;
             if (lifeTime <= 0)
             {
+                ServiceLocator.Instance.Get<IsoftLock>().checkAll();
                 Destroy(gameObject);
             }
         }

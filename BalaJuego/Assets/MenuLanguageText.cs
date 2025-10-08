@@ -18,4 +18,9 @@ public class MenuLanguageText : MonoBehaviour
     {
         text.text = Texts[(int)language];
     }
+    public void updateLanguage()
+    {
+        text.text = Texts[(int)settingManager.Instance.getLanguage()];
+
+    }
 }

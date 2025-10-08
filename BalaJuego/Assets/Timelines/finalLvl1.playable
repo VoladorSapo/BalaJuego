@@ -403,7 +403,7 @@ MonoBehaviour:
   startCharsList: 000000000000000000000000
   width: 5
   personaje: 1
-  LanguageForEditor: 0
+  LanguageForEditor: 1
 --- !u!114 &-806211797323962414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -974,14 +974,14 @@ MonoBehaviour:
   dialogText: "No se preocupe. Har\xE9 que pague."
   dialogTexts:
   - "No se preocupe. Har\xE9 que pague."
-  - "Don\u2019t worry. I\u2019ll make him pay."
+  - "Don\u2019t worry. I'll make him pay."
   - "Es preocupi. Far\xE9 que ho pagui."
   leaveTime: 1.6
   startChars: 0
   startCharsList: 000000000000000000000000
   width: 5
   personaje: 0
-  LanguageForEditor: 0
+  LanguageForEditor: 1
 --- !u!114 &4528151083784143723
 MonoBehaviour:
   m_ObjectHideFlags: 1

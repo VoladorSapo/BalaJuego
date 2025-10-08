@@ -262,6 +262,7 @@ MonoBehaviour:
   _tutorial: {fileID: 0}
   nextScene: nivel1
   timeline: {fileID: 11400000, guid: 9f73bee056cfd2243bb7474faa044277, type: 2}
+  isEndLevel: 1
   playOnAwakeNoLevel: 1
   startPos: {fileID: 0}
   onTrigger: 0
@@ -638,7 +639,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -185.88, y: 298.1}
-  m_SizeDelta: {x: 913.5, y: 2}
+  m_SizeDelta: {x: 800, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311408484
 MonoBehaviour:
@@ -660,7 +661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tranquilo, Padre, no tengo miedo. Usted me ha dicho que Dios est\xE1 conmigo.\r\n"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
   m_sharedMaterial: {fileID: 862941791054961819, guid: 8fbe09a21f7752e4283d6f3fcf551e64, type: 2}
@@ -1191,31 +1192,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Signals.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Signals.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: a686780cd0eba454eba86ffadb84a285, type: 2}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
@@ -1223,32 +1200,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 578251022}
     - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1985398486}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayPaso
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: cutsceneManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CutsceneMusicCaller, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 738955533902035285, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3947349907422927085, guid: 563189673227a71478d20f7d6e58c478, type: 3}
       propertyPath: m_Name
@@ -1605,7 +1562,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 61.82, y: 298.1}
-  m_SizeDelta: {x: 800, y: 2}
+  m_SizeDelta: {x: 1064.63, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724948446
 MonoBehaviour:
@@ -1627,7 +1584,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Mi m\xE1s sincero p\xE9same,  hija.\nPuedo asegurarte que Dios est\xE1
+    contigo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
   m_sharedMaterial: {fileID: -6252668803742890292, guid: 33ed7c130d29d764e995c497a17a6c7e, type: 2}
@@ -8035,17 +7993,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1985398486 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3959773303927180720, guid: 563189673227a71478d20f7d6e58c478, type: 3}
-  m_PrefabInstance: {fileID: 578251021}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578251022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5513d440dd0f7044f81a5acee3bf05ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1992974925

@@ -21,6 +21,10 @@ public class UIManager : MonoBehaviour
         changeGroup(winScreen, false);
 
         changeGroup(DeathScreen, false);
+        foreach(MenuLanguageText text in GetComponentsInChildren<MenuLanguageText>())
+        {
+            text.updateLanguage();
+        }
     }
 
     // Update is called once per frame

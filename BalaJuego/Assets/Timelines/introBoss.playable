@@ -143,7 +143,7 @@ MonoBehaviour:
   dialogText: "Por fin has llegado, \nCuernoveloz."
   dialogTexts:
   - "Por fin has llegado, \nCuernoveloz."
-  - "Finally you\u2019ve arrived, \nCuernoveloz."
+  - "Finally you've arrived, \nCuernoveloz."
   - 'Finalment has arribat,
 
     Cuernoveloz'
@@ -298,7 +298,7 @@ MonoBehaviour:
   dialogText: "Sab\xEDa que te encontrar\xEDa aqu\xED, Detective Sinclair."
   dialogTexts:
   - "Sab\xEDa que te encontrar\xEDa aqu\xED, Detective Sinclair."
-  - "I knew I\u2019d find you here, Detective Sinclair."
+  - I knew I'd find you here, Detective Sinclair.
   - "Sabia que et trobaria aqu\xED, detectiu Sinclair."
   leaveTime: 1.6
   startChars: 0
@@ -547,7 +547,9 @@ MonoBehaviour:
   dialogText: "Una l\xE1stima que no pudieses preveer\nlo que le pas\xF3 a tu marido."
   dialogTexts:
   - "Una l\xE1stima que no pudieses preveer\nlo que le pas\xF3 a tu marido."
-  - "It's a shame you couldn\u2019t foresee what happened to your husband.\r\n"
+  - 'It''s a shame you couldn''t foresee what happened to your husband.
+
+'
   - "Una ll\xE0stima que no poguessis preveure el que li va passar al teu marit."
   leaveTime: 1.6
   startChars: 0
@@ -864,7 +866,7 @@ MonoBehaviour:
   - 'Por fin has llegado,
 
 '
-  - "Finally you\u2019ve arrived,"
+  - Finally you've arrived,
   - Finalment has arribat,
   leaveTime: 1.6
   startChars: 0
@@ -1054,7 +1056,7 @@ MonoBehaviour:
   dialogText: "Es solo que, con su rev\xF3lver domador de llamas..."
   dialogTexts:
   - "Es solo que, con su rev\xF3lver domador de llamas..."
-  - "It\u2019s just that, with his flame-tamer revolver..."
+  - It's just that, with his flame-tamer revolver...
   - "\xC9s nom\xE9s que, amb el seu rev\xF2lver domador de flames\u2026\r\n"
   leaveTime: 1.6
   startChars: 0
@@ -1307,7 +1309,7 @@ MonoBehaviour:
   dialogText: No fue nada personal.
   dialogTexts:
   - No fue nada personal.
-  - "It wasn\u2019t personal."
+  - It wasn't personal.
   - No va ser res personal.
   leaveTime: 1.6
   startChars: 0
