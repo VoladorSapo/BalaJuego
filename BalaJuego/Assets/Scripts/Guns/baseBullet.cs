@@ -92,9 +92,22 @@ public class baseBullet : MonoBehaviour, IBullet
             if (hitParticle)
             {
                 float bulletAngle = transform.eulerAngles.z;
-                float rad = bulletAngle * Mathf.Deg2Rad;
-                Vector2 bulletDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-                hitParticle.transform.forward = -bulletDir;
+                //float rad = bulletAngle * Mathf.Deg2Rad;
+                //Vector2 bulletDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+                var particles = obj.GetComponentInChildren<ParticleSystem>(true);
+                if (particles != null)
+                {
+                    particles.gameObject.SetActive(true);
+                    particles.Play();
+                    if (transform.eulerAngles.z < 10 && transform.eulerAngles.z > -10)
+                    {
+                        particles.transform.eulerAngles = new Vector3(-25, -particles.transform.eulerAngles.y, -particles.transform.eulerAngles.z);
+                    }
+                    else
+
+                        particles.transform.eulerAngles = new Vector3(transform.eulerAngles.z, -particles.transform.eulerAngles.y, -particles.transform.eulerAngles.z);
+                }
+
                 musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
             }
             else
@@ -110,9 +123,9 @@ public class baseBullet : MonoBehaviour, IBullet
         }
 
     }
-        public CharacterLife.Team getTeam() => team;
+    public CharacterLife.Team getTeam() => team;
 
-        public bool hurtAll() => canHurtAll;
+    public bool hurtAll() => canHurtAll;
 
     public virtual void tryGrab(PlayerShoot player)
     {
