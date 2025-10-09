@@ -137388,6 +137388,7 @@ MonoBehaviour:
   gun: {fileID: 1414742133}
   head: {fileID: 1601607145}
   countText: {fileID: 1897431373}
+  bodyMovePos: {x: 1.57, y: 0.26, z: 0}
 --- !u!1 &1327096724
 GameObject:
   m_ObjectHideFlags: 0

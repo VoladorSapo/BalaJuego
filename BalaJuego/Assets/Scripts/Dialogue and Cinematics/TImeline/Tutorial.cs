@@ -156,7 +156,7 @@ namespace tutorial
 
                     break;
                 case Language.English:
-                    tutorial.TutorialText.text = "When time is slowed you can click on ENEMIES’ BULLETS to GRAB THEM and gain ammo.";
+                    tutorial.TutorialText.text = "When time is slowed you can click on ENEMIES' BULLETS to GRAB THEM and gain ammo.";
 
                     break;
                 case Language.Catalan:
@@ -188,7 +188,7 @@ namespace tutorial
 
                     break;
                 case Language.English:
-                    tutorial.TutorialText.text = "When time is slowed you can click on ENEMIES’ BULLETS to GRAB THEM and gain ammo.";
+                    tutorial.TutorialText.text = "When time is slowed you can click on ENEMIES BULLETS to GRAB THEM and gain ammo.";
 
                     break;
                 case Language.Catalan:
@@ -217,7 +217,7 @@ namespace tutorial
 
                     break;
                 case Language.English:
-                    tutorial.TutorialText.text = "Enemies have LIMITED BULLETS. Manage time and ammo or you’ll have to RESTART THE LEVEL by pressing ESC.";
+                    tutorial.TutorialText.text = "Enemies have LIMITED BULLETS. Manage time and ammo or you'll have to RESTART THE LEVEL by pressing ESC.";
 
                     break;
                 case Language.Catalan:

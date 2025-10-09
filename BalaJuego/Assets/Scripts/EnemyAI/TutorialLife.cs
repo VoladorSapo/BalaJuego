@@ -6,6 +6,8 @@ public class TutorialLife : CharacterLife
     [SerializeField] GameObject gun;
     [SerializeField] GameObject head;
     [SerializeField] GameObject countText;
+    [SerializeField] Vector3 bodyMovePos;
+
     public override void Die()
     {
         if (!blockKill)
@@ -50,6 +52,13 @@ public class TutorialLife : CharacterLife
     }
     public void finishDeathAnim()
     {
+        if (melee)
+        {
+
+            PlayerMove player = FindObjectOfType<PlayerMove>();
+            transform.position = player.transform.position + new Vector3(bodyMovePos.x * -player.transform.localScale.x, bodyMovePos.y, bodyMovePos.z);
+            transform.localScale = new Vector3(player.runningDirection, 1, 1);
+        }
         if (!blockKill)
         {
             Debug.LogError("Die");

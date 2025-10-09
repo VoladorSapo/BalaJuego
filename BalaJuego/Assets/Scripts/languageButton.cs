@@ -13,6 +13,7 @@ public class languageButton : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(() => { settingManager.Instance.changeLanguage(language); });
         
         settingManager.Instance.subscribeToStateChange(changeLanguage);
+        changeLanguage(this,settingManager.Instance.getLanguage());
     }
     void changeLanguage(object sender, Language language)
     {
