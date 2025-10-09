@@ -3,7 +3,7 @@
 public class botella : baseBullet
 {
     public bool isThrown;
-    LevelAreaController area;
+  [SerializeField]  LevelAreaController area;
     Vector3 initialPos;
     private void Start()
     {
@@ -16,6 +16,8 @@ public class botella : baseBullet
 
     public void resTart(LevelAreaController _area)
     {
+        
+        print("botella area" + _area);
         area = _area;
         transform.position = initialPos;
 

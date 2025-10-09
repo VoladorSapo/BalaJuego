@@ -35,6 +35,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
     public virtual void addBullets(int bul)
     {
+        shooting = false;
         currentBullets += bul;
         bulletCount.text = currentBullets.ToString();
 

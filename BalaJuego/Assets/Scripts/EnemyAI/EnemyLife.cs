@@ -97,10 +97,8 @@ public class EnemyLife : CharacterLife
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        print("trigger");
         if (collision.tag == "Botella" && !dead)
         {
-            print("triggerBotella");
             baseBullet botel = collision.GetComponent<baseBullet>();
             if (botel.speed > 0)
             {
