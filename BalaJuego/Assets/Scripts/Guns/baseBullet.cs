@@ -84,6 +84,7 @@ public class baseBullet : MonoBehaviour, IBullet
 
     public virtual void hitSomething(GameObject obj)
     {
+        print("hit");
         //Animacion o algo
         hit = true;
         anim.Play("bulletDestroy");
@@ -119,8 +120,9 @@ public class baseBullet : MonoBehaviour, IBullet
             speed = 0;
             GetComponent<Collider2D>().enabled = false;
             ServiceLocator.Instance.Get<IsoftLock>().checkAll();
-            Destroy(gameObject, 0.5f);
         }
+        Destroy(gameObject, 0.5f);
+
 
     }
     public CharacterLife.Team getTeam() => team;
