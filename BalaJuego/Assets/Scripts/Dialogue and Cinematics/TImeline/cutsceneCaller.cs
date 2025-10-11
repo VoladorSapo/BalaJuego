@@ -29,8 +29,8 @@ public class cutsceneCaller : MonoBehaviour
 
   [SerializeField]  bool hasStarted, hasFinished;
 
-    [SerializeField] GameObject[] objectsTurnOff; 
-
+    [SerializeField] GameObject[] objectsTurnOff;
+    [SerializeField] bool playOnRestart = false;
     
 
 
@@ -66,7 +66,10 @@ public class cutsceneCaller : MonoBehaviour
     }
     public void restart()
     {
-
+        if (playOnRestart)
+        {
+            hasStarted = false;
+        }
     }
     public void PlayCutscene()
     {

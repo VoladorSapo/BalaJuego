@@ -76,14 +76,14 @@ public class softLockController : MonoBehaviour,IsoftLock
                 switch (settingManager.Instance.getLanguage())
                 {
                     case Language.Spanish:
-                        restart_Text.text = "Sin Balas: Reinicia desde el Menú de Pausa";
+                        restart_Text.text = "Sin Balas Suficientes: Reinicia desde el Menú de Pausa";
                         break;
                     case Language.English:
-                        restart_Text.text = "Out of Bullets: Restart from Pause Menu";
+                        restart_Text.text = "Not Enough Bullets: Restart from Pause Menu";
 
                         break;
                     case Language.Catalan:
-                        restart_Text.text = "Sense Bales: Reinicia des del Menú de Pausa";
+                        restart_Text.text = "Sense Bales Suficients: Reinicia des del Menú de Pausa";
 
                         break;
                 }

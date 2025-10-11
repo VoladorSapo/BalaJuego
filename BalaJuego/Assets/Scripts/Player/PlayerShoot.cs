@@ -1,9 +1,10 @@
 using Cinemachine;
 using System.Collections;
 using UnityEngine;
-
+using TMPro;
 public class PlayerShoot : MonoBehaviour
 {
+  [SerializeField]  TMP_Text textoaviso;
    public IShoot shoot { get; private set; }
     IGameState stateManager;
 
@@ -32,6 +33,9 @@ public class PlayerShoot : MonoBehaviour
 [SerializeField]    GameObject[] hidewhenMelee;
 
 [SerializeField]  public  bool hasBottle;
+    float stopBufferTimeCurrent;
+    [SerializeField] float stopBufferTime;
+
 
     [SerializeField] protected ParticleSystem bulletPick;
 
@@ -47,6 +51,7 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Start()
     {
+        textoaviso.enabled = false;
         hasBottle = false;
         executionCamera.SetActive(false);
         shoot = GetComponentInChildren<IShoot>();
@@ -63,24 +68,36 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Update()
     {
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    shootBufferTimeCurrent = shootBufferTime;
+        //}
+        //else
+        //{
+        //    shootBufferTimeCurrent -= Time.deltaTime;   
+        //}
+  
         if (Input.GetMouseButtonDown(0))
         {
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 if (hasBottle)
                 {
-                    
+
                     hasBottle = false;
                     GetComponentInChildren<IShoot>().getAnim().Play("bottleThrow");
                 }
                 else
                 {
+
                     if (shoot.shoot())
                     {
+                        textoaviso.enabled = false;
                         cursor.empty();
                     }
                 }
             }
+
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
@@ -115,16 +132,34 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            stopBufferTimeCurrent = stopBufferTime;
+
+        }
+        else
+        {
+            stopBufferTimeCurrent -= Time.deltaTime;
+        }
+        if (stopBufferTimeCurrent > 0)
+        {
             if (stateManager.getState() == IGameState.gameState.NormalTime && shoot.getBullets() == 0)
             {
+                stopBufferTimeCurrent = 0;
                 musicManager.Instance.PlaySound("snd_startslowtime");
                 ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
-                }
+                textoaviso.enabled = false;
+
             }
+            if (shoot.getBullets() > 0)
+            {
+                textoaviso.enabled = true;
+            }
+        }
         if (Input.GetKeyUp(KeyCode.E))
         {
+            stopBufferTimeCurrent = 0;
+            textoaviso.enabled = false;
             if (stateManager.getState() == IGameState.gameState.SlowDown && shoot.getBullets() == 0)
             {
                 musicManager.Instance.PlaySound("snd_stopslowtime");
@@ -213,10 +248,28 @@ public class PlayerShoot : MonoBehaviour
     }
     public void restart()
     {
+        //textoaviso.enabled = false;
+        if (textoaviso.enabled == true)
+        {
+            StartCoroutine(waitTurnOFfBulletAdvice());
+        }
+        cursor.empty();
         reloading = false;
         enemyMelee = null;
         hasBottle = false;
         
+    }
+    IEnumerator waitTurnOFfBulletAdvice()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(5f / 10f);
+            if (textoaviso.enabled == false)
+            {
+                yield break;
+            }
+        }
+        textoaviso.enabled = false;
     }
     
     public void returnToNormalCamera()

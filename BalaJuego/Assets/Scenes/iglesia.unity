@@ -270,6 +270,7 @@ MonoBehaviour:
   hasStarted: 0
   hasFinished: 0
   objectsTurnOff: []
+  playOnRestart: 0
 --- !u!4 &108904711
 Transform:
   m_ObjectHideFlags: 0
@@ -403,6 +404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraConfinerCollider: {fileID: 0}
   Startvectors: []
+  fromPoints: []
+  currentPoints: []
+  toPoints: []
+  transitionTime: 10
+  transitionTimePassed: 2
 --- !u!114 &132959367
 MonoBehaviour:
   m_ObjectHideFlags: 0

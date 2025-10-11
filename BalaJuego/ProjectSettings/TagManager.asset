@@ -10,6 +10,7 @@ TagManager:
   - Botella
   - TurnStun
   - SkipUI
+  - SkipAdvice
   layers:
   - Default
   - TransparentFX

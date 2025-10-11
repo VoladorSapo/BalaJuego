@@ -755,7 +755,7 @@ MonoBehaviour:
   <shootCadenceRandomRange>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 950568152328337870}
   <area>k__BackingField: {fileID: 0}
-  canBeKilledMelee: 1
+  canBeKilledMelee: 0
   shootOnShight: 0
   life: {fileID: 0}
   FMarker: {fileID: 2590544325893297723}
@@ -11260,3 +11260,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeParticles: {fileID: 0}
+  meleeParticles1: {fileID: 0}

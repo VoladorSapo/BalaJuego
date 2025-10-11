@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
-
+using TMPro;
 public class cutsceneManager : MonoBehaviour,IcutsceneManager{
 
     Action endCutsceneAction;
@@ -13,6 +14,11 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     [SerializeField] float currrentSkipPressTime;
     [SerializeField] float SkipPressTime;
    [SerializeField] Image skipCupstecenesBar;
+    [SerializeField] TMP_Text textoInstruccionSaltar;
+
+  [SerializeField]  int StateeFade = 0;
+  [SerializeField]  float alpha = 0;
+
 
     private void Update()
     {
@@ -40,14 +46,68 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
             }
         }
         skipCupstecenesBar.fillAmount = currrentSkipPressTime / SkipPressTime;
+        if(currentData != null && currentData.canBeSkipped == true && cutscenPlaying && !isSkipingCutscene)
+        {
+            if (Input.anyKey || Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+            {
+                StateeFade = 1;
+            }
+            else
+            {
+                StartCoroutine(waitTurnOFfSkipAdvice());
+            }
+        }
+        switch (StateeFade)
+        {
+            case 0:
 
+                break;
+            case 1:
+                 alpha = textoInstruccionSaltar.color.a + (Time.deltaTime);
+                if(alpha > 1)
+                {
+                    alpha = 1;
+                    StateeFade = 0;
+
+                }
+                textoInstruccionSaltar.color = new Color(1, 1, 1, alpha);
+
+                break;
+
+                case 2:
+
+                alpha = textoInstruccionSaltar.color.a - (Time.deltaTime);
+                if (alpha < 0)
+                {
+                    alpha = 0;
+                    StateeFade = 0;
+                }
+                textoInstruccionSaltar.color = new Color(1, 1, 1, alpha);
+
+                break;
+        }
+    }
+    IEnumerator waitTurnOFfSkipAdvice()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(0.5f / 10f);
+            if (textoInstruccionSaltar.color.a == 0)
+            {
+                yield break;
+            }
+        }
+        StateeFade = 2;
     }
     private void Start()
     {
         skipCupstecenesBar = GameObject.FindGameObjectWithTag("SkipUI").GetComponent<Image>();
+        textoInstruccionSaltar = GameObject.FindGameObjectWithTag("SkipAdvice").GetComponent<TMP_Text>();
     }
     public void endAnimation()
     {
+        StateeFade = 2;
+
         skipCupstecenesBar.enabled = false;
         cutscenPlaying = false;
         isSkipingCutscene = false;
@@ -82,6 +142,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
             cutscenPlaying = false;
             isSkipingCutscene = true;
             print("SALTANDO CINEMATICA");
+            StateeFade = 2;
             if (!currentData.isEndLevel)
             {
             
@@ -100,6 +161,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         print("SKIP");
         isSkipingCutscene = true;
         skipCupstecenesBar.enabled = false;
+        StateeFade = 2;
 
         //if (currentData.objectsToTurnOff != null && currentData.objectsToTurnOff.Length > 0)
         //{

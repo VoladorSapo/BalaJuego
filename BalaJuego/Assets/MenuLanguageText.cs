@@ -6,13 +6,14 @@ public class MenuLanguageText : MonoBehaviour
 {
 
     [SerializeField] string[] Texts;
-    TMP_Text text;
+   [SerializeField] TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<TMP_Text>();
 
         settingManager.Instance.subscribeToStateChange(changeLanguage);
+        updateLanguage();
     }
     void changeLanguage(object sender, Language language)
     {
@@ -20,6 +21,8 @@ public class MenuLanguageText : MonoBehaviour
     }
     public void updateLanguage()
     {
+        text = GetComponent<TMP_Text>();
+        
         text.text = Texts[(int)settingManager.Instance.getLanguage()];
 
     }

@@ -273,6 +273,7 @@ MonoBehaviour:
   - JUGAR
   - PLAY
   - JUGAR
+  text: {fileID: 0}
 --- !u!1001 &98503342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,6 +658,7 @@ MonoBehaviour:
   - SALIR
   - EXIT
   - SORTIR
+  text: {fileID: 0}
 --- !u!1001 &147530869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1079,6 +1081,7 @@ MonoBehaviour:
   - "Programaci\xF3n"
   - Programming
   - "Programaci\xF3n "
+  text: {fileID: 0}
 --- !u!1 &292486774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1234,7 @@ MonoBehaviour:
   - "Modo cron\xF3metro"
   - Time mode
   - 'Mode cronometre '
+  text: {fileID: 0}
 --- !u!1 &349611463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1739,7 @@ MonoBehaviour:
   - "M\xFAsica"
   - Music
   - "M\xFAsica"
+  text: {fileID: 0}
 --- !u!1 &487239450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2201,7 @@ MonoBehaviour:
   - Idioma
   - Language
   - Idioma
+  text: {fileID: 0}
 --- !u!1 &569730212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2368,7 @@ MonoBehaviour:
   - Ajustes
   - Settings
   - Ajustaments
+  text: {fileID: 0}
 --- !u!1 &622856672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,6 +3174,7 @@ MonoBehaviour:
   - "Saltar cin\xE9maticas"
   - Skip cutscenes
   - 'Saltar cinematiques '
+  text: {fileID: 0}
 --- !u!1 &785824621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,6 +3822,7 @@ MonoBehaviour:
   - Saltar tutorial
   - Skip tutorial
   - 'Saltar tutorial '
+  text: {fileID: 0}
 --- !u!1 &905742367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5313,6 +5322,7 @@ MonoBehaviour:
   - "CR\xC9DITOS"
   - CREDITS
   - CREDITS
+  text: {fileID: 0}
 --- !u!1 &1353705950
 GameObject:
   m_ObjectHideFlags: 0
@@ -5667,6 +5677,7 @@ MonoBehaviour:
   - Efectos
   - VFX
   - Efectes
+  text: {fileID: 0}
 --- !u!1 &1558116462
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,6 +5940,7 @@ MonoBehaviour:
   - Arte
   - Art
   - Art
+  text: {fileID: 0}
 --- !u!1 &1631428328
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,6 +6317,7 @@ MonoBehaviour:
   - OPCIONES
   - OPTIONS
   - OPCIONS
+  text: {fileID: 0}
 --- !u!1 &1736624340
 GameObject:
   m_ObjectHideFlags: 0
@@ -6458,6 +6471,7 @@ MonoBehaviour:
   - SALIR
   - EXIT
   - SORTIR
+  text: {fileID: 0}
 --- !u!1 &1768765272
 GameObject:
   m_ObjectHideFlags: 0
@@ -6822,6 +6836,7 @@ MonoBehaviour:
   - SALIR
   - QUIT
   - SORTIR
+  text: {fileID: 0}
 --- !u!1 &1821194375
 GameObject:
   m_ObjectHideFlags: 0
@@ -6973,6 +6988,7 @@ MonoBehaviour:
   - "M\xFAsica"
   - Music
   - "M\xFAsica"
+  text: {fileID: 0}
 --- !u!1 &1855623156
 GameObject:
   m_ObjectHideFlags: 0

@@ -119,8 +119,8 @@ public class baseBullet : MonoBehaviour, IBullet
             }
             speed = 0;
             GetComponent<Collider2D>().enabled = false;
-            ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         }
+        ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         Destroy(gameObject, 0.5f);
 
 
@@ -138,6 +138,7 @@ public class baseBullet : MonoBehaviour, IBullet
     }
     private void OnDestroy()
     {
+        ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         ServiceLocator.Instance.Get<ITimeManager>().unSubscribeToTimeChange(changeTimeMagnitude);
 
     }

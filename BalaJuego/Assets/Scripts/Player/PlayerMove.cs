@@ -33,6 +33,7 @@ public bool onGround;
 
 
     [SerializeField] float coyoteTime;
+
     [SerializeField] float jumpBufferTime;
 
     [SerializeField] bool jumping, falling;
@@ -41,9 +42,9 @@ public bool onGround;
 
     float coyoteTimeCurrent;
     float jumpBufferTimeCurrent;
-
     [SerializeField] float maxFallVelocity;
-
+    [SerializeField] GameObject Head;
+    [SerializeField] GameObject gunOBJ;
     PlayerShoot shoot;
 
  public   Animator anim;
@@ -93,7 +94,7 @@ public bool onGround;
     void Update()
     {
 
-        RaycastHit2D hit = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0, Vector2.down, /*groundCast.size.y / 2*/0, groudLayers);
+        RaycastHit2D hit = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0, Vector2.down, groundCast.size.y / 4, groudLayers);
         Vector3 start = new Vector3(groundCast.transform.position.x - groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         Vector3 end = new Vector3(groundCast.transform.position.x + groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         if(hit && !onGround)
@@ -248,7 +249,10 @@ public bool onGround;
         print("plyerRestart");
         transform.position = initialPos;
         gameObject.SetActive(true);
+        Head.SetActive(true);
+        gunOBJ.SetActive(true);
         GetComponentInChildren<IShoot>().restart();
+        GetComponentInChildren<PlayerShoot>().
         GetComponentInChildren<PlayerShoot>().restart();
         GetComponent<CharacterLife>().restart();
         canMove = true;

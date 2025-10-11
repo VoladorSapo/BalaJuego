@@ -2,6 +2,9 @@
 public class GunEnemyController : EnemyController
 {
     IShoot Charshoot;
+
+    [SerializeField] bool ChangeMeleeCollider;
+
     protected override void Start()
     {
         base.Start();
@@ -25,6 +28,10 @@ public class GunEnemyController : EnemyController
             stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee));
         }
         stateMachine.SetState(new IdleState(this));
+        if (ChangeMeleeCollider)
+        {
+            canBeKilledMelee = true;
+        }
     }
 
 }
