@@ -37417,6 +37417,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1526738469
       objectReference: {fileID: 0}
+    - target: {fileID: 8375578876730690019, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8799275002827292154, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -46592,7 +46596,9 @@ MonoBehaviour:
   maxFallVelocity: 0
   Head: {fileID: 0}
   gunOBJ: {fileID: 0}
-  anim: {fileID: 0}
+  bodyAnim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
   particles: {fileID: 0}
 --- !u!4 &1103279981 stripped
 Transform:
@@ -48214,7 +48220,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 1078324749}
-  anim: {fileID: 0}
+  bodyAnim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
   notTurn: {fileID: 0}
 --- !u!114 &1397413578
 MonoBehaviour:

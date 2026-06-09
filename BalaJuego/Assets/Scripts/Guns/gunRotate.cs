@@ -5,7 +5,10 @@ public class gunRotate : MonoBehaviour
     [SerializeField] bool followMouse;
     [SerializeField] Transform fullCharacter;
 
-    [SerializeField] Animator anim;
+    [Header("Animator")]
+    public Animator bodyAnim;
+    public Animator headAnim;
+    public Animator armAnim;
 
     [SerializeField] Transform notTurn;
 
@@ -31,7 +34,7 @@ public class gunRotate : MonoBehaviour
         // print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
         if (direction.x > 0)
         {
-            anim.SetBool("direction", true);
+            UpdateAnimatorBool("direction", true);
 
             fullCharacter.localScale = new Vector3(-1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 180, notTurn.eulerAngles.z);
@@ -39,7 +42,7 @@ public class gunRotate : MonoBehaviour
         }
         else if (direction.x < 0)
         {
-            anim.SetBool("direction", false);
+            UpdateAnimatorBool("direction", false);
 
             fullCharacter.localScale = new Vector3(1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 0, notTurn.eulerAngles.z);
@@ -77,4 +80,23 @@ public class gunRotate : MonoBehaviour
                 break;
         }
     }
+    public void UpdateAnimatorFloat(string property, float value)
+    {
+        bodyAnim.SetFloat(property, value);
+        headAnim.SetFloat(property, value);
+        armAnim.SetFloat(property, value);
+    }
+    public void UpdateAnimatorBool(string property, bool value)
+    {
+        bodyAnim.SetBool(property, value);
+        headAnim.SetBool(property, value);
+        armAnim.SetBool(property, value);
+    }
+    public void UpdateAnimatorSpeed(float speed)
+    {
+        bodyAnim.speed = speed;
+        headAnim.speed = speed;
+        armAnim.speed = speed;
+    }
+
 }

@@ -338,7 +338,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 3052987210979176980}
-  anim: {fileID: 0}
+  bodyAnim: {fileID: 8885858474023783423}
+  headAnim: {fileID: 8375578876730690019}
+  armAnim: {fileID: 7629799431082066048}
   notTurn: {fileID: 8817943855520556392}
 --- !u!95 &7629799431082066048
 Animator:
@@ -6078,7 +6080,7 @@ SpriteRenderer:
   m_Size: {x: 1.125, y: 1.09375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3348193629180219520
@@ -6227,7 +6229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &306982299395566055
 Transform:
   m_ObjectHideFlags: 0
@@ -7148,7 +7150,7 @@ MonoBehaviour:
   gunOBJ: {fileID: 1060920710229837519}
   bodyAnim: {fileID: 8885858474023783423}
   headAnim: {fileID: 8375578876730690019}
-  backArmAnim: {fileID: 7629799431082066048}
+  armAnim: {fileID: 7629799431082066048}
   particles: {fileID: 0}
 --- !u!114 &64199479102123066
 MonoBehaviour:

@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] BoxCollider2D groundCast;
     [SerializeField] private Rigidbody2D rb2d;
 
-    [SerializeField]public float maxSpeed;
+    [SerializeField] public float maxSpeed;
     [SerializeField] float acceleration;
     [SerializeField] float groundDecceleration;
     [SerializeField] float turnDecceleration;
@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] LayerMask groudLayers;
 
-public bool onGround;
+    public bool onGround;
     [SerializeField] bool jumpPressed;
 
 
@@ -38,7 +38,7 @@ public bool onGround;
 
     [SerializeField] bool jumping, falling;
 
-  public  bool isMeleeing;
+    public bool isMeleeing;
 
     float coyoteTimeCurrent;
     float jumpBufferTimeCurrent;
@@ -47,18 +47,21 @@ public bool onGround;
     [SerializeField] GameObject gunOBJ;
     PlayerShoot shoot;
 
- public   Animator anim;
+    [Header("Animator")]
+    public Animator bodyAnim;
+    public Animator headAnim;
+    public Animator armAnim;
 
     float timeMagnitude;
 
     IGun gun;
- public   int runningDirection{get;private set;}    
+    public int runningDirection { get; private set; }
 
     Vector3 initialPos;
 
     [SerializeField] GameObject particles;
-    ParticleSystem dustWalk, dustJump,
-        dustFall;
+    //ParticleSystem dustWalk, dustJump,
+    //    dustFall;
     bool isRotating;
 
     bool canMove;
@@ -73,14 +76,13 @@ public bool onGround;
         timeMagnitude = 1;
         isMeleeing = false;
         rb2d = GetComponent<Rigidbody2D>();
-        anim = GetComponentsInChildren<Animator>()[0];
-        dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
-        dustJump = GetComponentsInChildren<ParticleSystem>()[1];
-        dustFall = GetComponentsInChildren<ParticleSystem>()[2];
+        //dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
+        //dustJump = GetComponentsInChildren<ParticleSystem>()[1];
+        //dustFall = GetComponentsInChildren<ParticleSystem>()[2];
         shoot = GetComponent<PlayerShoot>();
-        dustWalk.gameObject.SetActive(false);
-        dustJump.gameObject.SetActive(false);
-        dustFall.gameObject.SetActive(false);
+        //dustWalk.gameObject.SetActive(false);
+        //dustJump.gameObject.SetActive(false);
+        //dustFall.gameObject.SetActive(false);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
@@ -97,20 +99,20 @@ public bool onGround;
         RaycastHit2D hit = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0, Vector2.down, groundCast.size.y / 4, groudLayers);
         Vector3 start = new Vector3(groundCast.transform.position.x - groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
         Vector3 end = new Vector3(groundCast.transform.position.x + groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
-        if(hit && !onGround)
+        if (hit && !onGround)
         {
-            dustFall.gameObject.SetActive(true);
-            dustFall.Play();
+            //dustFall.gameObject.SetActive(true);
+            //dustFall.Play();
 
-            musicManager.Instance.PlaySoundPitch("snd_aterriza",0.2f);
+            musicManager.Instance.PlaySoundPitch("snd_aterriza", 0.2f);
         }
         onGround = hit;
         if (!onGround)
-            dustWalk.Stop();
-        anim.SetBool("isGround", onGround);
-      
-            shoot.stunedDetector.gameObject.SetActive(onGround);
-        
+            //dustWalk.Stop();
+        UpdateAnimatorBool("isGround", onGround);
+
+        shoot.stunedDetector.gameObject.SetActive(onGround);
+
         if (onGround && !jumping/* && rb2d.velocity.y <= 0*/)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
@@ -160,24 +162,24 @@ public bool onGround;
             if (Move.x == 0)
             {
                 calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, 0, groundDecceleration * Time.fixedDeltaTime);
-                anim.SetBool("isRunning", false);
+                UpdateAnimatorBool("isRunning", false);
                 musicManager.Instance.StopWalking();
 
-                dustWalk.Stop();
+                //dustWalk.Stop();
 
             }
             else
             {
-                anim.SetBool("isRunning", true);
+                UpdateAnimatorBool("isRunning", true);
                 if (onGround) { musicManager.Instance.StartWalking(); /*Debug.Log("PASOOOOOOOOOOOOOOOOOOO");*/ } else { musicManager.Instance.StopWalking(); }
 
-                dustWalk.gameObject.SetActive(true);
-                if (onGround) dustWalk.Play();
+                //dustWalk.gameObject.SetActive(true);
+                //if (onGround) dustWalk.Play();
                 float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
 
                 calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed * timeMagnitude, useAccel * Time.fixedDeltaTime * timeMagnitude);
             }
-            anim.SetFloat("velocity", calcVelocity.x);
+            UpdateAnimatorFloat("velocity", calcVelocity.x);
             if (calcVelocity.x > 0 && !isRotating && runningDirection != 1)
             {
                 //dustWalk.transform.eulerAngles = new Vector3(0, 180, 0);
@@ -191,7 +193,7 @@ public bool onGround;
                 //dustWalk.transform.eulerAngles = new Vector3(0,0, 0);
             }
 
-            anim.SetFloat("verticalVelocity", calcVelocity.y);
+            UpdateAnimatorFloat("verticalVelocity", calcVelocity.y);
             if (calcVelocity.y < -maxFallVelocity)
             {
                 calcVelocity.y = -maxFallVelocity;
@@ -199,14 +201,14 @@ public bool onGround;
             rb2d.velocity = calcVelocity;
             if (coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0 && !jumping)
             {
-                dustJump.gameObject.SetActive(true);
-                dustJump.Play();
+                //dustJump.gameObject.SetActive(true);
+                //dustJump.Play();
                 musicManager.Instance.PlayJump();
 
                 jumping = true;
                 rb2d.gravityScale = normalGravity;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-                rb2d.AddForce(Vector2.up * jumpForce , ForceMode2D.Impulse);
+                rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
             }
         }
@@ -226,9 +228,9 @@ public bool onGround;
             for (int i = 0; i < 10; i++)
             {
                 yield return (new WaitForSeconds(.5f / 10));
-                dustWalk.transform.eulerAngles += new Vector3(0, 18, 0);
+                //dustWalk.transform.eulerAngles += new Vector3(0, 18, 0);
             }
-            dustWalk.transform.eulerAngles = new Vector3(0, 180, 0);
+            //dustWalk.transform.eulerAngles = new Vector3(0, 180, 0);
             isRotating = false;
         }
         else
@@ -236,9 +238,9 @@ public bool onGround;
             for (int i = 0; i < 10; i++)
             {
                 yield return (new WaitForSeconds(.5f / 10));
-                dustWalk.transform.eulerAngles -= new Vector3(0, 18, 0);
+                //dustWalk.transform.eulerAngles -= new Vector3(0, 18, 0);
             }
-            dustWalk.transform.eulerAngles = new Vector3(0, 0, 0);
+            //dustWalk.transform.eulerAngles = new Vector3(0, 0, 0);
             isRotating = false;
         }
 
@@ -274,12 +276,12 @@ public bool onGround;
                 break;
             default:
                 canMove = false;
-                rb2d.velocity = new Vector2(0,rb2d.velocity.y);
-                anim.SetBool("isRunning", false);
+                rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                UpdateAnimatorBool("isRunning", false);
 
                 break;
-           
-            
+
+
         }
     }
     void changeTimeMagnitude(object sender, timeData data)
@@ -292,7 +294,7 @@ public bool onGround;
         {
             Vector2 vel = rb2d.velocity / new Vector2(trueMagnitude, 1);
             vel = new Vector2(Mathf.Clamp(vel.x, 0, 999), Mathf.Clamp(vel.y, 0, 999));
-            if(float.IsNaN(vel.x))
+            if (float.IsNaN(vel.x))
             {
                 print("hola");
                 vel.x = 0;
@@ -305,7 +307,7 @@ public bool onGround;
             rb2d.velocity *= new Vector2(trueMagnitude, 1);
 
         }
-        anim.speed = use;
+        UpdateAnimatorSpeed(use);
 
         //maxSpeed*=mult;
         //acceleration*=mult;
@@ -316,8 +318,8 @@ public bool onGround;
         //jumpForce*=mult;
         if (data.currentMagnitude != 1)
         {
-            normalGravity = mult=1.5f;
-            fallGravity = mult=2;
+            normalGravity = mult = 1.5f;
+            fallGravity = mult = 2;
             jumpForce = 5;
         }
         else
@@ -326,6 +328,25 @@ public bool onGround;
             fallGravity = mult = 8;
             jumpForce = 8;
         }
+    }
+
+    public void UpdateAnimatorFloat(string property, float value)
+    {
+        bodyAnim.SetFloat(property, value);
+        headAnim.SetFloat(property, value);
+        armAnim.SetFloat(property, value);
+    }
+    public void UpdateAnimatorBool(string property, bool value)
+    {
+        bodyAnim.SetBool(property, value);
+        headAnim.SetBool(property, value);
+        armAnim.SetBool(property, value);
+    }
+    public void UpdateAnimatorSpeed(float speed)
+    {
+        bodyAnim.speed = speed;
+        headAnim.speed = speed;
+        armAnim.speed = speed;
     }
 
 }
