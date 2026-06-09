@@ -11,9 +11,9 @@ public class IdleState : BaseEnemyState
     { 
         Debug.Log("start Idle");
         enemy.anim.Play("enemyIdle");
-        if (enemy.GetComponentInChildren<IShoot>() != null)
+        if (enemy.GetComponentInChildren<IGun>() != null)
         {
-            enemy.GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
+            enemy.GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
         }
     }
     public override void Update()
@@ -32,9 +32,9 @@ public class ShootState : BaseEnemyState
 
     public override void OnEnter()
     {
-        enemy.GetComponentInChildren<IShoot>().setShooting(false);
+        enemy.GetComponentInChildren<IGun>().setShooting(false);
         enemy.anim.Play("enemySpot");
-        enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
+        enemy.GetComponentInChildren<IGun>().getAnim().Play("enemyGunSpot");
         cadenceTime = enemy.shootOnShight ? 0.1f : enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange, enemy.shootCadenceRandomRange);
 
     }
@@ -46,7 +46,7 @@ public class ShootState : BaseEnemyState
         if(cadenceTime <= 0)
         {
             cadenceTime = enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange,enemy.shootCadenceRandomRange);
-            enemy.GetComponentInChildren<IShoot>().shoot();
+            enemy.GetComponentInChildren<IGun>().shoot();
         }
     }
 }
@@ -80,7 +80,7 @@ public class ReloadState : BaseEnemyState
 
     public override void OnEnter()
     {
-        enemy.GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
+        enemy.GetComponentInChildren<IGun>().getAnim().Play("gunReload");
 
 
     }

@@ -38,9 +38,9 @@ public class softLockController : MonoBehaviour,IsoftLock
                 if (!enemy.life.dead)
                 {
                     numberEnemies++;
-                    if (enemy.GetComponentInChildren<IShoot>() != null)
+                    if (enemy.GetComponentInChildren<IGun>() != null)
                     {
-                        addAttack(enemy.GetComponentInChildren<IShoot>().getBullets());
+                        addAttack(enemy.GetComponentInChildren<IGun>().getBullets());
 
                     }
                     if (enemy.canBeKilledMelee)
@@ -64,9 +64,9 @@ public class softLockController : MonoBehaviour,IsoftLock
             {
                 if (FindObjectOfType<PlayerMove>() != null)
                 {
-                    if (FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IShoot>() != null)
+                    if (FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IGun>() != null)
                     {
-                        addAttack(FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IShoot>().getBullets());
+                        addAttack(FindObjectOfType<PlayerMove>().gameObject.GetComponentInChildren<IGun>().getBullets());
                     }
                 }
             }

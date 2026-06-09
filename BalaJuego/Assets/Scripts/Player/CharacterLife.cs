@@ -23,7 +23,7 @@ public class CharacterLife : MonoBehaviour
         if(collision.tag == "Bullet" && !dead)
         {
             print("tag bullet");
-            IBullet bul = collision.GetComponent<IBullet>();
+            IProyectile bul = collision.GetComponent<IProyectile>();
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
                 Damage(bul.getDamage());

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class baseBullet : MonoBehaviour, IBullet
+public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 {
     Vector3 direction;
     [SerializeField] public float speed;

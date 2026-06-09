@@ -2,7 +2,8 @@
 using UnityEngine.Assertions;
 using TMPro;
 
-public class CharacterShoot : MonoBehaviour,IShoot
+public class BaseGun : MonoBehaviour,IGun
+
 {
 
     [SerializeField] int startBullets;
@@ -20,10 +21,10 @@ public class CharacterShoot : MonoBehaviour,IShoot
    [SerializeField] protected TMP_Text bulletCount;
 
    protected gunRotate rotate;
-    private void Awake()
+    protected virtual void Awake()
     {
         Assert.IsNotNull(bullet);
-        Assert.IsNotNull(bullet.GetComponent< IBullet>());
+        Assert.IsNotNull(bullet.GetComponent< IProyectile>());
         rotate = GetComponent<gunRotate>();
         anim = GetComponent<Animator>();
         if (bulletCount != null)
@@ -65,10 +66,10 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
         currentBullets--;
         bulletCount.text = currentBullets.ToString();
-        IBullet bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
+        IProyectile bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
         bul.InstantiateBullet(character.GetComponent<CharacterLife>(),rotate.transform.eulerAngles.z);
     }
-    public void endShootAnim()
+    public virtual void endShootAnim()
     {
         shooting = false;
     }
@@ -80,9 +81,9 @@ public class CharacterShoot : MonoBehaviour,IShoot
         anim.Play("gunIdle");
 
     }
-    public int getBullets() => currentBullets;
+    public virtual int getBullets() => currentBullets;
 
-    public void setBullets(int bul)
+    public virtual void setBullets(int bul)
     {
         currentBullets = bul;
         bulletCount.text = currentBullets.ToString();
@@ -90,7 +91,7 @@ public class CharacterShoot : MonoBehaviour,IShoot
 
     public Animator getAnim() => anim;
 
-    public void setShooting(bool _shoot)
+    public virtual void setShooting(bool _shoot)
     {
         shooting = _shoot;
     }

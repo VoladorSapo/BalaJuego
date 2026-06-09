@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IShoot 
+public interface IGun 
 {
     public void addBullets(int bul);
     public void setBullets(int bul);
-
 
     public bool shoot();
 

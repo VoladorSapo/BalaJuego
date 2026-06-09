@@ -5,7 +5,7 @@ using TMPro;
 public class PlayerShoot : MonoBehaviour
 {
   [SerializeField]  TMP_Text textoaviso;
-   public IShoot shoot { get; private set; }
+   public IGun shoot { get; private set; }
     IGameState stateManager;
 
     [SerializeField] LayerMask clickable;
@@ -54,7 +54,7 @@ public class PlayerShoot : MonoBehaviour
         textoaviso.enabled = false;
         hasBottle = false;
         executionCamera.SetActive(false);
-        shoot = GetComponentInChildren<IShoot>();
+        shoot = GetComponentInChildren<IGun>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
         grabDetector = GetComponentInChildren<ObjectDetector<baseBullet>>();
         botleDetector = GetComponentInChildren<botleDetector>();
@@ -85,7 +85,7 @@ public class PlayerShoot : MonoBehaviour
                 {
 
                     hasBottle = false;
-                    GetComponentInChildren<IShoot>().getAnim().Play("bottleThrow");
+                    GetComponentInChildren<IGun>().getAnim().Play("bottleThrow");
                 }
                 else
                 {
@@ -112,7 +112,7 @@ public class PlayerShoot : MonoBehaviour
                             musicManager.Instance.PlaySoundPitch("snd_reload");
                             reloading = true;
                             bulletPick.Play();
-                            GetComponentInChildren<IShoot>().getAnim().Play("gunReload");
+                            GetComponentInChildren<IGun>().getAnim().Play("gunReload");
                             bulletToGrab.tryGrab(this);
                             cursor.full();
                         }
@@ -122,7 +122,7 @@ public class PlayerShoot : MonoBehaviour
                     if (bottleToGrab !=null && botleDetector.reachableObjects.Contains(bottleToGrab))
                     {
                         reloading = true;
-                        GetComponentInChildren<IShoot>().getAnim().Play("bottlePick");
+                        GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
                         bulletPick.Play();
                         hasBottle = true;
                         bottleToGrab.tryGrab(this);
@@ -226,9 +226,9 @@ public class PlayerShoot : MonoBehaviour
     }
     public void throwBottle()
     {
-        baseBullet botel = Instantiate(BottlePrefab, GetComponentInChildren<CharacterShoot>().spawnPoint.position, Quaternion.identity).GetComponent<baseBullet>();
+        baseBullet botel = Instantiate(BottlePrefab, GetComponentInChildren<BaseGun>().spawnPoint.position, Quaternion.identity).GetComponent<baseBullet>();
         botel.InstantiateBullet(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
-        GetComponentInChildren<IShoot>().getAnim().Play("gunIdle");
+        GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
 
     }
     void changeState(object sender, stateData data)

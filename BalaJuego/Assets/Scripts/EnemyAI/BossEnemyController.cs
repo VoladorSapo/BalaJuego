@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 public class BossEnemyController : EnemyController
 {
-    IShoot Charshoot;
+    IGun Charshoot;
     [SerializeField] GameObject gun;
 
     protected override void Start()
     {
         base.Start();
-        Charshoot = GetComponentInChildren<IShoot>();
+        Charshoot = GetComponentInChildren<IGun>();
     }
 
     public override void restart(LevelAreaController _area)
@@ -17,7 +17,7 @@ public class BossEnemyController : EnemyController
         print("GunRestart");
         base.restart(_area);
        gun.SetActive(true);
-        GetComponentInChildren<BossShoot>().restart();
+        GetComponentInChildren<BossGun>().restart();
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();

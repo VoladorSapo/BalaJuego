@@ -128,7 +128,7 @@ namespace tutorial
                     break;
             }
             tutorial.enemy.anim.Play("enemySpot");
-            tutorial.enemy.GetComponentInChildren<IShoot>().getAnim().Play("enemyGunSpot");
+            tutorial.enemy.GetComponentInChildren<IGun>().getAnim().Play("enemyGunSpot");
             tutorial.enemy.GetComponentInChildren<gunRotate>().setRotation(tutorial.player.transform.position);
 
             tutorial.light2d.intensity = tutorial.darkLight;
@@ -137,7 +137,7 @@ namespace tutorial
         {
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f,true);
             tutorial.grabDetector.gameObject.SetActive(true);
-            tutorial.enemy.GetComponentInChildren<IShoot>().shoot();
+            tutorial.enemy.GetComponentInChildren<IGun>().shoot();
         }
     }
     public class clickBalaTutorialState : BaseTutorialState
