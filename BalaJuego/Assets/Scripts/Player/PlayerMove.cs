@@ -51,7 +51,7 @@ public bool onGround;
 
     float timeMagnitude;
 
-    IShoot gun;
+    IGun gun;
  public   int runningDirection{get;private set;}    
 
     Vector3 initialPos;
@@ -251,7 +251,7 @@ public bool onGround;
         gameObject.SetActive(true);
         Head.SetActive(true);
         gunOBJ.SetActive(true);
-        GetComponentInChildren<IShoot>().restart();
+        GetComponentInChildren<IGun>().restart();
         GetComponentInChildren<PlayerShoot>().
         GetComponentInChildren<PlayerShoot>().restart();
         GetComponent<CharacterLife>().restart();

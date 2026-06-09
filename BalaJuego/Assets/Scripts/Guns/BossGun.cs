@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class BossShoot : CharacterShoot
+public class BossGun : BaseGun
 {
-    [SerializeField] GameObject fireBullet;
+    [SerializeField] GameObject specialBullet;
     [SerializeField] int specialBulletRate;
     int currentRate;
 
@@ -35,15 +35,15 @@ public class BossShoot : CharacterShoot
         currentBullets--;
         bulletCount.text = currentBullets.ToString();
 
-        IBullet bul = null;
+        IProyectile bul = null;
         if (currentRate < specialBulletRate)
         {
-            bul = Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
+            bul = Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
             currentRate++;
         }
         else
         {
-            bul = Instantiate(fireBullet, spawnPoint.position, Quaternion.identity).GetComponent<IBullet>();
+            bul = Instantiate(specialBullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
             currentRate = 0;
         }
         bul.InstantiateBullet(character.GetComponent<CharacterLife>(), rotate.transform.eulerAngles.z);

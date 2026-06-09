@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public interface IBullet
+public interface IProyectile
 {
     public void InstantiateBullet(CharacterLife shooter, float angle);
 
@@ -13,15 +13,15 @@ public interface IBullet
 
     public bool hurtAll();
 
+    public GameObject getObj();
+
+}
+
+public interface IInteractable
+{
     public void tryGrab(PlayerShoot player);
 
     public void setHover(bool set);
 
     public GameObject getObj();
-
-    //public bool damageType
-    //{
-    //    hurtOtherTeam,
-    //    hurtAll
-    //}
 }

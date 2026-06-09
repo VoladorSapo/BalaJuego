@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 public class GunEnemyController : EnemyController
 {
-    IShoot Charshoot;
+    IGun Charshoot;
 
     [SerializeField] bool ChangeMeleeCollider;
 
     protected override void Start()
     {
         base.Start();
-        Charshoot = GetComponentInChildren<IShoot>();
+        Charshoot = GetComponentInChildren<IGun>();
     }
 
     public override void restart(LevelAreaController _area)
@@ -16,7 +16,7 @@ public class GunEnemyController : EnemyController
         print("GunRestart");
         base.restart(_area);
 
-        GetComponentInChildren<CharacterShoot>().restart();
+        GetComponentInChildren<BaseGun>().restart();
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();

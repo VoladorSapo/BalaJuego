@@ -37922,9 +37922,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1372332358834051623, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370996184991948707, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321654409608055962, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438821705628666201, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877453441052040732, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7846880192204167819, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44259,6 +44275,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &1035614560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2653183379301511553, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+  m_PrefabInstance: {fileID: 1658387156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041729511
 GameObject:
   m_ObjectHideFlags: 0
@@ -46569,6 +46590,8 @@ MonoBehaviour:
   falling: 0
   isMeleeing: 0
   maxFallVelocity: 0
+  Head: {fileID: 0}
+  gunOBJ: {fileID: 0}
   anim: {fileID: 0}
   particles: {fileID: 0}
 --- !u!4 &1103279981 stripped
@@ -47920,6 +47943,7 @@ MonoBehaviour:
   hasStarted: 0
   hasFinished: 0
   objectsTurnOff: []
+  playOnRestart: 0
 --- !u!4 &1270506862
 Transform:
   m_ObjectHideFlags: 0
@@ -50444,6 +50468,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5391088759834627318, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
   m_PrefabInstance: {fileID: 1658387156}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1507357845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 650068094385547762, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+  m_PrefabInstance: {fileID: 1658387156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468075120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7dc649ee37c464d82c117c6634cebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1523280812
 GameObject:
   m_ObjectHideFlags: 0
@@ -50666,6 +50701,7 @@ MonoBehaviour:
   hasStarted: 0
   hasFinished: 0
   objectsTurnOff: []
+  playOnRestart: 0
 --- !u!4 &1560017838
 Transform:
   m_ObjectHideFlags: 0
@@ -50823,6 +50859,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1829177811}
     - target: {fileID: 41044238062193610, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1507357845}
+    - target: {fileID: 41044238062193610, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
       propertyPath: <shootCadence>k__BackingField
       value: 0.5
       objectReference: {fileID: 0}
@@ -50877,6 +50917,38 @@ PrefabInstance:
     - target: {fileID: 5391088759834627318, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4778922938256658580, guid: 778565312524a23479186de939b5b6f1, type: 3}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 468075120}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: fireBullet
+      value: 
+      objectReference: {fileID: 4778922938256658580, guid: 778565312524a23479186de939b5b6f1, type: 3}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1035614560}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: bulletCount
+      value: 
+      objectReference: {fileID: 1737767258}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: startBullets
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: specialBullet
+      value: 
+      objectReference: {fileID: 4778922938256658580, guid: 6672e934426e181449449e9d67cd7d8d, type: 3}
+    - target: {fileID: 7298245521945399330, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+      propertyPath: specialBulletRate
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8831575453534452599, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
       propertyPath: m_LocalScale.x
@@ -51287,6 +51359,17 @@ PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 6881375337662618341, guid: b4cb6b5f8fd42e84a84e832c2b1b5cd8, type: 3}
   m_PrefabInstance: {fileID: 246545498}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1737767258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6237966528918518849, guid: dcf9edc14358ebe40bd6abe077480d84, type: 3}
+  m_PrefabInstance: {fileID: 1658387156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1784441810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56851,6 +56934,7 @@ MonoBehaviour:
   hasStarted: 0
   hasFinished: 0
   objectsTurnOff: []
+  playOnRestart: 0
 --- !u!4 &2033370571
 Transform:
   m_ObjectHideFlags: 0

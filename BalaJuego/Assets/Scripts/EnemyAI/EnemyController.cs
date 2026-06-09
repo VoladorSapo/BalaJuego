@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public IState currentState() {
+    public IState currentState()
+    {
         if (stateMachine == null)
             return null;
 
-      return  stateMachine.currentState();
+        return stateMachine.currentState();
 
-        }
+    }
 
-  public  StateMachine stateMachine;
+    public StateMachine stateMachine;
 
     CharacterLife charater;
 
     public playerDetector detector { get; private set; }
 
-    [field:SerializeField]   public Animator anim {get;private set;}
+    [field: SerializeField] public Animator anim { get; private set; }
 
-   [field:SerializeField] public float shootCadence { get; private set; }
+    [field: SerializeField] public float shootCadence { get; private set; }
     [field: SerializeField] public float shootCadenceRandomRange { get; private set; }
 
     public float timeMagnitude { get; private set; }
 
-  protected  Vector3 initialPos;
+    protected Vector3 initialPos;
 
-  [field:SerializeField]  public Collider2D stunedCollider { get; private set; }
+    [field: SerializeField] public Collider2D stunedCollider { get; private set; }
 
-   [field:SerializeField] public LevelAreaController area { get; private set; }
+    [field: SerializeField] public LevelAreaController area { get; private set; }
 
     public bool canBeKilledMelee = true;
     [SerializeField] public bool shootOnShight = false;
@@ -39,9 +40,9 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] GameObject FMarker;
     // Start is called before the first frame update
-   protected virtual void Start()
+    protected virtual void Start()
     {
-       ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
+        ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
         life = GetComponent<CharacterLife>();
         detector = GetComponentInChildren<playerDetector>();
@@ -51,7 +52,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
-        if ((state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown )&& !life.dead)
+        if ((state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown) && !life.dead)
         {
             stateMachine?.Update();
         }
@@ -59,11 +60,11 @@ public class EnemyController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-       // print("fixedUpdate");
+        // print("fixedUpdate");
         IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
         if ((state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown) && !life.dead)
         {
-           // print("yess");
+            // print("yess");
             stateMachine?.FixedUpdate();
         }
     }
@@ -90,7 +91,7 @@ public class EnemyController : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         timeMagnitude = 1;
         area = _area;
-       
+
 
     }
     public void setColor(bool on)

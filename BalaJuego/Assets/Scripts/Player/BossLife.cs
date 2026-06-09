@@ -8,7 +8,7 @@ public class BossLife: CharacterLife
         {
             
             print("tag bullet");
-            IBullet bul = collision.GetComponent<IBullet>();
+            IProyectile bul = collision.GetComponent<IProyectile>();
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
                 anim.Play("enemyDodge");
