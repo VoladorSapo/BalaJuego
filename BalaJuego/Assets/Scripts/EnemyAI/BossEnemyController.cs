@@ -16,7 +16,7 @@ public class BossEnemyController : EnemyController
     {
         print("GunRestart");
         base.restart(_area);
-       gun.SetActive(true);
+        gun.SetActive(true);
         GetComponentInChildren<BossGun>().restart();
         if (stateMachine == null)
         {
@@ -48,7 +48,7 @@ public class BossEnemyController : EnemyController
     }
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if(collision.tag == "TurnStun")
+        if (collision.tag == "TurnStun")
         {
             foreach (var item in FindObjectsOfType<baseBullet>())
             {

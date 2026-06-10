@@ -6,6 +6,8 @@ public class PlayerShoot : MonoBehaviour
 {
   [SerializeField]  TMP_Text textoaviso;
    public IGun shoot { get; private set; }
+    [SerializeField] private PlayerInput playerInput;
+
     IGameState stateManager;
 
     [SerializeField] LayerMask clickable;
@@ -64,6 +66,7 @@ public class PlayerShoot : MonoBehaviour
         reloading = false;
         grabDetector.gameObject.SetActive(false);
 
+         playerInput = GetComponent<PlayerInput>();
 
     }
     private void Update()
@@ -76,8 +79,8 @@ public class PlayerShoot : MonoBehaviour
         //{
         //    shootBufferTimeCurrent -= Time.deltaTime;   
         //}
-  
-        if (Input.GetMouseButtonDown(0))
+
+        if (playerInput.ShootDown)
         {
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
@@ -97,11 +100,12 @@ public class PlayerShoot : MonoBehaviour
                     }
                 }
             }
-
+        }
+        if (playerInput.ShootDown)
+        {
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
-
                 if (hit)
                 {
                     bulletToGrab = hit.collider.GetComponentInParent<baseBullet>();
@@ -119,7 +123,7 @@ public class PlayerShoot : MonoBehaviour
 
                     }
                     bottleToGrab = hit.collider.GetComponentInParent<botella>();
-                    if (bottleToGrab !=null && botleDetector.reachableObjects.Contains(bottleToGrab))
+                    if (bottleToGrab != null && botleDetector.reachableObjects.Contains(bottleToGrab))
                     {
                         reloading = true;
                         GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
@@ -132,7 +136,7 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerInput.StopTimeDown)
         {
             stopBufferTimeCurrent = stopBufferTime;
 
@@ -156,7 +160,7 @@ public class PlayerShoot : MonoBehaviour
                 textoaviso.enabled = true;
             }
         }
-        if (Input.GetKeyUp(KeyCode.E))
+        if (playerInput.StopTimeUp)
         {
             stopBufferTimeCurrent = 0;
             textoaviso.enabled = false;
@@ -166,7 +170,7 @@ public class PlayerShoot : MonoBehaviour
                 ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
             }
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (playerInput.MeleeDown)
         {
             if(stunedDetector.reachableObjects.Count > 0 && GetComponent<PlayerMove>().onGround)
             {
@@ -201,7 +205,7 @@ public class PlayerShoot : MonoBehaviour
                 //Muerte Melee
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (playerInput.PauseDown)
         {
             ServiceLocator.Instance.Get<IGameState>().Pause();
         }

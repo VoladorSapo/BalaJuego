@@ -310,7 +310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 5391088759834627318}
-  anim: {fileID: 5722343407943410507}
+  bodyAnim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
   notTurn: {fileID: 3379344951848215801}
 --- !u!114 &7298245521945399330
 MonoBehaviour:
@@ -331,8 +333,7 @@ MonoBehaviour:
   shooting: 0
   bullet: {fileID: 0}
   bulletCount: {fileID: 0}
-  reloadable: 0
-  fireBullet: {fileID: 0}
+  specialBullet: {fileID: 0}
   specialBulletRate: 0
 --- !u!1 &2655644706422927123
 GameObject:

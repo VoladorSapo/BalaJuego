@@ -7019,6 +7019,7 @@ GameObject:
   - component: {fileID: 4919584621338682050}
   - component: {fileID: 64199479102123066}
   - component: {fileID: 3695692683640956151}
+  - component: {fileID: 22484205660860321}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -7127,6 +7128,7 @@ MonoBehaviour:
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 1007856941145358727}
   rb2d: {fileID: 4773227239308888931}
+  playerInput: {fileID: 0}
   maxSpeed: 10
   acceleration: 20
   groundDecceleration: 50
@@ -7165,6 +7167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoaviso: {fileID: 3833163824546946754}
+  playerInput: {fileID: 0}
   clickable:
     serializedVersion: 2
     m_Bits: 128
@@ -7197,3 +7200,22 @@ MonoBehaviour:
   anim: {fileID: 0}
   melee: 0
   spriteParent: {fileID: 246704284570004590}
+--- !u!114 &22484205660860321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799275002827292154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c703716785fbf2b428f32573723bafe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootAction: {fileID: -8687247205875421589, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  interactAction: {fileID: 4822470657016435815, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  jumpAction: {fileID: -3206142569884358550, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  meleeAction: {fileID: -6454891822668999144, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  pauseAction: {fileID: 3207685609885026231, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  stopTimeAction: {fileID: 2378562508972699114, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  moveAction: {fileID: -7718421468338470922, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}

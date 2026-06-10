@@ -5,7 +5,7 @@ using static UnityEngine.ParticleSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    Vector2 Move;
+    int MoveX;
 
     [SerializeField] float trueMagnitude;
 
@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] BoxCollider2D groundCast;
     [SerializeField] private Rigidbody2D rb2d;
+    [SerializeField] private PlayerInput playerInput;
 
     [SerializeField] public float maxSpeed;
     [SerializeField] float acceleration;
@@ -65,6 +66,8 @@ public class PlayerMove : MonoBehaviour
     bool isRotating;
 
     bool canMove;
+
+
     private void Awake()
     {
         initialPos = transform.position;
@@ -76,6 +79,7 @@ public class PlayerMove : MonoBehaviour
         timeMagnitude = 1;
         isMeleeing = false;
         rb2d = GetComponent<Rigidbody2D>();
+        playerInput=GetComponent<PlayerInput>();
         //dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
         //dustJump = GetComponentsInChildren<ParticleSystem>()[1];
         //dustFall = GetComponentsInChildren<ParticleSystem>()[2];
@@ -124,15 +128,15 @@ public class PlayerMove : MonoBehaviour
         jumpBufferTimeCurrent -= Time.deltaTime;
         Debug.DrawLine(start, end);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (playerInput.JumpDown)
         {
             jumpBufferTimeCurrent = jumpBufferTime;
         }
-        if (!onGround && (Input.GetKeyUp(KeyCode.Space) || rb2d.velocity.y >= 0))
+        if (!onGround && (playerInput.JumpUp || rb2d.velocity.y >= 0))
         {
             rb2d.gravityScale = normalGravity;
         }
-        if (!onGround && (Input.GetKeyUp(KeyCode.Space) || rb2d.velocity.y < 0))
+        if (!onGround && (playerInput.JumpUp || rb2d.velocity.y < 0))
         {
             rb2d.gravityScale = fallGravity;
         }
@@ -155,11 +159,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (canMove && !isMeleeing)
         {
-            Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            MoveX = (int)playerInput.Move;
 
             calcVelocity = rb2d.velocity;
 
-            if (Move.x == 0)
+            if (MoveX == 0)
             {
                 calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, 0, groundDecceleration * Time.fixedDeltaTime);
                 UpdateAnimatorBool("isRunning", false);
@@ -175,9 +179,9 @@ public class PlayerMove : MonoBehaviour
 
                 //dustWalk.gameObject.SetActive(true);
                 //if (onGround) dustWalk.Play();
-                float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == Move.x) ? acceleration : turnDecceleration;
+                float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == MoveX) ? acceleration : turnDecceleration;
 
-                calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, Move.x * maxSpeed * timeMagnitude, useAccel * Time.fixedDeltaTime * timeMagnitude);
+                calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, MoveX * maxSpeed * timeMagnitude, useAccel * Time.fixedDeltaTime * timeMagnitude);
             }
             UpdateAnimatorFloat("velocity", calcVelocity.x);
             if (calcVelocity.x > 0 && !isRotating && runningDirection != 1)
