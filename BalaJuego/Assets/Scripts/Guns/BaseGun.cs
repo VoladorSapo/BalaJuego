@@ -95,4 +95,6 @@ public class BaseGun : MonoBehaviour,IGun
     {
         shooting = _shoot;
     }
+
+    public void Action() => shoot();
 }

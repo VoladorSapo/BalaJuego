@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 public class PlayerShoot : MonoBehaviour
 {
   [SerializeField]  TMP_Text textoaviso;
@@ -22,7 +23,6 @@ public class PlayerShoot : MonoBehaviour
 
     bool reloading;
 
-    baseBullet bulletToGrab;
 
     botella bottleToGrab;
     [SerializeField] GameObject BottlePrefab;
@@ -44,6 +44,8 @@ public class PlayerShoot : MonoBehaviour
     GameObject executionCamera;
 
     public float shakeIntensity;
+
+     
 
     private void Awake()
     {
@@ -82,6 +84,7 @@ public class PlayerShoot : MonoBehaviour
 
         if (playerInput.ShootDown)
         {
+            print("shootpressed");
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 if (hasBottle)
@@ -101,37 +104,26 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
-        if (playerInput.ShootDown)
+        if (playerInput.InteractDown)
         {
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
                 if (hit)
                 {
-                    bulletToGrab = hit.collider.GetComponentInParent<baseBullet>();
-                    if (bulletToGrab != null && grabDetector.reachableObjects.Contains(bulletToGrab) && !(stateManager.getState() == IGameState.gameState.NormalTime))
+                    IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
+                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
-                        if (bulletToGrab.GetComponent<botella>() == null)
+                        if (interactableObject.getObj().GetComponent<botella>() == null)
                         {
-                            musicManager.Instance.PlaySoundPitch("snd_reload");
-                            reloading = true;
-                            bulletPick.Play();
-                            GetComponentInChildren<IGun>().getAnim().Play("gunReload");
-                            bulletToGrab.tryGrab(this);
-                            cursor.full();
+                            interactableObject.tryGrab(this);
                         }
 
                     }
                     bottleToGrab = hit.collider.GetComponentInParent<botella>();
                     if (bottleToGrab != null && botleDetector.reachableObjects.Contains(bottleToGrab))
                     {
-                        reloading = true;
-                        GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
-                        bulletPick.Play();
-                        hasBottle = true;
                         bottleToGrab.tryGrab(this);
-                        cursor.full();
-
                     }
                 }
             }
@@ -212,6 +204,23 @@ public class PlayerShoot : MonoBehaviour
 
         
 
+    }
+    public void getBullet()
+    {
+        musicManager.Instance.PlaySoundPitch("snd_reload");
+        reloading = true;
+        bulletPick.Play();
+        GetComponentInChildren<IGun>().getAnim().Play("gunReload");
+        cursor.full();
+    }
+    public void getInteractableObject(GameObject interactableObj)
+    {
+        reloading = true;
+        GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
+        bulletPick.Play();
+        hasBottle = true;
+        bottleToGrab.tryGrab(this);
+        cursor.full();
     }
     public void endMeleeAnim()
     {

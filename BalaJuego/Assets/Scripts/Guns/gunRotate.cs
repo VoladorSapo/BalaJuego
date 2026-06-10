@@ -82,21 +82,21 @@ public class gunRotate : MonoBehaviour
     }
     public void UpdateAnimatorFloat(string property, float value)
     {
-        bodyAnim.SetFloat(property, value);
-        headAnim.SetFloat(property, value);
-        armAnim.SetFloat(property, value);
+        if (bodyAnim != null) { bodyAnim.SetFloat(property, value); }
+        if (headAnim != null) { headAnim.SetFloat(property, value); }
+        if (armAnim != null) { armAnim.SetFloat(property, value); }
     }
     public void UpdateAnimatorBool(string property, bool value)
     {
-        bodyAnim.SetBool(property, value);
-        headAnim.SetBool(property, value);
-        armAnim.SetBool(property, value);
+        if (bodyAnim != null) { bodyAnim.SetBool(property, value); }
+        if (headAnim != null) { headAnim.SetBool(property, value); }
+        if(armAnim != null) { armAnim.SetBool(property, value); }
     }
     public void UpdateAnimatorSpeed(float speed)
     {
-        bodyAnim.speed = speed;
-        headAnim.speed = speed;
-        armAnim.speed = speed;
+        if (bodyAnim != null) { bodyAnim.speed = speed; }
+        if (headAnim != null) { headAnim.speed = speed; }
+        if (armAnim != null) { armAnim.speed = speed; }
     }
 
 }

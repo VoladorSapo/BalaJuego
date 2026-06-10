@@ -25,3 +25,8 @@ public interface IInteractable
 
     public GameObject getObj();
 }
+
+public interface IEquipable
+{
+    public void Action();
+}

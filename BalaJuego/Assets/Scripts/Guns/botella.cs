@@ -59,6 +59,7 @@ public class botella : baseBullet
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
             area.destroyBottle(this);
             gameObject.SetActive(false);
+            player.getInteractableObject(gameObject);
 
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IGun 
+public interface IGun : IEquipable
 {
     public void addBullets(int bul);
     public void setBullets(int bul);

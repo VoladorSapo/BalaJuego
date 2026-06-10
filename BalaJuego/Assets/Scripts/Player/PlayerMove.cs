@@ -111,8 +111,8 @@ public class PlayerMove : MonoBehaviour
             musicManager.Instance.PlaySoundPitch("snd_aterriza", 0.2f);
         }
         onGround = hit;
-        if (!onGround)
-            //dustWalk.Stop();
+        if (!onGround) { }
+        //    //dustWalk.Stop();
         UpdateAnimatorBool("isGround", onGround);
 
         shoot.stunedDetector.gameObject.SetActive(onGround);
