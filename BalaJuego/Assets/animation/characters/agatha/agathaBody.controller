@@ -270,7 +270,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: walk
-  m_Speed: 0.5
+  m_Speed: 0.44
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4942999259717143070}
@@ -494,7 +494,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: jump
-  m_Speed: 1
+  m_Speed: 0.46
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1704790700660720064}
@@ -574,7 +574,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: walk b
-  m_Speed: 0.5
+  m_Speed: 0.44
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5768781954303677274}
@@ -751,7 +751,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fall
-  m_Speed: 1
+  m_Speed: 0.46
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2300367541636163536}

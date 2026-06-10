@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 public class gunRotate : MonoBehaviour
 {
@@ -9,18 +10,30 @@ public class gunRotate : MonoBehaviour
     public Animator bodyAnim;
     public Animator headAnim;
     public Animator armAnim;
+    string currentStm = "MID";
 
     [SerializeField] Transform notTurn;
 
     bool shoulRotate;
     private void FixedUpdate()
-
-
     {
+        
         if (followMouse && Time.timeScale > 0 && shoulRotate )
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
+            if (mousePos.y > 650 && currentStm != "UP")
+            {
+                ChangeHeadSprite("UP");
+            }
+            else if (mousePos.y < 200 && currentStm != "DOWN")
+            {
+                ChangeHeadSprite("DOWN");
+            }
+            else if (mousePos.y > 200 && mousePos.y < 650 && currentStm != "MID")
+            {
+                ChangeHeadSprite("MID");
+            }
             mousePos.z = 10;
             setRotation(Camera.main.ScreenToWorldPoint(mousePos));
         }
@@ -97,6 +110,32 @@ public class gunRotate : MonoBehaviour
         if (bodyAnim != null) { bodyAnim.speed = speed; }
         if (headAnim != null) { headAnim.speed = speed; }
         if (armAnim != null) { armAnim.speed = speed; }
+    }
+
+    public void ChangeHeadSprite(string targetStm)
+    {
+        string[] stmNames = { "DOWN", "MID", "UP" };
+        string[] knownStateNames = { "IDLE", "WALKB", "RUN", "JUMP", "FALL", "LAND" };
+        if (headAnim != null) 
+        {
+            AnimatorStateInfo currentState = headAnim.GetCurrentAnimatorStateInfo(0);
+            string currentShortName = GetShortNameFromHash(currentState.shortNameHash, knownStateNames);
+            string targetFullStateName = $"{targetStm}.{currentShortName}";
+            int targetHash = Animator.StringToHash(targetFullStateName);
+            float normalizedTime = currentState.normalizedTime;
+
+            currentStm = targetStm;
+            headAnim.Play(targetHash, 0, normalizedTime);
+        }
+    }
+    private string GetShortNameFromHash(int hash, string[] knownStateNames)
+    {
+        foreach (string name in knownStateNames)
+        {
+            if (Animator.StringToHash(name) == hash)
+                return name;
+        }
+        return null;
     }
 
 }
