@@ -52,6 +52,7 @@ public class PlayerMove : MonoBehaviour
     public Animator bodyAnim;
     public Animator headAnim;
     public Animator armAnim;
+    public Animator parentAnim;
 
     float timeMagnitude;
 
@@ -339,18 +340,21 @@ public class PlayerMove : MonoBehaviour
         bodyAnim.SetFloat(property, value);
         headAnim.SetFloat(property, value);
         armAnim.SetFloat(property, value);
+        parentAnim.SetFloat(property, value);
     }
     public void UpdateAnimatorBool(string property, bool value)
     {
         bodyAnim.SetBool(property, value);
         headAnim.SetBool(property, value);
         armAnim.SetBool(property, value);
+        parentAnim.SetBool(property, value);
     }
     public void UpdateAnimatorSpeed(float speed)
     {
         bodyAnim.speed = speed;
         headAnim.speed = speed;
         armAnim.speed = speed;
+        parentAnim.speed = speed;
     }
 
 }

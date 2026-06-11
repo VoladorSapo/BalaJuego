@@ -37382,6 +37382,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: parentAnim
+      value: 
+      objectReference: {fileID: 1575528278}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: fallGravity
       value: 8
       objectReference: {fileID: 0}
@@ -37429,7 +37433,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8974351180796690448, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
@@ -37548,7 +37553,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 0
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -46575,6 +46580,7 @@ MonoBehaviour:
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 281882622}
   rb2d: {fileID: 1078324750}
+  playerInput: {fileID: 0}
   maxSpeed: 5
   acceleration: 10
   groundDecceleration: 25
@@ -46599,6 +46605,7 @@ MonoBehaviour:
   bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   particles: {fileID: 0}
 --- !u!4 &1103279981 stripped
 Transform:
@@ -50725,6 +50732,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1575528278 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3044306764865592801, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+  m_PrefabInstance: {fileID: 506894781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576169004
 GameObject:
   m_ObjectHideFlags: 0
