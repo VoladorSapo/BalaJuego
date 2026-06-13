@@ -8,7 +8,7 @@ public class gunRotate : MonoBehaviour
     [SerializeField] Transform fullCharacter;
 
     [Header("Animator")]
-    public Animator bodyAnim;
+    //public Animator bodyAnim;
     public Animator headAnim;
     public Animator armAnim;
     public Animator parentAnim;
@@ -24,18 +24,7 @@ public class gunRotate : MonoBehaviour
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
-            if (mousePos.y > 650 && currentStm != "UP")
-            {
-                ChangeHeadSprite("UP");
-            }
-            else if (mousePos.y < 200 && currentStm != "DOWN")
-            {
-                ChangeHeadSprite("DOWN");
-            }
-            else if (mousePos.y > 200 && mousePos.y < 650 && currentStm != "MID")
-            {
-                ChangeHeadSprite("MID");
-            }
+            headAnim.SetFloat("cursorY", mousePos.y);
             mousePos.z = 10;
             setRotation(Camera.main.ScreenToWorldPoint(mousePos));
         }
@@ -97,50 +86,24 @@ public class gunRotate : MonoBehaviour
     }
     public void UpdateAnimatorFloat(string property, float value)
     {
-        if (bodyAnim != null) { bodyAnim.SetFloat(property, value); }
+        //if (bodyAnim != null) { bodyAnim.SetFloat(property, value); }
         if (headAnim != null) { headAnim.SetFloat(property, value); }
         if (armAnim != null) { armAnim.SetFloat(property, value); }
         if (parentAnim != null) { parentAnim.SetFloat(property, value); }
     }
     public void UpdateAnimatorBool(string property, bool value)
     {
-        if (bodyAnim != null) { bodyAnim.SetBool(property, value); }
+        //if (bodyAnim != null) { bodyAnim.SetBool(property, value); }
         if (headAnim != null) { headAnim.SetBool(property, value); }
         if (armAnim != null) { armAnim.SetBool(property, value); }
         if (parentAnim != null) { parentAnim.SetBool(property, value); }
     }
     public void UpdateAnimatorSpeed(float speed)
     {
-        if (bodyAnim != null) { bodyAnim.speed = speed; }
+        //if (bodyAnim != null) { bodyAnim.speed = speed; }
         if (headAnim != null) { headAnim.speed = speed; }
         if (armAnim != null) { armAnim.speed = speed; }
         if (parentAnim != null) { parentAnim.speed = speed; }
-    }
-
-    public void ChangeHeadSprite(string targetStm)
-    {
-        string[] stmNames = { "DOWN", "MID", "UP" };
-        string[] knownStateNames = { "IDLE", "WALKB", "RUN", "JUMP", "FALL", "LAND" };
-        if (headAnim != null) 
-        {
-            AnimatorStateInfo currentState = headAnim.GetCurrentAnimatorStateInfo(0);
-            string currentShortName = GetShortNameFromHash(currentState.shortNameHash, knownStateNames);
-            string targetFullStateName = $"{targetStm}.{currentShortName}";
-            int targetHash = Animator.StringToHash(targetFullStateName);
-            float normalizedTime = currentState.normalizedTime;
-
-            currentStm = targetStm;
-            headAnim.Play(targetHash, 0, normalizedTime);
-        }
-    }
-    private string GetShortNameFromHash(int hash, string[] knownStateNames)
-    {
-        foreach (string name in knownStateNames)
-        {
-            if (Animator.StringToHash(name) == hash)
-                return name;
-        }
-        return null;
     }
 
 }

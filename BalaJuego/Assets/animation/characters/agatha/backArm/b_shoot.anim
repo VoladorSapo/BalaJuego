@@ -21,15 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1078287672, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+      value: {fileID: -1089256597, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
     - time: 0.041666668
-      value: {fileID: -138585629, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+      value: {fileID: 512758220, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
     - time: 0.083333336
-      value: {fileID: -1631769006, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+      value: {fileID: -487684245, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
     - time: 0.125
-      value: {fileID: 777804121, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+      value: {fileID: -317217973, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
     - time: 0.16666667
-      value: {fileID: 333488908, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+      value: {fileID: 1487280998, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,11 +52,11 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1078287672, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
-    - {fileID: -138585629, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
-    - {fileID: -1631769006, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
-    - {fileID: 777804121, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
-    - {fileID: 333488908, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+    - {fileID: -1089256597, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+    - {fileID: 512758220, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+    - {fileID: -487684245, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+    - {fileID: -317217973, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
+    - {fileID: 1487280998, guid: c8faca744a141c84b8d8fc734a3bf25c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

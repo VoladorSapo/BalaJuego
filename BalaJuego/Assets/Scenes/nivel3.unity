@@ -37553,7 +37553,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 0
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -46602,7 +46602,6 @@ MonoBehaviour:
   maxFallVelocity: 0
   Head: {fileID: 0}
   gunOBJ: {fileID: 0}
-  bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
@@ -48227,9 +48226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 1078324749}
-  bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   notTurn: {fileID: 0}
 --- !u!114 &1397413578
 MonoBehaviour:

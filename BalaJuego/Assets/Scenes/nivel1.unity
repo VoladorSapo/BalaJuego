@@ -26845,6 +26845,7 @@ MonoBehaviour:
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 281882622}
   rb2d: {fileID: 1078324750}
+  playerInput: {fileID: 0}
   maxSpeed: 5
   acceleration: 10
   groundDecceleration: 25
@@ -26866,7 +26867,10 @@ MonoBehaviour:
   maxFallVelocity: 0
   Head: {fileID: 0}
   gunOBJ: {fileID: 0}
-  anim: {fileID: 0}
+  bodyAnim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   particles: {fileID: 0}
 --- !u!1 &1091481697
 GameObject:
@@ -138496,7 +138500,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 1078324749}
-  anim: {fileID: 0}
+  bodyAnim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   notTurn: {fileID: 0}
 --- !u!114 &1397413578
 MonoBehaviour:
