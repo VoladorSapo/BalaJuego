@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed91d3ed1abbaa34a8bd744406ccaa51, type: 3}
+  m_Name: dirt
+  m_EditorClassIdentifier: 
+  material: {fileID: 6200000, guid: 2a06f5241aa063b48b62ec9c405c8ed1, type: 2}
+  walkParticles: {fileID: 1632798660038006504, guid: fc7745eb883ecc045a4bb4a2a5e9498b, type: 3}
+  walkBackParticles: {fileID: 1632798660038006504, guid: 61a8a604ac3cd1340aebe5c1b9920f0a, type: 3}
