@@ -16243,6 +16243,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892722875}
     m_Modifications:
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (9)
@@ -17276,6 +17280,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892722875}
     m_Modifications:
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (4)
@@ -18214,6 +18222,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892722875}
     m_Modifications:
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (7)
@@ -18959,6 +18971,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3929949615414248978, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
@@ -26867,7 +26883,6 @@ MonoBehaviour:
   maxFallVelocity: 0
   Head: {fileID: 0}
   gunOBJ: {fileID: 0}
-  bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
@@ -136421,6 +136436,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892722875}
     m_Modifications:
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (8)
@@ -138500,7 +138519,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 1078324749}
-  bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
@@ -144317,6 +144335,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 892722875}
     m_Modifications:
     - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: canBeKilledMelee
       value: 0
       objectReference: {fileID: 0}
@@ -147103,6 +147125,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b9c18b6feeef56f45ac706cc4f29095b, type: 2}
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
       value: enemy (3)
@@ -147430,6 +147456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892722875}
     m_Modifications:
+    - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
+      propertyPath: shootOnShight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: canBeKilledMelee
       value: 0
