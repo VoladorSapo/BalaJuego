@@ -7165,7 +7165,6 @@ GameObject:
   - component: {fileID: 64199479102123066}
   - component: {fileID: 3695692683640956151}
   - component: {fileID: 22484205660860321}
-  - component: {fileID: 8974351180796690448}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -7318,6 +7317,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   stunedDetector: {fileID: 0}
+  reloading: 0
   BottlePrefab: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
   anim: {fileID: 0}
   hidewhenMelee:
@@ -7327,6 +7327,8 @@ MonoBehaviour:
   stopBufferTime: 0.2
   bulletPick: {fileID: 5748250929452123459}
   shakeIntensity: 1.5
+  currentEquipment: {fileID: 0}
+  equipmentParent: {fileID: 0}
 --- !u!114 &3695692683640956151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7365,24 +7367,3 @@ MonoBehaviour:
   pauseAction: {fileID: 3207685609885026231, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
   stopTimeAction: {fileID: 2378562508972699114, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
   moveAction: {fileID: -7718421468338470922, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
---- !u!95 &8974351180796690448
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8799275002827292154}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3c9d23005b8658a4e8b1c098a5ac1439, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

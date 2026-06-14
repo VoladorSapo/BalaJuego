@@ -25,7 +25,7 @@ public class animationEventCaller : MonoBehaviour
     }
     public void throwBottle()
     {
-        GetComponentInParent<PlayerShoot>().throwBottle();
+        GetComponentInParent<PlayerShoot>().throwObject();
 
     }
     public void finishDeeathAnim()

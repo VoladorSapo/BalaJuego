@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System.ComponentModel;
+using Unity.Collections;
 public class PlayerShoot : MonoBehaviour
 {
   [SerializeField]  TMP_Text textoaviso;
@@ -21,7 +23,7 @@ public class PlayerShoot : MonoBehaviour
 
     cursorController cursor;
 
-    bool reloading;
+    [SerializeField] bool reloading;
 
 
     botella bottleToGrab;
@@ -45,7 +47,9 @@ public class PlayerShoot : MonoBehaviour
 
     public float shakeIntensity;
 
-     
+   [SerializeField]private GameObject currentEquipment;
+    [SerializeField] private Transform equipmentParent;
+
 
     private void Awake()
     {
@@ -87,11 +91,9 @@ public class PlayerShoot : MonoBehaviour
             print("shootpressed");
             if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
-                if (hasBottle)
+                if (currentEquipment != null)
                 {
-
-                    hasBottle = false;
-                    GetComponentInChildren<IGun>().getAnim().Play("bottleThrow");
+                    currentEquipment.GetComponent<IEquipable>().Action(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
                 }
                 else
                 {
@@ -112,19 +114,16 @@ public class PlayerShoot : MonoBehaviour
                 if (hit)
                 {
                     IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
+                    print((interactableObject != null) + "" +  grabDetector.reachableObjects.Contains(interactableObject));
                     if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
-                        if (interactableObject.getObj().GetComponent<botella>() == null)
-                        {
-                            interactableObject.tryGrab(this);
-                        }
-
+                        interactableObject.tryGrab(this);
                     }
-                    bottleToGrab = hit.collider.GetComponentInParent<botella>();
-                    if (bottleToGrab != null && botleDetector.reachableObjects.Contains(bottleToGrab))
-                    {
-                        bottleToGrab.tryGrab(this);
-                    }
+                    //bottleToGrab = hit.collider.GetComponentInParent<botella>();
+                    //if (bottleToGrab != null && botleDetector.reachableObjects.Contains(bottleToGrab))
+                    //{
+                    //    bottleToGrab.tryGrab(this);
+                    //}
                 }
             }
         }
@@ -218,9 +217,10 @@ public class PlayerShoot : MonoBehaviour
         reloading = true;
         GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
         bulletPick.Play();
-        hasBottle = true;
-        bottleToGrab.tryGrab(this);
         cursor.full();
+        currentEquipment = interactableObj;
+        currentEquipment.transform.parent = equipmentParent;
+        currentEquipment.transform.localPosition = Vector3.zero;
     }
     public void endMeleeAnim()
     {
@@ -237,10 +237,12 @@ public class PlayerShoot : MonoBehaviour
         reloading = false;
        
     }
-    public void throwBottle()
+    public void throwObject()
     {
-        baseBullet botel = Instantiate(BottlePrefab, GetComponentInChildren<BaseGun>().spawnPoint.position, Quaternion.identity).GetComponent<baseBullet>();
-        botel.InstantiateBullet(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
+        print("throwObject");
+        currentEquipment.SetActive(true);
+        currentEquipment.transform.parent = null;
+        currentEquipment.GetComponent<IProyectile>().InstantiateBullet(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
         GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
 
     }

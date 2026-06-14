@@ -4,6 +4,8 @@ using UnityEngine;
 public interface IProyectile
 {
     public void InstantiateBullet(CharacterLife shooter, float angle);
+    public void InstantiateBullet(CharacterLife shooter, float angle, Vector3 pos);
+
 
     public int getDamage();
 
@@ -28,5 +30,7 @@ public interface IInteractable
 
 public interface IEquipable
 {
-    public void Action();
+    public void Action(CharacterLife shooter, float angle);
+    public GameObject getObj();
+
 }

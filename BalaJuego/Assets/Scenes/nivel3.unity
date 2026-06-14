@@ -37377,26 +37377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: jumpForce
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: parentAnim
-      value: 
-      objectReference: {fileID: 1575528278}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: fallGravity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: normalGravity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: trueMagnitude
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 6144351892642108707, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Color.b
       value: 0.05762726
@@ -37433,8 +37413,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8974351180796690448, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
@@ -50731,11 +50710,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1575528278 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3044306764865592801, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-  m_PrefabInstance: {fileID: 506894781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576169004
 GameObject:
   m_ObjectHideFlags: 0

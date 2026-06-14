@@ -100,7 +100,7 @@ public class EnemyLife : CharacterLife
         if (collision.tag == "Botella" && !dead)
         {
             baseBullet botel = collision.GetComponent<baseBullet>();
-            if (botel.speed > 0)
+            if (botel.moving == true)
             {
                 GetComponent<EnemyController>().getStuned();
                 botel.hitSomething(gameObject);
