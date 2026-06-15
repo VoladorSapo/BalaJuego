@@ -5,17 +5,22 @@ using UnityEngine;
 public class particleEmitter : MonoBehaviour
 {
     [SerializeField] Transform stepParticleParent;
-    Dictionary<PhysicsMaterial2D, GameObject> instantiatedWalkParticles, instantiatedWalkbackParticles;
+    Dictionary<PhysicsMaterial2D, GameObject> instantiatedParticles;
     [SerializeField] private LayerMask groundLayer;
     materialDatabase materialDatabase;
     [SerializeField] Collider2D groundCast;
     [SerializeField] Transform playerTransform;
+    PhysicsMaterial2D lastMat;
     // Start is called before the first frame update
     void Awake()
     {
         materialDatabase = GetComponent<materialDatabase>();
-        instantiatedWalkParticles = new Dictionary<PhysicsMaterial2D, GameObject>();
-        instantiatedWalkbackParticles = new Dictionary<PhysicsMaterial2D, GameObject>();
+        instantiatedParticles = new Dictionary<PhysicsMaterial2D, GameObject>();
+    }
+
+    private void Start()
+    {
+        lastMat = GetFloorMaterial(); 
     }
     public PhysicsMaterial2D GetFloorMaterial()
     {
@@ -38,58 +43,71 @@ public class particleEmitter : MonoBehaviour
     }
     public void EmitStep()
     {
-        PhysicsMaterial2D mat = GetFloorMaterial();
-
-        if (mat == null)
+        GameObject particles = CheckInstantiateParticleSet();
+        if (particles != null)
         {
-            Debug.Log("Error encontrando el material de Ground Cast");
-            return;
+            ParticleSet particleSet = particles.GetComponent<ParticleSet>();
+            EmitParticles(particleSet.walkParticles);
         }
-        if (!instantiatedWalkParticles.ContainsKey(mat))
-        {
-            floorMaterial floorMat = materialDatabase.GetFloorMaterial(mat);
-            if (floorMat == null)
-            {
-                Debug.Log("No se encontró el material en la base de datos");
-                return;
-            }
-
-            GameObject stepParticle = floorMat.walkParticles;
-            GameObject newParticles = Instantiate(stepParticle, stepParticleParent);
-            instantiatedWalkParticles[mat] = newParticles;
-
-        }
-
-        GameObject particlePrefab = instantiatedWalkParticles[mat];
-        EmitParticles(particlePrefab);
     }
 
     public void EmitStepBack()
     {
-        PhysicsMaterial2D mat = GetFloorMaterial();
+        GameObject particles = CheckInstantiateParticleSet();
+        if (particles != null)
+        {
+            ParticleSet particleSet = particles.GetComponent<ParticleSet>();
+            EmitParticles(particleSet.walkbackParticles);
+        }
+    }
+    public void EmitJump()
+    {
+        if (!instantiatedParticles.ContainsKey(lastMat))
+        {
+            floorMaterial floorMat = materialDatabase.GetFloorMaterial(lastMat);
+            if (floorMat == null)
+            {
+                Debug.Log("Error encontrando el material para las particulas de salto");
+                return;
+            }
 
+            GameObject particleSet = floorMat.particleSet;
+            GameObject newParticles = Instantiate(particleSet, stepParticleParent);
+            instantiatedParticles[lastMat] = newParticles;
+
+        }
+
+        GameObject particlePrefab = instantiatedParticles[lastMat];
+        ParticleSet particles = particlePrefab.GetComponent<ParticleSet>();
+        EmitParticles(particles.jumpParticles);
+    }
+
+    GameObject CheckInstantiateParticleSet()
+    {
+        PhysicsMaterial2D mat = GetFloorMaterial();
+        lastMat = mat;
         if (mat == null)
         {
             Debug.Log("Error encontrando el material de Ground Cast");
-            return;
+            return null;
         }
-        if (!instantiatedWalkbackParticles.ContainsKey(mat))
+        if (!instantiatedParticles.ContainsKey(mat))
         {
             floorMaterial floorMat = materialDatabase.GetFloorMaterial(mat);
             if (floorMat == null)
             {
                 Debug.Log("No se encontró el material en la base de datos");
-                return;
+                return null;
             }
 
-            GameObject stepParticle = floorMat.walkBackParticles;
-            GameObject newParticles = Instantiate(stepParticle, stepParticleParent);
-            instantiatedWalkbackParticles[mat] = newParticles;
+            GameObject particleSet = floorMat.particleSet;
+            GameObject newParticles = Instantiate(particleSet, stepParticleParent);
+            instantiatedParticles[mat] = newParticles;
 
         }
 
-        GameObject particlePrefab = instantiatedWalkbackParticles[mat];
-        EmitParticles(particlePrefab);
+        GameObject particlePrefab = instantiatedParticles[mat];
+        return particlePrefab;
     }
 
     void EmitParticles(GameObject partciclesGO)

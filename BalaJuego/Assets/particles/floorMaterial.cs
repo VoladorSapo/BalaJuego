@@ -6,6 +6,6 @@ using UnityEngine;
 public class floorMaterial : ScriptableObject
 {
     public PhysicsMaterial2D material;
-    public GameObject walkParticles;
-    public GameObject walkBackParticles;
+    public GameObject particleSet;
+
 }
