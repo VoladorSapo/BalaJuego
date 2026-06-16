@@ -7,4 +7,5 @@ public class ParticleSet : MonoBehaviour
     public GameObject walkParticles;
     public GameObject walkbackParticles;
     public GameObject jumpParticles;
+    public GameObject landParticles;
 }

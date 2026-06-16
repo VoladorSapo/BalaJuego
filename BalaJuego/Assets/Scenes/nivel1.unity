@@ -14121,7 +14121,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.735
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -27476,6 +27476,7 @@ GameObject:
   - component: {fileID: 1137126542}
   - component: {fileID: 1137126541}
   - component: {fileID: 1137126540}
+  - component: {fileID: 1137126543}
   m_Layer: 6
   m_Name: floor
   m_TagString: Ground
@@ -135867,6 +135868,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1137126543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137126536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89590d49198c612489ceb9d3fad1281e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 11400000, guid: 10805f26e32488e429a99f52ec9a07ea, type: 2}
 --- !u!1 &1146268862
 GameObject:
   m_ObjectHideFlags: 0

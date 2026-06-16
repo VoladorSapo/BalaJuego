@@ -5,24 +5,25 @@ using UnityEngine;
 public class particleEmitter : MonoBehaviour
 {
     [SerializeField] Transform stepParticleParent;
-    Dictionary<PhysicsMaterial2D, GameObject> instantiatedParticles;
+    Dictionary<MaterialScriptableObject, GameObject> instantiatedParticles;
     [SerializeField] private LayerMask groundLayer;
-    materialDatabase materialDatabase;
+    //materialDatabase materialDatabase;
     [SerializeField] Collider2D groundCast;
     [SerializeField] Transform playerTransform;
-    PhysicsMaterial2D lastMat;
+    MaterialScriptableObject lastMat;
     // Start is called before the first frame update
     void Awake()
     {
-        materialDatabase = GetComponent<materialDatabase>();
-        instantiatedParticles = new Dictionary<PhysicsMaterial2D, GameObject>();
+        //materialDatabase = GetComponent<materialDatabase>();
+        instantiatedParticles = new Dictionary<MaterialScriptableObject, GameObject>();
     }
 
-    private void Start()
+    void OnEnable()
     {
-        lastMat = GetFloorMaterial(); 
+        lastMat = GetFloorMaterial();
+        
     }
-    public PhysicsMaterial2D GetFloorMaterial()
+    public MaterialScriptableObject GetFloorMaterial()
     {
         ContactFilter2D filter = new ContactFilter2D();
         filter.useTriggers = true;
@@ -36,7 +37,7 @@ public class particleEmitter : MonoBehaviour
 
         if (colisionesEncontradas > 0 && result[0] != null)
         {
-            return result[0].sharedMaterial;
+            return result[0].GetComponent<MaterialInfo>().material;
         }
 
         return null;
@@ -62,29 +63,37 @@ public class particleEmitter : MonoBehaviour
     }
     public void EmitJump()
     {
+        if (lastMat == null) return;
         if (!instantiatedParticles.ContainsKey(lastMat))
         {
-            floorMaterial floorMat = materialDatabase.GetFloorMaterial(lastMat);
-            if (floorMat == null)
-            {
-                Debug.Log("Error encontrando el material para las particulas de salto");
-                return;
-            }
-
-            GameObject particleSet = floorMat.particleSet;
+            GameObject particleSet = lastMat.playerParticleSet;
             GameObject newParticles = Instantiate(particleSet, stepParticleParent);
             instantiatedParticles[lastMat] = newParticles;
-
         }
 
         GameObject particlePrefab = instantiatedParticles[lastMat];
         ParticleSet particles = particlePrefab.GetComponent<ParticleSet>();
         EmitParticles(particles.jumpParticles);
     }
+    public void EmitLand()
+    {
+        if (lastMat == null) return;
+        if (!instantiatedParticles.ContainsKey(lastMat))
+        {
+            GameObject particleSet = lastMat.playerParticleSet;
+            GameObject newParticles = Instantiate(particleSet, stepParticleParent);
+            instantiatedParticles[lastMat] = newParticles;
+        }
+
+        GameObject particlePrefab = instantiatedParticles[lastMat];
+        ParticleSet particles = particlePrefab.GetComponent<ParticleSet>();
+        EmitParticles(particles.landParticles);
+    }
+
 
     GameObject CheckInstantiateParticleSet()
     {
-        PhysicsMaterial2D mat = GetFloorMaterial();
+        MaterialScriptableObject mat = GetFloorMaterial();
         lastMat = mat;
         if (mat == null)
         {
@@ -93,14 +102,7 @@ public class particleEmitter : MonoBehaviour
         }
         if (!instantiatedParticles.ContainsKey(mat))
         {
-            floorMaterial floorMat = materialDatabase.GetFloorMaterial(mat);
-            if (floorMat == null)
-            {
-                Debug.Log("No se encontró el material en la base de datos");
-                return null;
-            }
-
-            GameObject particleSet = floorMat.particleSet;
+            GameObject particleSet = mat.playerParticleSet;
             GameObject newParticles = Instantiate(particleSet, stepParticleParent);
             instantiatedParticles[mat] = newParticles;
 

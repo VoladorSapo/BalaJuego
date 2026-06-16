@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed91d3ed1abbaa34a8bd744406ccaa51, type: 3}
   m_Name: dust
   m_EditorClassIdentifier: 
-  material: {fileID: 6200000, guid: 2a06f5241aa063b48b62ec9c405c8ed1, type: 2}
-  particleSet: {fileID: 5870619515511209166, guid: 9f6bd3ccfe2e5b6448b58e98bc7b27ca, type: 3}
+  playerParticleSet: {fileID: 5870619515511209166, guid: 9f6bd3ccfe2e5b6448b58e98bc7b27ca, type: 3}
