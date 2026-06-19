@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class TimerManager : MonoBehaviour, ITimer
@@ -84,12 +85,16 @@ public interface ITimer : IService
 }
 public struct TimePoints
 {
- public   float hours, minutes, seconds;
+ public   int hours, minutes, seconds;
 
    public TimePoints(float allSeconds)
     {
-        hours =MathF.Floor(allSeconds / 3600);
-        minutes = MathF.Floor((allSeconds-hours*3660) / 60);
-        seconds = (allSeconds - hours * 3600) % 60;
+        hours = (int)MathF.Floor(allSeconds / 3600);
+        minutes = (int)MathF.Floor((allSeconds - hours * 3660) / 60);
+        seconds = (int)MathF.Floor((allSeconds - hours * 3600) % 60);
+    }
+    public override string ToString()
+    {
+        return $"H: {hours} M: {minutes} S: {seconds}";
     }
 }

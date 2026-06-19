@@ -9704,6 +9704,7 @@ GameObject:
   - component: {fileID: 367682789}
   - component: {fileID: 367682788}
   - component: {fileID: 367682787}
+  - component: {fileID: 367682792}
   m_Layer: 6
   m_Name: floor
   m_TagString: Ground
@@ -9771,7 +9772,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 367682785}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2a06f5241aa063b48b62ec9c405c8ed1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -77279,6 +77280,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &367682792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367682785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89590d49198c612489ceb9d3fad1281e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 11400000, guid: 10805f26e32488e429a99f52ec9a07ea, type: 2}
 --- !u!1 &388622482
 GameObject:
   m_ObjectHideFlags: 0
@@ -82849,7 +82863,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -82931,11 +82945,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 40
+  m_AssetsPPU: 32
   m_RefResolutionX: 640
   m_RefResolutionY: 360
-  m_CropFrame: 0
-  m_GridSnapping: 0
+  m_CropFrame: 1
+  m_GridSnapping: 2
   m_FilterMode: 0
   m_UpscaleRT: 0
   m_PixelSnapping: 0
@@ -92625,6 +92639,7 @@ MonoBehaviour:
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 281882622}
   rb2d: {fileID: 1078324750}
+  playerInput: {fileID: 0}
   maxSpeed: 5
   acceleration: 10
   groundDecceleration: 25
@@ -92646,7 +92661,9 @@ MonoBehaviour:
   maxFallVelocity: 0
   Head: {fileID: 0}
   gunOBJ: {fileID: 0}
-  anim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   particles: {fileID: 0}
 --- !u!4 &1103279981 stripped
 Transform:
@@ -112457,7 +112474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 1078324749}
-  anim: {fileID: 0}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   notTurn: {fileID: 0}
 --- !u!114 &1397413578
 MonoBehaviour:
@@ -123663,7 +123682,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 8495180783833278025}
-  anim: {fileID: 1323886115846766263}
+  headAnim: {fileID: 0}
+  armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   notTurn: {fileID: 870089695529101326}
 --- !u!1 &3249136477523517361
 GameObject:

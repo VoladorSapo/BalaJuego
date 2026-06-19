@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class botella : baseBullet
+public class botella : baseBullet,IEquipable
 {
     public bool isThrown;
   [SerializeField]  LevelAreaController area;
@@ -41,6 +41,7 @@ public class botella : baseBullet
     }
     public override void InstantiateBullet(CharacterLife shooter, float angle)
     {
+        transform.parent= null;
         musicManager.Instance.PlaySoundPitch("snd_lanzabotella");
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
@@ -48,7 +49,7 @@ public class botella : baseBullet
         team = shooter.team;
         anim = GetComponentInChildren<Animator>(true);
         anim.Play("bottleFly");
-
+        moving = true; 
     }
 
     public override void tryGrab(PlayerShoot player)
@@ -58,14 +59,15 @@ public class botella : baseBullet
             musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
             ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
             area.destroyBottle(this);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             player.getInteractableObject(gameObject);
 
         }
     }
     public override void hitSomething(GameObject obj)
     {
-        anim.Play("bottleCrash");
+        print("bottleHit");
+        anim.Play("bulletDestroy");
 
         //Animacion o algo
         if (obj.GetComponent<CharacterLife>() != null)
@@ -79,11 +81,16 @@ public class botella : baseBullet
                 //impactParticle.Play();
                 musicManager.Instance.PlaySoundPitch("snd_botellarompe");
             }
-            speed = 0;
+            moving = false;
             //Destroy(gameObject, 0.5f);
         
     }
-  
+
+    public void Action(CharacterLife shooter, float angle)
+    {
+        //shooter.GetComponentInChildren<IGun>().getAnim().Play("bottleThrow");
+        shooter.GetComponent<PlayerShoot>().throwObject();
+    }
 }
 
 

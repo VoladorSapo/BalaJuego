@@ -2,14 +2,21 @@
 
 public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 {
-    Vector3 direction;
-    [SerializeField] public float speed;
-    [SerializeField] int damage = 1;
+    [Header("Data")]
     [SerializeField] bool grabable = true;
+    [field:SerializeField] public float speed { get; protected set; }
+    [SerializeField] int damage = 1;
     [SerializeField] float lifeTime;
     [SerializeField] bool canHurtAll;
 
     [SerializeField] bool Infinite;
+    [SerializeField] bool onFire;
+
+
+    [Header("Debug")]
+    Vector3 direction;
+
+    [field: SerializeField] public bool moving { get; protected set; }
 
     public bool hit;
     [SerializeField] float z;
@@ -20,7 +27,6 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 
     public bool inSelect;
 
-    [SerializeField] bool onFire;
 
     protected float timeMagnitude;
 
@@ -48,8 +54,11 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
                 Destroy(gameObject);
             }
         }
-        transform.Translate(Vector2.left * speed * Time.deltaTime * timeMagnitude);
-        transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        if (moving)
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime * timeMagnitude);
+            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        }
     }
     public virtual void InstantiateBullet(CharacterLife shooter, float angle)
     {
@@ -58,11 +67,16 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         team = shooter.team;
+        moving = true;
         if (anim)
         {
             anim.Play("fly");
         }
-
+    }
+    public virtual void InstantiateBullet(CharacterLife shooter, float angle, Vector3 pos)
+    {
+        InstantiateBullet(shooter, angle);
+        transform.position = new Vector3(pos.x, pos.y, z);
     }
 
     public int getDamage() => damage;
@@ -117,7 +131,7 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
                     impactParticle.Play();
                 musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
             }
-            speed = 0;
+            moving = false;
             GetComponent<Collider2D>().enabled = false;
         }
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
