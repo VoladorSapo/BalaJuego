@@ -34434,6 +34434,7 @@ MonoBehaviour:
   <moving>k__BackingField: 1
   hit: 0
   z: -0.3
+  hitType: 2
   hitParticle: {fileID: 1690490075298846511}
   impactParticle: {fileID: 8840982200996023175}
   inSelect: 0
@@ -34441,6 +34442,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32832
   anim: {fileID: 0}
+  effect:
+    type: 0
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ public class BaseGun : MonoBehaviour,IGun
         currentBullets--;
         bulletCount.text = currentBullets.ToString();
         IProyectile bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
-        bul.InstantiateBullet(character.GetComponent<CharacterLife>(),rotate.transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
+        bul.InstantiateBullet(character.GetComponent<ACharacterLife>(),rotate.transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
     }
     public virtual void endShootAnim()
     {
@@ -97,7 +97,7 @@ public class BaseGun : MonoBehaviour,IGun
     }
 
 
-    public void Action(CharacterLife shooter, float angle)
+    public void Action(ACharacterLife shooter, float angle)
     {
         shoot();
     }

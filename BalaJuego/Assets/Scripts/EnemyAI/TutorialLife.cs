@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TutorialLife : CharacterLife
+public class TutorialLife : ACharacterLife
 {
     public bool blockKill;
     [SerializeField] GameObject gun;
@@ -13,7 +13,7 @@ public class TutorialLife : CharacterLife
         if (!blockKill)
         {
             dead = true;
-            GetComponent<EnemyController>().stunedCollider.enabled = false;
+            GetComponent<EnemyBehaviour>().stunedCollider.enabled = false;
             // collider.gameObject.SetActive(false);
             if (melee)
             {
@@ -62,7 +62,7 @@ public class TutorialLife : CharacterLife
         if (!blockKill)
         {
             Debug.LogError("Die");
-            GetComponent<EnemyController>().setColor(false);
+            GetComponent<EnemyBehaviour>().setColor(false);
             //GetComponent<EnemyController>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }

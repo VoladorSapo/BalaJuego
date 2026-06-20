@@ -1,22 +1,27 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface IProyectile
 {
-    public void InstantiateBullet(CharacterLife shooter, float angle);
-    public void InstantiateBullet(CharacterLife shooter, float angle, Vector3 pos);
+    public void InstantiateBullet(ACharacterLife shooter, float angle);
+    public void InstantiateBullet(ACharacterLife shooter, float angle, Vector3 pos);
 
 
     public int getDamage();
 
     public void hitSomething(GameObject obj);
 
-    public CharacterLife.Team getTeam();
+
+    public ACharacterLife.Team getTeam();
+    public ACharacterLife getOwner();
+    public HittableType getHittableType();
+
 
     public bool hurtAll();
 
     public GameObject getObj();
-
+    public ACombatEffect getEffect();
 }
 
 public interface IInteractable
@@ -30,7 +35,13 @@ public interface IInteractable
 
 public interface IEquipable
 {
-    public void Action(CharacterLife shooter, float angle);
+    public void Action(ACharacterLife shooter, float angle);
     public GameObject getObj();
 
+}
+public interface IHittable
+{
+    public bool getHit(IProyectile proyectile);
+    public void Damage(int damage);
+    public void Die();
 }

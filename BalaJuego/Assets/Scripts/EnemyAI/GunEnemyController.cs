@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class GunEnemyController : EnemyController
+public class GunEnemyController : EnemyBehaviour
 {
     IGun Charshoot;
 

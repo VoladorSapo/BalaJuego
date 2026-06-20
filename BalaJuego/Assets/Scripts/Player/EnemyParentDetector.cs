@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-public class EnemyParentDetector : ObjectParentDetector<EnemyController>
+public class EnemyParentDetector : ObjectParentDetector<EnemyBehaviour>
 {
-    public override void BecomeFirst(EnemyController obj)
+    public override void BecomeFirst(EnemyBehaviour obj)
     {
 
         obj.setColor(true);
    }
-    public override void UnBecomeFirst(EnemyController obj)
+    public override void UnBecomeFirst(EnemyBehaviour obj)
     {
         obj.setColor(false);
 

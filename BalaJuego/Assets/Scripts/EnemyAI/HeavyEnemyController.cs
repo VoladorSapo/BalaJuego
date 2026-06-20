@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HeavyEnemyController: EnemyController
+public class HeavyEnemyController: EnemyBehaviour
 {
 
     [SerializeField]public WallDetector wallDetect;

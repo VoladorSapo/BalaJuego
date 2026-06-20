@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 {
@@ -20,7 +21,9 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 
     public bool hit;
     [SerializeField] float z;
-    protected CharacterLife.Team team;
+    protected ACharacterLife owner;
+    [SerializeField] protected HittableType hitType;
+
 
     [SerializeField] protected ParticleSystem hitParticle;
     [SerializeField] protected ParticleSystem impactParticle;
@@ -33,15 +36,24 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
     [SerializeField] LayerMask obstacleLayer;
 
     [SerializeField] protected Animator anim;
-
-
+    [SerializeField] private EffectEditor effect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        IHittable hittable = collision.gameObject.GetComponent<IHittable>();
+        if (hittable != null)
+        {
+            if (hittable.getHit(this))
+            {
+                hitSomething(collision.gameObject);
+
+            }
+        }
         if ((obstacleLayer & (1 << collision.gameObject.layer)) != 0)
         {
             hitSomething(collision.gameObject);
         }
+        
     }
     private void Update()
     {
@@ -60,20 +72,20 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
             transform.position = new Vector3(transform.position.x, transform.position.y, z);
         }
     }
-    public virtual void InstantiateBullet(CharacterLife shooter, float angle)
+    public virtual void InstantiateBullet(ACharacterLife shooter, float angle)
     {
         musicManager.Instance.PlayDisparo();
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
-        team = shooter.team;
+        owner = shooter;
         moving = true;
         if (anim)
         {
             anim.Play("fly");
         }
     }
-    public virtual void InstantiateBullet(CharacterLife shooter, float angle, Vector3 pos)
+    public virtual void InstantiateBullet(ACharacterLife shooter, float angle, Vector3 pos)
     {
         InstantiateBullet(shooter, angle);
         transform.position = new Vector3(pos.x, pos.y, z);
@@ -95,14 +107,16 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
         hit = false;
 
     }
-
     public virtual void hitSomething(GameObject obj)
     {
         print("hit");
         //Animacion o algo
         hit = true;
-        anim.Play("bulletDestroy");
-        if (obj.GetComponent<CharacterLife>() != null)
+        if (anim)
+        {
+            anim.Play("bulletDestroy");
+        }
+            if (obj.GetComponent<ACharacterLife>() != null)
         {
             if (hitParticle)
             {
@@ -139,7 +153,7 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 
 
     }
-    public CharacterLife.Team getTeam() => team;
+    public ACharacterLife.Team getTeam() => owner.team;
 
     public bool hurtAll() => canHurtAll;
 
@@ -190,4 +204,51 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
     //}
 
     public GameObject getObj() => gameObject;
+
+    public ACharacterLife getOwner() => owner;
+
+    public HittableType getHittableType()=>hitType;
+
+
+    public ACombatEffect getEffect() => effect.createEffect();
+}
+
+public enum HittableType
+{
+    allCharactersNoMe,
+    allCharacters,
+    onlyOtherTeam,
+}
+public class HittableCheck
+{
+    public static bool checkHit(ACharacterLife objective,ACharacterLife origin,HittableType hitType)
+    {
+        switch (hitType)
+        {
+            case HittableType.allCharactersNoMe:
+                return objective != origin;
+            case HittableType.allCharacters:
+                return true;
+            case HittableType.onlyOtherTeam:
+               return objective.team != origin.team;
+        }
+        return false;
+    }
+}
+
+[System.Serializable]
+public class EffectEditor
+{
+    public int type;
+    public ACombatEffect createEffect()
+    {
+        if(type == 0)
+        {
+            return new DamageEffect(1);
+        }
+        else
+        {
+            return new StunEffect(2);
+        }
+    }
 }

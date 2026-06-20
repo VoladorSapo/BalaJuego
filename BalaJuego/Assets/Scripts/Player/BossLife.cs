@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 
-public class BossLife: CharacterLife
+public class BossLife: ACharacterLife
 {
+    public override void Die()
+    {
+
+    }
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bullet")

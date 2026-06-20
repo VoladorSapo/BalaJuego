@@ -261,7 +261,7 @@ public class PlayerMove : MonoBehaviour
         GetComponentInChildren<IGun>().restart();
         GetComponentInChildren<PlayerShoot>().
         GetComponentInChildren<PlayerShoot>().restart();
-        GetComponent<CharacterLife>().restart();
+        GetComponent<ACharacterLife>().restart();
         canMove = true;
         isMeleeing = false;
 

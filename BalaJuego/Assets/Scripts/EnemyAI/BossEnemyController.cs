@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class BossEnemyController : EnemyController
+public class BossEnemyController : EnemyBehaviour
 {
     IGun Charshoot;
     [SerializeField] GameObject gun;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyBehaviour : MonoBehaviour
 {
     public IState currentState()
     {
@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
     public StateMachine stateMachine;
 
-    CharacterLife charater;
+    ACharacterLife charater;
 
     public playerDetector detector { get; private set; }
 
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public bool shootOnShight = false;
 
 
-    public CharacterLife life;
+    public ACharacterLife life;
 
     [SerializeField] GameObject FMarker;
     // Start is called before the first frame update
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     {
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
-        life = GetComponent<CharacterLife>();
+        life = GetComponent<ACharacterLife>();
         detector = GetComponentInChildren<playerDetector>();
     }
 
@@ -81,12 +81,17 @@ public class EnemyController : MonoBehaviour
     {
         stateMachine.ForceSetState(new StunedState(this));
     }
+    public void endStun()
+    {
+        stateMachine.ForceSetState(new IdleState(this));
+
+    }
     public virtual void restart(LevelAreaController _area)
     {
         detector?.restart();
         setColor(false);
         stunedCollider.gameObject.SetActive(false);
-        GetComponent<CharacterLife>().restart();
+        GetComponent<ACharacterLife>().restart();
         transform.position = initialPos;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         timeMagnitude = 1;

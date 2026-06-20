@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class breakableBox:MonoBehaviour
 {
-    public CharacterLife.Team team;
+    public ACharacterLife.Team team;
     Vector3 initPos;
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

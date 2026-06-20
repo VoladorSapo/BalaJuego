@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class LevelAreaController : MonoBehaviour
 {
- [SerializeField] public  List<EnemyController> enemies;
+ [SerializeField] public  List<EnemyBehaviour> enemies;
   [SerializeField]  int aliveEnemies;
 
     [SerializeField] List<botella> botellas;
@@ -37,7 +37,7 @@ public class LevelAreaController : MonoBehaviour
 
         }
     }
-    public void enemyDie(EnemyController enemy)
+    public void enemyDie(EnemyBehaviour enemy)
     {
         if (enemy != null && enemy.gameObject.activeSelf)
         {
@@ -70,7 +70,7 @@ public class LevelAreaController : MonoBehaviour
     {
         aliveEnemies = enemies.Count;
         started = false;
-      foreach(EnemyController enem in enemies)
+      foreach(EnemyBehaviour enem in enemies)
         {
             enem.gameObject.SetActive(true);
             enem.restart(this);

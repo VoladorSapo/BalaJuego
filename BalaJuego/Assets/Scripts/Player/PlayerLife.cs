@@ -1,4 +1,4 @@
-﻿public class PlayerLife: CharacterLife
+﻿public class PlayerLife: ACharacterLife
 {
     public override void Die()
     {

@@ -11,7 +11,7 @@ namespace tutorial
 
      public    TMP_Text TutorialText;
 
-        public EnemyController enemy;
+        public EnemyBehaviour enemy;
 
         public PlayerMove player;
 

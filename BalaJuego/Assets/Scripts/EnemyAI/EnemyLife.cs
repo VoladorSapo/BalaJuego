@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemyLife : CharacterLife
+public class EnemyLife : ACharacterLife
 {
     [SerializeField] GameObject gun;
     [SerializeField] GameObject head;
@@ -10,7 +10,7 @@ public class EnemyLife : CharacterLife
     public override void Die()
     {
         dead = true;
-        GetComponent<EnemyController>().stunedCollider.enabled = false;
+        GetComponent<EnemyBehaviour>().stunedCollider.enabled = false;
         // collider.gameObject.SetActive(false);
         if (melee)
         {
@@ -54,13 +54,13 @@ public class EnemyLife : CharacterLife
             transform.localScale = new Vector3(player.runningDirection, 1, 1);
             GetComponent<Rigidbody2D>().isKinematic = true;
         }
-        if (GetComponent<EnemyController>().area != null)
+        if (GetComponent<EnemyBehaviour>().area != null)
         {
-            GetComponent<EnemyController>().area.enemyDie(GetComponent<EnemyController>());
+            GetComponent<EnemyBehaviour>().area.enemyDie(GetComponent<EnemyBehaviour>());
         }
-        GetComponent<EnemyController>().setColor(false);
+        GetComponent<EnemyBehaviour>().setColor(false);
 
-        GetComponent<EnemyController>().enabled = false;
+        GetComponent<EnemyBehaviour>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         // gameObject.SetActive(false);
@@ -80,9 +80,9 @@ public class EnemyLife : CharacterLife
         {
             head?.SetActive(true);
         }
-        GetComponent<EnemyController>().enabled = true;
-        GetComponent<EnemyController>().setColor(false);
-        GetComponent<EnemyController>().stunedCollider.enabled = true;
+        GetComponent<EnemyBehaviour>().enabled = true;
+        GetComponent<EnemyBehaviour>().setColor(false);
+        GetComponent<EnemyBehaviour>().stunedCollider.enabled = true;
 
 
     }
@@ -94,22 +94,13 @@ public class EnemyLife : CharacterLife
     //    }
     //    return -1;
     //}
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-        if (collision.tag == "Botella" && !dead)
-        {
-            baseBullet botel = collision.GetComponent<baseBullet>();
-            if (botel.moving == true)
-            {
-                GetComponent<EnemyController>().getStuned();
-                botel.hitSomething(gameObject);
-            }
-            else
-            {
-                print("cagaste");
-            }
-        }
 
+    public override void getStuned()
+    {
+        GetComponent<EnemyBehaviour>().getStuned();
+    }
+    public override void endStun()
+    {
+        GetComponent<EnemyBehaviour>().endStun();
     }
 }

@@ -39,14 +39,14 @@ public class botella : baseBullet,IEquipable
 
         }
     }
-    public override void InstantiateBullet(CharacterLife shooter, float angle)
+    public override void InstantiateBullet(ACharacterLife shooter, float angle)
     {
         transform.parent= null;
         musicManager.Instance.PlaySoundPitch("snd_lanzabotella");
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
-        team = shooter.team;
+        this.owner = shooter;
         anim = GetComponentInChildren<Animator>(true);
         anim.Play("bottleFly");
         moving = true; 
@@ -70,23 +70,23 @@ public class botella : baseBullet,IEquipable
         anim.Play("bulletDestroy");
 
         //Animacion o algo
-        if (obj.GetComponent<CharacterLife>() != null)
-            {
-               // hitParticle.Play();
-                musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
-                musicManager.Instance.PlaySoundPitch("snd_botellarompe");
-            }
-            else
-            {
-                //impactParticle.Play();
-                musicManager.Instance.PlaySoundPitch("snd_botellarompe");
-            }
+        if (obj.GetComponent<ACharacterLife>() != null)
+        {
+            // hitParticle.Play();
+            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
+            musicManager.Instance.PlaySoundPitch("snd_botellarompe");
+        }
+        else
+        {
+            //impactParticle.Play();
+            musicManager.Instance.PlaySoundPitch("snd_botellarompe");
+        }
             moving = false;
             //Destroy(gameObject, 0.5f);
         
     }
 
-    public void Action(CharacterLife shooter, float angle)
+    public void Action(ACharacterLife shooter, float angle)
     {
         //shooter.GetComponentInChildren<IGun>().getAnim().Play("bottleThrow");
         shooter.GetComponent<PlayerShoot>().throwObject();

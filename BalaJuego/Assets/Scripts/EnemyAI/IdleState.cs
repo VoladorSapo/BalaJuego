@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting.FullSerializer;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 public class IdleState : BaseEnemyState
 {
-    public IdleState(EnemyController _enemy)
+    public IdleState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -25,7 +27,7 @@ public class ShootState : BaseEnemyState
 {
 
     float cadenceTime;
-    public ShootState(EnemyController _enemy)
+    public ShootState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -116,7 +118,7 @@ public class ChargeState : BaseEnemyState
 }
 public class StunedState: BaseEnemyState
 {
-    public StunedState(EnemyController _enemy)
+    public StunedState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -137,6 +139,7 @@ public class StunedState: BaseEnemyState
     }
     public override void OnExit()
     {
+        Debug.Log("end stun");
         enemy.stunedCollider.gameObject.SetActive(false);
       
     }

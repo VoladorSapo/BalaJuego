@@ -89,8 +89,10 @@ MonoBehaviour:
   canHurtAll: 0
   Infinite: 1
   onFire: 0
+  <moving>k__BackingField: 0
   hit: 0
   z: 0
+  hitType: 0
   hitParticle: {fileID: 0}
   impactParticle: {fileID: 0}
   inSelect: 0
@@ -98,6 +100,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   anim: {fileID: 0}
+  effect:
+    type: 1
   isThrown: 0
   area: {fileID: 0}
 --- !u!1 &6389520299271862978

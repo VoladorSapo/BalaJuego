@@ -30,7 +30,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] GameObject BottlePrefab;
 
 
-    CharacterLife enemyMelee;
+    ACharacterLife enemyMelee;
 
     [SerializeField] Animator anim;
 
@@ -93,7 +93,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (currentEquipment != null)
                 {
-                    currentEquipment.GetComponent<IEquipable>().Action(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
+                    currentEquipment.GetComponent<IEquipable>().Action(GetComponent<ACharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
                 }
                 else
                 {
@@ -191,8 +191,8 @@ public class PlayerShoot : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<PlayerMove>().isMeleeing = true;
 
-                enemyMelee = stunedDetector.reachableObjects[0].GetComponent<CharacterLife>();
-                stunedDetector.reachableObjects[0].GetComponent<CharacterLife>().meleeDeath();
+                enemyMelee = stunedDetector.reachableObjects[0].GetComponent<ACharacterLife>();
+                stunedDetector.reachableObjects[0].GetComponent<ACharacterLife>().meleeDeath();
                 //Muerte Melee
             }
         }
@@ -214,7 +214,7 @@ public class PlayerShoot : MonoBehaviour
     }
     public void getInteractableObject(GameObject interactableObj)
     {
-        reloading = true;
+        reloading = false;
         GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
         bulletPick.Play();
         cursor.full();
@@ -242,7 +242,7 @@ public class PlayerShoot : MonoBehaviour
         print("throwObject");
         currentEquipment.SetActive(true);
         currentEquipment.transform.parent = null;
-        currentEquipment.GetComponent<IProyectile>().InstantiateBullet(GetComponent<CharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
+        currentEquipment.GetComponent<IProyectile>().InstantiateBullet(GetComponent<ACharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
         GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
 
     }
