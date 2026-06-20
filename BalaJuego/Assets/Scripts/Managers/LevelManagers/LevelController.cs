@@ -26,7 +26,7 @@ public class LevelController : MonoBehaviour, ILevelController
     // Start is called before the first frame update
     void Start()
     {
-        if (!isChurch)
+        if (levelAreaParent != null)
         {
             areas = new List<LevelAreaController>();
             areas.AddRange(levelAreaParent.GetComponentsInChildren<LevelAreaController>());
