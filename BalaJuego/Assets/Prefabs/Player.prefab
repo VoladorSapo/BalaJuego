@@ -7278,8 +7278,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.39}
-  m_Size: {x: 1.15, y: 2.44}
+  m_Offset: {x: 0, y: 0.29560363}
+  m_Size: {x: 1.15, y: 2.6287928}
   m_Direction: 0
 --- !u!50 &4773227239308888931
 Rigidbody2D:
@@ -7399,6 +7399,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   melee: 0
   spriteParent: {fileID: 246704284570004590}
+  CorpseBlockProjectile: 0
 --- !u!114 &22484205660860321
 MonoBehaviour:
   m_ObjectHideFlags: 0

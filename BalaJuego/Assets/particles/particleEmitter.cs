@@ -37,7 +37,12 @@ public class particleEmitter : MonoBehaviour
 
         if (colisionesEncontradas > 0 && result[0] != null)
         {
-            return result[0].GetComponent<MaterialInfo>().material;
+            MaterialInfo materialInfo = result[0].GetComponent<MaterialInfo>();
+            if (materialInfo != null)
+            {
+                return materialInfo.material;
+            }
+           
         }
 
         return null;
