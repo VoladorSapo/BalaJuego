@@ -40,28 +40,39 @@ public class LevelController : MonoBehaviour, ILevelController
     }
     public void trueStart()
     {
-        cutsceneStart.PlayCutscene();
-        //StartCoroutine(lateStart());
+        if (cutsceneStart != null)
+        {
+            cutsceneStart.PlayCutscene();
+            //StartCoroutine(lateStart());
 
-        // AQUI MUSICA
-        if (SceneManager.GetActiveScene().name == "nivel1") //|| (SceneManager.GetActiveScene().name == "nivel2"))
-        {
-            musicManager.Instance.SetSong("nivel");
-            musicManager.Instance.SetPhase(0);
-        }
-        else if(SceneManager.GetActiveScene().name == "nivel3")
-        {
-            if (!isChurch)
+            // AQUI MUSICA
+            if (SceneManager.GetActiveScene().name == "nivel1") //|| (SceneManager.GetActiveScene().name == "nivel2"))
             {
-                musicManager.Instance.FadeOutCurrentSong();
-                //musicManager.Instance.MuteSong();
+                musicManager.Instance.SetSong("nivel");
+                musicManager.Instance.SetPhase(0);
             }
+            else if (SceneManager.GetActiveScene().name == "nivel3")
+            {
+                if (!isChurch)
+                {
+                    musicManager.Instance.FadeOutCurrentSong();
+                    //musicManager.Instance.MuteSong();
+                }
+            }
+        }
+        else
+        {
+            print("restart");
+            reStart();
         }
     }
     // Update is called once per frame
     void Update()
     {
-      
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            restartEvent.Invoke();
+        }
 
     }
     public void subscribeToRestart(Action response)

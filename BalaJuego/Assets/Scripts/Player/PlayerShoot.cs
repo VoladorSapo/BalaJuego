@@ -196,6 +196,7 @@ public class PlayerShoot : MonoBehaviour
                 //Muerte Melee
             }
         }
+        print(playerInput.PauseDown);
         if (playerInput.PauseDown)
         {
             ServiceLocator.Instance.Get<IGameState>().Pause();
