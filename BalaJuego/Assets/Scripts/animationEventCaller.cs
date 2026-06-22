@@ -17,7 +17,6 @@ public class animationEventCaller : MonoBehaviour
         GetComponentInParent<PlayerShoot>().endReloadAnim();
 
     }
-
     public void endMeleeAnim()
     {
         GetComponentInParent<PlayerShoot>().endMeleeAnim();

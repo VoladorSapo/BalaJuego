@@ -20,11 +20,13 @@ public class EnemyBehaviour : MonoBehaviour
     public playerDetector detector { get; private set; }
 
     [field: SerializeField] public Animator anim { get; private set; }
+    [SerializeField] public bool differentFirstShootCadence = false;
+    [field: SerializeField] public float firstShootCadence { get; private set; }
 
     [field: SerializeField] public float shootCadence { get; private set; }
     [field: SerializeField] public float shootCadenceRandomRange { get; private set; }
 
-    public float timeMagnitude { get; private set; }
+    [field: SerializeField] public float timeMagnitude { get; private set; }
 
     protected Vector3 initialPos;
 
@@ -33,7 +35,6 @@ public class EnemyBehaviour : MonoBehaviour
     [field: SerializeField] public LevelAreaController area { get; private set; }
 
     public bool canBeKilledMelee = true;
-    [SerializeField] public bool shootOnShight = false;
 
 
     public ACharacterLife life;

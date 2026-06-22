@@ -5,6 +5,8 @@ using TMPro;
 using System.Linq;
 using System.ComponentModel;
 using Unity.Collections;
+using System;
+using UnityEngine.Events;
 public class PlayerShoot : MonoBehaviour
 {
   [SerializeField]  TMP_Text textoaviso;
@@ -21,7 +23,6 @@ public class PlayerShoot : MonoBehaviour
 
   public  EnemyParentDetector stunedDetector;
 
-    cursorController cursor;
 
     [SerializeField] bool reloading;
 
@@ -50,11 +51,11 @@ public class PlayerShoot : MonoBehaviour
    [SerializeField]private GameObject currentEquipment;
     [SerializeField] private Transform equipmentParent;
 
-
+    protected UnityEvent<characterGunChangeData> playerGunChangeEvent;
     private void Awake()
     {
-        cursor = FindObjectOfType<cursorController>();
         executionCamera = GetComponentInChildren<CinemachineVirtualCamera>().gameObject;
+        playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;
     }
     private void Start()
@@ -101,7 +102,6 @@ public class PlayerShoot : MonoBehaviour
                     if (shoot.shoot())
                     {
                         textoaviso.enabled = false;
-                        cursor.empty();
                     }
                 }
             }
@@ -211,14 +211,15 @@ public class PlayerShoot : MonoBehaviour
         reloading = true;
         bulletPick.Play();
         GetComponentInChildren<IGun>().getAnim().Play("gunReload");
-        cursor.full();
+        changePlayerGun(true);
     }
     public void getInteractableObject(GameObject interactableObj)
     {
         reloading = false;
         GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
         bulletPick.Play();
-        cursor.full();
+        changePlayerGun(true,interactableObj.GetComponent<IEquipable>());
+
         currentEquipment = interactableObj;
         currentEquipment.transform.parent = equipmentParent;
         currentEquipment.transform.localPosition = Vector3.zero;
@@ -236,7 +237,6 @@ public class PlayerShoot : MonoBehaviour
     {
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         reloading = false;
-       
     }
     public void throwObject()
     {
@@ -245,7 +245,6 @@ public class PlayerShoot : MonoBehaviour
         currentEquipment.transform.parent = null;
         currentEquipment.GetComponent<IProyectile>().InstantiateBullet(GetComponent<ACharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
         GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
-
     }
     void changeState(object sender, stateData data)
     {
@@ -269,7 +268,7 @@ public class PlayerShoot : MonoBehaviour
         {
             StartCoroutine(waitTurnOFfBulletAdvice());
         }
-        cursor.empty();
+        changePlayerGun(false);
         reloading = false;
         enemyMelee = null;
         hasBottle = false;
@@ -291,5 +290,37 @@ public class PlayerShoot : MonoBehaviour
     public void returnToNormalCamera()
     {
         executionCamera.SetActive(false);
+    }
+    public void changePlayerGun(bool _hasAnything,IEquipable _equipment = null)
+    {
+        print("changeplayergun"+_hasAnything);
+        playerGunChangeEvent.Invoke(new characterGunChangeData(_hasAnything,_equipment));
+    }
+    public void subscribeToPlayerGunChange(UnityAction<characterGunChangeData> response)
+    {
+        playerGunChangeEvent?.AddListener(response);
+        
+    }
+    public void unSubscribeToPlayerGunChange(UnityAction<characterGunChangeData> response)
+    {
+        playerGunChangeEvent?.RemoveListener(response);
+
+    }
+
+    internal void endShootAnim()
+    {
+        changePlayerGun(shoot.getBullets() > 0);
+    }
+}
+
+public class characterGunChangeData
+{
+    public bool hasSomething;
+    public IEquipable equipment;
+
+    public characterGunChangeData(bool hasSomething, IEquipable equipment)
+    {
+        this.hasSomething = hasSomething;
+        this.equipment = equipment;
     }
 }

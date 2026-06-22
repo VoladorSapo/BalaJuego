@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,22 @@ public class cursorController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         shouldMove = false;
         sprite = GetComponent<SpriteRenderer>();
+        FindAnyObjectByType<PlayerShoot>().subscribeToPlayerGunChange(playerGunChange);
     }
+
+    private void playerGunChange(characterGunChangeData data)
+    {
+        if (data.hasSomething)
+        {
+            full();
+
+        }
+        else
+        {
+            empty();
+        }
+    }
+
     private void LateUpdate()
     {
 
@@ -129,4 +145,6 @@ public class cursorController : MonoBehaviour
     {
         ServiceLocator.Instance.Get<ITimeManager>().endSlow();
     }
+
+
 }

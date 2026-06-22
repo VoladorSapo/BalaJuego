@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -16,11 +17,13 @@ public class gunRotate : MonoBehaviour
 
     [SerializeField] Transform notTurn;
 
-    bool shoulRotate;
+    bool gameStateRotate;
+  [SerializeField] protected bool shouldRotate;
+    [SerializeField] Quaternion defaultRotation;
     private void FixedUpdate()
     {
-        
-        if (followMouse && Time.timeScale > 0 && shoulRotate )
+
+        if (followMouse && Time.timeScale > 0 && gameStateRotate)
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
@@ -53,34 +56,40 @@ public class gunRotate : MonoBehaviour
         }
         Vector3 reference = direction.x > 0 ? Vector3.forward : Vector3.back;
 
-        transform.rotation = Quaternion.AngleAxis(angle, reference);
+        if (shouldRotate)
+        {
+            transform.rotation = Quaternion.AngleAxis(angle, reference);
+        }
+        else
+        {
+            transform.rotation = defaultRotation;
 
-
+        }
     }
-    private void Start()
+    protected virtual void Start()
     {
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
-        shoulRotate = false;
+        gameStateRotate = false;
     }
     void changeState(object sender, stateData data)
     {
         switch (data.currentState)
         {
             case IGameState.gameState.SlowDown:
-                shoulRotate = true;
+                gameStateRotate = true;
 
 
                 break;
             case IGameState.gameState.NormalTime:
-                shoulRotate = true;
+                gameStateRotate = true;
 
 
                 break;
             case IGameState.gameState.Tutorial:
-                shoulRotate = true;
+                gameStateRotate = true;
                 break;
             default:
-                shoulRotate = false;
+                gameStateRotate = false;
                 break;
         }
     }
