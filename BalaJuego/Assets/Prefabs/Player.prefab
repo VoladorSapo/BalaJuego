@@ -285,8 +285,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1319140817180629563}
   - component: {fileID: 5734667672390154846}
-  - component: {fileID: 3111827170492394959}
-  - component: {fileID: 3283797607070126382}
+  - component: {fileID: 762390997353206681}
+  - component: {fileID: 7160610800271785794}
   - component: {fileID: 9118577169150043143}
   - component: {fileID: 707578213503709315}
   - component: {fileID: 8789493773982289791}
@@ -368,7 +368,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3111827170492394959
+--- !u!114 &762390997353206681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1060920710229837519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5ef6caabd71c8438a59cd466cef8dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e82839ec715da1449df7803c705d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followMouse: 1
@@ -386,7 +386,9 @@ MonoBehaviour:
   armAnim: {fileID: 8789493773982289791}
   parentAnim: {fileID: 3044306764865592801}
   notTurn: {fileID: 8817943855520556392}
---- !u!114 &3283797607070126382
+  shouldRotate: 0
+  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7160610800271785794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,7 +397,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1060920710229837519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9be4d655177c94381ef067a71b2967, type: 3}
+  m_Script: {fileID: 11500000, guid: 318848d4a35f3c14c948fb9cd79b4d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startBullets: 0
