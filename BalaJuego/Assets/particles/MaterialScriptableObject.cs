@@ -7,5 +7,5 @@ public class MaterialScriptableObject : ScriptableObject
 {
     //public PhysicsMaterial2D material;
     public GameObject playerParticleSet;
-
+    public GameObject bulletImpactParticles;
 }

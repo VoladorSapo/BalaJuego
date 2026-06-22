@@ -617,7 +617,7 @@ TextureImporter:
       name: desert_tiles_01_24
       rect:
         serializedVersion: 2
-        x: 240
+        x: 144
         y: 0
         width: 48
         height: 48
@@ -638,7 +638,7 @@ TextureImporter:
       name: desert_tiles_01_25
       rect:
         serializedVersion: 2
-        x: 288
+        x: 192
         y: 0
         width: 48
         height: 48
@@ -651,6 +651,48 @@ TextureImporter:
       bones: []
       spriteID: 6cbbb57a77a2feb4a9ef37906741e80b
       internalID: 1619238597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desert_tiles_01_26
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d1b13fd4f12aa4d969550b231f62e2
+      internalID: 334475672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desert_tiles_01_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ad8be721526fd46bebfe40ea8897c0
+      internalID: 2133641515
       vertices: []
       indices: 
       edges: []
@@ -685,6 +727,8 @@ TextureImporter:
       desert_tiles_01_23: -584465476
       desert_tiles_01_24: -797603538
       desert_tiles_01_25: 1619238597
+      desert_tiles_01_26: 334475672
+      desert_tiles_01_27: 2133641515
       desert_tiles_01_3: -1680655287
       desert_tiles_01_4: -84604104
       desert_tiles_01_5: -753433706

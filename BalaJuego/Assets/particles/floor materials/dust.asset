@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: dust
   m_EditorClassIdentifier: 
   playerParticleSet: {fileID: 5870619515511209166, guid: 9f6bd3ccfe2e5b6448b58e98bc7b27ca, type: 3}
+  bulletImpactParticles: {fileID: 4914665742208079505, guid: 78f6f4ef79a58a949bd511741739b93b, type: 3}

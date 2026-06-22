@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class baseBullet : MonoBehaviour,IInteractable, IProyectile
+public class baseBullet : MonoBehaviour, IInteractable, IProyectile
 {
     [Header("Data")]
     [SerializeField] bool grabable = true;
-    [field:SerializeField] public float speed { get; protected set; }
+    [field: SerializeField] public float speed { get; protected set; }
     [SerializeField] int damage = 1;
     [SerializeField] float lifeTime;
     [SerializeField] bool canHurtAll;
@@ -13,7 +13,7 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
     [SerializeField] bool Infinite;
     [SerializeField] bool onFire;
 
-
+    [SerializeField] Transform collisionParticleParent;
     [Header("Debug")]
     Vector3 direction;
 
@@ -40,6 +40,7 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         IHittable hittable = collision.gameObject.GetComponent<IHittable>();
         if (hittable != null)
         {
@@ -51,9 +52,14 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
         }
         if ((obstacleLayer & (1 << collision.gameObject.layer)) != 0)
         {
+            if (collision.TryGetComponent<MaterialInfo>(out MaterialInfo materialInfo))
+            {
+                if (materialInfo.material.bulletImpactParticles != null)
+                    Instantiate(materialInfo.material.bulletImpactParticles, collisionParticleParent);
+            }
             hitSomething(collision.gameObject);
         }
-        
+
     }
     private void Update()
     {
@@ -116,7 +122,7 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
         {
             anim.Play("bulletDestroy");
         }
-            if (obj.GetComponent<ACharacterLife>() != null)
+        if (obj.GetComponent<ACharacterLife>() != null)
         {
             if (hitParticle)
             {
@@ -207,7 +213,7 @@ public class baseBullet : MonoBehaviour,IInteractable, IProyectile
 
     public ACharacterLife getOwner() => owner;
 
-    public HittableType getHittableType()=>hitType;
+    public HittableType getHittableType() => hitType;
 
 
     public ACombatEffect getEffect() => effect.createEffect();
@@ -221,7 +227,7 @@ public enum HittableType
 }
 public class HittableCheck
 {
-    public static bool checkHit(ACharacterLife objective,ACharacterLife origin,HittableType hitType)
+    public static bool checkHit(ACharacterLife objective, ACharacterLife origin, HittableType hitType)
     {
         switch (hitType)
         {
@@ -230,7 +236,7 @@ public class HittableCheck
             case HittableType.allCharacters:
                 return true;
             case HittableType.onlyOtherTeam:
-               return objective.team != origin.team;
+                return objective.team != origin.team;
         }
         return false;
     }
@@ -242,7 +248,7 @@ public class EffectEditor
     public int type;
     public ACombatEffect createEffect()
     {
-        if(type == 0)
+        if (type == 0)
         {
             return new DamageEffect(1);
         }
