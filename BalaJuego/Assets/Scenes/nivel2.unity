@@ -82726,10 +82726,6 @@ PrefabInstance:
       propertyPath: shakeIntensity
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 496421423808515133, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.726
-      objectReference: {fileID: 0}
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
@@ -112194,6 +112190,8 @@ MonoBehaviour:
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
   notTurn: {fileID: 0}
+  shouldRotate: 0
+  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1397413578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123357,6 +123355,8 @@ MonoBehaviour:
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
   notTurn: {fileID: 870089695529101326}
+  shouldRotate: 0
+  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3249136477523517361
 GameObject:
   m_ObjectHideFlags: 0

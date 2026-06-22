@@ -29,6 +29,7 @@ public abstract class ATimeBasedEffect : ACombatEffect
 {
     public abstract float getDuration();
     protected float _currentDuration;
+    protected bool _instant;
 
     public ATimeBasedEffect()
     {
@@ -42,10 +43,7 @@ public abstract class ATimeBasedEffect : ACombatEffect
     {
         return _currentDuration <= 0;
     }
-    public override bool Instant()
-    {
-        return false;
-    }
+    public override bool Instant() => _instant;
 }
 public abstract class AInstantEffect : ACombatEffect
 {
@@ -95,8 +93,9 @@ public class StunEffect : ATimeBasedEffect
 {
     public float stunDuration { get; protected set; }
 
-    public StunEffect(float duration)
+    public StunEffect(bool infinite,float duration)
     {
+        _instant = infinite;
         stunDuration = duration;
     }
     public StunEffect()

@@ -89,6 +89,7 @@ MonoBehaviour:
   canHurtAll: 0
   Infinite: 1
   onFire: 0
+  collisionParticleParent: {fileID: 0}
   <moving>k__BackingField: 0
   hit: 0
   z: 0
@@ -101,7 +102,10 @@ MonoBehaviour:
     m_Bits: 0
   anim: {fileID: 0}
   effect:
-    type: 1
+    type: 2
+    stat: 0
+    infinite: 1
+    duration: 3
   isThrown: 0
   area: {fileID: 0}
 --- !u!1 &6389520299271862978

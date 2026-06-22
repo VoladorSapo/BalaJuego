@@ -245,16 +245,27 @@ public class HittableCheck
 [System.Serializable]
 public class EffectEditor
 {
-    public int type;
+    public EffectTypes type;
+    public int stat;
+    public bool infinite;
+    public float duration;
     public ACombatEffect createEffect()
     {
-        if (type == 0)
+        switch (type)
         {
-            return new DamageEffect(1);
+            case EffectTypes.Damage:
+                return new DamageEffect(stat);
+            case EffectTypes.AddShield:
+                return new DamageEffect(stat);
+            case EffectTypes.Stun:
+                return new StunEffect(infinite,duration);
         }
-        else
-        {
-            return new StunEffect(2);
-        }
+        return new DamageEffect(stat);
     }
+}
+public enum EffectTypes
+{
+    Damage,
+    AddShield,
+    Stun
 }
