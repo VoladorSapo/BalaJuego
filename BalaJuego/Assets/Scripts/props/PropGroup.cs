@@ -15,4 +15,8 @@ public class PropGroup
     public float maxGridOffsetX = 0.35f;
     public float maxGridOffsetY = 0.35f;
     public bool allowHorizontalFlip = true;
+
+    public string sortingLayer;
+    public int orderInLayer;
+    public bool overrideOrderInLayer;
 }

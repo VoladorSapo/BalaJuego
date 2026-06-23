@@ -2,11 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct EnemyShadowInfo
+{
+    public Transform transform;
+    public float shadowSize;
+
+    public EnemyShadowInfo(Transform transform, float shadowSize)
+    {
+        this.transform = transform;
+        this.shadowSize = shadowSize;
+    }
+}
 public class ShadowManager : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float maxRayDistance = 20f;
-    public List<Transform> EnemyTransforms = new List<Transform>(20);
+    public List<EnemyShadowInfo> EnemyTransforms = new List<EnemyShadowInfo>(20);
 
 
     private const int MAX_ENEMIES = 20; 
@@ -19,14 +30,14 @@ public class ShadowManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            if (EnemyTransforms[i] != null)
+            if (EnemyTransforms[i].transform != null)
             {
-                RaycastHit2D hit = Physics2D.Raycast(EnemyTransforms[i].position, Vector2.down, maxRayDistance, groundLayer);
+                RaycastHit2D hit = Physics2D.Raycast(EnemyTransforms[i].transform.position, Vector2.down, maxRayDistance, groundLayer);
 
                 if (hit.collider != null)
                 {
                     //Shader.SetGlobalVector("_PlayerWorldPos", hit.point);
-                    positionCache[i] = new Vector4(hit.point.x, hit.point.y, 0, hit.distance);
+                    positionCache[i] = new Vector4(hit.point.x, hit.point.y, EnemyTransforms[i].shadowSize, hit.distance);
                 }
                 else
                 {

@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorTolerance: 0.17
+    - _ColorTolerance: 1.63
     - _MaxRadius: 1
     - _ShadowOffset: 0.88
     - _ShadowShrinkSpeed: 0.2

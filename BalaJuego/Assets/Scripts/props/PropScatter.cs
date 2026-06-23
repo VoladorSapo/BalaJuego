@@ -9,7 +9,7 @@ public class PropScatter : MonoBehaviour
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private Transform propContainer;
     [SerializeField] private float yOffset;
-                     
+
     [SerializeField] private List<PropGroup> propGroups;
 
     [SerializeField] private int customSeed = 1273;
@@ -41,7 +41,7 @@ public class PropScatter : MonoBehaviour
     {
         Grid layoutGrid = tilemap.layoutGrid;
         if (layoutGrid == null) return;
-        Vector3 tileWorldBasePos = layoutGrid.CellToWorld(pos) + new Vector3(0, yOffset,0);
+        Vector3 tileWorldBasePos = layoutGrid.CellToWorld(pos) + new Vector3(0, yOffset, 0);
         Debug.Log($"Comprobando celda {layoutGrid.CellToWorld(pos)}");
         tileWorldBasePos += layoutGrid.CellToLocalInterpolated(tilemap.tileAnchor);
 
@@ -82,6 +82,12 @@ public class PropScatter : MonoBehaviour
         {
             Vector3 currentScale = spawnedProp.transform.localScale;
             spawnedProp.transform.localScale = new Vector3(-currentScale.x, currentScale.y, currentScale.z);
+            SpriteRenderer sr = spawnedProp.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.sortingLayerName = group.sortingLayer;
+                if (group.overrideOrderInLayer) sr.sortingOrder = group.orderInLayer;
+            }
         }
 
     }
