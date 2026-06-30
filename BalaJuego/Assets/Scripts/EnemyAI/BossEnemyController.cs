@@ -21,17 +21,17 @@ public class BossEnemyController : EnemyBehaviour
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();
-            ShootState shoot = new ShootState(this);
-            IdleState idle = new IdleState(this);
-            StunedState stuned = new StunedState(this);
-            ReloadState reload = new ReloadState(this);
+            EnemyShootState shoot = new EnemyShootState(this);
+            EnemyIdleState idle = new EnemyIdleState(this);
+            EnemyStunedState stuned = new EnemyStunedState(this);
+            EnemyReloadState reload = new EnemyReloadState(this);
             stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
             stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
             stateMachine.AddAnyTransition(reload, new FuncPredicate(() => Charshoot.getBullets() == 0));
             stateMachine.AddTransition(reload, idle, new FuncPredicate(() => Charshoot.getBullets() > 0));
         }
 
-        stateMachine.SetState(new IdleState(this));
+        stateMachine.SetState(new EnemyIdleState(this));
         transform.position = initialPos;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -55,7 +55,7 @@ public class BossEnemyController : EnemyBehaviour
                 Destroy(item.gameObject);
             }
             gun.SetActive(false);
-            stateMachine.ForceSetState(new StunedState(this));
+            stateMachine.ForceSetState(new EnemyStunedState(this));
         }
     }
 }

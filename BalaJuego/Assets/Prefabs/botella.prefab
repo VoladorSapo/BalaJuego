@@ -102,10 +102,11 @@ MonoBehaviour:
     m_Bits: 0
   anim: {fileID: 0}
   effect:
-    type: 2
-    stat: 0
-    infinite: 1
+    type: 0
+    stat: 1
+    infinite: 0
     duration: 3
+  effects: []
   isThrown: 0
   area: {fileID: 0}
 --- !u!1 &6389520299271862978
@@ -294,4 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2125c9cf4b0827f419e47ffde2270895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 2233878733796832633}
   HoverSize: 1.5
+  ogSize: {x: 0, y: 0, z: 0}
+  hoveredSize: {x: 0, y: 0, z: 0}

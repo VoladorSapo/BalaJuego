@@ -29398,7 +29398,7 @@ GameObject:
   - component: {fileID: 3539739329904636124}
   - component: {fileID: 2607897979270731590}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29485,7 +29485,7 @@ GameObject:
   - component: {fileID: 203304381074826425}
   - component: {fileID: 8039777573620418802}
   m_Layer: 14
-  m_Name: Capsule (1)
+  m_Name: Bala
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29588,6 +29588,10 @@ MonoBehaviour:
   anim: {fileID: 0}
   effect:
     type: 0
+    stat: 1
+    infinite: 0
+    duration: 0
+  effects: []
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -29731,6 +29735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2125c9cf4b0827f419e47ffde2270895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 2607897979270731590}
   HoverSize: 1.5
 --- !u!50 &1859179985194995055
 Rigidbody2D:

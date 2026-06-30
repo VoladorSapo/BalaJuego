@@ -37,6 +37,7 @@ public class baseBullet : MonoBehaviour, IInteractable, IProyectile
 
     [SerializeField] protected Animator anim;
     [SerializeField] private EffectEditor effect;
+    [SerializeField] private EffectEditor[] effects;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -256,7 +257,7 @@ public class EffectEditor
             case EffectTypes.Damage:
                 return new DamageEffect(stat);
             case EffectTypes.AddShield:
-                return new DamageEffect(stat);
+                return new HatEffect(stat);
             case EffectTypes.Stun:
                 return new StunEffect(infinite,duration);
         }

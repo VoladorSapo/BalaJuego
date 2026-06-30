@@ -22,9 +22,9 @@ public class HeavyEnemyController: EnemyBehaviour
         {
             stateMachine = new StateMachine();
             StartChargeState startCharge = new StartChargeState(this);
-            IdleState idle = new IdleState(this);
-            ChargeState charge = new ChargeState(this);
-            StunedState stuned = new StunedState(this);
+            EnemyIdleState idle = new EnemyIdleState(this);
+            EnemyHeavyChargeState charge = new EnemyHeavyChargeState(this);
+            EnemyStunedState stuned = new EnemyStunedState(this);
             stateMachine.AddTransition(idle, startCharge, new FuncPredicate(() => detector.reachableObjects.Count > 0));
             //stateMachine.AddTransition(startCharge, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
             stateMachine.AddTransition(startCharge, charge, new FuncPredicate(() => finishCharging == true));
@@ -33,6 +33,6 @@ public class HeavyEnemyController: EnemyBehaviour
 
             stateMachine.AddTransition(charge, idle, new FuncPredicate(() => wallDetect.wall != null));
         }
-        stateMachine.SetState(new IdleState(this));
+        stateMachine.SetState(new EnemyIdleState(this));
     }
 }

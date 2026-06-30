@@ -20,14 +20,14 @@ public class GunEnemyController : EnemyBehaviour
         if (stateMachine == null)
         {
             stateMachine = new StateMachine();
-            ShootState shoot = new ShootState(this);
-            IdleState idle = new IdleState(this);
-            StunedState stuned = new StunedState(this);
+            EnemyShootState shoot = new EnemyShootState(this);
+            EnemyIdleState idle = new EnemyIdleState(this);
+            EnemyStunedState stuned = new EnemyStunedState(this);
             stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
             stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
             stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee));
         }
-        stateMachine.SetState(new IdleState(this));
+        stateMachine.SetState(new EnemyIdleState(this));
         if (ChangeMeleeCollider)
         {
             canBeKilledMelee = true;

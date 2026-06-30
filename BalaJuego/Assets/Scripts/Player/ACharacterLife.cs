@@ -22,16 +22,22 @@ IGameState _gameStateManager;
     [SerializeField] bool CorpseBlockProjectile = false;
     public float timeMagnitude { get; private set; }
 
+    [SerializeField] bool invincibility;
+
+   public CharacterHat characterHat { get; private set; }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
 
     }
     public void Damage(int damage)
     {
-        currentLife -= damage;
-        if (currentLife <= 0)
+        if (!characterHat || characterHat.getHit())
         {
-            Die();
+            currentLife -= damage;
+            if (currentLife <= 0)
+            {
+                Die();
+            }
         }
     }
     private void Update()
@@ -56,6 +62,8 @@ IGameState _gameStateManager;
     {
         _gameStateManager = ServiceLocator.Instance.Get<IGameState>();
         activeEffects = new List<ACombatEffect>();
+        print("characterHat"+name);
+        characterHat = GetComponent<CharacterHat>();
         anim = GetComponentInChildren<Animator>();
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
@@ -82,7 +90,10 @@ IGameState _gameStateManager;
         spriteParent.SetActive(true);
         timeMagnitude = 1;
         activeEffects.Clear();
-
+        if (characterHat)
+        {
+            characterHat.resetHat();
+        }
     }
     public void checkEffect(ACombatEffect effect)
     {
@@ -97,7 +108,7 @@ IGameState _gameStateManager;
     }
     public bool getHit(IProyectile proyectile)
     {
-        if ((!dead || CorpseBlockProjectile) && HittableCheck.checkHit(this, proyectile.getOwner(), proyectile.getHittableType()))
+        if ((!dead || CorpseBlockProjectile) &&!invincibility && HittableCheck.checkHit(this, proyectile.getOwner(), proyectile.getHittableType()))
         {
             checkEffect(proyectile.getEffect());
             return true;

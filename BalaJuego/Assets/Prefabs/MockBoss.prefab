@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3525350540426811627}
   m_Layer: 0
-  m_Name: boss
+  m_Name: MockBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

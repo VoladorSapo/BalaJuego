@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4226033945394477135}
   - component: {fileID: 4845823129600930416}
   - component: {fileID: 6419809489534524762}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cursor
   m_TagString: Cursor
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1484339603
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1747259453, guid: 2dc2e2bb5591ff546afe6f22587678c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -140,10 +140,10 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0

@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class IdleState : BaseEnemyState
+public class EnemyIdleState : BaseEnemyState
 {
-    public IdleState(EnemyBehaviour _enemy)
+    public EnemyIdleState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -23,11 +23,11 @@ public class IdleState : BaseEnemyState
     }
 }
 
-public class ShootState : BaseEnemyState
+public class EnemyShootState : BaseEnemyState
 {
 
     float cadenceTime;
-    public ShootState(EnemyBehaviour _enemy)
+    public EnemyShootState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -72,10 +72,10 @@ public class StartChargeState : BaseEnemyState
 
     }
 }
-public class ReloadState : BaseEnemyState
+public class EnemyReloadState : BaseEnemyState
 {
     new BossEnemyController enemy;
-    public ReloadState(BossEnemyController _enemy)
+    public EnemyReloadState(BossEnemyController _enemy)
     {
         enemy = _enemy;
     }
@@ -87,11 +87,11 @@ public class ReloadState : BaseEnemyState
 
     }
 }
-public class ChargeState : BaseEnemyState
+public class EnemyHeavyChargeState : BaseEnemyState
 {
     new HeavyEnemyController enemy;
     float speed;
-    public ChargeState(HeavyEnemyController _enemy)
+    public EnemyHeavyChargeState(HeavyEnemyController _enemy)
     {
         enemy = _enemy;
         speed = _enemy.speed;
@@ -116,9 +116,9 @@ public class ChargeState : BaseEnemyState
         enemy.wallDetect.gameObject.SetActive(false);
     }
 }
-public class StunedState: BaseEnemyState
+public class EnemyStunedState: BaseEnemyState
 {
-    public StunedState(EnemyBehaviour _enemy)
+    public EnemyStunedState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }

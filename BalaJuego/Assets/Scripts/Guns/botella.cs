@@ -45,6 +45,7 @@ public class botella : baseBullet,IEquipable
         musicManager.Instance.PlaySoundPitch("snd_lanzabotella");
         print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
+        GetComponent<CapsuleCollider2D>().enabled = true;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         this.owner = shooter;
         anim = GetComponentInChildren<Animator>(true);

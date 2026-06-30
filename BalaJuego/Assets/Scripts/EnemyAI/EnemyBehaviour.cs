@@ -80,11 +80,11 @@ public class EnemyBehaviour : MonoBehaviour
     }
     public void getStuned()
     {
-        stateMachine.ForceSetState(new StunedState(this));
+        stateMachine.ForceSetState(new EnemyStunedState(this));
     }
     public void endStun()
     {
-        stateMachine.ForceSetState(new IdleState(this));
+        stateMachine.ForceSetState(new EnemyIdleState(this));
 
     }
     public virtual void restart(LevelAreaController _area)
