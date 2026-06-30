@@ -1,0 +1,38 @@
+#pragma kernel TakeSection
+#pragma kernel MergeSection
+
+RWTexture2D<float4> _Source;
+RWTexture2D<float4> _Destination;
+
+uint2 _MinLimits;
+uint2 _MaxLimits;
+
+uint2 _Resolution;
+uint2 _Offset;
+
+float2 _ScaleFactor;
+
+[numthreads(8, 8, 1)]
+void TakeSection(uint3 dtid : SV_DispatchThreadID)
+{
+    uint2 dstIdx = dtid.xy - _MinLimits.xy;
+    
+    if (dtid.x >= 0 && dtid.x >= _MinLimits.x && dtid.x < _MaxLimits.x && dtid.y >= 0 && dtid.y >= _MinLimits.y && dtid.y < _MaxLimits.y)
+    {   
+        _Destination[dstIdx] = _Source[dtid.xy];
+        _Source[dtid.xy] = float4(0, 0, 0, 0);
+    }
+}
+
+[numthreads(8, 8, 1)]
+void MergeSection(uint3 dtid : SV_DispatchThreadID)
+{
+    uint2 srcIdx = round((dtid.xy - _MinLimits.xy) / _ScaleFactor.xy);
+    float4 col;
+    
+    col.rgb = _Source[srcIdx.xy].rgb + (_Destination[dtid.xy].rgb * (1 - _Source[srcIdx.xy].a));
+    col.a = _Source[srcIdx.xy].a + _Destination[dtid.xy].a * (1 - _Source[srcIdx.xy].a);
+        
+    _Destination[dtid.xy] = col;
+    _Source[srcIdx.xy] = float4(0, 0, 0, 0);
+}
