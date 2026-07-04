@@ -182,11 +182,11 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
         {
             inSelect = set;
             int setI = set ? 1 : 0;
-            MaterialPropertyBlock block = new MaterialPropertyBlock();
-            GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
-            block.SetInt("_isOutlined", setI);
+            //MaterialPropertyBlock block = new MaterialPropertyBlock();
+            //GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
+            //block.SetInt("_isOutlined", setI);
             print(GetComponentInChildren<SpriteRenderer>().name);
-            GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
+            //GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
             if (!set)
             {
                 transform.localScale = new Vector3(1, 1, 1);

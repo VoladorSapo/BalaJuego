@@ -32,9 +32,9 @@ public class Throwable : ABaseProyectile,IEquipable
         GetComponent<Collider2D>().enabled = true;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         this.owner = shooter;
-        anim = GetComponentInChildren<Animator>(true);
-        if (anim != null)
-            anim.Play("bottleFly");
+        //anim = GetComponentInChildren<Animator>(true);
+        //if (anim != null)
+        //    anim.Play("bottleFly");
         moving = true;
     }
 
@@ -55,8 +55,8 @@ public class Throwable : ABaseProyectile,IEquipable
     public override void hitSomething(GameObject obj)
     {
         print("bottleHit");
-        if (anim != null)
-            anim.Play("bulletDestroy");
+        //if (anim != null)
+        //    anim.Play("bulletDestroy");
 
         //Animacion o algo
         if (obj.GetComponent<ACharacterLife>() != null)
