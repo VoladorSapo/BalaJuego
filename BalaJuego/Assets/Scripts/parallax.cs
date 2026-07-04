@@ -7,6 +7,7 @@ public class Parallax : MonoBehaviour
 {
     [SerializeField] float length, startpos, parallaxEffect;
     [SerializeField] GameObject cam;
+    [SerializeField] bool infinite = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,13 @@ public class Parallax : MonoBehaviour
         float temp = cam.transform.position.x * (1 - parallaxEffect);
         transform.position = new Vector3(startpos + distance, transform.position.y, transform.position.z);
 
-        if (temp > startpos + length) startpos += length;
-        else if (temp < startpos - length) startpos -= length;
+        if (infinite)
+        {
+            if (temp > startpos + length)
+                startpos += length;
+            else if (temp < startpos - length)
+                startpos -= length;
+        }
 
     }
 }
