@@ -11,6 +11,7 @@ TagManager:
   - TurnStun
   - SkipUI
   - SkipAdvice
+  - ShockWaveRenderer
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Player
   - Bullet
   - Totem
-  - Shield
+  - 
   - 
   - 
   - 
