@@ -41,8 +41,12 @@ public class EEffectEditor : PropertyDrawer
                     EditorGUI.PropertyField(NextRect(position), statProperty, new GUIContent("Escudo"));
                     break;
                 case EffectTypes.Stun:
+                    bool infinite = infiniteProperty.boolValue;
                     EditorGUI.PropertyField(NextRect(position), infiniteProperty, new GUIContent("Infinite"));
-                    EditorGUI.PropertyField(NextRect(position), durantionProperty, new GUIContent("StunDuration"));
+                    if (!infinite)
+                    {
+                        EditorGUI.PropertyField(NextRect(position), durantionProperty, new GUIContent("StunDuration"));
+                    }
 
                     break;
             }
@@ -58,6 +62,8 @@ public class EEffectEditor : PropertyDrawer
 
         SerializedProperty typeProperty = property.FindPropertyRelative("type");
         EffectTypes effectType = (EffectTypes)typeProperty.enumValueIndex;
+        SerializedProperty infiniteProperty = property.FindPropertyRelative("infinite");
+        bool infinite = infiniteProperty.boolValue;
 
         int lines = 2; // foldout + type
 
@@ -68,7 +74,9 @@ public class EEffectEditor : PropertyDrawer
                 lines += 1;
                 break;
             case EffectTypes.Stun:
-                lines += 2;
+                if (infinite) lines += 1;
+                else
+                    lines += 2;
                 break;
         }
 

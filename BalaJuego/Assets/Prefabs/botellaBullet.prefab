@@ -82,20 +82,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dbc7352cd634449af940182db5338f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 0
   grabable: 1
+  <speed>k__BackingField: 0
+  damage: 0
   lifeTime: 5
   canHurtAll: 0
   Infinite: 0
+  onFire: 0
+  collisionParticleParent: {fileID: 0}
+  <moving>k__BackingField: 0
   hit: 0
+  z: 0
+  hitType: 0
   hitParticle: {fileID: 0}
   impactParticle: {fileID: 0}
   inSelect: 0
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 98368
   anim: {fileID: 2650032920086899954}
+  effects: []
 --- !u!1 &6389520299271862978
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,4 +288,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2125c9cf4b0827f419e47ffde2270895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   HoverSize: 1.5

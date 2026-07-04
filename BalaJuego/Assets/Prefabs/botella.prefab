@@ -79,7 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2051294939465296080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79010fae2a1ec9344b8786efaf5496f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 93422510e36c12e4a82cab5ff81caf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grabable: 1
@@ -101,12 +101,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   anim: {fileID: 0}
-  effect:
-    type: 0
+  effects:
+  - type: 2
     stat: 1
-    infinite: 0
-    duration: 3
-  effects: []
+    infinite: 1
+    duration: 0
   isThrown: 0
   area: {fileID: 0}
 --- !u!1 &6389520299271862978
@@ -297,5 +296,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 2233878733796832633}
   HoverSize: 1.5
-  ogSize: {x: 0, y: 0, z: 0}
-  hoveredSize: {x: 0, y: 0, z: 0}

@@ -50,7 +50,7 @@ public class BossEnemyController : EnemyBehaviour
     {
         if (collision.tag == "TurnStun")
         {
-            foreach (var item in FindObjectsOfType<baseBullet>())
+            foreach (var item in FindObjectsOfType<ABaseProyectile>())
             {
                 Destroy(item.gameObject);
             }

@@ -57,6 +57,12 @@ public class PlayerWalkState : PlayerBaseState
         player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, player.MoveX * player.maxSpeed * player.timeMagnitude, useAccel * Time.fixedDeltaTime * player.timeMagnitude);
         rb2d.velocity = player.calcVelocity;
     }
+    public override void OnExit()
+    {
+        base.OnExit();
+        musicManager.Instance.StopWalking();
+
+    }
 }
 public class PlayerJumpState : PlayerBaseState
 {
@@ -119,10 +125,28 @@ public class PlayerFallState : PlayerBaseState
         rb2d.velocity = player.calcVelocity;
     }
 }
-public class PlayerDodgeRollState : PlayerBaseState
+public class PlayerStartDodgeRollState : PlayerBaseState
 {
-    public PlayerDodgeRollState(PlayerMove player) : base(player)
+    int dodgeRollDirection;
+    public PlayerStartDodgeRollState(PlayerMove player) : base(player)
     {
+    }
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        dodgeRollDirection=player.MoveX;
+    }
+}
+public class PlayerEndDodgeRollState : PlayerBaseState
+{
+    int dodgeRollDirection;
+    public PlayerEndDodgeRollState(PlayerMove player) : base(player)
+    {
+    }
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        dodgeRollDirection = player.MoveX;
     }
 }
 public class PlayerCrouchedState : PlayerBaseState

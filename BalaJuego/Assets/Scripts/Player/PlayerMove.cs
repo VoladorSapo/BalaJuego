@@ -148,7 +148,7 @@ public class PlayerMove : MonoBehaviour
             }
             hitGround = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0, Vector2.down, groundCast.size.y / 4, groudLayers);
             playerMoveStateMachine.Update();
-            print(playerMoveStateMachine.currentState());
+           // print(playerMoveStateMachine.currentState());
             coyoteTimeCurrent -= Time.deltaTime * timeMagnitude;
             jumpBufferTimeCurrent -= Time.deltaTime * timeMagnitude;
         }

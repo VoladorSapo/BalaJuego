@@ -6,7 +6,7 @@ namespace tutorial
     {
         PlayerShoot Pshoot;
         [SerializeField] botleDetector failDetector;
-       public botella botela;
+       public Throwable botela;
         protected override void Start()
         {
             print("setTUT");

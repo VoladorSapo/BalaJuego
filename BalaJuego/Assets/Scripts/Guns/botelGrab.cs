@@ -2,12 +2,12 @@
 
 public class botelGrab : MonoBehaviour
 {
-   [SerializeField] botella bul;
+   [SerializeField] Throwable bul;
     [SerializeField] float HoverSize;
 
     private void Start()
     {
-        bul = GetComponentInParent<botella>();
+        bul = GetComponentInParent<Throwable>();
     }
     private void OnMouseOver()
     {

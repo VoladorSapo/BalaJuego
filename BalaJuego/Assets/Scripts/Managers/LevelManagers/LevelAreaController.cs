@@ -8,7 +8,7 @@ public class LevelAreaController : MonoBehaviour
  [SerializeField] public  List<EnemyBehaviour> enemies;
   [SerializeField]  int aliveEnemies;
 
-    [SerializeField] List<botella> botellas;
+    [SerializeField] List<Throwable> botellas;
    public int intactBottles;
 
     [SerializeField]  GameObject colliders;
@@ -52,7 +52,7 @@ public class LevelAreaController : MonoBehaviour
             ServiceLocator.Instance.Get<ILevelController>().endArea(this);
         }
     }
-    public void destroyBottle(botella botel)
+    public void destroyBottle(Throwable botel)
     {
         if (botel.gameObject.activeSelf)
         {
@@ -75,7 +75,7 @@ public class LevelAreaController : MonoBehaviour
             enem.gameObject.SetActive(true);
             enem.restart(this);
         }
-        foreach (botella botel in botellas)
+        foreach (Throwable botel in botellas)
         {
             botel.gameObject.SetActive(true);
             botel.resTart(this);

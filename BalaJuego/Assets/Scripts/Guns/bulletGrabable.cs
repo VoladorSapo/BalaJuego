@@ -2,14 +2,14 @@
 using UnityEngine;
 public class bulletGrabable : MonoBehaviour
 {
-    baseBullet bul;
+    ABaseProyectile bul;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] float HoverSize;
     Vector3 ogSize;
     Vector3 hoveredSize;
     private void Start()
     {
-        bul = GetComponentInParent<baseBullet>();
+        bul = GetComponentInParent<ABaseProyectile>();
         ogSize = sprite.transform.localScale;
         hoveredSize = new Vector3(ogSize.x * HoverSize, ogSize.y * HoverSize, ogSize.z * HoverSize);
     }

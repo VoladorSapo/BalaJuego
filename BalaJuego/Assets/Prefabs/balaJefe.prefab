@@ -24591,9 +24591,11 @@ MonoBehaviour:
   canHurtAll: 0
   Infinite: 0
   onFire: 0
+  collisionParticleParent: {fileID: 0}
   <moving>k__BackingField: 1
   hit: 0
   z: -2
+  hitType: 0
   hitParticle: {fileID: 1690490075298846511}
   impactParticle: {fileID: 8840982200996023175}
   inSelect: 0
@@ -24601,6 +24603,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   anim: {fileID: 0}
+  effects:
+  - type: 0
+    stat: 1
+    infinite: 0
+    duration: 0
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -24744,6 +24751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2125c9cf4b0827f419e47ffde2270895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   HoverSize: 1.5
 --- !u!50 &1859179985194995055
 Rigidbody2D:

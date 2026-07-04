@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IProyectile
 {
-    public void InstantiateBullet(ACharacterLife shooter, float angle);
-    public void InstantiateBullet(ACharacterLife shooter, float angle, Vector3 pos);
+    public void ActivateProyectileMovement(ACharacterLife shooter, float angle);
+    public void ActivateProyectileMovement(ACharacterLife shooter, float angle, Vector3 pos);
 
 
     public int getDamage();
@@ -21,7 +21,7 @@ public interface IProyectile
     public bool hurtAll();
 
     public GameObject getObj();
-    public ACombatEffect getEffect();
+    public ACombatEffect[] getEffects();
 }
 
 public interface IInteractable
@@ -37,6 +37,7 @@ public interface IEquipable
 {
     public void Action(ACharacterLife shooter, float angle);
     public GameObject getObj();
+    public void setAsEquipment(Transform equipmentParent);
 
 }
 public interface IHittable

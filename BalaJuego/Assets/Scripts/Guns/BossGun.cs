@@ -46,7 +46,7 @@ public class BossGun : BaseGun
             bul = Instantiate(specialBullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
             currentRate = 0;
         }
-        bul.InstantiateBullet(character.GetComponent<ACharacterLife>(), rotate.transform.eulerAngles.z);
+        bul.ActivateProyectileMovement(character.GetComponent<ACharacterLife>(), rotate.transform.eulerAngles.z);
     }
     public override void addBullets(int bul)
     {

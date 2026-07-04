@@ -7491,7 +7491,7 @@ MonoBehaviour:
   bulletPick: {fileID: 5748250929452123459}
   shakeIntensity: 1.5
   currentEquipment: {fileID: 0}
-  equipmentParent: {fileID: 0}
+  equipmentParent: {fileID: 2854619547812020326}
 --- !u!114 &3695692683640956151
 MonoBehaviour:
   m_ObjectHideFlags: 0

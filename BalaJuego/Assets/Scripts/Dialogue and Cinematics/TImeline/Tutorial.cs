@@ -21,7 +21,7 @@ namespace tutorial
 
         public bulletDetector grabDetector;
 
-        public baseBullet bul;
+        public ABaseProyectile bul;
 
        public bool changeTutWait;
 
@@ -148,7 +148,7 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<baseBullet>().changeTimeMagnitude(this, new timeData(1,0));
+            tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<ABaseProyectile>().changeTimeMagnitude(this, new timeData(1,0));
             switch (settingManager.Instance.getLanguage())
             {
                 case Language.Spanish:

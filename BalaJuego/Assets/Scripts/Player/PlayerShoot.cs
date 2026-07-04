@@ -17,7 +17,7 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] LayerMask clickable;
 
-    ObjectDetector<baseBullet> grabDetector;
+    ObjectDetector<ABaseProyectile> grabDetector;
   botleDetector botleDetector;
 
 
@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] bool reloading;
 
 
-    botella bottleToGrab;
+    Throwable bottleToGrab;
     [SerializeField] GameObject BottlePrefab;
 
 
@@ -65,7 +65,7 @@ public class PlayerShoot : MonoBehaviour
         executionCamera.SetActive(false);
         shoot = GetComponentInChildren<IGun>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
-        grabDetector = GetComponentInChildren<ObjectDetector<baseBullet>>();
+        grabDetector = GetComponentInChildren<ObjectDetector<ABaseProyectile>>();
         botleDetector = GetComponentInChildren<botleDetector>();
 
         stunedDetector = GetComponentInChildren<EnemyParentDetector>();
@@ -196,7 +196,7 @@ public class PlayerShoot : MonoBehaviour
                 //Muerte Melee
             }
         }
-        print(playerInput.PauseDown);
+       // print(playerInput.PauseDown);
         if (playerInput.PauseDown)
         {
             ServiceLocator.Instance.Get<IGameState>().Pause();
@@ -215,14 +215,14 @@ public class PlayerShoot : MonoBehaviour
     }
     public void getInteractableObject(GameObject interactableObj)
     {
+        print(interactableObj);
         reloading = false;
         GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
         bulletPick.Play();
-        changePlayerGun(true,interactableObj.GetComponent<IEquipable>());
-
+        IEquipable equipable = interactableObj.GetComponent<IEquipable>();
+        changePlayerGun(true, equipable);
         currentEquipment = interactableObj;
-        currentEquipment.transform.parent = equipmentParent;
-        currentEquipment.transform.localPosition = Vector3.zero;
+        equipable.setAsEquipment(equipmentParent);
     }
     public void endMeleeAnim()
     {
@@ -243,7 +243,7 @@ public class PlayerShoot : MonoBehaviour
         print("throwObject");
         currentEquipment.SetActive(true);
         currentEquipment.transform.parent = null;
-        currentEquipment.GetComponent<IProyectile>().InstantiateBullet(GetComponent<ACharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
+        currentEquipment.GetComponent<IProyectile>().ActivateProyectileMovement(GetComponent<ACharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
         GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
     }
     void changeState(object sender, stateData data)

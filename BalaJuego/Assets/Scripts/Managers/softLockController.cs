@@ -50,11 +50,11 @@ public class softLockController : MonoBehaviour,IsoftLock
                 }
             }
             addAttack(currentArea.intactBottles);
-            foreach (baseBullet bul in FindObjectsOfType<baseBullet>())
+            foreach (ABaseProyectile bul in FindObjectsOfType<ABaseProyectile>())
             {
 
                 print(bul.name + bul.GetType());
-                if (bul.GetType() != typeof(botella) && !bul.hit)
+                if (bul.GetType() != typeof(Throwable) && !bul.hit)
                 {
                     addAttack(1);
                 }

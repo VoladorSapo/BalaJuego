@@ -29584,14 +29584,13 @@ MonoBehaviour:
   inSelect: 0
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 32832
+    m_Bits: 98368
   anim: {fileID: 0}
-  effect:
-    type: 0
+  effects:
+  - type: 0
     stat: 1
     infinite: 0
     duration: 0
-  effects: []
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

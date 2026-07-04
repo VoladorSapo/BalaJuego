@@ -6,7 +6,7 @@ public class BaseGun : MonoBehaviour,IGun
 
 {
 
-    [SerializeField] int startBullets;
+    [SerializeField] protected int startBullets;
     [SerializeField] protected int currentBullets;
 
 
@@ -67,7 +67,7 @@ public class BaseGun : MonoBehaviour,IGun
         currentBullets--;
         bulletCount.text = currentBullets.ToString();
         IProyectile bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
-        bul.InstantiateBullet(character.GetComponent<ACharacterLife>(),rotate.transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
+        bul.ActivateProyectileMovement(character.GetComponent<ACharacterLife>(),rotate.transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
     }
     public virtual void endShootAnim()
     {
@@ -105,5 +105,12 @@ public class BaseGun : MonoBehaviour,IGun
     public GameObject getObj()
     {
         return gameObject;
+    }
+
+    public void setAsEquipment(Transform equipmentParent)
+    {
+
+        transform.parent = equipmentParent;
+        transform.localPosition = Vector3.zero;
     }
 }

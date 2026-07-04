@@ -108,9 +108,12 @@ IGameState _gameStateManager;
     }
     public bool getHit(IProyectile proyectile)
     {
-        if ((!dead || CorpseBlockProjectile) &&!invincibility && HittableCheck.checkHit(this, proyectile.getOwner(), proyectile.getHittableType()))
+        if ((!dead || CorpseBlockProjectile) && !invincibility && HittableCheck.checkHit(this, proyectile.getOwner(), proyectile.getHittableType()))
         {
-            checkEffect(proyectile.getEffect());
+            foreach (var effect in proyectile.getEffects())
+            {
+                checkEffect(effect);
+            }
             return true;
         }
         return false;

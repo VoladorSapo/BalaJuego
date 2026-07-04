@@ -1,10 +1,10 @@
-﻿public class botleDetector : ObjectDetector<botella>
+﻿public class botleDetector : ObjectDetector<Throwable>
 {
-    public override void Hover(botella obj)
+    public override void Hover(Throwable obj)
     {
         obj.setHover(true);
     }
-    public override void UnHover(botella obj)
+    public override void UnHover(Throwable obj)
     {
         obj.setHover(false);
     }
