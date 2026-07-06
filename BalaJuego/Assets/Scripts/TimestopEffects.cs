@@ -10,18 +10,18 @@ public class TimestopEffects : MonoBehaviour
 
     Coroutine warpCoroutine, fadeInCoroutine, fadeOutCoroutine;
 
+    [Header("SHOCKWAVE")]
     [SerializeField] Material mat;
     private Renderer rend;
     private static int waveDistance = Shader.PropertyToID("_WaveDistance");
     private static int ringSpawn = Shader.PropertyToID("_RingSpawn");
     GameObject shockWaveRenderer;
-    Light2D backGroundLight;
-
-    [Header("SHOCKWAVE")]
     [SerializeField] float shockwaveTime;
     [SerializeField] private AnimationCurve warpCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
     [Header("LIGHT FADE")]
+    Light2D backGroundLight;
+    float defaultIntensity;
     [SerializeField] float fadeOutTime;
     [SerializeField] float fadeInTime;
 
@@ -31,7 +31,7 @@ public class TimestopEffects : MonoBehaviour
         shockWaveRenderer = Camera.main.transform.Find("ShockwaveRenderer").gameObject;
 
         backGroundLight = Camera.main.gameObject.GetComponentsInChildren<Light2D>(true)[0];
-        
+        defaultIntensity = backGroundLight.intensity;
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(CallWarp);
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(CallFade);
     }
@@ -82,7 +82,7 @@ public class TimestopEffects : MonoBehaviour
         {
             StopCoroutine(fadeOutCoroutine);
         }
-        float targetIntensity = .4f;
+        float targetIntensity = defaultIntensity * .4f;
         fadeInCoroutine = StartCoroutine(FadeLightIntensity(backGroundLight.intensity, targetIntensity, fadeOutTime));
     }
 
@@ -93,7 +93,7 @@ public class TimestopEffects : MonoBehaviour
         {
             StopCoroutine(fadeInCoroutine);
         }
-        float targetIntensity = 1f;
+        float targetIntensity = defaultIntensity;
         fadeInCoroutine = StartCoroutine(FadeLightIntensity(backGroundLight.intensity, targetIntensity, fadeInTime));
     }
 
