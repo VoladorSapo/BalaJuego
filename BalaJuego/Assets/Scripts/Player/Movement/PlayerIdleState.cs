@@ -175,6 +175,7 @@ public abstract class PlayerBaseState: IState
     }
     public virtual void Update()
     {
+        Debug.Log("MOveX" + (int)player.playerInput.Move);
         player.MoveX = (int)player.playerInput.Move;
     }
     public virtual void FixedUpdate()
