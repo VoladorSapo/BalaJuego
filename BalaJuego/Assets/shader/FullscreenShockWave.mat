@@ -39,9 +39,9 @@ Material:
     m_Floats:
     - _Size: 0.4
     - _Strength: -0.15
-    - _WaveDistance: -0.6
+    - _WaveDistance: 1
     m_Colors:
-    - _RingSpawn: {r: 0.5908054, g: 0.3609864, b: 0, a: 0}
+    - _RingSpawn: {r: 0.49993753, g: 0.34743613, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6799955815659141295
 MonoBehaviour:

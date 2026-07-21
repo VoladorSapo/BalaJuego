@@ -55,6 +55,8 @@ public class PlayerInput : MonoBehaviour
         StopTimeDown = stopTimeAction.action.WasPressedThisFrame();
         StopTimeUp = stopTimeAction.action.WasReleasedThisFrame();
         Move = moveAction.action.ReadValue<float>();
+        print("updatePlayerInput" + moveAction.action.ReadValue<float>() +jumpAction.action.WasPressedThisFrame());
+
     }
 
 }
