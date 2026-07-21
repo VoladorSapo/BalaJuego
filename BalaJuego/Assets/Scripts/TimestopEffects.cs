@@ -62,6 +62,7 @@ public class TimestopEffects : MonoBehaviour
         }
         if (e.currentMagnitude < 1)
         {
+            Debug.Log("PARAR TIEMPO");
             Vector3 posicionViewport = Camera.main.WorldToViewportPoint(transform.position);
             float screenX = posicionViewport.x;
             float screenY = posicionViewport.y;
@@ -70,6 +71,7 @@ public class TimestopEffects : MonoBehaviour
         }
         else
         {
+            Debug.Log("REANUDAR TIEMPO");
             shockWaveRenderer.SetActive(false);
         }
     }
