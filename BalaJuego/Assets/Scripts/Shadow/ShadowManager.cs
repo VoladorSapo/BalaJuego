@@ -13,7 +13,7 @@ public struct EnemyShadowInfo
         this.shadowSize = shadowSize;
     }
 }
-public class ShadowManager : MonoBehaviour
+public class ShadowManager : MonoBehaviour, IShadowManger
 {
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float maxRayDistance = 20f;
@@ -24,6 +24,15 @@ public class ShadowManager : MonoBehaviour
     private Vector4[] positionCache = new Vector4[MAX_ENEMIES];
 
     Vector4 dummyPosition = new Vector4(99999f, 99999f, 0, 999999f);
+
+    public void addEnemyTransform(EnemyShadowInfo info)
+    {
+        EnemyTransforms.Add(info);
+    }
+    public void removeEnemyTransform(EnemyShadowInfo info)
+    {
+        EnemyTransforms.Remove(info);
+    }
     void Update()
     {
         int count = Mathf.Min(EnemyTransforms.Count, MAX_ENEMIES);
@@ -56,4 +65,13 @@ public class ShadowManager : MonoBehaviour
         
     }
 
+    public void Instantiate()
+    {
+        throw new System.NotImplementedException();
+    }
+}
+public interface IShadowManger : IService
+{
+    public void removeEnemyTransform(EnemyShadowInfo info);
+    public void addEnemyTransform(EnemyShadowInfo info);
 }

@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class EnemyShadowHandler : MonoBehaviour
 {
-    [SerializeField] ShadowManager sM;
+    [SerializeField] IShadowManger sM;
     [SerializeField] float shadowSize = 1;
 
+    private void Start()
+    {
+        sM = ServiceLocator.Instance.Get<IShadowManger>();
+    }
     void OnEnable()
     {
-        sM.EnemyTransforms.Add(new EnemyShadowInfo(this.transform, shadowSize));
+        sM.addEnemyTransform(new EnemyShadowInfo(this.transform, shadowSize));
     }
 
     void OnDisable()
     {
-        sM.EnemyTransforms.Remove(new EnemyShadowInfo(this.transform, shadowSize));
+        sM.removeEnemyTransform(new EnemyShadowInfo(this.transform, shadowSize));
     }
 }

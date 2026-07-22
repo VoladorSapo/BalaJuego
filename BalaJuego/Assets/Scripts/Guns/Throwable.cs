@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 
-public class Throwable : ABaseProyectile,IEquipable
+public class Throwable : ABaseProyectile, IEquipable
 {
     public bool isThrown;
-  [SerializeField]  LevelAreaController area;
-    Vector3 initialPos;
+    [SerializeField] LevelAreaController area;
+    [SerializeField] Vector3 initialPos;
 
-   [SerializeField] Vector3 positionWhenEquipped;
-    [SerializeField]Vector3 rotationWhenEquipped;
+    [SerializeField] Vector3 positionWhenEquipped;
+    [SerializeField] Vector3 rotationWhenEquipped;
+
+    protected override void Start()
+    {
+        base.Start();
+        initialPos = transform.position;
+    }
     public void resTart(LevelAreaController _area)
     {
-        
+
         area = _area;
         transform.position = initialPos;
 
@@ -42,13 +48,13 @@ public class Throwable : ABaseProyectile,IEquipable
     {
         //if (area)
         //{
-            musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
-            ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
+        musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
+        ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
         if (area)
         {
             area.destroyBottle(this);
         }
-            player.getInteractableObject(gameObject);
+        player.getInteractableObject(gameObject);
 
         //}
     }
@@ -71,7 +77,7 @@ public class Throwable : ABaseProyectile,IEquipable
             musicManager.Instance.PlaySoundPitch("snd_botellarompe");
         }
         moving = false;
-        //Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.5f);
     }
 
     public void Action(ACharacterLife shooter, float angle)

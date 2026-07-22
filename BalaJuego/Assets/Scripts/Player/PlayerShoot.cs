@@ -244,6 +244,7 @@ public class PlayerShoot : MonoBehaviour
         currentEquipment.SetActive(true);
         currentEquipment.transform.parent = null;
         currentEquipment.GetComponent<IProyectile>().ActivateProyectileMovement(GetComponent<ACharacterLife>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
+        currentEquipment = null;
         GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
     }
     void changeState(object sender, stateData data)

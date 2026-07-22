@@ -9,7 +9,6 @@ public interface IProyectile
 
 
     public int getDamage();
-
     public void hitSomething(GameObject obj);
 
 
@@ -22,27 +21,4 @@ public interface IProyectile
 
     public GameObject getObj();
     public ACombatEffect[] getEffects();
-}
-
-public interface IInteractable
-{
-    public void tryGrab(PlayerShoot player);
-
-    public void setHover(bool set);
-
-    public GameObject getObj();
-}
-
-public interface IEquipable
-{
-    public void Action(ACharacterLife shooter, float angle);
-    public GameObject getObj();
-    public void setAsEquipment(Transform equipmentParent);
-
-}
-public interface IHittable
-{
-    public bool getHit(IProyectile proyectile);
-    public void Damage(int damage);
-    public void Die();
 }

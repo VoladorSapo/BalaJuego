@@ -26,6 +26,8 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public float normalGravity { get; private set; }
     [field: SerializeField] public float fallGravity { get; private set; }
 
+    [field: SerializeField] public float rollAcceleration { get; private set; }
+    [field: SerializeField] public float maxRollSpeed { get; private set; }
 
     [SerializeField] LayerMask groudLayers;
 
@@ -71,7 +73,7 @@ public class PlayerMove : MonoBehaviour
     bool canMove;
 
     RaycastHit2D hitGround;
-
+ 
 
     private void Awake()
     {
@@ -148,61 +150,10 @@ public class PlayerMove : MonoBehaviour
             }
             hitGround = Physics2D.BoxCast(groundCast.transform.position, groundCast.size, 0, Vector2.down, groundCast.size.y / 4, groudLayers);
             playerMoveStateMachine.Update();
-           // print(playerMoveStateMachine.currentState());
             coyoteTimeCurrent -= Time.deltaTime * timeMagnitude;
             jumpBufferTimeCurrent -= Time.deltaTime * timeMagnitude;
         }
-        //Vector3 start = new Vector3(groundCast.transform.position.x - groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
-        //Vector3 end = new Vector3(groundCast.transform.position.x + groundCast.size.x / 2, groundCast.transform.position.y - groundCast.size.y / 2, 0);
-        //if (hit && !onGround)
-        //{
-        //    //dustFall.gameObject.SetActive(true);
-        //    //dustFall.Play();
-
-        //    musicManager.Instance.PlaySoundPitch("snd_aterriza", 0.2f);
-        //}
-        //onGround = hit;
-        //if (!onGround) { }
-        ////    //dustWalk.Stop();
-        //UpdateAnimatorBool("isGround", onGround);
-
-        //shoot.stunedDetector.gameObject.SetActive(onGround);
-
-        //if (onGround && !jumping/* && rb2d.velocity.y <= 0*/)
-        //{
-        //    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-        //    rb2d.gravityScale = 0;
-        //    coyoteTimeCurrent = coyoteTime;
-
-        //}
-        //coyoteTimeCurrent -= Time.deltaTime;
-        //jumpBufferTimeCurrent -= Time.deltaTime;
-        //Debug.DrawLine(start, end);
-
-        //if (playerInput.JumpDown)
-        //{
-        //    jumpBufferTimeCurrent = jumpBufferTime;
-        //}
-        //if (!onGround && (playerInput.JumpUp || rb2d.velocity.y >= 0))
-        //{
-        //    rb2d.gravityScale = normalGravity;
-        //}
-        //if (!onGround && (playerInput.JumpUp || rb2d.velocity.y < 0))
-        //{
-        //    rb2d.gravityScale = fallGravity;
-        //}
-        //if (rb2d.velocity.y < 0)
-        //{
-        //    falling = true;
-        //}
-        //if (onGround && falling)
-        //{
-        //    //ustJump.gameObject.SetActive(true);
-        //    //dustJump.Play();
-        //    jumping = false;
-        //    falling = false;
-        //}
-
+      
 
 
     }
@@ -215,66 +166,6 @@ public class PlayerMove : MonoBehaviour
 
             UpdateAnimatorFloat("verticalVelocity", calcVelocity.y);
         }
-
-            //if (canMove && !isMeleeing)
-            //{
-            //    MoveX = (int)playerInput.Move;
-
-            //    calcVelocity = rb2d.velocity;
-
-            //    if (MoveX == 0)
-            //    {
-
-            //        //dustWalk.Stop();
-
-            //    }
-            //    else
-            //    {
-            //        UpdateAnimatorBool("isRunning", true);
-            //        if (onGround) { musicManager.Instance.StartWalking(); /*Debug.Log("PASOOOOOOOOOOOOOOOOOOO");*/ } else { musicManager.Instance.StopWalking(); }
-
-            //        //dustWalk.gameObject.SetActive(true);
-            //        //if (onGround) dustWalk.Play();
-            //        float useAccel = (Mathf.Abs(calcVelocity.x) == 0 || Mathf.Sign(calcVelocity.x) == MoveX) ? acceleration : turnDecceleration;
-
-            //        calcVelocity.x = Mathf.MoveTowards(calcVelocity.x, MoveX * maxSpeed * timeMagnitude, useAccel * Time.fixedDeltaTime * timeMagnitude);
-            //    }
-        //    if (calcVelocity.x > 0 && !isRotating && runningDirection != 1)
-        //    {
-        //        //dustWalk.transform.eulerAngles = new Vector3(0, 180, 0);
-        //        StartCoroutine("rotateParticle", true);
-        //        runningDirection = 1;
-        //    }
-        //    else if (calcVelocity.x < 0 && !isRotating && runningDirection != -1)
-        //    {
-        //        StartCoroutine("rotateParticle", false);
-        //        runningDirection = -1;
-        //        //dustWalk.transform.eulerAngles = new Vector3(0,0, 0);
-        //    }
-
-        //    if (calcVelocity.y < -maxFallVelocity)
-        //    {
-        //        calcVelocity.y = -maxFallVelocity;
-        //    }
-        //    rb2d.velocity = calcVelocity;
-        //    if (coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0 && !jumping)
-        //    {
-        //        //dustJump.gameObject.SetActive(true);
-        //        //dustJump.Play();
-        //        musicManager.Instance.PlayJump();
-
-        //        jumping = true;
-        //        rb2d.gravityScale = normalGravity;
-        //        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-        //        rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        //        coyoteTimeCurrent = jumpBufferTimeCurrent = 0;
-        //    }
-        //}
-        //else
-        //{
-        //    musicManager.Instance.StopWalking();
-        //}
-
     }
 
 
@@ -366,14 +257,6 @@ public class PlayerMove : MonoBehaviour
 
         }
         UpdateAnimatorSpeed(use);
-
-        //maxSpeed*=mult;
-        //acceleration*=mult;
-        //groundDecceleration*=mult;
-        //turnDecceleration*=mult;
-
-        //airDecceleration*=mult;
-        //jumpForce*=mult;
         if (data.currentMagnitude != 1)
         {
             normalGravity = mult = 1.5f;
