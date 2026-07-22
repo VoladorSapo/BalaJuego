@@ -10666,6 +10666,7 @@ GameObject:
   - component: {fileID: 4251604610716348795}
   - component: {fileID: 4959187758593255860}
   - component: {fileID: 4395345927782291892}
+  - component: {fileID: 1489283988802341729}
   m_Layer: 12
   m_Name: enemy
   m_TagString: Untagged
@@ -10806,6 +10807,20 @@ MonoBehaviour:
   life: {fileID: 0}
   FMarker: {fileID: 4919535236377916357}
   ChangeMeleeCollider: 0
+--- !u!114 &1489283988802341729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334990230608845096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80322ab46acb3eb4294e8cede0ee051d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sM: {fileID: 0}
+  shadowSize: 1
 --- !u!1 &6524739295276425207
 GameObject:
   m_ObjectHideFlags: 0
