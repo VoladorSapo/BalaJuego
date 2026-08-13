@@ -39,6 +39,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public ACharacterLife life;
 
+    [field: SerializeField] public bool DebugOn { get; private set; }
+
     [SerializeField] GameObject FMarker;
     // Start is called before the first frame update
     protected virtual void Start()
@@ -119,6 +121,32 @@ public class EnemyBehaviour : MonoBehaviour
                 if (item.name != "F")
                     item.color = new Color32(179, 42, 42, 255);
             }
+        }
+    }
+
+    public virtual void playAnimation(string animNameEnd)
+    {
+        anim.Play("enemy" + animNameEnd);
+    }
+
+    static readonly Dictionary<int, string> stateNames = new Dictionary<int, string>
+    { 
+    { Animator.StringToHash("enemyShoot"), "Shoot" },
+    { Animator.StringToHash("enemyLoad"),  "Load"  },
+    { Animator.StringToHash("enemySpot"), "Spot" },
+    { Animator.StringToHash("enemyIdleGun"),  "IdleGun"  },
+    { Animator.StringToHash("enemyIdle"), "Idle" },
+
+    };
+    public static string getAnimStateNameFromHash(int hash)
+    {
+        if (!stateNames.ContainsKey(hash))
+        {
+            return "NULL";
+        }
+        else
+        {
+           return stateNames[hash];
         }
     }
 }

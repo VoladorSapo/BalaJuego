@@ -9,11 +9,11 @@ public class EnemyShadowHandler : MonoBehaviour
 
     void OnEnable()
     {
-        sM.EnemyTransforms.Add(new EnemyShadowInfo(this.transform, shadowSize));
+      //  sM.EnemyTransforms.Add(new EnemyShadowInfo(this.transform, shadowSize));
     }
 
     void OnDisable()
     {
-        sM.EnemyTransforms.Remove(new EnemyShadowInfo(this.transform, shadowSize));
+      //  sM.EnemyTransforms.Remove(new EnemyShadowInfo(this.transform, shadowSize));
     }
 }

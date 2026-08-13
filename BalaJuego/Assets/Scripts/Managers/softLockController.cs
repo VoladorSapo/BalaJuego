@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class softLockController : MonoBehaviour,IsoftLock
+public class SoftLockController : MonoBehaviour,IsoftLock
 {
     [SerializeField] TMP_Text restart_Text;
     LevelAreaController currentArea;

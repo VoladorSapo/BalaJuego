@@ -66,7 +66,14 @@ public class animationEventCaller : MonoBehaviour
         cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
 
     }
-
+    public void gunSpawnBullet()
+    {
+        GetComponentInChildren<BaseGun>().spawnBullet();
+    }
+    public void gunEndShoot()
+    {
+        GetComponentInChildren<BaseGun>().endShootAnim();
+    }
     public void callCameraShakeEnemy()
     {
         /*

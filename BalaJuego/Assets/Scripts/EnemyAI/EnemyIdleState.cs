@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting.FullSerializer;
+﻿using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,11 +13,7 @@ public class EnemyIdleState : BaseEnemyState
     public override void OnEnter()
     { 
         Debug.Log("start Idle");
-        enemy.anim.Play("enemyIdle");
-        if (enemy.GetComponentInChildren<IGun>() != null)
-        {
-            enemy.GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
-        }
+        enemy.playAnimation("Idle");
     }
     public override void Update()
     {
@@ -35,18 +32,21 @@ public class EnemyShootState : BaseEnemyState
     public override void OnEnter()
     {
         enemy.GetComponentInChildren<IGun>().setShooting(false);
-        enemy.anim.Play("enemySpot");
-        enemy.GetComponentInChildren<IGun>().getAnim().Play("enemyGunSpot");
+        enemy.playAnimation("Spot");
         cadenceTime = enemy.differentFirstShootCadence ? enemy.firstShootCadence : enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange, enemy.shootCadenceRandomRange);
 
     }
     public override void Update()
     {
         cadenceTime -= Time.deltaTime * enemy.timeMagnitude;
-       
+        if (enemy.DebugOn)
+        {
+            LogValue("cadenceTime",cadenceTime.ToString());
+        }
         enemy.GetComponentInChildren<gunRotate>().setRotation(enemy.detector.reachableObjects[0].transform.position);
         if(cadenceTime <= 0)
         {
+            LogDebug("shoot");
             cadenceTime = enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange,enemy.shootCadenceRandomRange);
             enemy.GetComponentInChildren<IGun>().shoot();
         }
@@ -64,7 +64,7 @@ public class StartChargeState : BaseEnemyState
     public override void OnEnter()
     {
         Debug.Log("start StartCHarge");
-        enemy.anim.Play("enemySpot");
+        enemy.playAnimation("Spot");
         enemy.finishCharging = false;
 
         enemy.direction = enemy.detector.reachableObjects[0].transform.position.x > enemy.transform.position.x ? Vector3.right : Vector3.left;
@@ -100,7 +100,7 @@ public class EnemyHeavyChargeState : BaseEnemyState
     public override void OnEnter()
     {
         musicManager.Instance.StartHeavyWalking();
-        enemy.anim.Play("enemyRun");
+        enemy.playAnimation("Run");
         enemy.wallDetect.gameObject.SetActive(true);
     }
     public override void Update()
@@ -130,7 +130,7 @@ public class EnemyStunedState: BaseEnemyState
     {
         musicManager.Instance.StopHeavyWalking();
         enemy.stunedCollider.gameObject.SetActive(true);
-        enemy.anim.Play("enemyStun");
+        enemy.playAnimation("Stun");
         if(enemy.GetComponent<HeavyEnemyController>() != null)
         {
             enemy.GetComponentInChildren<WallDetector>().gameObject.SetActive(false);

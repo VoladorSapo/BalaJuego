@@ -1,13 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class EnemyShootBehaviour : StateMachineBehaviour
+public class EnemyAnimationStateBehaviour : StateMachineBehaviour
 {
+    Animator gunAnimator;
+
+    public override void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
+    {
+        Debug.Log("AnimationStateMachineEnter");
+        base.OnStateMachineEnter(animator, stateMachinePathHash);
+        gunAnimator = animator.GetComponentInChildren<IGun>().getAnim();
+    }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponentInChildren<IGun>().getAnim().Play("gunShoot");
+        gunAnimator ??= animator.GetComponentInChildren<IGun>().getAnim();
+
+        string name = EnemyBehaviour.getAnimStateNameFromHash(stateInfo.shortNameHash);
+        if (name != "NULL")
+        {
+            gunAnimator.Play("arm" + name);
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

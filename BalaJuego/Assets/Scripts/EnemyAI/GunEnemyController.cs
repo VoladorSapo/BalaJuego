@@ -33,5 +33,8 @@ public class GunEnemyController : EnemyBehaviour
             canBeKilledMelee = true;
         }
     }
-
+    public override void playAnimation(string animNameEnd)
+    {
+        base.playAnimation(animNameEnd);
+    }
 }

@@ -24,6 +24,9 @@ public class EEnemyBehaviour : Editor
     SerializedProperty FMarker;
     SerializedProperty ChangeMeleeCollider;
 
+    SerializedProperty DebugOn;
+
+
     private void OnEnable()
     {
         anim = serializedObject.FindProperty("<anim>k__BackingField");
@@ -37,11 +40,15 @@ public class EEnemyBehaviour : Editor
         canBeKilledMelee = serializedObject.FindProperty("canBeKilledMelee");
         FMarker = serializedObject.FindProperty("FMarker");
         ChangeMeleeCollider = serializedObject.FindProperty("ChangeMeleeCollider");
+        DebugOn = serializedObject.FindProperty("<DebugOn>k__BackingField");
     }
     public override void OnInspectorGUI()
     {
+        GUI.enabled = false;
+        EditorGUILayout.ObjectField("Script:", MonoScript.FromMonoBehaviour((GunEnemyController)target), typeof(GunEnemyController), false);
+        GUI.enabled = true;
         GunEnemyController gunEnemyController = (GunEnemyController)target;
-
+        EditorGUILayout.PropertyField(DebugOn);
         EditorGUILayout.PropertyField(anim);
         GUILayout.Label("Shoot Cadence Configuration", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(shootCadence);
