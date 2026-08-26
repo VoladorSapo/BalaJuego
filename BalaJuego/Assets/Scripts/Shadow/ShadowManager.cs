@@ -67,7 +67,7 @@ public class ShadowManager : MonoBehaviour, IShadowManger
 
     public void Instantiate()
     {
-        throw new System.NotImplementedException();
+
     }
 }
 public interface IShadowManger : IService

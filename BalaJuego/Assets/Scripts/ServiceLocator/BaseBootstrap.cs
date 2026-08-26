@@ -10,6 +10,7 @@ public class BaseBootstrap : MonoBehaviour, IServiceBootstrap
             ServiceLocator.Instance.Register<IGameState>(FindObjectOfType<gameStateManager>());
         ServiceLocator.Instance.Register<ILevelController>(FindObjectOfType<LevelController>());
         ServiceLocator.Instance.Register<IcutsceneManager>(FindObjectOfType<cutsceneManager>());
+        ServiceLocator.Instance.Register<IShadowManger>(FindObjectOfType<ShadowManager>());
 
         ServiceLocator.Instance.Register<IsoftLock>(FindObjectOfType<SoftLockController>());
         ServiceLocator.Instance.Register<ISaveManager>(new SaveManager());

@@ -7,12 +7,14 @@ public class EnemyShadowHandler : MonoBehaviour
     [SerializeField] IShadowManger sM;
     [SerializeField] float shadowSize = 1;
 
-    private void Start()
+    private void Awake()
     {
-        sM = ServiceLocator.Instance.Get<IShadowManger>();
+        print("ShadowAwake");
     }
     void OnEnable()
     {
+        print("ShadowEnable");
+        sM = ServiceLocator.Instance.Get<IShadowManger>();
         sM.addEnemyTransform(new EnemyShadowInfo(this.transform, shadowSize));
     }
 
