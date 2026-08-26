@@ -19,7 +19,7 @@ public class EnemyLife : ACharacterLife
             if (GetComponent<GunEnemyController>() != null)
             {
                 countText.SetActive(false);
-                gun.SetActive(false);
+                //gun.SetActive(false);
                 head?.SetActive(false);
             }
             //Sprite muerto melee
@@ -33,7 +33,7 @@ public class EnemyLife : ACharacterLife
             if (GetComponent<GunEnemyController>() != null)
             {
                 countText.SetActive(false);
-                gun.SetActive(false);
+                //gun.SetActive(false);
                 head?.SetActive(false);
             }
             if (GetComponent<HeavyEnemyController>() != null)

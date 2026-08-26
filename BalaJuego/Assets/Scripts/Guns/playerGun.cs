@@ -6,7 +6,7 @@
     public override void endShootAnim()
     {
         base.endShootAnim();
-        playerShoot.endShootAnim();
+        playerShoot.endShootAnimation();
     }
     protected override void Awake()
     {

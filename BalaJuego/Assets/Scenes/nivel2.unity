@@ -82745,6 +82745,10 @@ PrefabInstance:
       propertyPath: shakeIntensity
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2825804036634818131, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
@@ -83937,6 +83941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1109686476}
   - {fileID: 1893564042}
   - {fileID: 8495180783833278025}
   - {fileID: 167376852}
@@ -83946,7 +83951,6 @@ Transform:
   - {fileID: 1028033607}
   - {fileID: 962973900}
   - {fileID: 7404793}
-  - {fileID: 1109686476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &773390172
@@ -112615,7 +112619,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: differentFirstShootCadence
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4395345927782291892, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: <firstShootCadence>k__BackingField

@@ -21,12 +21,15 @@ public class BaseGun : MonoBehaviour,IGun
    [SerializeField] protected TMP_Text bulletCount;
 
    protected gunRotate rotate;
+
+    GunEnemyController gunEnemyController;
     protected virtual void Awake()
     {
         Assert.IsNotNull(bullet);
         Assert.IsNotNull(bullet.GetComponent< IProyectile>());
         rotate = GetComponent<gunRotate>();
         anim = GetComponent<Animator>();
+        gunEnemyController = GetComponentInParent<GunEnemyController>();
         if (bulletCount != null)
         {
             bulletCount.text = currentBullets.ToString();
@@ -48,10 +51,9 @@ public class BaseGun : MonoBehaviour,IGun
         if (currentBullets > 0 && !shooting)
         {
             shooting = true;
-            if (GetComponentInParent<GunEnemyController>() != null)
+            if (gunEnemyController != null)
             {
-                anim.Play("gunLoad", -1, 0);
-
+                gunEnemyController.playAnimation("Load");
             }
             else
             {
@@ -63,7 +65,7 @@ public class BaseGun : MonoBehaviour,IGun
     }
     public virtual void spawnBullet()
     {
-
+        print($"currentBullets {character.name}: {currentBullets}");
         currentBullets--;
         bulletCount.text = currentBullets.ToString();
         IProyectile bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();

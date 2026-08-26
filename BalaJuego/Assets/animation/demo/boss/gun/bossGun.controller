@@ -29,7 +29,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: gunLoad
+  m_Name: armLoad
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -107,7 +107,7 @@ AnimatorStateMachine:
     m_Position: {x: 490, y: -80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3719789100856841406}
-    m_Position: {x: 600, y: 10, z: 0}
+    m_Position: {x: 680, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5390317706848316639}
     m_Position: {x: 700, y: -180, z: 0}
@@ -131,7 +131,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: gunReload
+  m_Name: armReload
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -180,7 +180,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gunshot
+  m_Name: armShoot
   m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
@@ -207,7 +207,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: enemyGunAim
+  m_Name: armGunIdle
   m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions: []

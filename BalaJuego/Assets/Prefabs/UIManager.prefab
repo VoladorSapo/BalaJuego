@@ -899,8 +899,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7846880192204167819}
   - component: {fileID: 5250955618981435311}
-  - component: {fileID: 925248956382448929}
   - component: {fileID: 2687152056007140250}
+  - component: {fileID: 7093154769422654497}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -942,7 +942,20 @@ MonoBehaviour:
   PauseScreen: {fileID: 1225336185428792985}
   winScreen: {fileID: 1256345411683640698}
   menuName: MainMenu
---- !u!114 &925248956382448929
+--- !u!114 &2687152056007140250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370996184991948707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773d90efee27bd24fa075b6c61979849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 5501118377913381035}
+--- !u!114 &7093154769422654497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -957,19 +970,6 @@ MonoBehaviour:
   restart_Text: {fileID: 8267623558476228131}
   numberAttack: 0
   numberEnemies: 0
---- !u!114 &2687152056007140250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370996184991948707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773d90efee27bd24fa075b6c61979849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 5501118377913381035}
 --- !u!1 &2958579009466711187
 GameObject:
   m_ObjectHideFlags: 0

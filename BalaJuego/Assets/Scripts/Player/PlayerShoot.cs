@@ -308,7 +308,7 @@ public class PlayerShoot : MonoBehaviour
 
     }
 
-    internal void endShootAnim()
+    internal void endShootAnimation()
     {
         changePlayerGun(shoot.getBullets() > 0);
     }

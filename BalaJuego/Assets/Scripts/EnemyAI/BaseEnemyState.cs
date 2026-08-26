@@ -19,4 +19,23 @@ public abstract class BaseEnemyState : IState
     {
 
     }
+
+    /// <summary>
+    /// Debug message only if DebugOn is activated in EnemyBehaviour
+    /// </summary>
+    /// <param name="msg"></param>
+    protected void LogDebug(string msg)
+    {
+        if (enemy.DebugOn)
+        {
+            Debug.Log($"FSM DEBUG ENEMY {enemy.name}: {msg}");
+        }
+    }
+    protected void LogValue(string name,string val)
+    {
+        if (enemy.DebugOn)
+        {
+            Debug.Log($"FSM DEBUG ENEMY {enemy.name} {name}: {val}");
+        }
+    }
 }
