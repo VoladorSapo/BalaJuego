@@ -17,6 +17,8 @@ public class PlayerInput : MonoBehaviour
 
     [SerializeField] InputActionReference moveAction;
 
+    [SerializeField] InputActionReference rollAction;
+
 
     public bool ShootDown { get; private set; }
     public bool ShootUp { get; private set; }
@@ -31,6 +33,8 @@ public class PlayerInput : MonoBehaviour
     public bool StopTimeDown { get; private set; }
     public bool StopTimeUp { get; private set; }
 
+    public bool RollDown { get; private set; }
+    public bool RollUp { get; private set; }
     public float Move { get; private set; }
 
 
@@ -54,7 +58,10 @@ public class PlayerInput : MonoBehaviour
         PauseDown = pauseAction.action.WasPressedThisFrame();
         StopTimeDown = stopTimeAction.action.WasPressedThisFrame();
         StopTimeUp = stopTimeAction.action.WasReleasedThisFrame();
-        Move = moveAction.action.ReadValue<float>();
+        RollDown = rollAction.action.WasPressedThisFrame();
+        RollUp = rollAction.action.WasReleasedThisFrame(); 
+            Move = moveAction.action.ReadValue<float>();
+
         print("updatePlayerInput" + moveAction.action.ReadValue<float>() +jumpAction.action.WasPressedThisFrame());
 
     }

@@ -29,34 +29,15 @@ public class PlayerIdleState : PlayerBaseState
         rb2d.velocity = player.calcVelocity;
     }
 }
-public class PlayerDodgeRollState : PlayerBaseState
-{
-    int dodgeRollDirection;
-    public PlayerDodgeRollState(PlayerMove player) : base(player)
-    {
-    }
-    public override void OnEnter()
-    {
-        base.OnEnter();
-        dodgeRollDirection=player.MoveX;
-    }
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        float useAccel = dodgeRollDirection * player.rollAcceleration;
-        player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, player.MoveX * player.maxRollSpeed * player.timeMagnitude, useAccel * Time.fixedDeltaTime * player.timeMagnitude);
-        rb2d.velocity = player.calcVelocity;
-    }
-}
-public class PlayerEndDodgeRollState : PlayerBaseState
-{
-    int dodgeRollDirection;
-    public PlayerEndDodgeRollState(PlayerMove player) : base(player)
-    {
-    }
-    public override void OnEnter()
-    {
-        base.OnEnter();
-        dodgeRollDirection = player.MoveX;
-    }
-}
+//public class PlayerEndDodgeRollState : PlayerBaseState
+//{
+//    int dodgeRollDirection;
+//    public PlayerEndDodgeRollState(PlayerMove player) : base(player)
+//    {
+//    }
+//    public override void OnEnter()
+//    {
+//        base.OnEnter();
+//        dodgeRollDirection = player.MoveX;
+//    }
+//}

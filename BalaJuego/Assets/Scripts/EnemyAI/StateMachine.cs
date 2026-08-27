@@ -16,9 +16,19 @@ public class StateMachine
         {
             ChangeState(transition.To);
         }
-      // Debug.Log(current?.State?.ToString());
+        //Debug.Log(current?.State?.ToString());
         current?.State?.Update();
+        if (current?.State?.ShouldEnd() == true)
+        {
+            transition = GetEndTransition();
+            if (transition != null)
+            {
+                ChangeState(transition.To);
+            }
+        }
     }
+
+    
 
     public void FixedUpdate()
     {
@@ -62,10 +72,24 @@ public class StateMachine
         }
         return null;
     }
+    private ITransition GetEndTransition()
+    {
+        if (current != null && current.EndTransitions != null)
+        {
+            foreach (var transition in current.EndTransitions)
+                if (transition.Condition.Evaluate())
+                    return transition;
+        }
+        return null;
+    }
 
     public void AddTransition(IState from, IState to, IPredicate condition)
     {
         GetOrAddNode(from).AddTransition(GetOrAddNode(to).State, condition);
+    }
+    public void AddEndTransition(IState from, IState to, IPredicate condition)
+    {
+        GetOrAddNode(from).AddEndTransition(GetOrAddNode(to).State, condition);
     }
 
     public void AddAnyTransition(IState to, IPredicate condition)
@@ -97,15 +121,21 @@ class StateNode
 {
     public IState State { get; }
     public HashSet<ITransition> Transitions { get; }
+    public HashSet<ITransition> EndTransitions { get; }
 
     public StateNode(IState _state)
     {
         State = _state;
         Transitions = new HashSet<ITransition>();
+        EndTransitions = new HashSet<ITransition>();
     }
 
     public void AddTransition(IState state, IPredicate condition)
     {
         Transitions.Add(new Transition(state, condition));
+    }
+    public void AddEndTransition(IState state, IPredicate condition)
+    {
+        EndTransitions.Add(new Transition(state, condition));
     }
 }

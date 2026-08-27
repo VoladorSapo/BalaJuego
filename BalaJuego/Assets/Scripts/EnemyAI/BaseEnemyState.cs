@@ -19,6 +19,10 @@ public abstract class BaseEnemyState : IState
     {
 
     }
+    public virtual bool ShouldEnd()
+    {
+        return false;
+    }
 
     /// <summary>
     /// Debug message only if DebugOn is activated in EnemyBehaviour
@@ -38,4 +42,6 @@ public abstract class BaseEnemyState : IState
             Debug.Log($"FSM DEBUG ENEMY {enemy.name} {name}: {val}");
         }
     }
+
+  
 }

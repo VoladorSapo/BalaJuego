@@ -127,4 +127,9 @@ IGameState _gameStateManager;
     {
 
     }
+
+    public void setInvincibility(bool invincibility)
+    {
+        this.invincibility = invincibility;
+    }
 }

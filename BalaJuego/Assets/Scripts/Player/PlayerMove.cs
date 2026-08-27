@@ -14,7 +14,8 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] BoxCollider2D groundCast;
     [SerializeField] private Rigidbody2D rb2d;
-    [SerializeField] public PlayerInput playerInput;
+    [SerializeField] public PlayerInput playerInput { get; private set; }
+    [SerializeField] public PlayerLife playerLife {  get; private set; }
 
     [field: SerializeField] public float maxSpeed { get; private set; }
     [field: SerializeField] public float acceleration { get; private set; }
@@ -28,6 +29,8 @@ public class PlayerMove : MonoBehaviour
 
     [field: SerializeField] public float rollAcceleration { get; private set; }
     [field: SerializeField] public float maxRollSpeed { get; private set; }
+    [field: SerializeField] public float rollMaxSpeedTime { get; private set; }
+
 
     [SerializeField] LayerMask groudLayers;
 
@@ -86,18 +89,35 @@ public class PlayerMove : MonoBehaviour
         PlayerWalkState walk = new PlayerWalkState(this);
         PlayerJumpState jump = new PlayerJumpState(this);
         PlayerFallState fall = new PlayerFallState(this);
+        PlayerDodgeRollState roll = new PlayerDodgeRollState(this);
 
 
         FuncPredicate canJump = new FuncPredicate(() => coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0);
+        FuncPredicate canRoll = new FuncPredicate(() => playerInput.RollDown);
+
+
+        FuncPredicate anyMove = new FuncPredicate(() => MoveX != 0);
+        FuncPredicate noMove = new FuncPredicate(() => MoveX == 0);
+
         FuncPredicate onGround = new FuncPredicate(() => {  return hitGround; });
         FuncPredicate notOnGround = new FuncPredicate(() => {  return !hitGround; });
 
 
-        playerMoveStateMachine.AddTransition(idle, walk, new FuncPredicate(() => MoveX != 0));
-        playerMoveStateMachine.AddTransition(walk, idle, new FuncPredicate(() => MoveX == 0));
+        playerMoveStateMachine.AddTransition(idle, walk, anyMove);
+        playerMoveStateMachine.AddTransition(walk, idle, noMove);
         
         playerMoveStateMachine.AddTransition(idle, jump, canJump);
         playerMoveStateMachine.AddTransition(walk, jump, canJump);
+        playerMoveStateMachine.AddTransition(walk, roll, canRoll);
+        playerMoveStateMachine.AddTransition(idle, roll, canRoll);
+        playerMoveStateMachine.AddTransition(jump, roll, canRoll);
+        playerMoveStateMachine.AddTransition(fall, roll, canRoll);
+
+        playerMoveStateMachine.AddEndTransition(roll, fall, notOnGround);
+        playerMoveStateMachine.AddEndTransition(roll, walk, anyMove);
+        playerMoveStateMachine.AddEndTransition(roll, idle, noMove);
+
+
         playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() =>rb2d.velocity.y<0));
 
         playerMoveStateMachine.AddTransition(idle, fall, notOnGround);
@@ -116,6 +136,7 @@ public class PlayerMove : MonoBehaviour
         isMeleeing = false;
         rb2d = GetComponent<Rigidbody2D>();
         playerInput=GetComponent<PlayerInput>();
+        playerLife = GetComponent<PlayerLife>();    
         //dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
         //dustJump = GetComponentsInChildren<ParticleSystem>()[1];
         //dustFall = GetComponentsInChildren<ParticleSystem>()[2];
@@ -277,6 +298,12 @@ public class PlayerMove : MonoBehaviour
         headAnim.SetFloat(property, value);
         armAnim.SetFloat(property, value);
         parentAnim.SetFloat(property, value);
+    }
+    public void PlayAnimation(string animationName)
+    {
+        headAnim.Play(animationName);
+        armAnim.Play(animationName);
+        parentAnim.Play(animationName);
     }
     public void UpdateAnimatorBool(string property, bool value)
     {

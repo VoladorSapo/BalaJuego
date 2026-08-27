@@ -4,6 +4,7 @@
     IPredicate Condition { get; }
 }
 
+
 public class Transition : ITransition
 {
     public IState To { get; }

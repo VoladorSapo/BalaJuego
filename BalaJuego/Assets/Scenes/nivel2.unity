@@ -82741,6 +82741,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 22484205660860321, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: rollAction
+      value: 
+      objectReference: {fileID: 1237607093103861286, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
     - target: {fileID: 64199479102123066, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: shakeIntensity
       value: 6
@@ -82835,7 +82839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: <maxRollSpeed>k__BackingField
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: <normalGravity>k__BackingField
@@ -82855,7 +82859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: <rollAcceleration>k__BackingField
-      value: 20
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollMaxSpeedTime>k__BackingField
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: <turnDecceleration>k__BackingField
@@ -83393,7 +83401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2097444941914610614, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: botellas.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2097444941914610614, guid: 6e9fe74951646384f9fc6cb42f14b417, type: 3}
       propertyPath: enemies.Array.data[0]
@@ -92656,6 +92664,7 @@ MonoBehaviour:
   <fallGravity>k__BackingField: 0
   <rollAcceleration>k__BackingField: 0
   <maxRollSpeed>k__BackingField: 0
+  <rollMaxSpeedTime>k__BackingField: 0
   groudLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -119324,7 +119333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: 7.89
       objectReference: {fileID: 0}
     - target: {fileID: 570246489670816653, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
       propertyPath: m_LocalPosition.z

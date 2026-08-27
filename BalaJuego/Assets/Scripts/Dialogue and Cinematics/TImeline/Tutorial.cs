@@ -90,6 +90,10 @@ namespace tutorial
         {
 
         }
+        public virtual bool ShouldEnd()
+        {
+            return false;
+        }
     }
 
     public class startTutorialState : BaseTutorialState

@@ -19,4 +19,9 @@ public abstract class AMenuState : IState
     public abstract void Update();
 
     public abstract void HandleButton(string i);
+
+    public virtual bool ShouldEnd()
+    {
+        return false;
+    }
 }

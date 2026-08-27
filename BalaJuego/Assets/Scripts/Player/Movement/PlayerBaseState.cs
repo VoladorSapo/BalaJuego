@@ -26,4 +26,9 @@ public abstract class PlayerBaseState: IState
     {
 
     }
+
+    public virtual bool ShouldEnd()
+    {
+        return false;
+    }
 }
