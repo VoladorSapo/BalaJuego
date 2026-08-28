@@ -19,7 +19,12 @@ public class PlayerDodgeRollState : PlayerBaseState
         Debug.Log("START ROLL");
         player.PlayAnimation("roll");
         dodgeRollDirection = player.MoveX;
-        player.playerLife.setInvincibility(true);
+        if (!player.DEBUG_dodgewhenwalkspeedismax)
+        {
+            player.playerLife.setInvincibility(true);
+            if (player.DEBUG_canDodgeHeavy)
+                player.setGoThroughEnemies(true);
+        }
         useAcell = player.rollAcceleration;
         objspeed = player.maxRollSpeed * dodgeRollDirection;
         rollPhase = 1;
@@ -30,7 +35,7 @@ public class PlayerDodgeRollState : PlayerBaseState
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-         float realobjspeed = objspeed * player.timeMagnitude;
+        float realobjspeed = objspeed * player.timeMagnitude;
         player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, realobjspeed, useAcell * Time.fixedDeltaTime * player.timeMagnitude);
         rb2d.velocity = player.calcVelocity;
         switch (rollPhase)
@@ -39,6 +44,12 @@ public class PlayerDodgeRollState : PlayerBaseState
                 Debug.Log($"RollPhase{player.calcVelocity.x} {realobjspeed}");
                 if (Mathf.Abs(player.calcVelocity.x) >= Mathf.Abs(realobjspeed))
                 {
+                    if (player.DEBUG_dodgewhenwalkspeedismax)
+                    {
+                        player.playerLife.setInvincibility(true);
+                        if (player.DEBUG_canDodgeHeavy)
+                            player.setGoThroughEnemies(true);
+                    }
                     rollPhase = 2;
                     Debug.Log($"RollPhaseChange: {rollPhase}");
 
@@ -50,13 +61,20 @@ public class PlayerDodgeRollState : PlayerBaseState
                 {
                     rollPhase = 3;
                     //useAcell = dodgeRollDirection * player.rollAcceleration;
-                    objspeed = 0;
+                    if (player.DEBUG_endOnWalkSpeed)
+                    {
+                        objspeed = player.maxSpeed * dodgeRollDirection;
+                    }
+                    else
+                    {
+                        objspeed = 0;
+                    }
                     Debug.Log($"RollPhaseChange: {rollPhase}");
 
                 }
                 break;
-                case 3:
-                if (Mathf.Abs(player.calcVelocity.x) <= 0)
+            case 3:
+                if (Mathf.Abs(player.calcVelocity.x) <= Mathf.Abs(realobjspeed))
                 {
                     rollPhase = 4;
                     Debug.Log($"RollPhaseChange: {rollPhase}");
@@ -74,5 +92,7 @@ public class PlayerDodgeRollState : PlayerBaseState
     {
         base.OnExit();
         player.playerLife.setInvincibility(false);
+        player.setGoThroughEnemies(false);
+
     }
 }

@@ -5520,7 +5520,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -871504347
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -7425,7 +7425,6 @@ MonoBehaviour:
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 1007856941145358727}
   rb2d: {fileID: 4773227239308888931}
-  playerInput: {fileID: 0}
   <maxSpeed>k__BackingField: 10
   <acceleration>k__BackingField: 20
   <groundDecceleration>k__BackingField: 50
@@ -7434,6 +7433,12 @@ MonoBehaviour:
   <jumpForce>k__BackingField: 8
   <normalGravity>k__BackingField: 4
   <fallGravity>k__BackingField: 8
+  <rollAcceleration>k__BackingField: 100
+  <maxRollSpeed>k__BackingField: 20
+  <rollMaxSpeedTime>k__BackingField: 0.1
+  DEBUG_endOnWalkSpeed: 1
+  DEBUG_dodgewhenwalkspeedismax: 0
+  DEBUG_canDodgeHeavy: 0
   groudLayers:
     serializedVersion: 2
     m_Bits: 2112
@@ -7444,13 +7449,16 @@ MonoBehaviour:
   jumping: 0
   falling: 0
   isMeleeing: 0
-  <maxFallVelocity>k__BackingField: 6
+  <maxFallVelocity>k__BackingField: 10
   Head: {fileID: 8567168156605546741}
   gunOBJ: {fileID: 1060920710229837519}
   headAnim: {fileID: 2928602978529188245}
   armAnim: {fileID: 8789493773982289791}
   parentAnim: {fileID: 3044306764865592801}
   particles: {fileID: 0}
+  layerGoThroughOnDodge:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!114 &64199479102123066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7521,6 +7529,7 @@ MonoBehaviour:
   pauseAction: {fileID: 3207685609885026231, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
   stopTimeAction: {fileID: 2378562508972699114, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
   moveAction: {fileID: -7718421468338470922, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
+  rollAction: {fileID: 1237607093103861286, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
 --- !u!114 &5529977873563579992
 MonoBehaviour:
   m_ObjectHideFlags: 0

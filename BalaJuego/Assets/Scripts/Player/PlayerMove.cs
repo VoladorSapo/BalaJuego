@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -30,6 +31,10 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public float rollAcceleration { get; private set; }
     [field: SerializeField] public float maxRollSpeed { get; private set; }
     [field: SerializeField] public float rollMaxSpeedTime { get; private set; }
+
+    public bool DEBUG_endOnWalkSpeed;
+    public bool DEBUG_dodgewhenwalkspeedismax;
+    public bool DEBUG_canDodgeHeavy;
 
 
     [SerializeField] LayerMask groudLayers;
@@ -76,7 +81,8 @@ public class PlayerMove : MonoBehaviour
     bool canMove;
 
     RaycastHit2D hitGround;
- 
+
+   public LayerMask layerGoThroughOnDodge;
 
     private void Awake()
     {
@@ -320,5 +326,18 @@ public class PlayerMove : MonoBehaviour
         parentAnim.speed = speed;
     }
 
+
+    public void setGoThroughEnemies(bool goThroughEnemies)
+    {
+        if (goThroughEnemies)
+        {
+            GetComponent<Collider2D>().excludeLayers = rb2d.excludeLayers | layerGoThroughOnDodge;
+        }
+        else
+        {
+            GetComponent<Collider2D>().excludeLayers = rb2d.excludeLayers & ~layerGoThroughOnDodge;
+
+        }
+    }
 }
 

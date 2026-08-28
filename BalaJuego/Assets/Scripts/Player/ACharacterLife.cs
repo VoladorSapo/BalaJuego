@@ -22,7 +22,7 @@ IGameState _gameStateManager;
     [SerializeField] bool CorpseBlockProjectile = false;
     public float timeMagnitude { get; private set; }
 
-    [SerializeField] bool invincibility;
+    [SerializeField] protected bool invincibility;
 
    public CharacterHat characterHat { get; private set; }
     protected virtual void OnTriggerEnter2D(Collider2D collision)

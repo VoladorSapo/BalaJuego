@@ -82741,10 +82741,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 22484205660860321, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: rollAction
-      value: 
-      objectReference: {fileID: 1237607093103861286, guid: 0c7f6ae5358743d468c962c0b59b3072, type: 3}
     - target: {fileID: 64199479102123066, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: shakeIntensity
       value: 6
@@ -82812,66 +82808,6 @@ PrefabInstance:
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: normalGravity
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: trueMagnitude
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <maxSpeed>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <jumpForce>k__BackingField
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <coyoteTime>k__BackingField
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <fallGravity>k__BackingField
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <acceleration>k__BackingField
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <maxRollSpeed>k__BackingField
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <normalGravity>k__BackingField
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <jumpBufferTime>k__BackingField
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <maxFallVelocity>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <airDecceleration>k__BackingField
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <rollAcceleration>k__BackingField
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <rollMaxSpeedTime>k__BackingField
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <turnDecceleration>k__BackingField
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: <groundDecceleration>k__BackingField
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6144351892642108707, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Color.b
@@ -92653,7 +92589,6 @@ MonoBehaviour:
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 281882622}
   rb2d: {fileID: 1078324750}
-  playerInput: {fileID: 0}
   <maxSpeed>k__BackingField: 0
   <acceleration>k__BackingField: 0
   <groundDecceleration>k__BackingField: 0
@@ -92665,6 +92600,9 @@ MonoBehaviour:
   <rollAcceleration>k__BackingField: 0
   <maxRollSpeed>k__BackingField: 0
   <rollMaxSpeedTime>k__BackingField: 0
+  DEBUG_endOnWalkSpeed: 0
+  DEBUG_dodgewhenwalkspeedismax: 0
+  DEBUG_canDodgeHeavy: 0
   groudLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -92682,6 +92620,9 @@ MonoBehaviour:
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
   particles: {fileID: 0}
+  layerGoThroughOnDodge:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1103279981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
@@ -120205,46 +120146,6 @@ Canvas:
   m_SortingLayerID: 1484339603
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1651262839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 343974205862572992, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
-  m_PrefabInstance: {fileID: 1721133761}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &1651262841
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651262839}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.71, y: 1.01}
-  m_Direction: 1
 --- !u!1 &1663898686
 GameObject:
   m_ObjectHideFlags: 0
@@ -120784,26 +120685,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: heavy
       objectReference: {fileID: 0}
-    - target: {fileID: 7519365087032221933, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 8.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7519365087032221933, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7519365087032221933, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 8.16
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2423080946095144783, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 343974205862572992, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1651262841}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
 --- !u!1 &1724530072
 GameObject:

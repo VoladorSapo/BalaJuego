@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7519365087032221933}
-  - component: {fileID: 2423080946095144783}
   - component: {fileID: 8634059869986128235}
   - component: {fileID: 8819705170006951387}
+  - component: {fileID: 8192439847814687598}
   - component: {fileID: 8429137231238691211}
   m_Layer: 0
   m_Name: Detector
@@ -30,13 +30,41 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 18.14, y: 18.14, z: 18.14}
+  m_LocalScale: {x: 8.16, y: 8.16, z: 8.16}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1994439719249578173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2423080946095144783
-CircleCollider2D:
+--- !u!114 &8634059869986128235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343974205862572992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f463ccf2ace05ca4bad8ac0168fb137d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0.92302203, a: 0.2901961}
+  sphereSize: 13.83
+  useScale: 1
+--- !u!114 &8819705170006951387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343974205862572992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e7dc1b18e6cd49b166dacd1c9e64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reachableObjects: []
+--- !u!70 &8192439847814687598
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,36 +96,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &8634059869986128235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343974205862572992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f463ccf2ace05ca4bad8ac0168fb137d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 1, b: 0.92302203, a: 0.2901961}
-  sphereSize: 13.83
-  useScale: 1
---- !u!114 &8819705170006951387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343974205862572992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9e7dc1b18e6cd49b166dacd1c9e64e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reachableObjects: []
+  m_Size: {x: 2.71, y: 1.01}
+  m_Direction: 1
 --- !u!50 &8429137231238691211
 Rigidbody2D:
   serializedVersion: 4
@@ -336,8 +336,9 @@ GameObject:
   - component: {fileID: 4654512786018119011}
   - component: {fileID: 7599429439927201667}
   - component: {fileID: 7434739824679542089}
-  m_Layer: 0
-  m_Name: WallDetector
+  - component: {fileID: 6435976699697149236}
+  m_Layer: 14
+  m_Name: WallDetectorAndDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,6 +410,33 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 2112
+--- !u!50 &6435976699697149236
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612672710193005088}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3073707223451551484
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +761,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   melee: 0
   spriteParent: {fileID: 9219923319264188495}
+  CorpseBlockProjectile: 0
+  invincibility: 0
   gun: {fileID: 0}
   head: {fileID: 2612672710193005088}
   countText: {fileID: 6705146216415341769}
@@ -751,13 +781,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 4072682334336820030}
+  differentFirstShootCadence: 0
+  <firstShootCadence>k__BackingField: 0
   <shootCadence>k__BackingField: 0
   <shootCadenceRandomRange>k__BackingField: 0
+  <timeMagnitude>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 950568152328337870}
   <area>k__BackingField: {fileID: 0}
   canBeKilledMelee: 0
-  shootOnShight: 0
   life: {fileID: 0}
+  <DebugOn>k__BackingField: 0
   FMarker: {fileID: 2590544325893297723}
   wallDetect: {fileID: 7434739824679542089}
   direction: {x: 0, y: 0, z: 0}
@@ -5876,7 +5909,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -871504347
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -11105,7 +11138,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -871504347
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
