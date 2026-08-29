@@ -42,6 +42,7 @@ public class EnemyBehaviour : MonoBehaviour
     [field: SerializeField] public bool DebugOn { get; private set; }
 
     [SerializeField] GameObject FMarker;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -52,14 +53,13 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         IGameState.gameState state = ServiceLocator.Instance.Get<IGameState>().getState();
         if ((state == IGameState.gameState.NormalTime || state == IGameState.gameState.SlowDown) && !life.dead)
         {
             stateMachine?.Update();
         }
-
     }
     private void FixedUpdate()
     {
@@ -80,15 +80,16 @@ public class EnemyBehaviour : MonoBehaviour
     {
         timeMagnitude = data.currentMagnitude;
     }
-    public void getStuned()
-    {
-        stateMachine.ForceSetState(new EnemyStunedState(this));
-    }
-    public void endStun()
-    {
-        stateMachine.ForceSetState(new EnemyIdleState(this));
+    //public void getStuned(float stunTime)
+    //{
+    //    durationOfCurrentStun = stunTime;
+    //    stateMachine.ForceSetState(new EnemyStunedState(this));
+    //}
+    //public void endStun()
+    //{
+    //    stateMachine.ForceSetState(new EnemyIdleState(this));
 
-    }
+    //}
     public virtual void restart(LevelAreaController _area)
     {
         detector?.restart();

@@ -61,23 +61,27 @@ public class Throwable : ABaseProyectile, IEquipable
     public override void hitSomething(GameObject obj)
     {
         print("bottleHit");
-        //if (anim != null)
-        //    anim.Play("bulletDestroy");
+        if (destroyOnHit)
+        {
+            //if (anim != null)
+            //    anim.Play("bulletDestroy");
 
-        //Animacion o algo
-        if (obj.GetComponent<ACharacterLife>() != null)
-        {
-            // hitParticle.Play();
-            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
-            musicManager.Instance.PlaySoundPitch("snd_botellarompe");
+            //Animacion o algo
+            if (obj.GetComponent<ACharacterLife>() != null)
+            {
+                // hitParticle.Play();
+                musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
+                musicManager.Instance.PlaySoundPitch("snd_botellarompe");
+            }
+            else
+            {
+                //impactParticle.Play();
+                musicManager.Instance.PlaySoundPitch("snd_botellarompe");
+            }
+            moving = false;
+
+            Destroy(gameObject, 0.5f);
         }
-        else
-        {
-            //impactParticle.Play();
-            musicManager.Instance.PlaySoundPitch("snd_botellarompe");
-        }
-        moving = false;
-        Destroy(gameObject, 0.5f);
     }
 
     public void Action(ACharacterLife shooter, float angle)

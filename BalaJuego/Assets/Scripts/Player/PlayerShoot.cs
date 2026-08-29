@@ -52,6 +52,10 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform equipmentParent;
 
     protected UnityEvent<characterGunChangeData> playerGunChangeEvent;
+
+    //If player is in a state where they can shoot (not rolling, stuned, etc)
+    private bool canShoot;
+
     private void Awake()
     {
         executionCamera = GetComponentInChildren<CinemachineVirtualCamera>().gameObject;
@@ -90,7 +94,7 @@ public class PlayerShoot : MonoBehaviour
         if (playerInput.ShootDown)
         {
             print("shootpressed");
-            if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading && canShoot && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 if (currentEquipment != null)
                 {
@@ -108,7 +112,7 @@ public class PlayerShoot : MonoBehaviour
         }
         if (playerInput.InteractDown)
         {
-            if (!reloading && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading &&canShoot && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
                 if (hit)
@@ -273,7 +277,7 @@ public class PlayerShoot : MonoBehaviour
         reloading = false;
         enemyMelee = null;
         hasBottle = false;
-        
+        canShoot = true;
     }
     IEnumerator waitTurnOFfBulletAdvice()
     {
@@ -311,6 +315,11 @@ public class PlayerShoot : MonoBehaviour
     internal void endShootAnimation()
     {
         changePlayerGun(shoot.getBullets() > 0);
+    }
+
+    public void setCanShoot(bool _canShoot)
+    {
+        canShoot = _canShoot;
     }
 }
 

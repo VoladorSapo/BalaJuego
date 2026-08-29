@@ -2,14 +2,12 @@
 
 public class EnemyStunedState: BaseEnemyState
 {
+
     public EnemyStunedState(EnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
-    public override void Update()
-    {
 
-    }
     public override void OnEnter()
     {
         musicManager.Instance.StopHeavyWalking();
@@ -21,6 +19,7 @@ public class EnemyStunedState: BaseEnemyState
         }
 
     }
+    
     public override void OnExit()
     {
         Debug.Log("end stun");

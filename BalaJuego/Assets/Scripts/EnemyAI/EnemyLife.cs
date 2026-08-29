@@ -7,6 +7,8 @@ public class EnemyLife : ACharacterLife
     [SerializeField] GameObject countText;
     [SerializeField] ParticleSystem hitParticles;
     [SerializeField] Vector3 bodyMovePos;
+
+    EnemyBehaviour behaviour;
     public override void Die()
     {
         dead = true;
@@ -97,10 +99,16 @@ public class EnemyLife : ACharacterLife
 
     public override void getStuned()
     {
-        GetComponent<EnemyBehaviour>().getStuned();
+        behaviour.stateMachine.ForceSetState(new EnemyStunedState(null));
     }
     public override void endStun()
     {
-        GetComponent<EnemyBehaviour>().endStun();
+        behaviour.stateMachine.ForceEndState(new EnemyStunedState(null));
+
+    }
+    protected override void Start()
+    {
+        base.Start();
+        behaviour = GetComponent<EnemyBehaviour>();
     }
 }

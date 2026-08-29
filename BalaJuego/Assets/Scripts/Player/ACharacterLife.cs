@@ -25,6 +25,9 @@ IGameState _gameStateManager;
     [SerializeField] protected bool invincibility;
 
    public CharacterHat characterHat { get; private set; }
+
+    [SerializeField] public float durationOfCurrentStun { get; private set; }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -58,7 +61,7 @@ IGameState _gameStateManager;
     }
 
     public abstract void Die();
-    private void Start()
+    protected virtual void Start()
     {
         _gameStateManager = ServiceLocator.Instance.Get<IGameState>();
         activeEffects = new List<ACombatEffect>();
@@ -95,7 +98,7 @@ IGameState _gameStateManager;
             characterHat.resetHat();
         }
     }
-    public void checkEffect(ACombatEffect effect)
+    public void addEffect(ACombatEffect effect)
     {
         effect.Activate(this);
         print("addefect" + effect.GetType().Name);
@@ -112,13 +115,17 @@ IGameState _gameStateManager;
         {
             foreach (var effect in proyectile.getEffects())
             {
-                checkEffect(effect);
+                addEffect(effect);
             }
             return true;
         }
         return false;
     }
 
+    /// <summary>
+    /// Stun the character
+    /// </summary>
+    /// <param name="stunTime">Duration of stunTime. -1 for infinite stun</param>
     public virtual void getStuned()
     {
 

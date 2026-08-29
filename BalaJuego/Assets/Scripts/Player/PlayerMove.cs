@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Rigidbody2D rb2d;
     [SerializeField] public PlayerInput playerInput { get; private set; }
     [SerializeField] public PlayerLife playerLife {  get; private set; }
+    [SerializeField] public PlayerShoot playerShoot { get; private set; }
 
     [field: SerializeField] public float maxSpeed { get; private set; }
     [field: SerializeField] public float acceleration { get; private set; }
@@ -142,7 +143,9 @@ public class PlayerMove : MonoBehaviour
         isMeleeing = false;
         rb2d = GetComponent<Rigidbody2D>();
         playerInput=GetComponent<PlayerInput>();
-        playerLife = GetComponent<PlayerLife>();    
+        playerLife = GetComponent<PlayerLife>();
+        playerShoot = GetComponent<PlayerShoot>();
+
         //dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
         //dustJump = GetComponentsInChildren<ParticleSystem>()[1];
         //dustFall = GetComponentsInChildren<ParticleSystem>()[2];
@@ -230,9 +233,8 @@ public class PlayerMove : MonoBehaviour
         Head.SetActive(true);
         gunOBJ.SetActive(true);
         GetComponentInChildren<IGun>().restart();
-        GetComponentInChildren<PlayerShoot>().
-        GetComponentInChildren<PlayerShoot>().restart();
-        GetComponent<ACharacterLife>().restart();
+        playerShoot.restart();
+        playerLife.restart();
         canMove = true;
         isMeleeing = false;
 

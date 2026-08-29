@@ -796,6 +796,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   rb2d: {fileID: 8443046818157481121}
   <speed>k__BackingField: 4
+  <wallStunDuration>k__BackingField: 1
   finishCharging: 0
 --- !u!1 &3672812035338203666
 GameObject:

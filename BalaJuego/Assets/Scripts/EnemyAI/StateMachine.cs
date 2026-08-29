@@ -20,11 +20,7 @@ public class StateMachine
         current?.State?.Update();
         if (current?.State?.ShouldEnd() == true)
         {
-            transition = GetEndTransition();
-            if (transition != null)
-            {
-                ChangeState(transition.To);
-            }
+            endState();
         }
     }
 
@@ -46,7 +42,23 @@ public class StateMachine
         current = nodes[state.GetType()];
         current.State?.OnEnter();
     }
-
+    public void ForceEndState(IState state)
+    {
+        Debug.Log("try end state"+state.GetType()+ current.State.GetType());
+        if (state.GetType().Equals(current.State.GetType()))
+        {
+            Debug.Log("end state");
+            endState();
+        }
+    }
+    private void endState()
+    {
+       var transition = GetEndTransition();
+        if (transition != null)
+        {
+            ChangeState(transition.To);
+        }
+    }
     void ChangeState(IState state)
     {
         if (state == current.State) return;

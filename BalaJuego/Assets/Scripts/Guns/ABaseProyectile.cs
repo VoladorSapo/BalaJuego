@@ -12,6 +12,8 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
     [SerializeField] bool canHurtAll;
 
     [SerializeField] bool Infinite;
+        [SerializeField] protected bool destroyOnHit = true;
+
     [SerializeField] bool onFire;
 
     [SerializeField] Transform collisionParticleParent;
@@ -72,6 +74,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
             if (lifeTime <= 0)
             {
                 ServiceLocator.Instance.Get<IsoftLock>().checkAll();
+                print("destroy");
                 Destroy(gameObject);
             }
         }
@@ -121,7 +124,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
         print("hit");
         //Animacion o algo
         hit = true;
-        if (anim)
+        if (anim && destroyOnHit)
         {
             anim.Play("bulletDestroy");
         }
@@ -160,7 +163,11 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
         moving = false;
         GetComponent<Collider2D>().enabled = false;
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
-        Destroy(gameObject, 0.5f);
+        if (destroyOnHit)
+        {
+            print("destroy");
+            Destroy(gameObject, 0.5f);
+        }
     }
     public ACharacterLife.Team getTeam() => owner.team;
 
@@ -169,6 +176,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
     public abstract void tryGrab(PlayerShoot player);
     private void OnDestroy()
     {
+        print("DestroyBullet"+gameObject.name);
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         ServiceLocator.Instance.Get<ITimeManager>().unSubscribeToTimeChange(changeTimeMagnitude);
 
@@ -183,7 +191,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
             //MaterialPropertyBlock block = new MaterialPropertyBlock();
             //GetComponentInChildren<SpriteRenderer>().GetPropertyBlock(block, 0);
             //block.SetInt("_isOutlined", setI);
-            print(GetComponentInChildren<SpriteRenderer>().name);
+            //print(GetComponentInChildren<SpriteRenderer>().name);
             //GetComponentInChildren<SpriteRenderer>().SetPropertyBlock(block, 0);
             if (!set)
             {

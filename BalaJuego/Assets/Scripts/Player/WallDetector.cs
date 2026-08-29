@@ -1,22 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WallDetector : MonoBehaviour
 {
   public GameObject wall;
     [SerializeField] LayerMask wallLayer;
+    Action detectWallEvent;
     private void Start()
     {
         wall = null;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Ground")
+        print("trytouchwall");
+        if (collision.transform.tag == "Ground")
         {
             wall = collision.gameObject;
-            
+            print("touchwall");
+            detectWallEvent?.Invoke();
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.tag == "Ground" && wall == collision.gameObject)
         {
@@ -27,5 +32,9 @@ public class WallDetector : MonoBehaviour
     public void restart()
     {
         wall = null;
+    }
+    public void addWallDetectEvent(Action action)
+    {
+        detectWallEvent += action;
     }
 }

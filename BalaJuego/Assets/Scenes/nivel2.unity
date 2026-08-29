@@ -77968,6 +77968,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 75.41402}
   m_EdgeRadius: 0
+--- !u!1 &457328119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2612672710193005088, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+  m_PrefabInstance: {fileID: 1721133761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &457328124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457328119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93422510e36c12e4a82cab5ff81caf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabable: 0
+  <speed>k__BackingField: 0
+  damage: 0
+  lifeTime: 0
+  canHurtAll: 0
+  Infinite: 1
+  destroyOnHit: 0
+  onFire: 0
+  collisionParticleParent: {fileID: 0}
+  <moving>k__BackingField: 0
+  hit: 0
+  z: 0
+  hitType: 0
+  hitParticle: {fileID: 0}
+  impactParticle: {fileID: 0}
+  inSelect: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  anim: {fileID: 0}
+  effects:
+  - type: 0
+    stat: 1
+    infinite: 0
+    duration: 0
+  isThrown: 0
+  area: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  positionWhenEquipped: {x: 0, y: 0, z: 0}
+  rotationWhenEquipped: {x: 0, y: 0, z: 0}
 --- !u!1 &468064300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8799275002827292154, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
@@ -120685,10 +120732,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: heavy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4654512786018119011, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435976699697149236, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599429439927201667, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599429439927201667, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6435976699697149236, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2612672710193005088, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 457328124}
   m_SourcePrefab: {fileID: 100100000, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
 --- !u!1 &1724530072
 GameObject:
@@ -123365,6 +123432,7 @@ MonoBehaviour:
   lifeTime: 0
   canHurtAll: 0
   Infinite: 1
+  destroyOnHit: 1
   onFire: 0
   collisionParticleParent: {fileID: 0}
   <moving>k__BackingField: 0
