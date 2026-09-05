@@ -71,11 +71,7 @@ IGameState _gameStateManager;
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
     }
-    public virtual void meleeDeath()
-    {
-        spriteParent.SetActive(false);
-        melee = true;
-    }
+    public virtual void meleeDeath() { melee = true; }
     void changeTimeMagnitude(object sender, timeData data)
     {
         timeMagnitude = data.currentMagnitude;

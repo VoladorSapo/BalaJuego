@@ -23,6 +23,8 @@ public class LevelController : MonoBehaviour, ILevelController
 
 
     [SerializeField] bool isChurch = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -156,4 +158,6 @@ public class LevelController : MonoBehaviour, ILevelController
     {
         cutsceneEnd.PlayCutscene();
     }
+
+    public GameObject getPlayer() => player;
 }

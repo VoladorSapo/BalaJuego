@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 public interface ILevelController: IService
 {
     public void trueStart();
@@ -22,6 +23,8 @@ public interface ILevelController: IService
     public void unSubscribeToAreaStart(EventHandler<LevelAreaController> response);
 
     public void playLastCutscene();
+
+    public GameObject getPlayer();
 
 }
 public class AreaData

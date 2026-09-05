@@ -7471,6 +7471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d3cf51409bca7469087216c90822e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowDownMagnitude: 0.2
   textoaviso: {fileID: 3833163824546946754}
   playerInput: {fileID: 0}
   clickable:
@@ -7481,8 +7482,9 @@ MonoBehaviour:
   BottlePrefab: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
   anim: {fileID: 0}
   hidewhenMelee:
-  - {fileID: 8567168156605546741}
+  - {fileID: 246704284570004590}
   - {fileID: 1060920710229837519}
+  - {fileID: 6468833475734050191}
   hasBottle: 0
   stopBufferTime: 0.2
   bulletPick: {fileID: 5748250929452123459}

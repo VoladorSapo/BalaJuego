@@ -51,7 +51,7 @@ public class EnemyLife : ACharacterLife
     {
         if (melee)
         {
-            PlayerMove player = FindObjectOfType<PlayerMove>();
+            PlayerMove player = ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerMove>();
             transform.position = player.transform.position + new Vector3(bodyMovePos.x * -player.transform.localScale.x, bodyMovePos.y, bodyMovePos.z);
             transform.localScale = new Vector3(player.runningDirection, 1, 1);
             GetComponent<Rigidbody2D>().isKinematic = true;
@@ -61,7 +61,6 @@ public class EnemyLife : ACharacterLife
             GetComponent<EnemyBehaviour>().area.enemyDie(GetComponent<EnemyBehaviour>());
         }
         GetComponent<EnemyBehaviour>().setColor(false);
-
         GetComponent<EnemyBehaviour>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
@@ -96,7 +95,13 @@ public class EnemyLife : ACharacterLife
     //    }
     //    return -1;
     //}
+    public override void meleeDeath()
+    {
+        base.meleeDeath();
+        GetComponent<EnemyBehaviour>().setColor(false);
 
+        anim.Play("melee");
+    }
     public override void getStuned()
     {
         behaviour.stateMachine.ForceSetState(new EnemyStunedState(null));

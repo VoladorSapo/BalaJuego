@@ -16,6 +16,10 @@ public class EEnemyLife : Editor
             {
                 data.Die();
             }
+            if (GUILayout.Button("Stun"))
+            {
+                data.getStuned();
+            }
         }
     }
 }

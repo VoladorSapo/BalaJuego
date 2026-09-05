@@ -19,22 +19,21 @@ public class animationEventCaller : MonoBehaviour
     }
     public void endMeleeAnim()
     {
-        GetComponentInParent<PlayerShoot>().endMeleeAnim();
+        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerShoot>().endMeleeAnim();
+        GetComponentInParent<EnemyLife>().Die();
 
     }
     public void throwBottle()
     {
         GetComponentInParent<PlayerShoot>().throwObject();
-
     }
     public void finishDeeathAnim()
     {
-        if(GetComponentInParent<EnemyLife>())
-        GetComponentInParent<EnemyLife>().finishDeathAnim();
-
+        //CAMBIAR
+        if (GetComponentInParent<EnemyLife>())
+            GetComponentInParent<EnemyLife>().finishDeathAnim();
         if (GetComponentInParent<TutorialLife>())
             GetComponentInParent<TutorialLife>().finishDeathAnim();
-
     }
     public void deathHitStop(float time)
     {
@@ -48,7 +47,7 @@ public class animationEventCaller : MonoBehaviour
 
     public void returnToNormalCamera()
     {
-        GetComponentInParent<PlayerShoot>().returnToNormalCamera();
+        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerShoot>().returnToNormalCamera();
     }
 
     public void callCameraShake()

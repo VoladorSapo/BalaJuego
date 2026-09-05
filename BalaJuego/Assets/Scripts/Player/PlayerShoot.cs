@@ -9,6 +9,8 @@ using System;
 using UnityEngine.Events;
 public class PlayerShoot : MonoBehaviour
 {
+
+    [SerializeField] private float slowDownMagnitude;
   [SerializeField]  TMP_Text textoaviso;
    public IGun shoot { get; private set; }
     [SerializeField] private PlayerInput playerInput;
@@ -118,16 +120,11 @@ public class PlayerShoot : MonoBehaviour
                 if (hit)
                 {
                     IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
-                    print((interactableObject != null) + "" +  grabDetector.reachableObjects.Contains(interactableObject));
                     if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
                         interactableObject.tryGrab(this);
                     }
-                    //bottleToGrab = hit.collider.GetComponentInParent<botella>();
-                    //if (bottleToGrab != null && botleDetector.reachableObjects.Contains(bottleToGrab))
-                    //{
-                    //    bottleToGrab.tryGrab(this);
-                    //}
+                    
                 }
             }
         }
@@ -146,7 +143,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 stopBufferTimeCurrent = 0;
                 musicManager.Instance.PlaySound("snd_startslowtime");
-                ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(0.2f);
+                ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(slowDownMagnitude);
                 textoaviso.enabled = false;
 
             }
@@ -169,35 +166,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if(stunedDetector.reachableObjects.Count > 0 && GetComponent<PlayerMove>().onGround)
             {
-                if (stunedDetector.reachableObjects[0].GetComponent<HeavyEnemyController>() != null)
-                {
-                    executionCamera.SetActive(true);
-                    anim.Play("heavyMelee");
-                    musicManager.Instance.PlaySoundPitch("snd_melee");
-                }
-                if (stunedDetector.reachableObjects[0].GetComponent<GunEnemyController>() != null)
-                {
-                    executionCamera.SetActive(true);
-                    anim.Play("basicEnemyMelee");
-                    musicManager.Instance.PlaySoundPitch("snd_melee");
-                }
-                if (stunedDetector.reachableObjects[0].GetComponent<BossEnemyController>() != null)
-                {
-                    musicManager.Instance.PlaySoundPitch("snd_melee");
-                    musicManager.Instance.FadeOutCurrentSong();
-                    ServiceLocator.Instance.Get<ILevelController>().playLastCutscene();
-
-                }
-                foreach (GameObject item in hidewhenMelee)
-                {
-                    item.SetActive(false);
-                }
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                GetComponent<PlayerMove>().isMeleeing = true;
-
-                enemyMelee = stunedDetector.reachableObjects[0].GetComponent<ACharacterLife>();
-                stunedDetector.reachableObjects[0].GetComponent<ACharacterLife>().meleeDeath();
-                //Muerte Melee
+                killMelee(stunedDetector.reachableObjects[0].GetComponent<ACharacterLife>());
             }
         }
        // print(playerInput.PauseDown);
@@ -208,6 +177,22 @@ public class PlayerShoot : MonoBehaviour
 
         
 
+    }
+    public void killMelee(ACharacterLife enemy)
+    {
+        executionCamera.SetActive(true);
+        musicManager.Instance.PlaySoundPitch("snd_melee");
+
+
+        foreach (GameObject item in hidewhenMelee)
+        {
+            item.SetActive(false);
+        }
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<PlayerMove>().isMeleeing = true;
+
+        enemyMelee = enemy;
+        enemy.GetComponent<ACharacterLife>().meleeDeath();
     }
     public void getBullet()
     {
@@ -234,8 +219,8 @@ public class PlayerShoot : MonoBehaviour
         {
             item.SetActive(true);
         }
+        GetComponentInChildren<IGun>().getAnim().Play("gunReload");
         GetComponent<PlayerMove>().isMeleeing = false;
-        enemyMelee.Die();
     }
     public void endReloadAnim()
     {
