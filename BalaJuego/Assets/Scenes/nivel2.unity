@@ -82792,22 +82792,6 @@ PrefabInstance:
       propertyPath: shakeIntensity
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 64199479102123066, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: slowDownMagnitude
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 64199479102123066, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: hidewhenMelee.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 64199479102123066, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: hidewhenMelee.Array.data[0]
-      value: 
-      objectReference: {fileID: 1854406559}
-    - target: {fileID: 64199479102123066, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-      propertyPath: hidewhenMelee.Array.data[2]
-      value: 
-      objectReference: {fileID: 657421067}
     - target: {fileID: 2825804036634818131, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -83274,11 +83258,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf76d8bfd22c113418b3acd45ad7f20d, type: 3}
---- !u!1 &657421067 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6468833475734050191, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-  m_PrefabInstance: {fileID: 506894781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &657915302
 GameObject:
   m_ObjectHideFlags: 0
@@ -121513,11 +121492,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1854406559 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 246704284570004590, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
-  m_PrefabInstance: {fileID: 506894781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1855819316
 GameObject:
   m_ObjectHideFlags: 0
