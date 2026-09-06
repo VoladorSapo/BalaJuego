@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 2871250381920407812}
   - component: {fileID: 8443046818157481121}
   - component: {fileID: 8081257908579287153}
-  - component: {fileID: 5440004477592222517}
+  - component: {fileID: 1690854785696709629}
   m_Layer: 12
   m_Name: heavy
   m_TagString: Untagged
@@ -768,7 +768,7 @@ MonoBehaviour:
   countText: {fileID: 6705146216415341769}
   hitParticles: {fileID: 1861715813229120179}
   bodyMovePos: {x: 0, y: 0, z: 0}
---- !u!114 &5440004477592222517
+--- !u!114 &1690854785696709629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3639849514869700653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a8ea36dc0f1f848914f7faed53abd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1beddd2e9cfe1a14483e384b07685edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 4072682334336820030}
@@ -789,7 +789,7 @@ MonoBehaviour:
   <stunedCollider>k__BackingField: {fileID: 950568152328337870}
   <area>k__BackingField: {fileID: 0}
   canBeKilledMelee: 0
-  life: {fileID: 0}
+  life: {fileID: 8081257908579287153}
   <DebugOn>k__BackingField: 0
   FMarker: {fileID: 2590544325893297723}
   wallDetect: {fileID: 7434739824679542089}

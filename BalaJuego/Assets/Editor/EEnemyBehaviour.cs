@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(GunEnemyController))]
+[CustomEditor(typeof(GunEnemyBehaviour))]
 public class EEnemyBehaviour : Editor
 {
 
@@ -45,9 +45,9 @@ public class EEnemyBehaviour : Editor
     public override void OnInspectorGUI()
     {
         GUI.enabled = false;
-        EditorGUILayout.ObjectField("Script:", MonoScript.FromMonoBehaviour((GunEnemyController)target), typeof(GunEnemyController), false);
+        EditorGUILayout.ObjectField("Script:", MonoScript.FromMonoBehaviour((GunEnemyBehaviour)target), typeof(GunEnemyBehaviour), false);
         GUI.enabled = true;
-        GunEnemyController gunEnemyController = (GunEnemyController)target;
+        GunEnemyBehaviour gunEnemyController = (GunEnemyBehaviour)target;
         EditorGUILayout.PropertyField(DebugOn);
         EditorGUILayout.PropertyField(anim);
         GUILayout.Label("Shoot Cadence Configuration", EditorStyles.boldLabel);

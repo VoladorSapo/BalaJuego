@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class EnemyIdleState : BaseEnemyState
 {
-    public EnemyIdleState(EnemyBehaviour _enemy)
+    public EnemyIdleState(AEnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -24,7 +24,7 @@ public class EnemyShootState : BaseEnemyState
 {
 
     float cadenceTime;
-    public EnemyShootState(EnemyBehaviour _enemy)
+    public EnemyShootState(AEnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }
@@ -55,8 +55,8 @@ public class EnemyShootState : BaseEnemyState
 
 public class StartChargeState : BaseEnemyState
 {
-    new HeavyEnemyController enemy;
-    public StartChargeState(HeavyEnemyController _enemy)
+    new HeavyEnemyBehaviour enemy;
+    public StartChargeState(HeavyEnemyBehaviour _enemy)
     {
         enemy = _enemy;
     }

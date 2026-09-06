@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HeavyEnemyController: EnemyBehaviour
+public class HeavyEnemyBehaviour: AEnemyBehaviour
 {
 
     [SerializeField]public WallDetector wallDetect;
@@ -13,17 +13,16 @@ public class HeavyEnemyController: EnemyBehaviour
     public bool finishCharging;
 
 
-    public void setUpStateMachine()
+    public override void setUpStateMachine()
     {
         stateMachine = new StateMachine();
         StartChargeState startCharge = new StartChargeState(this);
         EnemyIdleState idle = new EnemyIdleState(this);
         EnemyHeavyChargeState charge = new EnemyHeavyChargeState(this);
-        EnemyStunedState stuned = new EnemyStunedState(this);
+        HeavyStunedState stuned = new HeavyStunedState(this);
 
         FuncPredicate detectPlayer = new FuncPredicate(() => detector.reachableObjects.Count > 0);
         FuncPredicate dontDetectPlayer = new FuncPredicate(() => detector.reachableObjects.Count == 0);
-
         stateMachine.AddTransition(idle, startCharge, detectPlayer);
         //stateMachine.AddTransition(startCharge, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
         stateMachine.AddTransition(startCharge, charge, new FuncPredicate(() => finishCharging == true));
@@ -34,8 +33,8 @@ public class HeavyEnemyController: EnemyBehaviour
 
         stateMachine.AddEndTransition(stuned, idle, dontDetectPlayer);
         stateMachine.AddEndTransition(stuned,idle,detectPlayer);
+        stateMachine.setDefaultState(idle);
 
-        print(life);
        wallDetect.addWallDetectEvent(() => { print("HEAVYSTUN"); life.addEffect(new StunEffect(false, wallStunDuration)); });
     }
     
@@ -46,13 +45,15 @@ public class HeavyEnemyController: EnemyBehaviour
         base.restart(_area);
         wallDetect.gameObject.SetActive(false);
 
-        if (stateMachine == null)
-        {
-            setUpStateMachine();
-        }
-        stateMachine.SetState(new EnemyIdleState(this));
+        
+    }
+    public override void startStunState()
+    {
+        stateMachine.SetState(new HeavyStunedState(null));
+    }
+    public override void endStunState()
+    {
+        stateMachine.ForceEndState(new HeavyStunedState(null));
     }
 
-
-   
 }

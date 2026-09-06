@@ -7,6 +7,8 @@ public class BossLife: ACharacterLife
 
     }
 
+   
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bullet")

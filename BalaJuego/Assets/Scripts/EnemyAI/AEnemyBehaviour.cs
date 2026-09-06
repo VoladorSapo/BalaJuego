@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public abstract class AEnemyBehaviour : MonoBehaviour
 {
     public IState currentState()
     {
@@ -42,6 +42,9 @@ public class EnemyBehaviour : MonoBehaviour
     [field: SerializeField] public bool DebugOn { get; private set; }
 
     [SerializeField] GameObject FMarker;
+
+    public abstract void setUpStateMachine();
+
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -100,7 +103,11 @@ public class EnemyBehaviour : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         timeMagnitude = 1;
         area = _area;
-
+        if (stateMachine == null)
+        {
+            setUpStateMachine();
+        }
+        stateMachine.restart();
 
     }
     public void setColor(bool on)
@@ -149,5 +156,14 @@ public class EnemyBehaviour : MonoBehaviour
         {
            return stateNames[hash];
         }
+    }
+
+    public virtual void startStunState()
+    {
+        stateMachine.ForceSetState(new EnemyStunedState(null));
+    }
+    public virtual void endStunState()
+    {
+        stateMachine.ForceEndState(new EnemyStunedState(null));
     }
 }

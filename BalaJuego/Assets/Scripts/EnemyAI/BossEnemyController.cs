@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class BossEnemyController : EnemyBehaviour
+public class BossEnemyController : AEnemyBehaviour
 {
     IGun Charshoot;
     [SerializeField] GameObject gun;
@@ -18,18 +18,7 @@ public class BossEnemyController : EnemyBehaviour
         base.restart(_area);
         gun.SetActive(true);
         GetComponentInChildren<BossGun>().restart();
-        if (stateMachine == null)
-        {
-            stateMachine = new StateMachine();
-            EnemyShootState shoot = new EnemyShootState(this);
-            EnemyIdleState idle = new EnemyIdleState(this);
-            EnemyStunedState stuned = new EnemyStunedState(this);
-            EnemyReloadState reload = new EnemyReloadState(this);
-            stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
-            stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
-            stateMachine.AddAnyTransition(reload, new FuncPredicate(() => Charshoot.getBullets() == 0));
-            stateMachine.AddTransition(reload, idle, new FuncPredicate(() => Charshoot.getBullets() > 0));
-        }
+    
 
         stateMachine.SetState(new EnemyIdleState(this));
         transform.position = initialPos;
@@ -57,5 +46,19 @@ public class BossEnemyController : EnemyBehaviour
             gun.SetActive(false);
             stateMachine.ForceSetState(new EnemyStunedState(this));
         }
+    }
+
+    public override void setUpStateMachine()
+    {
+        stateMachine = new StateMachine();
+        EnemyShootState shoot = new EnemyShootState(this);
+        EnemyIdleState idle = new EnemyIdleState(this);
+        EnemyStunedState stuned = new EnemyStunedState(this);
+        EnemyReloadState reload = new EnemyReloadState(this);
+        stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
+        stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
+        stateMachine.AddAnyTransition(reload, new FuncPredicate(() => Charshoot.getBullets() == 0));
+        stateMachine.AddTransition(reload, idle, new FuncPredicate(() => Charshoot.getBullets() > 0));
+        stateMachine.setDefaultState(idle);
     }
 }

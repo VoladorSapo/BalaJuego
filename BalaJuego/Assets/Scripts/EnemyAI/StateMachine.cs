@@ -9,6 +9,7 @@ public class StateMachine
     StateNode current;
     Dictionary<Type, StateNode> nodes = new();
     HashSet<ITransition> anyTransitions = new();
+    Type defaultState;
     public void Update()
     {
         var transition = GetTransition();
@@ -31,10 +32,28 @@ public class StateMachine
         current?.State?.FixedUpdate();
     }
 
+    public void setDefaultState(IState state)
+    {
+        defaultState = state.GetType();
+    }
+    public void restart()
+    {
+        if(defaultState == null)
+        {
+            throw new Exception("Default State not Set exception");
+        }
+        SetState(defaultState);
+    }
+    private void SetState(Type type)
+    {
+        current = nodes[type];
+        current.State?.OnEnter();
+    }
     public void SetState(IState state)
     {
         current = nodes[state.GetType()];
         current.State?.OnEnter();
+        
     }
     public void ForceSetState(IState state)
     {

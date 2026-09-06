@@ -5,46 +5,46 @@ using Cinemachine;
 
 public class LevelAreaController : MonoBehaviour
 {
- [SerializeField] public  List<EnemyBehaviour> enemies;
-  [SerializeField]  int aliveEnemies;
+    [SerializeField] public List<AEnemyBehaviour> enemies;
+    [SerializeField] int aliveEnemies;
 
     [SerializeField] List<Throwable> botellas;
-   public int intactBottles;
+    public int intactBottles;
 
-    [SerializeField]  GameObject colliders;
+    [SerializeField] GameObject colliders;
 
     CinemachineVirtualCamera virtCamera;
 
     bool started;
-  [field:SerializeField] public  BoxCollider2D startCollider { get; private set; }
+    [field: SerializeField] public BoxCollider2D startCollider { get; private set; }
     [field: SerializeField] public BoxCollider2D endCollider { get; private set; }
 
     [field: SerializeField] public BoxCollider2D startTrigger { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             print("hey");
             started = true;
             ServiceLocator.Instance.Get<ILevelController>().startArea(this);
-            
+
             startCollider.gameObject.SetActive(true);
             endCollider.gameObject.SetActive(true);
-           startTrigger.gameObject.SetActive(false);
+            startTrigger.gameObject.SetActive(false);
 
             enemyDie(null);
 
         }
     }
-    public void enemyDie(EnemyBehaviour enemy)
+    public void enemyDie(AEnemyBehaviour enemy)
     {
         if (enemy != null && enemy.gameObject.activeSelf)
         {
             aliveEnemies--;
             ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         }
-        if(started && aliveEnemies == 0)
+        if (started && aliveEnemies == 0)
         {
             endCollider.gameObject.SetActive(false);
             startTrigger.gameObject.SetActive(false);
@@ -70,8 +70,9 @@ public class LevelAreaController : MonoBehaviour
     {
         aliveEnemies = enemies.Count;
         started = false;
-      foreach(EnemyBehaviour enem in enemies)
+        foreach (AEnemyBehaviour enem in enemies)
         {
+            print(enem.name);
             enem.gameObject.SetActive(true);
             enem.restart(this);
         }

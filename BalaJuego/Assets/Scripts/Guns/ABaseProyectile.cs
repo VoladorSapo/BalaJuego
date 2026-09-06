@@ -103,7 +103,6 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
         transform.position = new Vector3(pos.x, pos.y, z);
     }
 
-    public int getDamage() => damage;
 
     public void changeTimeMagnitude(object sender, timeData data)
     {

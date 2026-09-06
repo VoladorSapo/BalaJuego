@@ -19,7 +19,7 @@ public class EnemyAnimationStateBehaviour : StateMachineBehaviour
     {
         gunAnimator ??= animator.GetComponentInChildren<IGun>().getAnim();
 
-        string name = EnemyBehaviour.getAnimStateNameFromHash(stateInfo.shortNameHash);
+        string name = AEnemyBehaviour.getAnimStateNameFromHash(stateInfo.shortNameHash);
         if (name != "NULL")
         {
             gunAnimator.Play("arm" + name);

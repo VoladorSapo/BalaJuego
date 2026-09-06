@@ -2,7 +2,7 @@
 
 public class ColliderMeleeChange : MonoBehaviour
 {
-  [SerializeField]  EnemyBehaviour enemy;
+  [SerializeField]  AEnemyBehaviour enemy;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("collision" + collision.tag);

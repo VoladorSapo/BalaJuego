@@ -9,7 +9,7 @@ public class animationEventCaller : MonoBehaviour
     [SerializeField] ParticleSystem meleeParticles, meleeParticles1;
    public void endChrageHeavyEvent()
     {
-        GetComponentInParent<HeavyEnemyController>().finishCharging = true;
+        GetComponentInParent<HeavyEnemyBehaviour>().finishCharging = true;
     }
 
     public void endReloadEvent()
@@ -31,7 +31,7 @@ public class animationEventCaller : MonoBehaviour
     {
         //CAMBIAR
         if (GetComponentInParent<EnemyLife>())
-            GetComponentInParent<EnemyLife>().finishDeathAnim();
+            GetComponentInParent<ACharacterLife>().finishDeathAnim();
         if (GetComponentInParent<TutorialLife>())
             GetComponentInParent<TutorialLife>().finishDeathAnim();
     }

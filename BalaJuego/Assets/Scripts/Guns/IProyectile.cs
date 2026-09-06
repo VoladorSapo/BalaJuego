@@ -8,7 +8,6 @@ public interface IProyectile
     public void ActivateProyectileMovement(ACharacterLife shooter, float angle, Vector3 pos);
 
 
-    public int getDamage();
     public void hitSomething(GameObject obj);
 
 

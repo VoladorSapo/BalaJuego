@@ -2,7 +2,7 @@
 
 public abstract class BaseEnemyState : IState
 {
-    protected EnemyBehaviour enemy;  
+    protected AEnemyBehaviour enemy;  
     public virtual void OnEnter()
     {
 

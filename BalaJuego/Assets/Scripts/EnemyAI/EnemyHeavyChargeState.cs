@@ -2,9 +2,9 @@
 
 public class EnemyHeavyChargeState : BaseEnemyState
 {
-    new HeavyEnemyController enemy;
+    new HeavyEnemyBehaviour enemy;
     float speed;
-    public EnemyHeavyChargeState(HeavyEnemyController _enemy)
+    public EnemyHeavyChargeState(HeavyEnemyBehaviour _enemy)
     {
         enemy = _enemy;
         speed = _enemy.speed;

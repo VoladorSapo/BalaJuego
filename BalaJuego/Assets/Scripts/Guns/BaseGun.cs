@@ -22,14 +22,14 @@ public class BaseGun : MonoBehaviour,IGun
 
    protected gunRotate rotate;
 
-    GunEnemyController gunEnemyController;
+    GunEnemyBehaviour gunEnemyController;
     protected virtual void Awake()
     {
         Assert.IsNotNull(bullet);
         Assert.IsNotNull(bullet.GetComponent< IProyectile>());
         rotate = GetComponent<gunRotate>();
         anim = GetComponent<Animator>();
-        gunEnemyController = GetComponentInParent<GunEnemyController>();
+        gunEnemyController = GetComponentInParent<GunEnemyBehaviour>();
         if (bulletCount != null)
         {
             bulletCount.text = currentBullets.ToString();

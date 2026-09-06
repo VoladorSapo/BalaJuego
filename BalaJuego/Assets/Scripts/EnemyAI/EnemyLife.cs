@@ -8,17 +8,18 @@ public class EnemyLife : ACharacterLife
     [SerializeField] ParticleSystem hitParticles;
     [SerializeField] Vector3 bodyMovePos;
 
-    EnemyBehaviour behaviour;
+    AEnemyBehaviour behaviour;
     public override void Die()
     {
         dead = true;
-        GetComponent<EnemyBehaviour>().stunedCollider.enabled = false;
+        behaviour.stateMachine.ForceSetState(new EnemyDeadState(behaviour));
+        GetComponent<AEnemyBehaviour>().stunedCollider.enabled = false;
         // collider.gameObject.SetActive(false);
         if (melee)
         {
 
             spriteParent.SetActive(true);
-            if (GetComponent<GunEnemyController>() != null)
+            if (GetComponent<GunEnemyBehaviour>() != null)
             {
                 countText.SetActive(false);
                 //gun.SetActive(false);
@@ -32,13 +33,13 @@ public class EnemyLife : ACharacterLife
         }
         else
         {
-            if (GetComponent<GunEnemyController>() != null)
+            if (GetComponent<GunEnemyBehaviour>() != null)
             {
                 countText.SetActive(false);
                 //gun.SetActive(false);
                 head?.SetActive(false);
             }
-            if (GetComponent<HeavyEnemyController>() != null)
+            if (GetComponent<HeavyEnemyBehaviour>() != null)
             {
                 head?.SetActive(false);
             }
@@ -47,7 +48,7 @@ public class EnemyLife : ACharacterLife
             //Animacion morir
         }
     }
-    public void finishDeathAnim()
+    public override void finishDeathAnim()
     {
         if (melee)
         {
@@ -56,12 +57,12 @@ public class EnemyLife : ACharacterLife
             transform.localScale = new Vector3(player.runningDirection, 1, 1);
             GetComponent<Rigidbody2D>().isKinematic = true;
         }
-        if (GetComponent<EnemyBehaviour>().area != null)
+        if (GetComponent<AEnemyBehaviour>().area != null)
         {
-            GetComponent<EnemyBehaviour>().area.enemyDie(GetComponent<EnemyBehaviour>());
+            GetComponent<AEnemyBehaviour>().area.enemyDie(GetComponent<AEnemyBehaviour>());
         }
-        GetComponent<EnemyBehaviour>().setColor(false);
-        GetComponent<EnemyBehaviour>().enabled = false;
+        GetComponent<AEnemyBehaviour>().setColor(false);
+        GetComponent<AEnemyBehaviour>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         // gameObject.SetActive(false);
@@ -70,20 +71,20 @@ public class EnemyLife : ACharacterLife
     {
         base.restart();
 
-        if (GetComponent<GunEnemyController>() != null)
+        if (GetComponent<GunEnemyBehaviour>() != null)
         {
             print("countext" + gameObject.name);
             countText.SetActive(true);
             gun.SetActive(true);
             head?.SetActive(true);
         }
-        if (GetComponent<HeavyEnemyController>() != null)
+        if (GetComponent<HeavyEnemyBehaviour>() != null)
         {
             head?.SetActive(true);
         }
-        GetComponent<EnemyBehaviour>().enabled = true;
-        GetComponent<EnemyBehaviour>().setColor(false);
-        GetComponent<EnemyBehaviour>().stunedCollider.enabled = true;
+        GetComponent<AEnemyBehaviour>().enabled = true;
+        GetComponent<AEnemyBehaviour>().setColor(false);
+        GetComponent<AEnemyBehaviour>().stunedCollider.enabled = true;
 
 
     }
@@ -98,22 +99,23 @@ public class EnemyLife : ACharacterLife
     public override void meleeDeath()
     {
         base.meleeDeath();
-        GetComponent<EnemyBehaviour>().setColor(false);
-
+        GetComponent<AEnemyBehaviour>().setColor(false);
+        behaviour.stateMachine.ForceSetState(new EnemyDeadState(behaviour));
+        dead = true;
         anim.Play("melee");
     }
     public override void getStuned()
     {
-        behaviour.stateMachine.ForceSetState(new EnemyStunedState(null));
+        behaviour.startStunState();
     }
     public override void endStun()
     {
-        behaviour.stateMachine.ForceEndState(new EnemyStunedState(null));
+        behaviour.endStunState();
 
     }
     protected override void Start()
     {
         base.Start();
-        behaviour = GetComponent<EnemyBehaviour>();
+        behaviour = GetComponent<AEnemyBehaviour>();
     }
 }

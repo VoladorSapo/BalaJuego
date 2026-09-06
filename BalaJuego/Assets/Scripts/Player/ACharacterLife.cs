@@ -61,6 +61,8 @@ IGameState _gameStateManager;
     }
 
     public abstract void Die();
+    public virtual void finishDeathAnim() { }
+
     protected virtual void Start()
     {
         _gameStateManager = ServiceLocator.Instance.Get<IGameState>();

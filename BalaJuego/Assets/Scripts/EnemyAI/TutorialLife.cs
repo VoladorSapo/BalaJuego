@@ -13,13 +13,13 @@ public class TutorialLife : ACharacterLife
         if (!blockKill)
         {
             dead = true;
-            GetComponent<EnemyBehaviour>().stunedCollider.enabled = false;
+            GetComponent<AEnemyBehaviour>().stunedCollider.enabled = false;
             // collider.gameObject.SetActive(false);
             if (melee)
             {
 
                 spriteParent.SetActive(true);
-                if (GetComponent<GunEnemyController>() != null)
+                if (GetComponent<GunEnemyBehaviour>() != null)
                 {
                     countText.SetActive(false);
                     gun.SetActive(false);
@@ -31,13 +31,13 @@ public class TutorialLife : ACharacterLife
             }
             else
             {
-                if (GetComponent<GunEnemyController>() != null)
+                if (GetComponent<GunEnemyBehaviour>() != null)
                 {
                     countText.SetActive(false);
                     gun.SetActive(false);
                     head?.SetActive(false);
                 }
-                if (GetComponent<HeavyEnemyController>() != null)
+                if (GetComponent<HeavyEnemyBehaviour>() != null)
                 {
                     head?.SetActive(false);
                 }
@@ -50,7 +50,7 @@ public class TutorialLife : ACharacterLife
 
         }
     }
-    public void finishDeathAnim()
+    public override void finishDeathAnim()
     {
         if (melee)
         {
@@ -62,7 +62,7 @@ public class TutorialLife : ACharacterLife
         if (!blockKill)
         {
             Debug.LogError("Die");
-            GetComponent<EnemyBehaviour>().setColor(false);
+            GetComponent<AEnemyBehaviour>().setColor(false);
             //GetComponent<EnemyController>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }

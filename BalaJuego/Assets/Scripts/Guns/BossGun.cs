@@ -17,7 +17,7 @@ public class BossGun : BaseGun
         if (currentBullets > 0 && !shooting)
         {
             shooting = true;
-            if (GetComponentInParent<GunEnemyController>() != null || GetComponentInParent<BossEnemyController>() != null)
+            if (GetComponentInParent<GunEnemyBehaviour>() != null || GetComponentInParent<BossEnemyController>() != null)
             {
                 anim.Play("gunLoad", -1, 0);
 
