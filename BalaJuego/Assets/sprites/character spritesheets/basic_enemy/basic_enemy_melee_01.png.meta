@@ -1,0 +1,554 @@
+fileFormatVersion: 2
+guid: fa5e54aef7e057b42a12355cad9f1e6a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 393
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b58e665c4af4e74788f553591be5249
+      internalID: -44065237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_1
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 393
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa64c3433f479b24fae9cca983899865
+      internalID: 2065574322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_2
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 393
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c212f00e8bf42a0469e09a7e15668b59
+      internalID: -1501010197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_3
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 393
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4aff80843f49764289570fac11076e0
+      internalID: 910668073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_4
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 393
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda6d9b1a56aa184fb46ed36574f61f2
+      internalID: 949086786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 262
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11703c66107c4f448a5cec94f01aa312
+      internalID: -937877957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_6
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 262
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435258305dc7fc544a9ab0a8a8aaec9d
+      internalID: -785497905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_7
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 262
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 491b10440c04af345987fcc36575d655
+      internalID: -644141893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_8
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 262
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f838c4f43c86b74b90048cf41460022
+      internalID: 278813212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_9
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 262
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95363bb13f9ee1946b9356e42ebc4ff9
+      internalID: 665958858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 131
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466c293323958b04aaca7c44abdbb018
+      internalID: 1679215310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_11
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 131
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a273051ac829564994ae5c342be4cd8
+      internalID: 1781400013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_12
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 131
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94e617ff7b35fa4ba074bf0c7e7fec9
+      internalID: 1392163018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_13
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 131
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51533e88b6df84409121becbb50f352
+      internalID: -544977580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_14
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 131
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5db906dcd8b6644bb915189029d747
+      internalID: -742683719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2c40fcec7d9d0428612785b59d6d87
+      internalID: -870423719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_16
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 0
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c967028d425db41b19f69a1b94722d
+      internalID: -673311512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_17
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 0
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e8aa0b791630f4c9aa37fbc93d518a
+      internalID: 64292704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_18
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 0
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4041bcceb10a9fe48a6c23fe2b98dc20
+      internalID: -16172547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic_enemy_melee_01_19
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 0
+        width: 212
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5971239, y: 0.4663186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974dc91f9aae4054abe2bd8828b3aaa1
+      internalID: 141383788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      basic_enemy_melee_01_0: -44065237
+      basic_enemy_melee_01_1: 2065574322
+      basic_enemy_melee_01_10: 1679215310
+      basic_enemy_melee_01_11: 1781400013
+      basic_enemy_melee_01_12: 1392163018
+      basic_enemy_melee_01_13: -544977580
+      basic_enemy_melee_01_14: -742683719
+      basic_enemy_melee_01_15: -870423719
+      basic_enemy_melee_01_16: -673311512
+      basic_enemy_melee_01_17: 64292704
+      basic_enemy_melee_01_18: -16172547
+      basic_enemy_melee_01_19: 141383788
+      basic_enemy_melee_01_2: -1501010197
+      basic_enemy_melee_01_3: 910668073
+      basic_enemy_melee_01_4: 949086786
+      basic_enemy_melee_01_5: -937877957
+      basic_enemy_melee_01_6: -785497905
+      basic_enemy_melee_01_7: -644141893
+      basic_enemy_melee_01_8: 278813212
+      basic_enemy_melee_01_9: 665958858
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

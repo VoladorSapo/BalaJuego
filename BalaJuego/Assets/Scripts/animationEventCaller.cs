@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class animationEventCaller : MonoBehaviour
 {
-    [SerializeField] ParticleSystem meleeParticles, meleeParticles1;
+    [SerializeField] ParticleSystem[] particles;
    public void endChrageHeavyEvent()
     {
         GetComponentInParent<HeavyEnemyBehaviour>().finishCharging = true;
@@ -104,23 +104,9 @@ public class animationEventCaller : MonoBehaviour
 
     }
 
-    public void playMeleeParticles(int n)
+    public void playParticles(int n)
     {
-        switch(n)
-        {
-            case 0:
-                if (meleeParticles != null)
-                {
-                    meleeParticles.Play();
-                }
-                break;
-            case 1:
-                if (meleeParticles1 != null)
-                {
-                    meleeParticles1.Play();
-                }
-                break;
-        }
+        particles[n].Play();
       
     }
 
