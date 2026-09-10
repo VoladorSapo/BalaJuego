@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class animationEventCaller : MonoBehaviour
 {
-    [SerializeField] ParticleSystem[] particles;
+   public ParticleSystem[] particles;
    public void endChrageHeavyEvent()
     {
         GetComponentInParent<HeavyEnemyBehaviour>().finishCharging = true;

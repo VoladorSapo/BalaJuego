@@ -123544,8 +123544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeParticles: {fileID: 0}
-  meleeParticles1: {fileID: 0}
+  particles: []
 --- !u!212 &2233878733509522338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -124945,8 +124944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeParticles: {fileID: 0}
-  meleeParticles1: {fileID: 0}
+  particles: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
