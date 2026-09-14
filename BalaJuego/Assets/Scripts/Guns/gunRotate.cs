@@ -32,14 +32,18 @@ public class gunRotate : MonoBehaviour
             setRotation(Camera.main.ScreenToWorldPoint(mousePos));
         }
     }
-    public void setRotation(Vector3 obj)
+    public virtual void setRotation(Vector3 obj)
     {
         Vector3 direction = obj - fullCharacter.position;
 
         Vector3 gunDirection = obj - transform.position;
         float angle = Mathf.Round(Mathf.Atan2(gunDirection.y, Mathf.Abs(gunDirection.x)) * Mathf.Rad2Deg);
         // print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
-        if (direction.x > 0)
+        setRotationAngle(direction.x, angle);
+    }
+    protected void setRotationAngle(float direction, float angle)
+    {
+        if (direction > 0)
         {
             UpdateAnimatorBool("direction", true);
 
@@ -47,14 +51,14 @@ public class gunRotate : MonoBehaviour
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 180, notTurn.eulerAngles.z);
 
         }
-        else if (direction.x < 0)
+        else if (direction < 0)
         {
             UpdateAnimatorBool("direction", false);
 
             fullCharacter.localScale = new Vector3(1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 0, notTurn.eulerAngles.z);
         }
-        Vector3 reference = direction.x > 0 ? Vector3.forward : Vector3.back;
+        Vector3 reference = direction > 0 ? Vector3.forward : Vector3.back;
 
         if (shouldRotate)
         {

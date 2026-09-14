@@ -6,6 +6,7 @@ using UnityEngine;
 [CustomEditor(typeof(EnemyLife))]
 public class EEnemyLife : Editor
 {
+    int stunTime = 1;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -16,9 +17,13 @@ public class EEnemyLife : Editor
             {
                 data.Die();
             }
+            stunTime = EditorGUILayout.IntField("Stun Time: (<0 = infinito)",stunTime);
             if (GUILayout.Button("Stun"))
             {
-                data.getStuned();
+                Debug.Log("STUN FOR SECONDS: "+ stunTime);
+                
+                    data.addEffect(new StunEffect(stunTime<0, stunTime));
+                
             }
         }
     }

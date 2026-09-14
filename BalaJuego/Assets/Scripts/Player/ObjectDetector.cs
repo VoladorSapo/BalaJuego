@@ -14,7 +14,7 @@ public class ObjectDetector<T> : MonoBehaviour
          T obj = collision.GetComponent<T>();
         if (obj != null)
         {
-            print("Adding: " + collision.gameObject);
+            print("Adding: " + collision.gameObject +name);
             reachableObjects.Insert(0, obj);
             Hover(obj);
             BecomeFirst(obj);
@@ -38,6 +38,8 @@ public class ObjectDetector<T> : MonoBehaviour
                 wasFirst = true;
                 UnBecomeFirst(obj);
             }
+            print("Removing: " + collision.gameObject+name);
+
             reachableObjects.Remove(obj);
             if (reachableObjects.Count > 0 && wasFirst)
             {
@@ -82,12 +84,12 @@ public class ObjectParentDetector<T> : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("hey" + collision.name);
+      //  print("hey" + collision.name);
         T obj = collision.GetComponentInParent<T>();
         print(obj);
         if (obj != null)
         {
-            print("Adding: " + collision.gameObject);
+        //    print("Adding: " + collision.gameObject);
             reachableObjects.Insert(0, obj);
             Hover(obj);
             BecomeFirst(obj);
@@ -100,12 +102,12 @@ public class ObjectParentDetector<T> : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("ontriggerexitparent");
+      //  print("ontriggerexitparent");
         T obj = collision.GetComponentInParent<T>(true);
         print(obj);
         if (obj != null)
         {
-            print("Removing: " + collision.gameObject);
+           // print("Removing: " + collision.gameObject);
             UnHover(obj);
             bool wasFirst = false;
             if (reachableObjects.IndexOf(obj) == 0)

@@ -67,7 +67,7 @@ IGameState _gameStateManager;
     {
         _gameStateManager = ServiceLocator.Instance.Get<IGameState>();
         activeEffects = new List<ACombatEffect>();
-        print("characterHat"+name);
+     //   print("characterHat"+name);
         characterHat = GetComponent<CharacterHat>();
         anim = GetComponentInChildren<Animator>();
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);

@@ -9,13 +9,13 @@ public class StateMachine
     StateNode current;
     Dictionary<Type, StateNode> nodes = new();
     HashSet<ITransition> anyTransitions = new();
-    Type defaultState;
+    IState defaultState;
     public void Update()
     {
         var transition = GetTransition();
         if (transition != null)
         {
-            ChangeState(transition.To);
+            ChangeState(transition.To,transition.Data);
         }
         //Debug.Log(current?.State?.ToString());
         current?.State?.Update();
@@ -34,7 +34,7 @@ public class StateMachine
 
     public void setDefaultState(IState state)
     {
-        defaultState = state.GetType();
+        defaultState = state;
     }
     public void restart()
     {
@@ -44,22 +44,33 @@ public class StateMachine
         }
         SetState(defaultState);
     }
-    private void SetState(Type type)
+    public void SetState(IState state, string Data = "")
     {
-        current = nodes[type];
-        current.State?.OnEnter();
+        if (current != null)
+        {
+            ChangeState((IState)state, Data);
+        }
+        else
+        {
+            current = nodes[state.GetType()];
+            current.State.SetUp(Data);
+            current.State.OnEnter();
+        }
+
     }
-    public void SetState(IState state)
-    {
-        current = nodes[state.GetType()];
-        current.State?.OnEnter();
-        
-    }
-    public void ForceSetState(IState state)
+    public void ForceSetState(IState state,string Data = "")
     {
         GetOrAddNode(state);
-        current = nodes[state.GetType()];
-        current.State?.OnEnter();
+        if (current != null)
+        {
+            ChangeState((IState)state, Data);
+        }
+        else
+        {
+            current = nodes[state.GetType()];
+            current.State.SetUp(Data);
+            current.State.OnEnter();
+        }
     }
     public void ForceEndState(IState state)
     {
@@ -75,19 +86,35 @@ public class StateMachine
        var transition = GetEndTransition();
         if (transition != null)
         {
-            ChangeState(transition.To);
+            ChangeState(transition.To,transition.Data);
         }
     }
-    void ChangeState(IState state)
+    void ChangeState(IState state,string Data = "")
     {
         if (state == current.State) return;
 
-        var previousState = current.State;
-        var nextState = nodes[state.GetType()].State;
+        
+        Action trueEndState = () => {
+            var previousState = current.State;
+            var nextState = nodes[state.GetType()].State;
+            previousState?.OnExit();
+            if (nextState != null)
+            {
+                Debug.Log(Data);
+                nextState.SetUp(Data);
+            }
+            nextState?.OnEnter();
+            current = nodes[state.GetType()];
+        };
+        if (current.State.hasPreExitAction())
+        {
+            current.State.preExit(trueEndState);
+        }
+        else
+        {
+            trueEndState.Invoke();
+        }
 
-        previousState?.OnExit();
-        nextState?.OnEnter();
-        current = nodes[state.GetType()];
     }
 
     ITransition GetTransition()
@@ -114,18 +141,18 @@ public class StateMachine
         return null;
     }
 
-    public void AddTransition(IState from, IState to, IPredicate condition)
+    public void AddTransition(IState from, IState to, IPredicate condition, string Data = "")
     {
-        GetOrAddNode(from).AddTransition(GetOrAddNode(to).State, condition);
+        GetOrAddNode(from).AddTransition(GetOrAddNode(to).State, condition,Data);
     }
-    public void AddEndTransition(IState from, IState to, IPredicate condition)
+    public void AddEndTransition(IState from, IState to, IPredicate condition, string Data = "")
     {
-        GetOrAddNode(from).AddEndTransition(GetOrAddNode(to).State, condition);
+        GetOrAddNode(from).AddEndTransition(GetOrAddNode(to).State, condition, Data);
     }
 
-    public void AddAnyTransition(IState to, IPredicate condition)
+    public void AddAnyTransition(IState to, IPredicate condition, string Data = "")
     {
-        anyTransitions.Add(new Transition(GetOrAddNode(to).State, condition));
+        anyTransitions.Add(new Transition(GetOrAddNode(to).State, condition, Data));
     }
 
     StateNode GetOrAddNode(IState state)
@@ -161,12 +188,12 @@ class StateNode
         EndTransitions = new HashSet<ITransition>();
     }
 
-    public void AddTransition(IState state, IPredicate condition)
+    public void AddTransition(IState state, IPredicate condition, string Data = "")
     {
-        Transitions.Add(new Transition(state, condition));
+        Transitions.Add(new Transition(state, condition,Data));
     }
-    public void AddEndTransition(IState state, IPredicate condition)
+    public void AddEndTransition(IState state, IPredicate condition, string Data = "")
     {
-        EndTransitions.Add(new Transition(state, condition));
+        EndTransitions.Add(new Transition(state, condition,Data));
     }
 }

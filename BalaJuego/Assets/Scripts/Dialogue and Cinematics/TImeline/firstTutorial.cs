@@ -4,10 +4,9 @@ namespace tutorial
 {
     public class firstTutorial: Tutorial
     {
-     [SerializeField]   bulletDetector failDetector;
+     [SerializeField]   interactableDetector failDetector;
         protected override void Start()
         {
-            print("setTUT");
             machine = new StateMachine();
             startTutorialState start = new startTutorialState(this);
             pulsaETutorialState pressE = new pulsaETutorialState(this);

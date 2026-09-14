@@ -34,7 +34,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
             }
             else
             {
-                print("No se pue saltar");
+               // print("No se pue saltar");
             }
         }
         else
@@ -111,8 +111,8 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         skipCupstecenesBar.enabled = false;
         cutscenPlaying = false;
         isSkipingCutscene = false;
-        print("helou");
-        print(endCutsceneAction.ToString());
+        //print("helou");
+        //print(endCutsceneAction.ToString());
         endCutsceneAction.Invoke();
     }
 
@@ -141,7 +141,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
         {
             cutscenPlaying = false;
             isSkipingCutscene = true;
-            print("SALTANDO CINEMATICA");
+            //print("SALTANDO CINEMATICA");
             StateeFade = 2;
             if (!currentData.isEndLevel)
             {
@@ -158,7 +158,7 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     }
     public void skipCutscene()
     {
-        print("SKIP");
+        //print("SKIP");
         isSkipingCutscene = true;
         skipCupstecenesBar.enabled = false;
         StateeFade = 2;

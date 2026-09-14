@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class AEnemyBehaviour : MonoBehaviour
@@ -43,12 +46,15 @@ public abstract class AEnemyBehaviour : MonoBehaviour
 
     [SerializeField] GameObject FMarker;
 
+    public animationEnderEventManager animEventManager{ get; private set; }
+
     public abstract void setUpStateMachine();
 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        animEventManager = GetComponent<animationEnderEventManager>();
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(changeTimeMagnitude);
         timeMagnitude = 1;
         life = GetComponent<ACharacterLife>();
@@ -112,7 +118,7 @@ public abstract class AEnemyBehaviour : MonoBehaviour
     }
     public void setColor(bool on)
     {
-        print("setColor" + on);
+      //  print("setColor" + on);
         FMarker.SetActive(on);
 
         if (!on)
@@ -132,11 +138,29 @@ public abstract class AEnemyBehaviour : MonoBehaviour
         }
     }
 
-    public virtual void playAnimation(string animNameEnd)
+    /// <summary>
+    /// Plays animation state enemy+animNameEnd argument.
+    /// </summary>
+    /// <param name="animNameEnd"></param>
+    public virtual void playAnimation(string animNameEnd,Action action = null)
     {
-        anim.Play("enemy" + animNameEnd);
+        string animFull = "enemy" + animNameEnd;
+        anim.Play(animFull);
+        print("enemy" + animNameEnd);
+        if(action != null)
+        {
+            animEventManager.setAnim(action, animFull);
+        }
+        //anim.state
+       // print($"Character: {gameObject.name}  Animation: {anim.GetCurrentAnimatorClipInfo(0)[0].clip.name}");
+        //return anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
     }
+    public virtual bool checkHasAnimation(string animNameEnd)
+    {
+        string animFull = "enemy" + animNameEnd;
 
+        return anim.HasState(0, Animator.StringToHash(animFull));
+    }
     static readonly Dictionary<int, string> stateNames = new Dictionary<int, string>
     { 
     { Animator.StringToHash("enemyShoot"), "Shoot" },
@@ -160,10 +184,12 @@ public abstract class AEnemyBehaviour : MonoBehaviour
 
     public virtual void startStunState()
     {
-        stateMachine.ForceSetState(new EnemyStunedState(null));
+        stateMachine.ForceSetState(new EnemyStunedState(null),"Stun");
     }
     public virtual void endStunState()
     {
+
         stateMachine.ForceEndState(new EnemyStunedState(null));
     }
+
 }

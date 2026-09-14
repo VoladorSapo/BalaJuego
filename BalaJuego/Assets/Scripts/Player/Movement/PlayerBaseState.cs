@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class PlayerBaseState: IState
@@ -15,7 +16,7 @@ public abstract class PlayerBaseState: IState
     }
     public virtual void Update()
     {
-        Debug.Log("MOveX" + (int)player.playerInput.Move);
+        //Debug.Log("MOveX" + (int)player.playerInput.Move);
         player.MoveX = (int)player.playerInput.Move;
     }
     public virtual void FixedUpdate()
@@ -30,5 +31,18 @@ public abstract class PlayerBaseState: IState
     public virtual bool ShouldEnd()
     {
         return false;
+    }
+
+    public void SetUp(string Data)
+    {
+    }
+
+    public virtual bool hasPreExitAction()
+    {
+        return false;
+    }
+
+    public  virtual void preExit(Action action)
+    {
     }
 }

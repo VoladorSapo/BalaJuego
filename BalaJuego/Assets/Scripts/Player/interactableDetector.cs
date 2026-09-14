@@ -1,8 +1,4 @@
-﻿
-/// <summary>
-/// DEPRECATED
-/// </summary>
-public class botleDetector : ObjectDetector<IInteractable>
+﻿public class interactableDetector: ObjectDetector<IInteractable>
 {
     public override void Hover(IInteractable obj)
     {

@@ -4,7 +4,7 @@ namespace tutorial
 {
     public class meleeTutorial : Tutorial
     {
-        [SerializeField] bulletDetector failDetector;
+        [SerializeField] interactableDetector failDetector;
         protected override void Start()
         {
             print("setTUT");

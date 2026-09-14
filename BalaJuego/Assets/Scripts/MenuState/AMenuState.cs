@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -23,5 +24,18 @@ public abstract class AMenuState : IState
     public virtual bool ShouldEnd()
     {
         return false;
+    }
+
+    public void SetUp(string Data)
+    {
+    }
+
+    public bool hasPreExitAction()
+    {
+        return false;
+    }
+
+    public void preExit(Action action)
+    {
     }
 }

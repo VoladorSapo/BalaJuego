@@ -73,7 +73,7 @@ public class EnemyLife : ACharacterLife
 
         if (GetComponent<GunEnemyBehaviour>() != null)
         {
-            print("countext" + gameObject.name);
+           print("countext" + gameObject.name);
             countText.SetActive(true);
             gun.SetActive(true);
             head?.SetActive(true);

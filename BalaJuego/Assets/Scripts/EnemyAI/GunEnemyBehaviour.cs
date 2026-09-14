@@ -18,13 +18,16 @@ public class GunEnemyBehaviour : AEnemyBehaviour
         EnemyStunedState stuned = new EnemyStunedState(this);
         stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
         stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
-        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee));
+        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee),"Empty");
+        stateMachine.AddEndTransition(stuned, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
+        stateMachine.AddEndTransition(stuned, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
+
         stateMachine.setDefaultState(idle);
 
     }
     public override void restart(LevelAreaController _area)
     {
-        print("GunRestart");
+       // print("GunRestart");
         base.restart(_area);
 
         GetComponentInChildren<BaseGun>().restart();
@@ -33,9 +36,19 @@ public class GunEnemyBehaviour : AEnemyBehaviour
             canBeKilledMelee = true;
         }
     }
-    public override void playAnimation(string animNameEnd)
-    {
-        base.playAnimation(animNameEnd);
-    }
 }
 
+public class TurretEnemyBehaviour : GunEnemyBehaviour
+{
+    public override void setUpStateMachine()
+    {
+        stateMachine = new StateMachine();
+        EnemyShootState shoot = new EnemyShootState(this);
+        EnemyIdleState idle = new EnemyIdleState(this);
+        EnemyStunedState stuned = new EnemyStunedState(this);
+        stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detector.reachableObjects.Count > 0));
+        stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
+        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee));
+        stateMachine.setDefaultState(idle);
+    }
+}

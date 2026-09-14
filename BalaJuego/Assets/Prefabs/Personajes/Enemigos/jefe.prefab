@@ -310,10 +310,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 5391088759834627318}
-  bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
+  parentAnim: {fileID: 0}
   notTurn: {fileID: 3379344951848215801}
+  shouldRotate: 0
+  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7298245521945399330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,8 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeParticles: {fileID: 0}
-  meleeParticles1: {fileID: 0}
+  particles: []
 --- !u!1 &3207776383540963569
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +749,7 @@ GameObject:
   - component: {fileID: 2364024833224384540}
   - component: {fileID: 650068094385547762}
   - component: {fileID: 41044238062193610}
+  - component: {fileID: 6661847713225144071}
   m_Layer: 12
   m_Name: jefe
   m_TagString: Untagged
@@ -856,6 +858,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   melee: 0
   spriteParent: {fileID: 2655644706422927123}
+  CorpseBlockProjectile: 0
+  invincibility: 0
 --- !u!114 &41044238062193610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,15 +873,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 5722343407943410507}
+  differentFirstShootCadence: 0
+  <firstShootCadence>k__BackingField: 0
   <shootCadence>k__BackingField: 2
   <shootCadenceRandomRange>k__BackingField: 0.5
+  <timeMagnitude>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 8935794645892986426}
   <area>k__BackingField: {fileID: 0}
   canBeKilledMelee: 1
-  shootOnShight: 0
   life: {fileID: 0}
+  <DebugOn>k__BackingField: 0
   FMarker: {fileID: 3687112439876015514}
   gun: {fileID: 0}
+--- !u!114 &6661847713225144071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4544487141571469532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c98a3be2aed6541afab69df489b9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4936072014143216314
 GameObject:
   m_ObjectHideFlags: 0

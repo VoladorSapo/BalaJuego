@@ -85,8 +85,8 @@ public class cameraController : MonoBehaviour
     
     void startArea(object sender, LevelAreaController data)
     {
-        print("cambio "+data.name + " " + data.endCollider.name);
-        print(data.endCollider.transform.position.x + " + " + data.transform.position.x + " = " + (data.endCollider.transform.position.x + data.transform.position.x));
+        //print("cambio "+data.name + " " + data.endCollider.name);
+        //print(data.endCollider.transform.position.x + " + " + data.transform.position.x + " = " + (data.endCollider.transform.position.x + data.transform.position.x));
         fromPoints = cameraConfinerCollider.points;
 
         toPoints[0] = new Vector2(data.startCollider.transform.position.x, data.startCollider.transform.position.y + data.startCollider.size.y / 2);

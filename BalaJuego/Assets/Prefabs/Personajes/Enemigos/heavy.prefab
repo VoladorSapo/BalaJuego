@@ -651,6 +651,7 @@ GameObject:
   - component: {fileID: 8443046818157481121}
   - component: {fileID: 8081257908579287153}
   - component: {fileID: 1690854785696709629}
+  - component: {fileID: 3981192838542447179}
   m_Layer: 12
   m_Name: heavy
   m_TagString: Untagged
@@ -798,6 +799,18 @@ MonoBehaviour:
   <speed>k__BackingField: 4
   <wallStunDuration>k__BackingField: 1
   finishCharging: 0
+--- !u!114 &3981192838542447179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639849514869700653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c98a3be2aed6541afab69df489b9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3672812035338203666
 GameObject:
   m_ObjectHideFlags: 0
@@ -11294,5 +11307,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeParticles: {fileID: 0}
-  meleeParticles1: {fileID: 0}
+  particles: []

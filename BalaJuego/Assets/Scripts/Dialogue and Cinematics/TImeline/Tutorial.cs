@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
+using System;
 
 namespace tutorial
 {
@@ -19,7 +20,7 @@ namespace tutorial
 
         public float darkLight;
 
-        public bulletDetector grabDetector;
+        public interactableDetector grabDetector;
 
         public ABaseProyectile bul;
 
@@ -93,6 +94,19 @@ namespace tutorial
         public virtual bool ShouldEnd()
         {
             return false;
+        }
+
+        public void SetUp(string Data)
+        {
+        }
+
+        public virtual bool hasPreExitAction()
+        {
+            return false;
+        }
+
+        public virtual void preExit(Action action)
+        {
         }
     }
 

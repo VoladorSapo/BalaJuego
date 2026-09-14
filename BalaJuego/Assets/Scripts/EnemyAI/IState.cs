@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 public interface IState
 {
     void OnEnter();
@@ -7,6 +9,9 @@ public interface IState
     void FixedUpdate();
     void OnExit();
 
+    void SetUp(string Data);
 
+    bool hasPreExitAction();
 
+    void preExit(Action action);
 }

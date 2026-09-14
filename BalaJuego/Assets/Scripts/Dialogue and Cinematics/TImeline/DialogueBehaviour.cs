@@ -21,26 +21,26 @@ public class DialogueBehaviour: PlayableBehaviour
          lang = 0;
         if (settingManager.Instance != null)
         {
-            Debug.Log("findinstance");
+            //Debug.Log("findinstance");
             lang = (int)settingManager.Instance.getLanguage();
         }
         else
         {
 
             lang = (int)languageForEditor;
-            Debug.Log("findeditor" + lang+" " + startCharsList.Length);
+           // Debug.Log("findeditor" + lang+" " + startCharsList.Length);
         }
         TMP_Text text = playerData as TMP_Text;
         text.ForceMeshUpdate();
         if (lang < startCharsList.Length)
         {
             text.text = dialogTexts[lang];
-            Debug.Log(dialogTexts[lang]);
+          //  Debug.Log(dialogTexts[lang]);
         }
         else
         {
            // text.text = dialogText;
-            Debug.Log("Fac");
+          //  Debug.Log("Fac");
         }
         //if (first)
         //{
@@ -65,7 +65,7 @@ public class DialogueBehaviour: PlayableBehaviour
                if(maxVisible == startCharacters +1)
                 {
                     text.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2 (width, 2);
-                    Debug.Log("PRIMERO");
+                   // Debug.Log("PRIMERO");
                 }
                 if (text.textInfo.characterCount > 0)
                 {

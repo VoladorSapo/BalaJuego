@@ -1,7 +1,11 @@
-﻿public interface ITransition
+﻿using Unity.VisualScripting;
+
+public interface ITransition
 {
     IState To { get; }
     IPredicate Condition { get; }
+
+    string Data {  get; }
 }
 
 
@@ -12,9 +16,14 @@ public class Transition : ITransition
 
     public IPredicate Condition { get; }
 
-    public Transition(IState _to, IPredicate _cond)
+    public string Data { get; }
+
+    public Transition(IState _to, IPredicate _cond, string data = "")
     {
         To = _to;
         Condition = _cond;
+        Data = data;
     }
 }
+
+

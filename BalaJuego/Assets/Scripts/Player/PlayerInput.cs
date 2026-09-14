@@ -62,7 +62,7 @@ public class PlayerInput : MonoBehaviour
         RollUp = rollAction.action.WasReleasedThisFrame(); 
             Move = moveAction.action.ReadValue<float>();
 
-        print("updatePlayerInput" + moveAction.action.ReadValue<float>() +jumpAction.action.WasPressedThisFrame());
+      //  print("updatePlayerInput" + moveAction.action.ReadValue<float>() +jumpAction.action.WasPressedThisFrame());
 
     }
 

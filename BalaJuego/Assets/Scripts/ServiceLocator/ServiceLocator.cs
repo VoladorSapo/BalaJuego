@@ -34,7 +34,7 @@ using UnityEngine;
             if (Instance == null)
             {
                 Instance = this;
-                print("bootstrap");
+                //print("bootstrap");
                 GetComponent<IServiceBootstrap>().Bootstrap();
             }
             else

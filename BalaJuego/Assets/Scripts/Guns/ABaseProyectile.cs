@@ -53,7 +53,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
 
             }
         }
-        print("TriggerEnterProyectile"+collision.gameObject.name+ collision.gameObject.layer +((obstacleLayer & (1 << collision.gameObject.layer)) != 0));
+     //   print("TriggerEnterProyectile"+collision.gameObject.name+ collision.gameObject.layer +((obstacleLayer & (1 << collision.gameObject.layer)) != 0));
 
         if ((obstacleLayer & (1 << collision.gameObject.layer)) != 0)
         {
@@ -74,7 +74,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
             if (lifeTime <= 0)
             {
                 ServiceLocator.Instance.Get<IsoftLock>().checkAll();
-                print("destroy");
+               // print("destroy");
                 Destroy(gameObject);
             }
         }
@@ -87,7 +87,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
     public virtual void ActivateProyectileMovement(ACharacterLife shooter, float angle)
     {
         musicManager.Instance.PlayDisparo();
-        print(shooter.transform.localScale.x);
+     //   print(shooter.transform.localScale.x);
         angle *= shooter.transform.localScale.x;
         transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         owner = shooter;
@@ -120,7 +120,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
     }
     public virtual void hitSomething(GameObject obj)
     {
-        print("hit");
+    //    print("hit");
         //Animacion o algo
         hit = true;
         if (anim && destroyOnHit)
@@ -164,7 +164,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         if (destroyOnHit)
         {
-            print("destroy");
+           // print("destroy");
             Destroy(gameObject, 0.5f);
         }
     }
@@ -175,7 +175,7 @@ public abstract class ABaseProyectile : MonoBehaviour, IInteractable, IProyectil
     public abstract void tryGrab(PlayerShoot player);
     private void OnDestroy()
     {
-        print("DestroyBullet"+gameObject.name);
+     //   print("DestroyBullet"+gameObject.name);
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
         ServiceLocator.Instance.Get<ITimeManager>().unSubscribeToTimeChange(changeTimeMagnitude);
 

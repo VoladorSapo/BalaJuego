@@ -16,7 +16,7 @@ public class SoftLockController : MonoBehaviour,IsoftLock
     {
         ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaStart(startArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
-        print("Softlock" + name);
+       // print("Softlock" + name);
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class SoftLockController : MonoBehaviour,IsoftLock
             foreach (ABaseProyectile bul in FindObjectsOfType<ABaseProyectile>())
             {
 
-                print(bul.name + bul.GetType());
+                //print(bul.name + bul.GetType());
                 if (bul.GetType() != typeof(Throwable) && !bul.hit)
                 {
                     addAttack(1);
@@ -111,10 +111,7 @@ public class SoftLockController : MonoBehaviour,IsoftLock
     }
     void addAttack(int add)
     {
-        if (add > 0)
-        {
-            print("addattack " +add);
-        }
+      
         numberAttack += add;
     }
 }

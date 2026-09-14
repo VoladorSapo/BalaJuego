@@ -1,8 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class BaseEnemyState : IState
 {
-    protected AEnemyBehaviour enemy;  
+    protected AEnemyBehaviour enemy;
+    protected string animName;
+
+    public virtual void SetUp(string Data)
+    {
+        if (string.IsNullOrEmpty(Data))
+        {
+            animName = DefaultAnimName();
+        }
+        else
+        {
+            animName = Data;
+        }
+    }
     public virtual void OnEnter()
     {
 
@@ -43,5 +57,15 @@ public abstract class BaseEnemyState : IState
         }
     }
 
-  
+
+    protected virtual string DefaultAnimName() => "";
+
+    public virtual bool hasPreExitAction()
+    {
+        return false;
+    }
+
+    public virtual void preExit(Action action)
+    {
+    }
 }

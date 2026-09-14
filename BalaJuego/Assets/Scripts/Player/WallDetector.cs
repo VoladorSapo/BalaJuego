@@ -13,11 +13,11 @@ public class WallDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("trytouchwall");
+       // print("trytouchwall");
         if (collision.transform.tag == "Ground")
         {
             wall = collision.gameObject;
-            print("touchwall");
+           // print("touchwall");
             detectWallEvent?.Invoke();
         }
     }

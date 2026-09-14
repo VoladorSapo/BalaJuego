@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] LayerMask clickable;
 
-    ObjectDetector<ABaseProyectile> grabDetector;
+    ObjectDetector<IInteractable> grabDetector;
   botleDetector botleDetector;
 
 
@@ -71,8 +71,8 @@ public class PlayerShoot : MonoBehaviour
         executionCamera.SetActive(false);
         shoot = GetComponentInChildren<IGun>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
-        grabDetector = GetComponentInChildren<ObjectDetector<ABaseProyectile>>();
-        botleDetector = GetComponentInChildren<botleDetector>();
+        grabDetector = GetComponentInChildren<ObjectDetector<IInteractable>>();
+        //botleDetector = GetComponentInChildren<botleDetector>();
 
         stunedDetector = GetComponentInChildren<EnemyParentDetector>();
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
@@ -120,8 +120,11 @@ public class PlayerShoot : MonoBehaviour
                 if (hit)
                 {
                     IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
+                    print(hit.collider.gameObject.name + " " + interactableObject + " " + grabDetector.reachableObjects.Contains(interactableObject));
+
                     if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && !(stateManager.getState() == IGameState.gameState.NormalTime))
                     {
+
                         interactableObject.tryGrab(this);
                     }
                     
@@ -190,6 +193,7 @@ public class PlayerShoot : MonoBehaviour
         }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<PlayerMove>().isMeleeing = true;
+        GetComponent<PlayerLife>().setInvincibility(true);
 
         enemyMelee = enemy;
         enemy.GetComponent<ACharacterLife>().meleeDeath();
@@ -221,6 +225,8 @@ public class PlayerShoot : MonoBehaviour
         }
         GetComponentInChildren<IGun>().getAnim().Play("gunReload");
         GetComponent<PlayerMove>().isMeleeing = false;
+        GetComponent<PlayerLife>().setInvincibility(false);
+
     }
     public void endReloadAnim()
     {

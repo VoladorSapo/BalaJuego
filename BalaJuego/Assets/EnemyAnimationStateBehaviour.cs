@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class EnemyAnimationStateBehaviour : StateMachineBehaviour
 {
@@ -17,12 +18,21 @@ public class EnemyAnimationStateBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        gunAnimator ??= animator.GetComponentInChildren<IGun>().getAnim();
-
-        string name = AEnemyBehaviour.getAnimStateNameFromHash(stateInfo.shortNameHash);
-        if (name != "NULL")
+        if (gunAnimator == null)
         {
-            gunAnimator.Play("arm" + name);
+            IGun gun = animator.GetComponentInChildren<IGun>();
+            if (gun != null)
+            {
+                gunAnimator = animator.GetComponentInChildren<IGun>().getAnim();
+            }
+        }
+        if (gunAnimator != null)
+        {
+            string name = AEnemyBehaviour.getAnimStateNameFromHash(stateInfo.shortNameHash);
+            if (name != "NULL")
+            {
+                gunAnimator.Play("arm" + name);
+            }
         }
     }
 
@@ -50,3 +60,4 @@ public class EnemyAnimationStateBehaviour : StateMachineBehaviour
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
 }
+ 

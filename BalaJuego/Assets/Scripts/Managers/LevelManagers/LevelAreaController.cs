@@ -25,7 +25,7 @@ public class LevelAreaController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            print("hey");
+           // print("hey");
             started = true;
             ServiceLocator.Instance.Get<ILevelController>().startArea(this);
 
@@ -72,7 +72,7 @@ public class LevelAreaController : MonoBehaviour
         started = false;
         foreach (AEnemyBehaviour enem in enemies)
         {
-            print(enem.name);
+           // print(enem.name);
             enem.gameObject.SetActive(true);
             enem.restart(this);
         }
@@ -81,7 +81,7 @@ public class LevelAreaController : MonoBehaviour
             botel.gameObject.SetActive(true);
             botel.resTart(this);
         }
-        print("restae");
+      //  print("restae");
         startTrigger.gameObject.SetActive(true);
         startCollider.gameObject.SetActive(false);
         endCollider.gameObject.SetActive(false);

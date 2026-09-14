@@ -2,6 +2,7 @@
 {
     public override void tryGrab(PlayerShoot player)
     {
+        print("grab bullet");
         player.shoot.addBullets(1);
         player.getBullet();
         ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
