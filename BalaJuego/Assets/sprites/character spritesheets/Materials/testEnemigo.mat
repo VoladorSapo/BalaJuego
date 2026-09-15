@@ -51,6 +51,7 @@ Material:
     - _ShadowColor: {r: 0.6, g: 0.20784307, b: 0.090196066, a: 0.6196079}
     - _TargetColor: {r: 0.8705883, g: 0.43529418, b: 0.24313727, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &8348792044703852472
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -63,4 +64,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 10

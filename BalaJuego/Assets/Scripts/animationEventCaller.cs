@@ -1,4 +1,4 @@
-using Cinemachine;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -58,11 +58,11 @@ public class animationEventCaller : MonoBehaviour
 
     }
 
-    IEnumerator shakeCamera(CinemachineVirtualCamera cam, float s)
+    IEnumerator shakeCamera(Unity.Cinemachine.CinemachineCamera cam, float s)
     {
-        cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = s;
+        cam.GetComponent<Unity.Cinemachine.CinemachineBasicMultiChannelPerlin>().AmplitudeGain = s;
         yield return new WaitForSeconds(.07f);
-        cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+        cam.GetComponent<Unity.Cinemachine.CinemachineBasicMultiChannelPerlin>().AmplitudeGain = 0;
 
     }
     public void gunSpawnBullet()
@@ -83,18 +83,18 @@ public class animationEventCaller : MonoBehaviour
     }
     public void callCameraShakeHit()
     {
-        float shakeIntensity = 6;
-        CinemachineVirtualCamera cam = (CinemachineVirtualCamera)FindObjectOfType<CinemachineBrain>().ActiveVirtualCamera;
-        StartCoroutine(shakeCamera(cam, shakeIntensity));
+        //float shakeIntensity = 6;
+        //Unity.Cinemachine.CinemachineCamera cam = (Unity.Cinemachine.CinemachineCamera)FindAnyObjectByType<Unity.Cinemachine.CinemachineBrain>().ActiveVirtualCamera;
+        //StartCoroutine(shakeCamera(cam, shakeIntensity));
 
     }
 
 
     public void callCameraShakeStep()
     {
-        float shakeIntensity = 1;
-        CinemachineVirtualCamera cam = (CinemachineVirtualCamera)FindObjectOfType<CinemachineBrain>().ActiveVirtualCamera;
-        StartCoroutine(shakeCamera(cam, shakeIntensity));
+        //float shakeIntensity = 1;
+        //Unity.Cinemachine.CinemachineCamera cam = (Unity.Cinemachine.CinemachineCamera)FindAnyObjectByType<Unity.Cinemachine.CinemachineBrain>().ActiveVirtualCamera;
+        //StartCoroutine(shakeCamera(cam, shakeIntensity));
 
     }
 

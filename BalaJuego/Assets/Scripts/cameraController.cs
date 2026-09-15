@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+
 public class cameraController : MonoBehaviour
 {
-    CinemachineConfiner2D confiner;
+    Unity.Cinemachine.CinemachineConfiner2D confiner;
 
   [SerializeField]  PolygonCollider2D cameraConfinerCollider;
 
@@ -23,7 +23,7 @@ public class cameraController : MonoBehaviour
        ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaEnd(endArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaStart(startArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
-        confiner = GetComponent<CinemachineConfiner2D>();
+        confiner = GetComponent<Unity.Cinemachine.CinemachineConfiner2D>();
         Startvectors = cameraConfinerCollider.points;
         fromPoints = cameraConfinerCollider.points;
         currentPoints = cameraConfinerCollider.points;

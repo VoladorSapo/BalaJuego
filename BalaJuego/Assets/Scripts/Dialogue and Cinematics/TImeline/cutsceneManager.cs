@@ -101,8 +101,9 @@ public class cutsceneManager : MonoBehaviour,IcutsceneManager{
     }
     private void Start()
     {
-        skipCupstecenesBar = GameObject.FindGameObjectWithTag("SkipUI").GetComponent<Image>();
-        textoInstruccionSaltar = GameObject.FindGameObjectWithTag("SkipAdvice").GetComponent<TMP_Text>();
+        skipCupstecenesBar = GameObject.FindWithTag("SkipUI").GetComponent<Image>();
+        print(GameObject.FindWithTag("SkipUI").gameObject.name);
+        textoInstruccionSaltar = GameObject.FindWithTag("SkipAdvice").GetComponent<TMP_Text>();
     }
     public void endAnimation()
     {

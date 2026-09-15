@@ -39,7 +39,7 @@ public class PlayerDodgeRollState : PlayerBaseState
         base.FixedUpdate();
         float realobjspeed = objspeed * player.timeMagnitude;
         player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, realobjspeed, useAcell * Time.fixedDeltaTime * player.timeMagnitude);
-        rb2d.velocity = player.calcVelocity;
+        rb2d.linearVelocity = player.calcVelocity;
         switch (rollPhase)
         {
             case 1:

@@ -22,7 +22,7 @@ public class BossEnemyController : AEnemyBehaviour
 
         stateMachine.SetState(new EnemyIdleState(this));
         transform.position = initialPos;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         GetComponent<Rigidbody2D>().gravityScale = 0;
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(waitrestart());

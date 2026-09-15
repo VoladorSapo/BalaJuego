@@ -26,7 +26,7 @@ public class PlayerWalkState : PlayerBaseState
         //if (onGround) dustWalk.Play();
         float useAccel = (Mathf.Abs(player.calcVelocity.x) == 0 || Mathf.Sign(player.calcVelocity.x) == player.MoveX) ?   player.acceleration : player.turnDecceleration;
         player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, player.MoveX * player.maxSpeed * player.timeMagnitude, useAccel * Time.fixedDeltaTime * player.timeMagnitude);
-        rb2d.velocity = player.calcVelocity;
+        rb2d.linearVelocity = player.calcVelocity;
     }
     public override void OnExit()
     {

@@ -26,7 +26,7 @@ IGameState _gameStateManager;
 
    public CharacterHat characterHat { get; private set; }
 
-    [SerializeField] public float durationOfCurrentStun { get; private set; }
+    [field: SerializeField] public float durationOfCurrentStun { get; private set; }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

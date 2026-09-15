@@ -12,7 +12,7 @@ public class fallObject : MonoBehaviour
         if(collision.tag == "Ground")
         {
             transform.position = ogPos;
-            rb2d.velocity = Vector2.zero;
+            rb2d.linearVelocity = Vector2.zero;
         }
     }
     // Start is called before the first frame update
@@ -30,8 +30,8 @@ public class fallObject : MonoBehaviour
     }
     void changeTimeMagnitude(object sender,timeData data)
     {
-        rb2d.velocity /= data.oldMagnitude;
-        rb2d.velocity *= data.currentMagnitude;
+        rb2d.linearVelocity /= data.oldMagnitude;
+        rb2d.linearVelocity *= data.currentMagnitude;
 
 
         rb2d.gravityScale /= data.oldMagnitude;

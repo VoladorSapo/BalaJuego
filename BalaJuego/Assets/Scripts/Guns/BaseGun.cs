@@ -12,7 +12,7 @@ public class BaseGun : MonoBehaviour,IGun
 
     [SerializeField] public Transform spawnPoint;
     [SerializeField] protected GameObject character;
-    [SerializeField] public Animator anim { get; private set; }
+    [field:SerializeField] public Animator anim { get; private set; }
 
     [SerializeField] protected bool shooting;
 

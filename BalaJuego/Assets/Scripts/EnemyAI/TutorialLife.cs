@@ -64,7 +64,7 @@ public class TutorialLife : ACharacterLife
             Debug.LogError("Die");
             GetComponent<AEnemyBehaviour>().setColor(false);
             //GetComponent<EnemyController>().enabled = false;
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         }
     }
 }

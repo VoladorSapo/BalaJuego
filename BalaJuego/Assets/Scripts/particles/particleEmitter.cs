@@ -33,7 +33,7 @@ public class particleEmitter : MonoBehaviour
         Collider2D[] result = new Collider2D[1];
 
 
-        int colisionesEncontradas = groundCast.OverlapCollider(filter, result);
+        int colisionesEncontradas = groundCast.Overlap(filter, result);
 
         if (colisionesEncontradas > 0 && result[0] != null)
         {

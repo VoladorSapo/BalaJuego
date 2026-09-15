@@ -106,7 +106,7 @@ public abstract class AEnemyBehaviour : MonoBehaviour
         stunedCollider.gameObject.SetActive(false);
         GetComponent<ACharacterLife>().restart();
         transform.position = initialPos;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         timeMagnitude = 1;
         area = _area;
         if (stateMachine == null)

@@ -21,7 +21,7 @@ public abstract class PlayerBaseState: IState
     }
     public virtual void FixedUpdate()
     {
-        player.calcVelocity = rb2d.velocity;
+        player.calcVelocity = rb2d.linearVelocity;
     }
     public virtual void OnExit()
     {

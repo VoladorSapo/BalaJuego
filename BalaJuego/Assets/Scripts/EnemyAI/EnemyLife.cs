@@ -63,7 +63,7 @@ public class EnemyLife : ACharacterLife
         }
         GetComponent<AEnemyBehaviour>().setColor(false);
         GetComponent<AEnemyBehaviour>().enabled = false;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
 
         // gameObject.SetActive(false);
     }

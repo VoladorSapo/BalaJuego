@@ -26,7 +26,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.FixedUpdate();
         player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, 0, player.groundDecceleration * Time.fixedDeltaTime);
-        rb2d.velocity = player.calcVelocity;
+        rb2d.linearVelocity = player.calcVelocity;
     }
 }
 //public class PlayerEndDodgeRollState : PlayerBaseState

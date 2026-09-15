@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+
 
 public class LevelAreaController : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class LevelAreaController : MonoBehaviour
 
     [SerializeField] GameObject colliders;
 
-    CinemachineVirtualCamera virtCamera;
+    Unity.Cinemachine.CinemachineVirtualCamera virtCamera;
 
     bool started;
     [field: SerializeField] public BoxCollider2D startCollider { get; private set; }

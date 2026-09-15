@@ -1,4 +1,4 @@
-using Cinemachine;
+
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -60,7 +60,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Awake()
     {
-        executionCamera = GetComponentInChildren<CinemachineVirtualCamera>().gameObject;
+        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineVirtualCamera>().gameObject;
         playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;
     }
@@ -191,7 +191,7 @@ public class PlayerShoot : MonoBehaviour
         {
             item.SetActive(false);
         }
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         GetComponent<PlayerMove>().isMeleeing = true;
         GetComponent<PlayerLife>().setInvincibility(true);
 

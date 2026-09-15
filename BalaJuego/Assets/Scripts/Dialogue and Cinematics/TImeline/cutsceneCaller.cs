@@ -126,7 +126,7 @@ public class cutsceneCaller : MonoBehaviour
             player.UpdateAnimatorFloat("velocity", dir);
             player.UpdateAnimatorBool("isRunning", true);
             player.UpdateAnimatorBool("direction", player.transform.position.x > startPos.position.x);
-            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
 
 
         }

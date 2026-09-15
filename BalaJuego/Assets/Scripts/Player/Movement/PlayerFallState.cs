@@ -24,6 +24,6 @@ public class PlayerFallState : PlayerBaseState
             player.calcVelocity.y = -player.maxFallVelocity;
         }
        // Debug.Log("FallVelocity"+player.calcVelocity.y);
-        rb2d.velocity = player.calcVelocity;
+        rb2d.linearVelocity = player.calcVelocity;
     }
 }

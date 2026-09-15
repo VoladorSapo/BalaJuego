@@ -15,10 +15,10 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] BoxCollider2D groundCast;
     [SerializeField] private Rigidbody2D rb2d;
-    [SerializeField] public PlayerInput playerInput { get; private set; }
-    [SerializeField] public PlayerLife playerLife {  get; private set; }
-    [SerializeField] public PlayerShoot playerShoot { get; private set; }
-
+    [field: SerializeField] public PlayerInput playerInput { get; private set; }
+    [field: SerializeField] public PlayerLife playerLife {  get; private set; }
+    [field: SerializeField] public PlayerShoot playerShoot { get; private set; }
+        
     [field: SerializeField] public float maxSpeed { get; private set; }
     [field: SerializeField] public float acceleration { get; private set; }
     [field: SerializeField] public float groundDecceleration {  get; private set; }
@@ -125,7 +125,7 @@ public class PlayerMove : MonoBehaviour
         playerMoveStateMachine.AddEndTransition(roll, idle, noMove);
 
 
-        playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() =>rb2d.velocity.y<0));
+        playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() =>rb2d.linearVelocity.y<0));
 
         playerMoveStateMachine.AddTransition(idle, fall, notOnGround);
         playerMoveStateMachine.AddTransition(walk, fall, notOnGround);
@@ -164,7 +164,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void beOnGround()
     {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, 0);
         rb2d.gravityScale = 0;
         coyoteTimeCurrent = coyoteTime;
         UpdateAnimatorBool("isGround", true);
@@ -254,7 +254,7 @@ public class PlayerMove : MonoBehaviour
                 break;
             default:
                 canMove = false;
-                rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                rb2d.linearVelocity = new Vector2(0, rb2d.linearVelocity.y);
                 UpdateAnimatorBool("isRunning", false);
 
                 break;
@@ -270,7 +270,7 @@ public class PlayerMove : MonoBehaviour
 
         if (use == 1)
         {
-            Vector2 vel = rb2d.velocity / new Vector2(trueMagnitude, 1);
+            Vector2 vel = rb2d.linearVelocity / new Vector2(trueMagnitude, 1);
             vel = new Vector2(Mathf.Clamp(vel.x, 0, 999), Mathf.Clamp(vel.y, 0, 999));
             if (float.IsNaN(vel.x))
             {
@@ -278,11 +278,11 @@ public class PlayerMove : MonoBehaviour
                 vel.x = 0;
             }
             print(vel.x);
-            rb2d.velocity = vel;
+            rb2d.linearVelocity = vel;
         }
         else
         {
-            rb2d.velocity *= new Vector2(trueMagnitude, 1);
+            rb2d.linearVelocity *= new Vector2(trueMagnitude, 1);
 
         }
         UpdateAnimatorSpeed(use);
