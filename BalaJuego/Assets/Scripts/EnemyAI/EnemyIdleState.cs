@@ -31,8 +31,8 @@ public class EnemyShootState : BaseEnemyState
 
     public override void OnEnter()
     {
-        enemy.GetComponentInChildren<IGun>().setShooting(false);
         enemy.playAnimation("Spot");
+        enemy.GetComponentInChildren<IGun>().setShooting(false);
         cadenceTime = enemy.differentFirstShootCadence ? enemy.firstShootCadence : enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange, enemy.shootCadenceRandomRange);
 
     }
