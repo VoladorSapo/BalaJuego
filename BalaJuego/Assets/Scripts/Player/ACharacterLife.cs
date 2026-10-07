@@ -107,7 +107,7 @@ IGameState _gameStateManager;
             activeEffects.Add(effect);
         }
     }
-    public bool getHit(IProyectile proyectile)
+    public bool getHit(IEffectSource proyectile)
     {
         if ((!dead || CorpseBlockProjectile) && !invincibility && HittableCheck.checkHit(this, proyectile.getOwner(), proyectile.getHittableType()))
         {

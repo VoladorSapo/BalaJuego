@@ -22,7 +22,7 @@ namespace tutorial
 
         public interactableDetector grabDetector;
 
-        public ABaseProyectile bul;
+        public EffectSource bul;
 
        public bool changeTutWait;
 
@@ -166,7 +166,7 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<ABaseProyectile>().changeTimeMagnitude(this, new timeData(1,0));
+            tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<ProyectileMovement>().changeTimeMagnitude(this, new timeData(1,0));
             switch (settingManager.Instance.getLanguage())
             {
                 case Language.Spanish:

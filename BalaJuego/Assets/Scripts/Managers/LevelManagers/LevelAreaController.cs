@@ -52,7 +52,7 @@ public class LevelAreaController : MonoBehaviour
             ServiceLocator.Instance.Get<ILevelController>().endArea(this);
         }
     }
-    public void destroyBottle(Throwable botel)
+    public void destroyBottle(ABaseEquipable botel)
     {
         if (botel.gameObject.activeSelf)
         {
@@ -78,8 +78,8 @@ public class LevelAreaController : MonoBehaviour
         }
         foreach (Throwable botel in botellas)
         {
-            botel.gameObject.SetActive(true);
-            botel.resTart(this);
+            //botel.gameObject.SetActive(true);
+            //botel.resTart(this);
         }
       //  print("restae");
         startTrigger.gameObject.SetActive(true);

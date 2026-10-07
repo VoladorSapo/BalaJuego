@@ -1,17 +1,29 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectDetector<T> : MonoBehaviour
+public class ObjectDetector<T> : ObjectDetectorBase where T:IDetectable
 {
- public   List<T> reachableObjects;
+ public   List<IDetectable> reachableObjects;
+
+    public override List<IDetectable> getObjects() => reachableObjects;
 
     private void Start()
     {
-        reachableObjects = new List<T>();
+        reachableObjects = new List<IDetectable>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-         T obj = collision.GetComponent<T>();
+        T obj;
+
+        if (detectParent)
+        {
+            obj = collision.GetComponentInParent<T>();
+
+        }
+        else
+        {
+            obj = collision.GetComponent<T>();
+        }
         if (obj != null)
         {
             print("Adding: " + collision.gameObject +name);
@@ -20,15 +32,23 @@ public class ObjectDetector<T> : MonoBehaviour
             BecomeFirst(obj);
             if (reachableObjects.Count > 1)
             {
-                UnBecomeFirst(reachableObjects[1]);
+                UnBecomeFirst(reachableObjects[1].getObj().GetComponent<T>());
             }
         }
         
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-      
-            T obj = collision.GetComponent<T>();
+        T obj;
+        if (detectParent)
+        {
+            obj = collision.GetComponentInParent<T>();
+
+        }
+        else
+        {
+            obj = collision.GetComponent<T>();
+        }
         if (obj != null)
         {
             UnHover(obj);
@@ -49,7 +69,7 @@ public class ObjectDetector<T> : MonoBehaviour
         }
         
     }
-    public void restart()
+    public override void restart()
     {
         reachableObjects.Clear();
         GetComponent<Collider2D>().enabled = false;
@@ -72,72 +92,103 @@ public class ObjectDetector<T> : MonoBehaviour
     {
 
     }
+
+    public override IDetectable getFirst()
+    {
+        if(reachableObjects.Count == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return reachableObjects[0];
+        }
+    }
+
+    public override int getCount()=>reachableObjects.Count;
 }
-
-public class ObjectParentDetector<T> : MonoBehaviour
+public abstract class ObjectDetectorBase : MonoBehaviour
 {
-    public List<T> reachableObjects;
+    [SerializeField] protected bool detectParent;
+    public abstract List<IDetectable> getObjects();
+    public abstract IDetectable getFirst();
+    public abstract int getCount();
 
-    private void Start()
-    {
-        reachableObjects = new List<T>();
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-      //  print("hey" + collision.name);
-        T obj = collision.GetComponentInParent<T>();
-        print(obj);
-        if (obj != null)
-        {
-        //    print("Adding: " + collision.gameObject);
-            reachableObjects.Insert(0, obj);
-            Hover(obj);
-            BecomeFirst(obj);
-            if (reachableObjects.Count > 1)
-            {
-                UnBecomeFirst(reachableObjects[1]);
-            }
-        }
 
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-      //  print("ontriggerexitparent");
-        T obj = collision.GetComponentInParent<T>(true);
-        print(obj);
-        if (obj != null)
-        {
-           // print("Removing: " + collision.gameObject);
-            UnHover(obj);
-            bool wasFirst = false;
-            if (reachableObjects.IndexOf(obj) == 0)
-            {
-                wasFirst = true;
-                UnBecomeFirst(obj);
-            }
-            reachableObjects.Remove(obj);
-            if (reachableObjects.Count > 0 && wasFirst)
-            {
+    public abstract void restart();
 
-                BecomeFirst(obj);
-            }
-        }
+}
+//public class ObjectParentDetector<T> : ObjectDetectorBase where T : MonoBehaviour,IDetectable
+//{
+//    public List<IDetectable> reachableObjects;
 
-    }
-    public virtual void Hover(T obj)
-    {
+//    private void Start()
+//    {
+//        reachableObjects = new List<IDetectable>();
+//    }
+//    private void OnTriggerEnter2D(Collider2D collision)
+//    {
+//        //  print("hey" + collision.name);
+//        T obj = collision.GetComponentInParent<T>();
+//        print(obj);
+//        if (obj != null)
+//        {
+//            //    print("Adding: " + collision.gameObject);
+//            reachableObjects.Insert(0, obj);
+//            Hover(obj);
+//            BecomeFirst(obj);
+//            if (reachableObjects.Count > 1)
+//            {
+//                UnBecomeFirst(reachableObjects[1].getObj().GetComponent<T>());
+//            }
+//        }
 
-    }
-    public virtual void UnHover(T obj)
-    {
+//    }
+//    private void OnTriggerExit2D(Collider2D collision)
+//    {
+//        //  print("ontriggerexitparent");
+//        T obj = collision.GetComponentInParent<T>(true);
+//        print(obj);
+//        if (obj != null)
+//        {
+//            // print("Removing: " + collision.gameObject);
+//            UnHover(obj);
+//            bool wasFirst = false;
+//            if (reachableObjects.IndexOf(obj) == 0)
+//            {
+//                wasFirst = true;
+//                UnBecomeFirst(obj);
+//            }
+//            reachableObjects.Remove(obj);
+//            if (reachableObjects.Count > 0 && wasFirst)
+//            {
 
-    }
-    public virtual void BecomeFirst(T obj)
-    {
+//                BecomeFirst(obj);
+//            }
+//        }
 
-    }
-    public virtual void UnBecomeFirst(T obj)
-    {
+//    }
+//    public virtual void Hover(T obj)
+//    {
 
-    }
+//    }
+//    public virtual void UnHover(T obj)
+//    {
+
+//    }
+//    public virtual void BecomeFirst(T obj)
+//    {
+
+//    }
+//    public virtual void UnBecomeFirst(T obj)
+//    {
+
+//    }
+
+//    public override List<IDetectable> getObject() => reachableObjects;
+//}
+
+public interface IDetectable
+{
+    public GameObject getObj();
 }

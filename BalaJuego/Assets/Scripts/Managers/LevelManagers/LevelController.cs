@@ -1,24 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour, ILevelController
 {
 
- [SerializeField]   LevelAreaController currentArea;
+    [SerializeField] LevelAreaController currentArea;
     Action restartEvent;
     EventHandler<AreaData> endAreaEvent;
     EventHandler<LevelAreaController> startAreaEvent;
 
-  [SerializeField]  List<LevelAreaController> areas;
+    [SerializeField] List<LevelAreaController> areas;
 
     [SerializeField] GameObject levelAreaParent;
 
     GameObject player;
 
-  [SerializeField]  cutsceneCaller cutsceneStart;
+    [SerializeField] cutsceneCaller cutsceneStart;
     [SerializeField] cutsceneCaller cutsceneEnd;
 
 
@@ -109,14 +110,14 @@ public class LevelController : MonoBehaviour, ILevelController
         startAreaEvent -= response;
     }
 
- 
+
 
 
     public void endArea(LevelAreaController area)
     {
         currentArea = null;
 
-        AreaData data = new AreaData(area, areas[areas.IndexOf(area) +1]);
+        AreaData data = new AreaData(area, areas[areas.IndexOf(area) + 1]);
         endAreaEvent.Invoke(this, data);
     }
     public void startArea(LevelAreaController area)
@@ -128,7 +129,7 @@ public class LevelController : MonoBehaviour, ILevelController
     public void Win()
     {
         cutsceneEnd.PlayCutscene();
-      // ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Win);
+        // ServiceLocator.Instance.Get<IGameState>().setState(IGameState.gameState.Win);
     }
 
     public void Lose()
@@ -139,12 +140,9 @@ public class LevelController : MonoBehaviour, ILevelController
 
     public void reStart()
     {
-        foreach (var item in FindObjectsOfType<ABaseProyectile>())
+        foreach (var item in FindObjectsByType<MonoBehaviour>().OfType<IProyectile>())
         {
-            if(item.GetComponent<Throwable>() == null)
-            {
-                Destroy(item.gameObject);
-            }
+            //Destroy(item.getObj().gameObject);
         }
         restartEvent.Invoke();
     }

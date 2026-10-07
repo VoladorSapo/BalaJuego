@@ -11,7 +11,7 @@ public class breakableBox:MonoBehaviour
         if (collision.tag == "Bullet")
         {
             print("tag bullet");
-            IProyectile bul = collision.GetComponent<IProyectile>();
+            IEffectSource bul = collision.GetComponent<IEffectSource>();
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
                 musicManager.Instance.PlaySoundPitch("snd_rocarompe");

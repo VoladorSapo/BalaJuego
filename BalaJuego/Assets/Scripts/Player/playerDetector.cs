@@ -1,4 +1,5 @@
-﻿public class playerDetector: ObjectDetector<PlayerShoot>
+﻿public class playerDetector: ObjectDetector<PlayerInteractor>
 {
 
 }
+

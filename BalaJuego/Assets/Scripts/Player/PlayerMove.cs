@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Rigidbody2D rb2d;
     [field: SerializeField] public PlayerInput playerInput { get; private set; }
     [field: SerializeField] public PlayerLife playerLife {  get; private set; }
-    [field: SerializeField] public PlayerShoot playerShoot { get; private set; }
+    [field: SerializeField] public PlayerInteractor playerShoot { get; private set; }
         
     [field: SerializeField] public float maxSpeed { get; private set; }
     [field: SerializeField] public float acceleration { get; private set; }
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
     [field:SerializeField] public float maxFallVelocity { get;private set; }
     [SerializeField] GameObject Head;
     [SerializeField] GameObject gunOBJ;
-    PlayerShoot shoot;
+    PlayerInteractor shoot;
 
     [Header("Animator")]
     //public Animator bodyAnim;
@@ -144,12 +144,12 @@ public class PlayerMove : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         playerInput=GetComponent<PlayerInput>();
         playerLife = GetComponent<PlayerLife>();
-        playerShoot = GetComponent<PlayerShoot>();
+        playerShoot = GetComponent<PlayerInteractor>();
 
         //dustWalk = GetComponentsInChildren<ParticleSystem>()[0];
         //dustJump = GetComponentsInChildren<ParticleSystem>()[1];
         //dustFall = GetComponentsInChildren<ParticleSystem>()[2];
-        shoot = GetComponent<PlayerShoot>();
+        shoot = GetComponent<PlayerInteractor>();
         //dustWalk.gameObject.SetActive(false);
         //dustJump.gameObject.SetActive(false);
         //dustFall.gameObject.SetActive(false);

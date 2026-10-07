@@ -4,7 +4,7 @@ namespace tutorial
 {
     public class botelTutorial : Tutorial
     {
-        PlayerShoot Pshoot;
+        PlayerInteractor Pshoot;
         [SerializeField] botleDetector failDetector;
        public Throwable botela;
         protected override void Start()

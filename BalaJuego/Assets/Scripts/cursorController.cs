@@ -21,7 +21,7 @@ public class cursorController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         shouldMove = false;
         sprite = GetComponent<SpriteRenderer>();
-        FindAnyObjectByType<PlayerShoot>().subscribeToPlayerGunChange(playerGunChange);
+        FindAnyObjectByType<PlayerInteractor>().subscribeToPlayerGunChange(playerGunChange);
     }
 
     private void playerGunChange(characterGunChangeData data)

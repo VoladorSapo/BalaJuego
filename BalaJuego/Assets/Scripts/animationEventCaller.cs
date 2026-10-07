@@ -14,18 +14,18 @@ public class animationEventCaller : MonoBehaviour
 
     public void endReloadEvent()
     {
-        GetComponentInParent<PlayerShoot>().endReloadAnim();
+        GetComponentInParent<PlayerInteractor>().endReloadAnim();
 
     }
     public void endMeleeAnim()
     {
-        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerShoot>().endMeleeAnim();
+        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerInteractor>().endMeleeAnim();
         GetComponentInParent<EnemyLife>().Die();
 
     }
     public void throwBottle()
     {
-        GetComponentInParent<PlayerShoot>().throwObject();
+        GetComponentInParent<PlayerInteractor>().throwObject();
     }
     public void finishDeeathAnim()
     {
@@ -47,7 +47,7 @@ public class animationEventCaller : MonoBehaviour
 
     public void returnToNormalCamera()
     {
-        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerShoot>().returnToNormalCamera();
+        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerInteractor>().returnToNormalCamera();
     }
 
     public void callCameraShake()
@@ -113,5 +113,14 @@ public class animationEventCaller : MonoBehaviour
     public void heavyStep()
     {
         musicManager.Instance.PlayHeavyWalk();
+    }
+
+    public void setEffectSourceActive(int activate)
+    {
+        GetComponentInChildren<IEffectSource>().ActivateSource(activate == 0 ? false : true);
+    }
+    public void setInteractableCanInteract(int activate)
+    {
+        GetComponentInChildren<IInteractable>().setCanInteract(activate == 0 ? false : true);
     }
 }

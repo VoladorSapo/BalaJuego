@@ -1,0 +1,64 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+public class BossEnemyBehaviour : AEnemyBehaviour
+{
+    IGun Charshoot;
+    [SerializeField] GameObject gun;
+
+    protected override void Start()
+    {
+        base.Start();
+        Charshoot = GetComponentInChildren<IGun>();
+    }
+
+    public override void restart(LevelAreaController _area)
+    {
+        print("GunRestart");
+        base.restart(_area);
+        gun.SetActive(true);
+        GetComponentInChildren<BossGun>().restart();
+    
+
+        stateMachine.SetState(new EnemyIdleState(this));
+        transform.position = initialPos;
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(waitrestart());
+
+    }
+    IEnumerator waitrestart()
+    {
+        yield return new WaitForSeconds(0.1f);
+        transform.position = initialPos;
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().gravityScale = 1;
+    }
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    {
+        if (collision.tag == "TurnStun")
+        {
+            foreach (var item in FindObjectsOfType<EffectSource>())
+            {
+                Destroy(item.gameObject);
+            }
+            gun.SetActive(false);
+            stateMachine.ForceSetState(new EnemyStunedState(this));
+        }
+    }
+
+    public override void setUpStateMachine()
+    {
+        stateMachine = new StateMachine();
+        EnemyShootState shoot = new EnemyShootState(this);
+        EnemyIdleState idle = new EnemyIdleState(this);
+        EnemyStunedState stuned = new EnemyStunedState(this);
+        EnemyReloadState reload = new EnemyReloadState(this);
+        stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
+        stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
+        stateMachine.AddAnyTransition(reload, new FuncPredicate(() => Charshoot.getBullets() == 0));
+        stateMachine.AddTransition(reload, idle, new FuncPredicate(() => Charshoot.getBullets() > 0));
+        stateMachine.setDefaultState(idle);
+    }
+}

@@ -2,10 +2,10 @@
 {
     public override void Hover(IInteractable obj)
     {
-        obj.setHover(true);
+        obj.setOnRadius(true);
     }
     public override void UnHover(IInteractable obj)
     {
-        obj.setHover(false);
+        obj.setOnRadius(false);
     }
 }

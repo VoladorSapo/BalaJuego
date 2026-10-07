@@ -13,6 +13,8 @@ public class TimeManager : MonoBehaviour,ITimeManager
 
     bool hasChanged;
 
+    timeData currentTimeData;
+
     void Start()
     {
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
@@ -30,7 +32,8 @@ public class TimeManager : MonoBehaviour,ITimeManager
         Debug.Log("Change Time " + newMagnitude);
         float cacheMagnitude = timeMagnitude;
         timeMagnitude = newMagnitude;
-        onTimeChange?.Invoke(this,new timeData(cacheMagnitude, newMagnitude));
+        currentTimeData = new timeData(cacheMagnitude, newMagnitude);
+        onTimeChange?.Invoke(this,currentTimeData);
         musicManager.Instance.changeTimeMagnitude(newMagnitude);
 
         if (newMagnitude < 1 && !inf)
@@ -42,6 +45,10 @@ public class TimeManager : MonoBehaviour,ITimeManager
     public void subscribeToTimeChange(EventHandler<timeData> response)
     {
         onTimeChange += response;
+        if (currentTimeData != null)
+        {
+            response(this, currentTimeData);
+        }
     }
 
     public void unSubscribeToTimeChange(EventHandler<timeData> response)

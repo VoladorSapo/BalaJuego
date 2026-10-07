@@ -9,8 +9,8 @@
         EnemyStunedState stuned = new EnemyStunedState(this);
         EnemyShootMoveState shootmove = new EnemyShootMoveState(this,move,shoot);
 
-        stateMachine.AddTransition(move, shootmove, new FuncPredicate(() => detector.reachableObjects.Count > 0));
-        stateMachine.AddTransition(shootmove, move, new FuncPredicate(() => detector.reachableObjects.Count == 0));
+        stateMachine.AddTransition(move, shootmove, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
+        stateMachine.AddTransition(shootmove, move, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
         stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee));
         stateMachine.setDefaultState(move);
     }

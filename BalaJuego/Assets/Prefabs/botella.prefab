@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 570246489670816653}
   - component: {fileID: 6983924782972634724}
   - component: {fileID: 2534503266039321681}
+  - component: {fileID: -3404145880856152078}
+  - component: {fileID: 2540831603545915990}
   m_Layer: 14
   m_Name: botella
   m_TagString: Botella
@@ -43,6 +45,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051294939465296080}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -66,7 +69,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.04, y: 0}
   m_Size: {x: 0.4, y: 1.08}
   m_Direction: 0
@@ -82,32 +86,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93422510e36c12e4a82cab5ff81caf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 1
-  <speed>k__BackingField: 10
-  damage: 1
-  lifeTime: 0
-  canHurtAll: 0
-  Infinite: 1
-  onFire: 0
-  collisionParticleParent: {fileID: 0}
+  area: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  positionWhenEquipped: {x: 0, y: 0, z: 0}
+  rotationWhenEquipped: {x: 0, y: 0, z: 0}
+--- !u!114 &-3404145880856152078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051294939465296080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4b833436aecc54fb81b756f7b96d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProyectileMovement
+  z: -0.3
+  <speed>k__BackingField: 6
   <moving>k__BackingField: 0
-  hit: 0
-  z: 0
-  hitType: 0
+--- !u!114 &2540831603545915990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051294939465296080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 254ce1b13959f5c4baf434e5c9983c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectSource
+  canHurtAll: 0
+  destroyOnHit: 1
+  canHitDefault: 0
+  owner: {fileID: 0}
+  hitType: 2
+  collisionParticleParent: {fileID: 0}
   hitParticle: {fileID: 0}
   impactParticle: {fileID: 0}
-  inSelect: 0
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
-  anim: {fileID: 0}
+  anim: {fileID: 2650032920086899954}
   effects:
   - type: 2
-    stat: 1
-    infinite: 1
-    duration: 0
-  isThrown: 0
-  area: {fileID: 0}
+    stat: 0
+    infinite: 0
+    duration: 5
+  canHit: 0
 --- !u!1 &6389520299271862978
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +170,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2233878733796832633
 SpriteRenderer:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,6 +186,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -179,9 +212,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: bc2a0bb3030d98146a08caaca2dde42d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -191,11 +226,11 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!95 &2650032920086899954
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -209,6 +244,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -224,9 +260,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7926905555980134807}
   - component: {fileID: 5592714373710698219}
-  - component: {fileID: 8062113786293491393}
+  - component: {fileID: 8733646786065645229}
+  - component: {fileID: 1499912740795597831}
   m_Layer: 7
-  m_Name: grab
+  m_Name: Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,6 +292,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676521921521116941}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -278,11 +316,12 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.04, y: 0}
   m_Size: {x: 0.61, y: 1.32}
   m_Direction: 0
---- !u!114 &8062113786293491393
+--- !u!114 &8733646786065645229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,8 +330,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 8676521921521116941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2125c9cf4b0827f419e47ffde2270895, type: 3}
+  m_Script: {fileID: 11500000, guid: 88684c10d679c104ab0c837300b3f1fc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventInteractable
+  interactEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2534503266039321681}
+        m_TargetAssemblyTypeName: Throwable, Assembly-CSharp
+        m_MethodName: Grab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  setOnRadiusEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  mouseEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1499912740795597831}
+        m_TargetAssemblyTypeName: SizeHover, Assembly-CSharp
+        m_MethodName: setHover
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  mouseLeave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1499912740795597831}
+        m_TargetAssemblyTypeName: SizeHover, Assembly-CSharp
+        m_MethodName: setHover
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTimeStop:
+    m_PersistentCalls:
+      m_Calls: []
+  canInteract: 1
+--- !u!114 &1499912740795597831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676521921521116941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2641106f98f5ce548826dc3e63b4a8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SizeHover
   sprite: {fileID: 2233878733796832633}
   HoverSize: 1.5

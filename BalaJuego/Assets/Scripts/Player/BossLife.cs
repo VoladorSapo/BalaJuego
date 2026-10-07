@@ -15,7 +15,7 @@ public class BossLife: ACharacterLife
         {
             
             print("tag bullet");
-            IProyectile bul = collision.GetComponent<IProyectile>();
+            IEffectSource bul = collision.GetComponent<IEffectSource>();
             if (bul != null && (bul.getTeam() != team || bul.hurtAll() == true))
             {
                 anim.Play("enemyDodge");
