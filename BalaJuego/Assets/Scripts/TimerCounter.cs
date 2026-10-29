@@ -19,7 +19,7 @@ public class TimerCounter : MonoBehaviour
         if (timer != null)
         {
             TimePoints time = timer.getSeconds();
-            text.text = string.Format("{0:00}:{1:00}:{2:00}", time.hours, time.minutes, time.seconds);
+            text.text = string.Format("{0:00}:{1:00}:{2:00}.{3:00}", time.hours, time.minutes, time.seconds,time.miliseconds);
         }
     }
 }

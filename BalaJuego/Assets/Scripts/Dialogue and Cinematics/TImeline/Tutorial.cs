@@ -115,15 +115,15 @@ namespace tutorial
             switch (settingManager.Instance.getLanguage())
             {
                 case Language.Spanish:
-                    tutorial.TutorialText.text = "Tu revólver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E para REALENTIZAR EL TIEMPO";
+                    tutorial.TutorialText.text = "Tu revólver solo puede tener una bala. Pero cuando está SIN BALAS puedes pulsar E / CLICK DERECHO para REALENTIZAR EL TIEMPO";
 
                     break;
                 case Language.English:
-                    tutorial.TutorialText.text = "Your revolver can only hold one bullet. But when it’s OUT OF BULLETS you can press E to SLOW DOWN TIME.";
+                    tutorial.TutorialText.text = "Your revolver can only hold one bullet. But when it’s OUT OF BULLETS you can press E / RIGHT CLICK to SLOW DOWN TIME.";
 
                     break;
                 case Language.Catalan:
-                    tutorial.TutorialText.text = "El teu revòlver només pot tenir una bala. Però quan està SENSE BALA pots prémer E per RALENTIR EL TEMPS.";
+                    tutorial.TutorialText.text = "El teu revòlver només pot tenir una bala. Però quan està SENSE BALA pots prémer E / CLIC DRET per RALENTIR EL TEMPS.";
 
                     break;
             }

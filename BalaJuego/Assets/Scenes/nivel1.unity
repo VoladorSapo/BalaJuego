@@ -18524,10 +18524,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4316183173319661894, guid: aaabab133b0c4aa499624d6843f7ddb5, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5649964712979979135, guid: aaabab133b0c4aa499624d6843f7ddb5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -138825,7 +138821,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1418940444
 Canvas:
   m_ObjectHideFlags: 0

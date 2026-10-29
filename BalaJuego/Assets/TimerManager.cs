@@ -84,12 +84,13 @@ public interface ITimer : IService
 }
 public struct TimePoints
 {
- public   float hours, minutes, seconds;
+ public   float hours, minutes, seconds,miliseconds;
 
-   public TimePoints(float allSeconds)
+    public TimePoints(float allSeconds)
     {
-        hours =MathF.Floor(allSeconds / 3600);
-        minutes = MathF.Floor((allSeconds-hours*3660) / 60);
-        seconds = (allSeconds - hours * 3600) % 60;
+        hours = MathF.Floor(allSeconds / 3600);
+        minutes = MathF.Floor((allSeconds - hours * 3600) / 60);
+        seconds = MathF.Floor(allSeconds - hours * 3600 - minutes * 60);
+        miliseconds = (allSeconds -  hours * 3600 - minutes*60 - seconds) * 1000;
     }
 }

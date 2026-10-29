@@ -132,7 +132,7 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse1))
         {
             stopBufferTimeCurrent = stopBufferTime;
 
@@ -156,7 +156,7 @@ public class PlayerShoot : MonoBehaviour
                 textoaviso.enabled = true;
             }
         }
-        if (Input.GetKeyUp(KeyCode.E))
+        if ((Input.GetKeyUp(KeyCode.E) && !Input.GetKey(KeyCode.Mouse1))|| (Input.GetKeyUp(KeyCode.Mouse1) && !Input.GetKey(KeyCode.E)))
         {
             stopBufferTimeCurrent = 0;
             textoaviso.enabled = false;

@@ -17,7 +17,7 @@ namespace tutorial
             FinTutorial1State fin = new FinTutorial1State(this);
 
             machine.AddTransition(start, pressE, new FuncPredicate(() => true));
-            machine.AddTransition(pressE, idle, new FuncPredicate(() => Input.GetKeyDown(KeyCode.E)));
+            machine.AddTransition(pressE, idle, new FuncPredicate(() => Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse1)));
             machine.AddTransition(idle, clickBala, new FuncPredicate(() =>grabDetector.reachableObjects.Count > 0));
             machine.AddTransition(clickBala, dispararTipo, new FuncPredicate(() => grabDetector.reachableObjects.Count == 0));
             machine.AddTransition(dispararTipo, pressE, new FuncPredicate(() => failDetector.reachableObjects.Count > 0));

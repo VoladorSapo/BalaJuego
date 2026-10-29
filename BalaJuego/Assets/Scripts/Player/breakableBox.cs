@@ -18,6 +18,7 @@ public class breakableBox:MonoBehaviour
                 print("set active false");
                 GetComponent<Animator>().Play("break");
                 GetComponent<Collider2D>().enabled = false;
+                GetComponent<Rigidbody2D>().simulated = false;
                 Destroy(bul.getObj());
             }
         }
@@ -31,16 +32,19 @@ public class breakableBox:MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.position = initPos;
+        GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Animator>().Play("idle");
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         StartCoroutine(waitrestart());
     }
 
     IEnumerator waitrestart()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         transform.position = initPos;
+        GetComponent<Rigidbody2D>().simulated = true;
         GetComponent<Collider2D>().enabled = true;
         GetComponent<Rigidbody2D>().gravityScale = 1;
     }

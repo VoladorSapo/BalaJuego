@@ -41,7 +41,7 @@ public class BossEnemyController : EnemyController
     }
     IEnumerator waitrestart()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         transform.position = initialPos;
         GetComponent<Collider2D>().enabled = true;
         GetComponent<Rigidbody2D>().gravityScale = 1;
