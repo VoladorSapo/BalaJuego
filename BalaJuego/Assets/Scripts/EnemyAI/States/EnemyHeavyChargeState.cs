@@ -14,7 +14,7 @@ public class EnemyHeavyChargeState : BaseEnemyState
     {
         musicManager.Instance.StartHeavyWalking();
         enemy.anim.Play("enemyRun");
-        enemy.wallDetect.gameObject.SetActive(true);
+        enemy.detectorManager.detectorDictionary["wall"].gameObject.SetActive(true);
     }
     public override void Update()
     {
@@ -26,6 +26,6 @@ public class EnemyHeavyChargeState : BaseEnemyState
     }
     public override void OnExit()
     {
-        enemy.wallDetect.gameObject.SetActive(false);
+        enemy.detectorManager.detectorDictionary["wall"].gameObject.SetActive(false);
     }
 }

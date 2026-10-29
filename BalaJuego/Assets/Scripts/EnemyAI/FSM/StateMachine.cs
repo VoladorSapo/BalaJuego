@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class StateMachine
 {
+    
     StateNode current;
-    Dictionary<Type, StateNode> nodes = new();
+    Dictionary<string, StateNode> nodes = new();
     HashSet<ITransition> anyTransitions = new();
     IState defaultState;
+    string defaultData = string.Empty;
     public void Update()
     {
         var transition = GetTransition();
@@ -22,6 +24,7 @@ public class StateMachine
         if (current?.State?.ShouldEnd() == true)
         {
             endState();
+          
         }
     }
 
@@ -32,9 +35,10 @@ public class StateMachine
         current?.State?.FixedUpdate();
     }
 
-    public void setDefaultState(IState state)
+    public void setDefaultState(IState state,string Data = "")
     {
         defaultState = state;
+        defaultData = Data;
     }
     public void restart()
     {
@@ -42,7 +46,7 @@ public class StateMachine
         {
             throw new Exception("Default State not Set exception");
         }
-        SetState(defaultState);
+        SetState(defaultState,defaultData);
     }
     public void SetState(IState state, string Data = "")
     {
@@ -52,7 +56,12 @@ public class StateMachine
         }
         else
         {
-            current = nodes[state.GetType()];
+            foreach (string i in nodes.Keys)
+            {
+                Debug.Log(i);
+            }
+            Debug.Log(state.GetIdCode());
+            current = nodes[state.GetIdCode()];
             current.State.SetUp(Data);
             current.State.OnEnter();
         }
@@ -67,7 +76,7 @@ public class StateMachine
         }
         else
         {
-            current = nodes[state.GetType()];
+            current = nodes[state.GetIdCode()];
             current.State.SetUp(Data);
             current.State.OnEnter();
         }
@@ -96,7 +105,7 @@ public class StateMachine
         
         Action trueEndState = () => {
             var previousState = current.State;
-            var nextState = nodes[state.GetType()].State;
+            var nextState = nodes[state.GetIdCode()].State;
             previousState?.OnExit();
             if (nextState != null)
             {
@@ -104,7 +113,7 @@ public class StateMachine
                 nextState.SetUp(Data);
             }
             nextState?.OnEnter();
-            current = nodes[state.GetType()];
+            current = nodes[state.GetIdCode()];
         };
         if (current.State.hasPreExitAction())
         {
@@ -157,12 +166,12 @@ public class StateMachine
 
     StateNode GetOrAddNode(IState state)
     {
-        var node = nodes.GetValueOrDefault(state.GetType());
+        var node = nodes.GetValueOrDefault(state.GetIdCode());
 
         if (node == null)
         {
             node = new StateNode(state);
-            nodes.Add(state.GetType(), node);
+            nodes.Add(state.GetIdCode(), node);
         }
 
         return node;

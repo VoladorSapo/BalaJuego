@@ -27,7 +27,7 @@ public class EnemyShootMoveState : BaseEnemyState
 {
     EnemyMoveState move;
     EnemyShootState shoot;
-    public EnemyShootMoveState(AEnemyBehaviour _enemy,EnemyMoveState move,EnemyShootState shoot)
+    public EnemyShootMoveState(AEnemyBehaviour _enemy,EnemyMoveState move,EnemyShootState shoot): base()
     {
         enemy = _enemy;
         this.move = move;

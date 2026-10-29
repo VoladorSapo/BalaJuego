@@ -185,7 +185,7 @@ public abstract class AEnemyBehaviour : MonoBehaviour,IDetectable
 
     public virtual void startStunState()
     {
-        stateMachine.ForceSetState(new EnemyStunedState(null),"Stun");
+        stateMachine.ForceSetState(new EnemyStunedState(null));
     }
     public virtual void endStunState()
     {

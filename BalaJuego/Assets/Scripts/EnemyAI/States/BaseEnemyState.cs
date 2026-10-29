@@ -4,18 +4,22 @@ using UnityEngine;
 public abstract class BaseEnemyState : IState
 {
     protected AEnemyBehaviour enemy;
-    protected string animName;
-
-    public virtual void SetUp(string Data)
+    protected string idCode;
+    protected bool generatedCode = false;
+    /// <summary>
+    /// Data that can be sent every time the state is reached, run before OnEnter. Allows for the same state to be reused in different configurations, as the data is stored in the transition.
+    /// For example, a state that only plays an animation and ends when it finishes could be used for multiple actions
+    /// </summary>
+    /// <param name="Data"></param>
+   
+        
+    protected virtual string generateIdCode()
     {
-        if (string.IsNullOrEmpty(Data))
-        {
-            animName = DefaultAnimName();
-        }
-        else
-        {
-            animName = Data;
-        }
+        return this.GetType().ToString();
+    }
+    public virtual void SetUp(string Data = "")
+    {
+      
     }
     public virtual void OnEnter()
     {
@@ -33,6 +37,10 @@ public abstract class BaseEnemyState : IState
     {
 
     }
+    /// <summary>
+    /// Checks if the end condition for the state has been reached
+    /// </summary>
+    /// <returns></returns>
     public virtual bool ShouldEnd()
     {
         return false;
@@ -58,7 +66,6 @@ public abstract class BaseEnemyState : IState
     }
 
 
-    protected virtual string DefaultAnimName() => "";
 
     public virtual bool hasPreExitAction()
     {
@@ -67,5 +74,15 @@ public abstract class BaseEnemyState : IState
 
     public virtual void preExit(Action action)
     {
+    }
+
+    public string GetIdCode()
+    {
+        if (!generatedCode)
+        {
+            generatedCode = true;
+           idCode = generateIdCode();   
+        }
+        return idCode;
     }
 }

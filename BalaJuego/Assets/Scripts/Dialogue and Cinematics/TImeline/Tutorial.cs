@@ -75,6 +75,8 @@ namespace tutorial
     public abstract class BaseTutorialState : IState
     {
         protected Tutorial tutorial;
+        protected string idCode;
+        protected bool generatedCode = false;
         public virtual void OnEnter()
         {
 
@@ -98,6 +100,7 @@ namespace tutorial
 
         public void SetUp(string Data)
         {
+
         }
 
         public virtual bool hasPreExitAction()
@@ -107,6 +110,16 @@ namespace tutorial
 
         public virtual void preExit(Action action)
         {
+        }
+        public string GetIdCode()
+        {
+            if (!generatedCode)
+            {
+                idCode = this.GetType().ToString();
+                generatedCode = true;
+            }
+            return idCode;
+            
         }
     }
 

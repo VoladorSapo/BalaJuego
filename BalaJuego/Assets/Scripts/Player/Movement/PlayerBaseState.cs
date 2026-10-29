@@ -5,6 +5,9 @@ public abstract class PlayerBaseState: IState
 {
     protected PlayerMove player;
     protected Rigidbody2D rb2d;
+    protected string idCode;
+    protected bool generatedCode = false;
+
     public PlayerBaseState(PlayerMove player)
     {
         this.player = player;
@@ -44,5 +47,15 @@ public abstract class PlayerBaseState: IState
 
     public  virtual void preExit(Action action)
     {
+    }
+    public string GetIdCode()
+    {
+        if (!generatedCode)
+        {
+            idCode = this.GetType().ToString();
+            generatedCode = true;
+        }
+        return idCode;
+
     }
 }

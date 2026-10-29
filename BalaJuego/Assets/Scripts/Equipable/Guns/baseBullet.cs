@@ -1,6 +1,6 @@
 ﻿public class baseBullet : EffectSource
 {
-    public void interact(PlayerInteractor player)
+    public void grabBullet(PlayerInteractor player)
     {
         print("grab bullet");
         player.shoot.addBullets(1);

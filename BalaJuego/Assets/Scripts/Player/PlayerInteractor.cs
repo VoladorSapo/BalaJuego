@@ -121,7 +121,7 @@ public class PlayerInteractor : CharacterInteractor
 
                     if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && !(stateManager.getState() == IGameState.gameState.NormalTime) && interactableObject.CanInteract())
                     {
-
+                        print("interact");
                         interactableObject.interact(this);
                     }
                     

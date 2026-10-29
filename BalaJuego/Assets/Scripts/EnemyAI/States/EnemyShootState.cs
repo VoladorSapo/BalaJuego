@@ -15,7 +15,7 @@ public class EnemyShootState : BaseEnemyState
         enemy.playAnimation("Spot");
         enemy.GetComponentInChildren<IGun>().setShooting(false);
         cadenceTime = enemy.differentFirstShootCadence ? enemy.firstShootCadence : enemy.shootCadence + Random.Range(-enemy.shootCadenceRandomRange, enemy.shootCadenceRandomRange);
-        playerTransform = enemy.detectorManager.detectorDictionary["in"].getFirst().getObj().transform;
+        playerTransform = enemy.detectorManager.detectorDictionary["in"].getFirst().ToGameObject().transform;
     }
     public override void Update()
     {
@@ -33,5 +33,3 @@ public class EnemyShootState : BaseEnemyState
         }
     }
 }
-
-

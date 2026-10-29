@@ -346,6 +346,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectParent: 0
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!50 &1257444491351176366
 Rigidbody2D:
   serializedVersion: 5
@@ -8661,6 +8665,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectParent: 0
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!50 &1260508764388027301
 Rigidbody2D:
   serializedVersion: 5

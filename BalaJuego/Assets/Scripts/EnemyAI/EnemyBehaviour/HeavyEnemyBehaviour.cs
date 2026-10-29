@@ -3,7 +3,6 @@
 public class HeavyEnemyBehaviour: AEnemyBehaviour
 {
 
-    [SerializeField]public WallDetector wallDetect;
     public Vector3 direction;
 
   public  Rigidbody2D rb2d;
@@ -22,10 +21,16 @@ public class HeavyEnemyBehaviour: AEnemyBehaviour
         HeavyStunedState stuned = new HeavyStunedState(this);
 
         FuncPredicate detectPlayer = new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0);
-        FuncPredicate dontDetectPlayer = new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() == 0);
+        NotPredicate dontDetectPlayer = new NotPredicate(detectPlayer);
+        FuncPredicate dontdetectground = new FuncPredicate(() => detectorManager.detectorDictionary["ground"].getCount() == 0);
+
         stateMachine.AddTransition(idle, startCharge, detectPlayer);
+
+        stateMachine.AddTransition(charge, startCharge, new AndPredicate( dontdetectground, detectPlayer));
+        stateMachine.AddTransition(charge, idle, new AndPredicate(dontdetectground, dontDetectPlayer));
+
         //stateMachine.AddTransition(startCharge, idle, new FuncPredicate(() => detector.reachableObjects.Count == 0));
-        stateMachine.AddTransition(startCharge, charge, new FuncPredicate(() => finishCharging == true));
+        stateMachine.AddEndTransition(startCharge, charge, new TruePredicate());
         // stateMachine.AddTransition(charge, idle, new FuncPredicate(() => finishCharging == false));
 
 
@@ -34,8 +39,9 @@ public class HeavyEnemyBehaviour: AEnemyBehaviour
         stateMachine.AddEndTransition(stuned, idle, dontDetectPlayer);
         stateMachine.AddEndTransition(stuned,idle,detectPlayer);
         stateMachine.setDefaultState(idle);
+        stateMachine.AddTransition(idle, startCharge, detectPlayer);
 
-       wallDetect.addWallDetectEvent(() => { print("HEAVYSTUN"); life.addEffect(new StunEffect(false, wallStunDuration)); });
+        detectorManager.detectorDictionary["wall"].addDetectEvent((object o) => { print("HEAVYSTUN WITH"); print(o == null); life.addEffect(new StunEffect(false, wallStunDuration)); });
     }
     
     public override void restart(LevelAreaController _area)
@@ -43,7 +49,7 @@ public class HeavyEnemyBehaviour: AEnemyBehaviour
         finishCharging = false;
         print("heavyRestart");
         base.restart(_area);
-        wallDetect.gameObject.SetActive(false);
+        detectorManager.detectorDictionary["wall"].gameObject.SetActive(false);
 
         
     }

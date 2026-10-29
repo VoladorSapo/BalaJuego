@@ -14,11 +14,11 @@ public class CharacterHat : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            setLives(Mathf.Abs(currentLives - 1));
-            hatOffParticles.Play();
-        }
+        //if(Input.GetKeyDown(KeyCode.H))
+        //{
+        //    setLives(Mathf.Abs(currentLives - 1));
+        //    hatOffParticles.Play();
+        //}
     }
     public bool getHit()
     {
@@ -53,6 +53,10 @@ public class CharacterHat : MonoBehaviour
     void setAnimator()
     {
         animator.SetInteger("lives", currentLives);
+    }
+    private void OnEnable()
+    {
+        setAnimator();
     }
 
 }

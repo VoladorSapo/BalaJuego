@@ -14,4 +14,5 @@ public interface IState
     bool hasPreExitAction();
 
     void preExit(Action action);
+    string GetIdCode();
 }

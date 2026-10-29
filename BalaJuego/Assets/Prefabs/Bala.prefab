@@ -14646,9 +14646,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canHurtAll: 0
   destroyOnHit: 1
-  collisionParticleParent: {fileID: 7442808983424984639}
   canHitDefault: 0
+  owner: {fileID: 0}
   hitType: 2
+  collisionParticleParent: {fileID: 7442808983424984639}
   hitParticle: {fileID: 1690490075298846511}
   impactParticle: {fileID: 0}
   obstacleLayer:
@@ -14767,7 +14768,6 @@ GameObject:
   - component: {fileID: 1859179985194995055}
   - component: {fileID: 7796712034074094139}
   - component: {fileID: 8566102992529787181}
-  - component: {fileID: 1853430168472057779}
   m_Layer: 7
   m_Name: Interactable
   m_TagString: Untagged
@@ -14885,7 +14885,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9095672051862003678}
         m_TargetAssemblyTypeName: baseBullet, Assembly-CSharp
-        m_MethodName: interact
+        m_MethodName: grabBullet
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14900,27 +14900,38 @@ MonoBehaviour:
       m_Calls: []
   mouseEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7796712034074094139}
+        m_TargetAssemblyTypeName: SizeHover, Assembly-CSharp
+        m_MethodName: setHover
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   mouseLeave:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7796712034074094139}
+        m_TargetAssemblyTypeName: SizeHover, Assembly-CSharp
+        m_MethodName: setHover
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTimeStop:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1853430168472057779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276558439313912093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2641106f98f5ce548826dc3e63b4a8cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SizeHover
-  sprite: {fileID: 2607897979270731590}
-  HoverSize: 1.5
+  canInteract: 1
 --- !u!1 &6537344418045284242
 GameObject:
   m_ObjectHideFlags: 0

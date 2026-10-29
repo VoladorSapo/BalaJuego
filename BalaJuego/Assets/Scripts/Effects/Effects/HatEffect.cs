@@ -1,3 +1,4 @@
+using UnityEngine;
 public class HatEffect : AInstantEffect
 {
     public int _hatShield { get; protected set; }
@@ -9,6 +10,7 @@ public class HatEffect : AInstantEffect
 
     public override void activateEffect()
     {
+        Debug.Log("Hat effect");
         character.characterHat.setLives(_hatShield);
     }
 

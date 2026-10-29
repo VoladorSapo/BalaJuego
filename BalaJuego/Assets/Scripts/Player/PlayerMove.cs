@@ -81,7 +81,7 @@ public class PlayerMove : MonoBehaviour
 
     bool canMove;
 
-    RaycastHit2D hitGround;
+   public RaycastHit2D hitGround { get; private set; }
 
    public LayerMask layerGoThroughOnDodge;
 

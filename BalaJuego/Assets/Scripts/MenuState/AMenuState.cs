@@ -8,7 +8,8 @@ public abstract class AMenuState : IState
 {
 
     protected MenuController menu;
-
+    protected string idCode;
+    protected bool generatedCode = false;
     public AMenuState(MenuController menu)
     { this.menu = menu; }
     public abstract void FixedUpdate();
@@ -37,5 +38,16 @@ public abstract class AMenuState : IState
 
     public void preExit(Action action)
     {
+    }
+
+    public string GetIdCode()
+    {
+        if (!generatedCode)
+        {
+            idCode = this.GetType().ToString();
+            generatedCode = true;
+        }
+        return idCode;
+
     }
 }

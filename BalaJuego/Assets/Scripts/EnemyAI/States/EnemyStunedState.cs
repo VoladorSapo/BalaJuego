@@ -2,38 +2,29 @@
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class EnemyStunedState: BaseEnemyState
+public class EnemyStunedState: EnemyPlayAnimationState
 {
-    public EnemyStunedState(AEnemyBehaviour _enemy)
+    public EnemyStunedState(AEnemyBehaviour _enemy): base(_enemy,"Stun")
     {
         enemy = _enemy;
     }
     public override void OnEnter()
     {
-        
+        base.OnEnter();
         enemy.stunedCollider.gameObject.SetActive(true);
-        Debug.Log(animName);
-        enemy.playAnimation(animName, () => Debug.Log("FINISHANIMATION"));
+      
     }
     public override void OnExit()
     {
-        Debug.Log("end"+animName);
+        base.OnExit();
         enemy.stunedCollider.gameObject.SetActive(false);
     }
 
-    public override bool hasPreExitAction()
+    public override bool ShouldEnd()
     {
-        return enemy.checkHasAnimation(animName+"End");
+        return false;
     }
-    public override void preExit(Action action)
-    {
-        Debug.Log("preExit");
-        enemy.playAnimation(animName + "End",action);
-    }
-    protected override string DefaultAnimName()
-    {
-        return "Stun";
-    }
+
 
 }
 public class HeavyStunedState : EnemyStunedState
@@ -47,7 +38,8 @@ public class HeavyStunedState : EnemyStunedState
     {
         base.OnEnter();
         musicManager.Instance.StopHeavyWalking();
-        enemy.GetComponentInChildren<WallDetector>().gameObject.SetActive(false);
+        Debug.Log(enemy);
+        enemy.detectorManager.detectorDictionary["wall"].gameObject.SetActive(false);
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 public class GunEnemyBehaviour : AEnemyBehaviour
 {
-   protected IGun Charshoot;
+    protected IGun Charshoot;
 
     [SerializeField] bool ChangeMeleeCollider;
 
@@ -18,7 +18,7 @@ public class GunEnemyBehaviour : AEnemyBehaviour
         EnemyStunedState stuned = new EnemyStunedState(this);
         stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
         stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
-        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee),"Empty");
+        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee), "Empty");
         stateMachine.AddEndTransition(stuned, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
         stateMachine.AddEndTransition(stuned, shoot, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
 
@@ -27,7 +27,7 @@ public class GunEnemyBehaviour : AEnemyBehaviour
     }
     public override void restart(LevelAreaController _area)
     {
-       // print("GunRestart");
+        // print("GunRestart");
         base.restart(_area);
 
         GetComponentInChildren<BaseGun>().restart();
@@ -37,7 +37,28 @@ public class GunEnemyBehaviour : AEnemyBehaviour
         }
     }
 }
+public class KnifeEnemyBehaviour : AEnemyBehaviour
+{
+    public override void setUpStateMachine()
+    {
 
+        stateMachine = new StateMachine();
+        EnemyPlayAnimationState attack = new EnemyPlayAnimationState(this, "Attack");
+        EnemyFollowPlayerState follow = new EnemyFollowPlayerState(this);
+        EnemyIdleState idle = new EnemyIdleState(this);
+        EnemyStunedState stuned = new EnemyStunedState(this);
+        stateMachine.AddTransition(idle, follow, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
+        stateMachine.AddTransition(follow, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
+        stateMachine.AddEndTransition(stuned, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
+        stateMachine.AddEndTransition(stuned, attack, new FuncPredicate(() => detectorManager.detectorDictionary["attack"].getCount() > 0));
+        stateMachine.AddEndTransition(stuned, follow, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
+        stateMachine.AddTransition(follow, attack, new FuncPredicate(() => detectorManager.detectorDictionary["attack"].getCount() > 0));
+        stateMachine.AddEndTransition(attack, follow, new FuncPredicate(() => detectorManager.detectorDictionary["attack"].getCount() == 0));
+
+
+        stateMachine.setDefaultState(idle);
+    }
+}
 public class TurretEnemyBehaviour : GunEnemyBehaviour
 {
     public override void setUpStateMachine()
