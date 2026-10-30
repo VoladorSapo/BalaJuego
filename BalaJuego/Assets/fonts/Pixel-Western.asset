@@ -43,9 +43,9 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _VertexOffsetX: 0
-    - _VertexOffsetY: 0
+    - _VertexOffsetY: -28
     m_Colors:
-    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _ClipRect: {r: -32767, g: -32773, b: 32760.1, a: 32767}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &11400000
@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Pixel-Western
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -89484439
   material: {fileID: -5662739615431708744}
-  materialHashCode: 0
+  materialHashCode: -459096279
   m_Version: 1.1.0
   m_SourceFontFileGUID: abeac01a19461ad42a9dc49b2c322eec
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: abeac01a19461ad42a9dc49b2c322eec, type: 3}
