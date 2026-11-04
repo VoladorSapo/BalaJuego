@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf1a8e615d89ef41a143ec335a8f6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <modeSpeedRun>k__BackingField: 0
+  currentLanguage: 0
+  <skipCutscenes>k__BackingField: 0
+  <skipTutorial>k__BackingField: 0
   <activatedTimer>k__BackingField: 0
+  <gameConfiguration>k__BackingField: {fileID: 11400000, guid: 4888c28df9d75e345a1e7cf311f7ebde, type: 2}
