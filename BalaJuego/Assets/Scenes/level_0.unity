@@ -6704,11 +6704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a699c69318001f047bf20f20c45d231c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  enemies: []
   aliveEnemies: 0
   botellas: []
   intactBottles: 0
@@ -6790,11 +6786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a699c69318001f047bf20f20c45d231c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  enemies: []
   aliveEnemies: 0
   botellas: []
   intactBottles: 0
@@ -66797,9 +66789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a699c69318001f047bf20f20c45d231c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
+  enemies: []
   aliveEnemies: 0
   botellas: []
   intactBottles: 0
@@ -71014,10 +71004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a699c69318001f047bf20f20c45d231c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  enemies: []
   aliveEnemies: 0
   botellas: []
   intactBottles: 0
