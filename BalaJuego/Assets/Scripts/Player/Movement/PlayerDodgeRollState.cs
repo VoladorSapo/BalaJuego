@@ -31,7 +31,7 @@ public class PlayerDodgeRollState : PlayerBaseState
         objspeed = player.maxRollSpeed * dodgeRollDirection;
         rollPhase = 1;
         Debug.Log($"RollPhaseChange: {rollPhase}");
-        rb2d.gravityScale = player.fallGravity;
+        rb2d.gravityScale = player.fallGravity * player.timeMagnitude;
         timeInMaxSpeed = 0;
     }
     public override void FixedUpdate()

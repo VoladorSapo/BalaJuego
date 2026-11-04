@@ -11,11 +11,11 @@ public class PlayerJumpState : PlayerBaseState
 
         //dustJump.gameObject.SetActive(true);
         //dustJump.Play();
-        rb2d.gravityScale = player.normalGravity;
+        rb2d.gravityScale = player.normalGravity * player.timeMagnitude;
         musicManager.Instance.PlayJump();
-        rb2d.gravityScale = player.normalGravity;
+        rb2d.gravityScale = player.normalGravity *player.timeMagnitude;
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, 0);
-        rb2d.AddForce(Vector2.up * player.jumpForce, ForceMode2D.Impulse);
+        rb2d.AddForce(Vector2.up * player.JumpForce, ForceMode2D.Impulse);
         Debug.Log("addforce");
         player.coyoteTimeCurrent = player.jumpBufferTimeCurrent = 0;
         player.UpdateAnimatorBool("isGround", false);

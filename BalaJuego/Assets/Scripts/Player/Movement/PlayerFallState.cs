@@ -8,8 +8,8 @@ public class PlayerFallState : PlayerBaseState
 
     public override void OnEnter()
     {
-        base.OnEnter(); 
-        rb2d.gravityScale = player.fallGravity;
+        base.OnEnter();
+        rb2d.gravityScale = player.fallGravity * player.timeMagnitude;
         player.UpdateAnimatorBool("isGround", false);
 
 

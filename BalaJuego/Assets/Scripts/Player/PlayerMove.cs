@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
 {
     public int MoveX;
 
-    [SerializeField] float trueMagnitude;
 
     [field: SerializeField] public Vector2 calcVelocity;
 
@@ -23,7 +22,9 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public float groundDecceleration {  get; private set; }
     [field: SerializeField] public float turnDecceleration { get; private set; }
     [field: SerializeField] public float airDecceleration { get; private set; }
-    [field: SerializeField] public float jumpForce { get; private set; }
+    [SerializeField] float jumpForce;
+    [SerializeField] float jumpForceSlowDown;
+    public float JumpForce => timeMagnitude == 1 ? jumpForce : jumpForceSlowDown;
 
     [field: SerializeField] public float normalGravity { get; private set; }
     [field: SerializeField] public float fallGravity { get; private set; }
@@ -263,8 +264,8 @@ public class PlayerMove : MonoBehaviour
     }
     void changeTimeMagnitude(object sender, timeData data)
     {
+        float trueMagnitude = settingManager.Instance.gameConfiguration.slowDownTimeMagnitudeAgatha;
         float use = data.currentMagnitude == 1 ? 1 : trueMagnitude;
-        float mult = data.currentMagnitude / data.oldMagnitude;
         timeMagnitude = use;
 
         if (use == 1)
@@ -285,18 +286,18 @@ public class PlayerMove : MonoBehaviour
 
         }
         UpdateAnimatorSpeed(use);
-        if (data.currentMagnitude != 1)
-        {
-            normalGravity = mult = 1.5f;
-            fallGravity = mult = 2;
-            jumpForce = 5;
-        }
-        else
-        {
-            normalGravity = mult = 4;
-            fallGravity = mult = 8;
-            jumpForce = 8;
-        }
+        //if (data.currentMagnitude != 1)
+        //{
+        //    normalGravity = mult = 1.5f;
+        //    fallGravity = mult = 2;
+        //    jumpForce = 5;
+        //}
+        //else
+        //{
+        //    normalGravity = mult = 4;
+        //    fallGravity = mult = 8;
+        //    jumpForce = 8;
+        //}
     }
 
     public void UpdateAnimatorFloat(string property, float value)
