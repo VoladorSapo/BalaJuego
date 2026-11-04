@@ -81312,6 +81312,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1526738469
       objectReference: {fileID: 0}
+    - target: {fileID: 6516374522455647756, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_Name
+      value: executionCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 7039631446769860590, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -81326,6 +81330,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4742863561911835869, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+    - {fileID: 6162893027825946036, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+    - {fileID: 8861879679829217979, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -124836,6 +124842,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1103279981}
+    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+      propertyPath: Target.CustomLookAtTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3030687074948514779, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
       propertyPath: transitionTime
       value: 3
@@ -124900,7 +124914,9 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 1784441811}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+    - {fileID: 3648706299692881926, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
