@@ -1732,7 +1732,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9e7dc1b18e6cd49b166dacd1c9e64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectParent: 0
   reachableObjects: []
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &105416303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,6 +1753,7 @@ MonoBehaviour:
   color: {r: 0, g: 1, b: 0.92302203, a: 0.2901961}
   sphereSize: 13.83
   useScale: 1
+  onSelected: 1
 --- !u!1 &108733941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3456,6 +3462,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   sphereSize: 0
   useScale: 0
+  onSelected: 1
 --- !u!114 &130666613 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1690854785696709629, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
@@ -76308,32 +76315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93422510e36c12e4a82cab5ff81caf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 0
-  <speed>k__BackingField: 0
-  damage: 0
-  lifeTime: 0
-  canHurtAll: 0
-  Infinite: 1
-  destroyOnHit: 0
-  onFire: 0
-  collisionParticleParent: {fileID: 0}
-  <moving>k__BackingField: 0
-  hit: 0
-  z: 0
-  hitType: 0
-  hitParticle: {fileID: 0}
-  impactParticle: {fileID: 0}
-  inSelect: 0
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  anim: {fileID: 0}
-  effects:
-  - type: 0
-    stat: 1
-    infinite: 0
-    duration: 0
-  isThrown: 0
   area: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   positionWhenEquipped: {x: 0, y: 0, z: 0}
@@ -81347,6 +81328,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   sphereSize: 0
   useScale: 1
+  onSelected: 1
 --- !u!1 &544566296
 GameObject:
   m_ObjectHideFlags: 0
@@ -81486,6 +81468,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   sphereSize: 0
   useScale: 1
+  onSelected: 1
 --- !u!1001 &578251021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82710,6 +82693,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73475c599639eb64995743a9a9c56c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectParent: 0
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!58 &773390176
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -83694,9 +83682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  action:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &873649796
 GameObject:
   m_ObjectHideFlags: 0
@@ -112198,6 +112183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9be4d655177c94381ef067a71b2967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  positionWhenEquipped: {x: 0, y: 0, z: 0}
+  rotationWhenEquipped: {x: 0, y: 0, z: 0}
   startBullets: 0
   currentBullets: 0
   spawnPoint: {fileID: 0}
@@ -112206,6 +112195,7 @@ MonoBehaviour:
   shooting: 0
   bullet: {fileID: 0}
   bulletCount: {fileID: 0}
+  DestroyWhenOutOfBullets: 0
 --- !u!1 &1417018552
 GameObject:
   m_ObjectHideFlags: 0
@@ -112601,11 +112591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8495180782676464857, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.11
+      value: -40.83
       objectReference: {fileID: 0}
     - target: {fileID: 8495180782676464857, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.69
+      value: 9.95
       objectReference: {fileID: 0}
     - target: {fileID: 8495180782676464857, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_LocalPosition.z
@@ -112641,7 +112631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9054033260984113442, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: startBullets
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -122029,26 +122019,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  points:
-  - {x: -0.07, y: 4.09, z: 0}
-  - {x: -0.96, y: 3.42, z: 0}
-  - {x: -1.7, y: 2.46, z: 0}
-  - {x: -2.52, y: 1.43, z: 0}
-  - {x: -2.87, y: 0.06, z: 0}
-  - {x: -2.52, y: -1.43, z: 0}
-  - {x: -1.7, y: -2.46, z: 0}
-  - {x: -0.96, y: -3.42, z: 0}
-  - {x: -0.11, y: -4.36, z: 0}
-  - {x: 0.96, y: -3.42, z: 0}
-  - {x: 1.7, y: -2.46, z: 0}
-  - {x: 2.52, y: -1.43, z: 0}
-  - {x: 2.81, y: 0.06, z: 0}
-  - {x: 2.52, y: 1.43, z: 0}
-  - {x: 1.7, y: 2.46, z: 0}
-  - {x: 0.96, y: 3.42, z: 0}
-  changePointThreshold: 0.1
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 0.32
+  defaultObjectiveUpdate: 0
+  objectiveUpdateTime: 0
+  timeMagnitude: 0
+  currentObjective: {fileID: 0}
+  <currentObjectivePos>k__BackingField: {x: 0, y: 0, z: 0}
+  objetiveUpdate: 0
+  currentObjectiveUpdateTime: 0
 --- !u!114 &1893564048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123079,6 +123056,7 @@ MonoBehaviour:
   color: {r: 0.2566619, g: 1, b: 0, a: 1}
   sphereSize: 0.35
   useScale: 1
+  onSelected: 1
 --- !u!1 &2019072224
 GameObject:
   m_ObjectHideFlags: 0
@@ -123556,6 +123534,7 @@ MonoBehaviour:
   color: {r: 0, g: 1, b: 0.92302203, a: 0.2901961}
   sphereSize: 13.83
   useScale: 1
+  onSelected: 1
 --- !u!1 &472761819562319234
 GameObject:
   m_ObjectHideFlags: 0
@@ -123906,32 +123885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93422510e36c12e4a82cab5ff81caf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 1
-  <speed>k__BackingField: 10
-  damage: 1
-  lifeTime: 0
-  canHurtAll: 0
-  Infinite: 1
-  destroyOnHit: 1
-  onFire: 0
-  collisionParticleParent: {fileID: 0}
-  <moving>k__BackingField: 0
-  hit: 0
-  z: 0
-  hitType: 0
-  hitParticle: {fileID: 0}
-  impactParticle: {fileID: 0}
-  inSelect: 0
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  anim: {fileID: 0}
-  effects:
-  - type: 2
-    stat: 1
-    infinite: 1
-    duration: 0
-  isThrown: 0
   area: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   positionWhenEquipped: {x: -0.4, y: -0.94, z: 0}
@@ -124014,6 +123967,7 @@ MonoBehaviour:
   color: {r: 0.9810977, g: 0, b: 1, a: 1}
   sphereSize: 0.2
   useScale: 0
+  onSelected: 1
 --- !u!212 &3126374514449474735
 SpriteRenderer:
   serializedVersion: 3
@@ -124759,7 +124713,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9e7dc1b18e6cd49b166dacd1c9e64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectParent: 0
   reachableObjects: []
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6971863432479453679
 GameObject:
   m_ObjectHideFlags: 0
@@ -125271,6 +125230,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9be4d655177c94381ef067a71b2967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  positionWhenEquipped: {x: 0, y: 0, z: 0}
+  rotationWhenEquipped: {x: 0, y: 0, z: 0}
   startBullets: 4
   currentBullets: 0
   spawnPoint: {fileID: 4444866349519353067}
@@ -125279,6 +125242,7 @@ MonoBehaviour:
   shooting: 0
   bullet: {fileID: 4778922938256658580, guid: 9edd249629eec8e4299c3c10923a784c, type: 3}
   bulletCount: {fileID: 4989959373422140020}
+  DestroyWhenOutOfBullets: 0
 --- !u!114 &9054033260098300851
 MonoBehaviour:
   m_ObjectHideFlags: 0

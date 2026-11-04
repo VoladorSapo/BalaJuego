@@ -12,6 +12,8 @@ public class settingManager : MonoBehaviour
     [field:SerializeField] public bool skipCutscenes { get; private set; }
     [field: SerializeField] public bool skipTutorial { get; private set; }
     [field:SerializeField] public bool activatedTimer{ get; private set; }
+
+    [field: SerializeField] public GameConfiguration gameConfiguration { get; private set; }
     public event EventHandler<Language> changeLanguageEvent;
 
     private void Awake()
