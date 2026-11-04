@@ -37,14 +37,33 @@ public class PlayerDodgeRollState : PlayerBaseState
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        //float realobjspeed = objspeed * player.timeMagnitude;
+        //player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, realobjspeed, useAcell * Time.fixedDeltaTime * player.timeMagnitude);
+        //rb2d.linearVelocity = player.calcVelocity;
+
+        Vector2 tangent = new Vector2(player.hitGround.normal.y, -player.hitGround.normal.x);
         float realobjspeed = objspeed * player.timeMagnitude;
-        player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, realobjspeed, useAcell * Time.fixedDeltaTime * player.timeMagnitude);
+        float currentvelocity;
+        if (tangent.x > 0.01f)
+        {
+            currentvelocity = player.calcVelocity.x / tangent.x;
+        }
+        else
+        {
+            currentvelocity = player.calcVelocity.x;
+        }
+        currentvelocity = Mathf.MoveTowards(currentvelocity, realobjspeed, useAcell * Time.fixedDeltaTime * player.timeMagnitude);
+        Debug.Log($"RollPhasePre{currentvelocity} {realobjspeed} {useAcell} {useAcell * Time.fixedDeltaTime * player.timeMagnitude}");
+
+        player.calcVelocity.x = currentvelocity * tangent.x;
+        player.calcVelocity.y = currentvelocity * tangent.y;
         rb2d.linearVelocity = player.calcVelocity;
+
         switch (rollPhase)
         {
             case 1:
-                Debug.Log($"RollPhase{player.calcVelocity.x} {realobjspeed}");
-                if (Mathf.Abs(player.calcVelocity.x) >= Mathf.Abs(realobjspeed))
+                Debug.Log($"RollPhase{currentvelocity} {realobjspeed} {useAcell}");
+                if (Mathf.Abs(currentvelocity) >= Mathf.Abs(realobjspeed))
                 {
                     if (player.DEBUG_dodgewhenwalkspeedismax)
                     {
@@ -76,7 +95,7 @@ public class PlayerDodgeRollState : PlayerBaseState
                 }
                 break;
             case 3:
-                if (Mathf.Abs(player.calcVelocity.x) <= Mathf.Abs(realobjspeed))
+                if (Mathf.Abs(currentvelocity) <= Mathf.Abs(realobjspeed))
                 {
                     rollPhase = 4;
                     Debug.Log($"RollPhaseChange: {rollPhase}");

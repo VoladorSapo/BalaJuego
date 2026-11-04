@@ -179,7 +179,7 @@ namespace tutorial
         }
         public override void OnEnter()
         {
-            tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<ProyectileMovement>().changeTimeMagnitude(this, new timeData(1,0));
+            tutorial.grabDetector.reachableObjects[0].getObj().GetComponent<LinearProyectileMovement>().changeTimeMagnitude(this, new timeData(1,0));
             switch (settingManager.Instance.getLanguage())
             {
                 case Language.Spanish:

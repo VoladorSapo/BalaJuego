@@ -24,8 +24,13 @@ public interface IEffectSource
 }
 public interface IProyectile
 {
-    public void ActivateProyectileMovement(CharacterInteractor shooter, float angle);
-    public void ActivateProyectileMovement(CharacterInteractor shooter, float angle, Vector3 pos);
+    public  void ActivateProyectileMovement(CharacterInteractor shooter, Vector3 startPos, float angle);
+    public  void ActivateProyectileMovement(CharacterInteractor shooter, Vector3 startPos, Vector3 pos);
+    public  void ActivateProyectileMovement(CharacterInteractor shooter, Vector3 startPos, Transform transform);
+
+
+    public void DeactivateMovement();
+
     public GameObject getObj();
     public void hitSomething(GameObject obj);
     void setActivateEvent(Action<CharacterInteractor> activateSource);

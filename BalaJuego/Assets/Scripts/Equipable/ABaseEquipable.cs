@@ -53,4 +53,12 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
         Destroy(gameObject);
 
     }
+
+    public void throwOut()
+    {
+        IProyectile proyectile = GetComponent<IProyectile>();
+        proyectile.DeactivateMovement();
+
+    }
+
 }
