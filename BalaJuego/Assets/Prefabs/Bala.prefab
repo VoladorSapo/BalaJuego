@@ -14552,8 +14552,8 @@ GameObject:
   - component: {fileID: 9095672051862003678}
   - component: {fileID: 203304381074826425}
   - component: {fileID: 8039777573620418802}
-  - component: {fileID: -8896511772409857083}
   - component: {fileID: 6327611237262435966}
+  - component: {fileID: 1300012947871662887}
   m_Layer: 14
   m_Name: Bala
   m_TagString: Bullet
@@ -14726,21 +14726,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8896511772409857083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778922938256658580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4b833436aecc54fb81b756f7b96d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProyectileMovement
-  z: -0.3
-  <speed>k__BackingField: 6
-  <moving>k__BackingField: 0
 --- !u!114 &6327611237262435966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14755,6 +14740,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimeLimited
   Infinite: 0
   lifeTime: 5
+--- !u!114 &1300012947871662887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778922938256658580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c32438373944f1448cbcde554926e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LinearProyectileMovement
+  z: -0.13
+  <speed>k__BackingField: 5
+  <moving>k__BackingField: 0
 --- !u!1 &5276558439313912093
 GameObject:
   m_ObjectHideFlags: 0

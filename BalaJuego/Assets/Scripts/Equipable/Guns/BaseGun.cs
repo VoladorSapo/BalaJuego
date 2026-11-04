@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class BaseGun : ABaseEquipable, IGun
 
@@ -84,7 +85,7 @@ public class BaseGun : ABaseEquipable, IGun
         print(character == null);
         print(rotate == null);
         print(spawnPoint == null);
-        bul.ActivateProyectileMovement(character.GetComponent<CharacterInteractor>(),transform.eulerAngles.z, spawnPoint.position);
+        bul.ActivateProyectileMovement(character.GetComponent<CharacterInteractor>(), spawnPoint.position, transform.eulerAngles.z);
     }
     
     public virtual void endShootAnim()
@@ -114,8 +115,15 @@ public class BaseGun : ABaseEquipable, IGun
         shooting = _shoot;
     }
 
+    private void OnValidate()
+    {
+        if(bullet != null && bullet.GetComponent<IProyectile>() == null)
+        {
+            Debug.LogError("The bullet should implement the IProyectile interface");
+            bullet = null;
+        }
+    }
 
-  
 
 
     //public void setOwner(PlayerInteractor shoot, bool resetToStartingBullets = true)

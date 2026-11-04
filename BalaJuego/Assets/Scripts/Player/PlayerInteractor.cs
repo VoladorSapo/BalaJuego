@@ -234,7 +234,7 @@ public class PlayerInteractor : CharacterInteractor
         currentEquipment.SetActive(true);
         IProyectile equipmentProyectile = currentEquipment.GetComponent<IProyectile>();
         loseEquipment();
-        equipmentProyectile.ActivateProyectileMovement(GetComponent<CharacterInteractor>(), GetComponentInChildren<gunRotate>().transform.eulerAngles.z, GetComponentInChildren<BaseGun>().spawnPoint.position);
+        equipmentProyectile.ActivateProyectileMovement(GetComponent<CharacterInteractor>(), GetComponentInChildren<BaseGun>().spawnPoint.position, GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
         GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
     }
     void changeState(object sender, stateData data)

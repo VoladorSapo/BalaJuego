@@ -5979,6 +5979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDetector
   detectParent: 0
+  reachableObjects: []
   debugLogs: 0
   layer:
     serializedVersion: 2

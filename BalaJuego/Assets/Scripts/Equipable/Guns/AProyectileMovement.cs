@@ -2,10 +2,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ProyectileMovement :MonoBehaviour, IProyectile
+public abstract class AProyectileMovement :MonoBehaviour, IProyectile
+
 {
-    [SerializeField] float z;
+    [SerializeField] protected float z;
     [field: SerializeField] public float speed { get; protected set; }
+
+
     [field: SerializeField] public bool moving { get; protected set; }
     Animator anim;
     protected float timeMagnitude;
@@ -27,34 +30,33 @@ public class ProyectileMovement :MonoBehaviour, IProyectile
         time.subscribeToTimeChange(changeTimeMagnitude);
         source = GetComponent<IEffectSource>();
     }
-    private void Update()
+    protected void Update()
     {
         if (moving)
         {
-            transform.Translate(Vector2.left * speed * Time.deltaTime * timeMagnitude);
-            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+            Move();
         }
     }
-    public virtual void ActivateProyectileMovement(CharacterInteractor shooter, float angle)
+    #region ActivateProyectile
+    /*There are three ways of activating the movement of a proyectile
+    You can send an angle, a position or a Transform.
+    The default proyectile converts position and transform to angle
+    */
+    protected virtual void ActivateProyectile(CharacterInteractor shooter, Vector3 startPos)
     {
+        transform.position = new Vector3(startPos.x, startPos.y, z);
         print("ActivateEvent");
         activateEvent?.Invoke(shooter);
         isShot?.Invoke();
         musicManager.Instance.PlayDisparo();
-        //   print(shooter.transform.localScale.x);
-        angle *= shooter.transform.localScale.x;
-        transform.eulerAngles = new Vector3(0, shooter.transform.localScale.x < 0 ? -180 : 0, angle);
         moving = true;
         if (anim)
         {
             anim.Play("fly");
         }
     }
-    public virtual void ActivateProyectileMovement(CharacterInteractor shooter, float angle, Vector3 pos)
-    {
-        ActivateProyectileMovement(shooter, angle);
-        transform.position = new Vector3(pos.x, pos.y, z);
-    }
+  
+    #endregion
     public void changeTimeMagnitude(object sender, timeData data)
     {
         timeMagnitude = data.currentMagnitude;
@@ -64,7 +66,7 @@ public class ProyectileMovement :MonoBehaviour, IProyectile
 
     public void hitSomething(GameObject obj)
     {
-        moving = false;
+        DeactivateMovement();
     }
 
     public void setActivateEvent(Action<CharacterInteractor> activateSource)
@@ -72,4 +74,16 @@ public class ProyectileMovement :MonoBehaviour, IProyectile
         print("setActivateEvent");
         activateEvent += activateSource;
     }
+    protected abstract void Move();
+
+    public void DeactivateMovement()
+    {
+        moving = false;
+    }
+
+    public abstract void ActivateProyectileMovement(CharacterInteractor shooter, Vector3 startPos, float angle);
+
+    public abstract void ActivateProyectileMovement(CharacterInteractor shooter, Vector3 startPos, Vector3 pos);
+
+    public abstract void ActivateProyectileMovement(CharacterInteractor shooter, Vector3 startPos, Transform transform);
 }
