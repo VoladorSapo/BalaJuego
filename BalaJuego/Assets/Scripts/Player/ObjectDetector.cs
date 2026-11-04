@@ -43,6 +43,15 @@ public class ObjectDetector<T> : ObjectDetectorBase where T: class
                 UnBecomeFirst(reachableObjects[1]);
             }
         }
+        else
+        {
+
+            if (debugLogs)
+            {
+                print(obj == null);
+                print("Dont add: " + collision.gameObject + name + "is not correct class: ");
+            }
+        }
         
     }
     private void OnTriggerExit2D(Collider2D collision)

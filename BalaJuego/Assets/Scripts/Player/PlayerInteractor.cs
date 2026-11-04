@@ -93,7 +93,7 @@ public class PlayerInteractor : CharacterInteractor
         if (playerInput.ShootDown)
         {
             print("shootpressed");
-            if (!reloading && canShoot && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading && canShoot && settingManager.Instance.gameConfiguration.shootAndUseEquipmentStates.Contains(stateManager.getState()))
             {
                 if (currentEquipment != null)
                 {
@@ -111,7 +111,7 @@ public class PlayerInteractor : CharacterInteractor
         }
         if (playerInput.InteractDown)
         {
-            if (!reloading &&canShoot && stateManager.getState() == IGameState.gameState.NormalTime || stateManager.getState() == IGameState.gameState.SlowDown || stateManager.getState() == IGameState.gameState.Tutorial)
+            if (!reloading &&canShoot && settingManager.Instance.gameConfiguration.interactableGameStates.Contains(stateManager.getState()))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
                 if (hit)
@@ -119,7 +119,7 @@ public class PlayerInteractor : CharacterInteractor
                     IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
                     print(hit.collider.gameObject.name + " " + interactableObject + " " + grabDetector.reachableObjects.Contains(interactableObject));
 
-                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && !(stateManager.getState() == IGameState.gameState.NormalTime) && interactableObject.CanInteract())
+                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) &&  interactableObject.CanInteract())
                     {
                         print("interact");
                         interactableObject.interact(this);
@@ -139,7 +139,7 @@ public class PlayerInteractor : CharacterInteractor
         }
         if (stopBufferTimeCurrent > 0)
         {
-            if (stateManager.getState() == IGameState.gameState.NormalTime && shoot.getBullets() == 0)
+            if (settingManager.Instance.gameConfiguration.stopTimeStates.Contains(stateManager.getState()) && (shoot.getBullets() == 0 || settingManager.Instance.gameConfiguration.canStopTimeWithGunFull))
             {
                 stopBufferTimeCurrent = 0;
                 musicManager.Instance.PlaySound("snd_startslowtime");
@@ -147,7 +147,7 @@ public class PlayerInteractor : CharacterInteractor
                 textoaviso.enabled = false;
 
             }
-            if (shoot.getBullets() > 0)
+            if (shoot.getBullets() > 0 && !settingManager.Instance.gameConfiguration.canStopTimeWithGunFull)
             {
                 textoaviso.enabled = true;
             }
@@ -239,7 +239,7 @@ public class PlayerInteractor : CharacterInteractor
     }
     void changeState(object sender, stateData data)
     {
-        if (data.currentState == IGameState.gameState.SlowDown)
+        if (settingManager.Instance.gameConfiguration.interactableGameStates.Contains(data.currentState))
         {
             grabDetector.gameObject.SetActive(true);
         }
