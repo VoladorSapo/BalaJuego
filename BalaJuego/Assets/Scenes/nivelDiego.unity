@@ -81288,6 +81288,14 @@ PrefabInstance:
       propertyPath: normalGravity
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: jumpForceSlowDown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <jumpForceSlowTimeMultiplier>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6144351892642108707, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Color.b
       value: 0.05762726
@@ -92169,7 +92177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveX: 0
-  trueMagnitude: 0
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 281882622}
   rb2d: {fileID: 1078324750}
@@ -92181,7 +92188,8 @@ MonoBehaviour:
   <groundDecceleration>k__BackingField: 0
   <turnDecceleration>k__BackingField: 0
   <airDecceleration>k__BackingField: 0
-  <jumpForce>k__BackingField: 0
+  jumpForce: 0
+  jumpForceSlowDown: 0
   <normalGravity>k__BackingField: 0
   <fallGravity>k__BackingField: 0
   <rollAcceleration>k__BackingField: 0

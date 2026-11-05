@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class PlayerInteractor : CharacterInteractor
 {
 
-    [SerializeField] private float slowDownMagnitude;
+    //[SerializeField] private float slowDownMagnitude;
   [SerializeField]  TMP_Text textoaviso;
    public IGun shoot { get; private set; }
     [SerializeField] private PlayerInput playerInput;
@@ -51,13 +51,13 @@ public class PlayerInteractor : CharacterInteractor
     public float shakeIntensity;
 
 
-
     //If player is in a state where they can shoot (not rolling, stuned, etc)
     private bool canShoot;
 
     private void Awake()
     {
-        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineCamera>().gameObject;
+
+        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineVirtualCamera>().gameObject;
         playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;
     }
@@ -143,7 +143,7 @@ public class PlayerInteractor : CharacterInteractor
             {
                 stopBufferTimeCurrent = 0;
                 musicManager.Instance.PlaySound("snd_startslowtime");
-                ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(slowDownMagnitude);
+                ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(settingManager.Instance.gameConfiguration.slowDownTimeMagnitude);
                 textoaviso.enabled = false;
 
             }
@@ -182,8 +182,6 @@ public class PlayerInteractor : CharacterInteractor
     {
         executionCamera.SetActive(true);
         musicManager.Instance.PlaySoundPitch("snd_melee");
-
-
         foreach (GameObject item in hidewhenMelee)
         {
             item.SetActive(false);
