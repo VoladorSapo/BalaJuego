@@ -64,6 +64,7 @@ public class PlayerMove : MonoBehaviour
     public Animator headAnim;
     public Animator armAnim;
     public Animator parentAnim;
+    [SerializeField] public Dictionary<string, Animator> Animators;
 
    public float timeMagnitude { get; private set; }
 

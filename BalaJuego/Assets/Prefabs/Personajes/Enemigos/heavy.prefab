@@ -417,8 +417,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.44}
-  m_Size: {x: 2.16, y: 1.61}
+  m_Offset: {x: -0.057336286, y: 0.44}
+  m_Size: {x: 2.2746813, y: 1.610013}
   m_Direction: 1
 --- !u!114 &7434739824679542089
 MonoBehaviour:
@@ -924,7 +924,7 @@ MonoBehaviour:
   FMarker: {fileID: 2590544325893297723}
   direction: {x: 0, y: 0, z: 0}
   rb2d: {fileID: 8443046818157481121}
-  <speed>k__BackingField: 4
+  <speed>k__BackingField: 9
   <wallStunDuration>k__BackingField: 1
   finishCharging: 0
 --- !u!114 &3981192838542447179

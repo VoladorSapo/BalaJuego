@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinearProyectileMovement
   z: -0.36
-  <speed>k__BackingField: 5
+  <speed>k__BackingField: 20
   <moving>k__BackingField: 0
 --- !u!1 &6389520299271862978
 GameObject:

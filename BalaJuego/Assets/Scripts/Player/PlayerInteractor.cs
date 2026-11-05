@@ -57,7 +57,7 @@ public class PlayerInteractor : CharacterInteractor
     private void Awake()
     {
 
-        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineVirtualCamera>().gameObject;
+        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineCamera>().gameObject;
         playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;
     }
