@@ -8164,9 +8164,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 8495180782676464857}
+  bodyAnim: {fileID: 0}
   headAnim: {fileID: 0}
   armAnim: {fileID: 0}
   parentAnim: {fileID: 0}
+  animators:
+  - key: parent
+    value: {fileID: 1323886114722974759}
+  - key: arm
+    value: {fileID: 6750251097799536809}
+  - key: head
+    value: {fileID: 8200135220389464450}
   notTurn: {fileID: 870089694401125022}
   shouldRotate: 1
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}

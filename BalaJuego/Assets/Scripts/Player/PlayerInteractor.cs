@@ -207,7 +207,7 @@ public class PlayerInteractor : CharacterInteractor
     {
         base.getEquipment(interactableObj);
         reloading = false;
-        GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
+        GetComponentInChildren<IGun>().getAnim().Play("arm_grabObject");
         bulletPick.Play();
     }
     public void endMeleeAnim()
@@ -233,7 +233,9 @@ public class PlayerInteractor : CharacterInteractor
         IProyectile equipmentProyectile = currentEquipment.GetComponent<IProyectile>();
         loseEquipment();
         equipmentProyectile.ActivateProyectileMovement(GetComponent<CharacterInteractor>(), GetComponentInChildren<BaseGun>().spawnPoint.position, GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
-        GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
+        anim = GetComponentInChildren<IGun>().getAnim();
+        if (anim.HasState("gunIdle")) anim.Play("gunIdle");
+
     }
     void changeState(object sender, stateData data)
     {

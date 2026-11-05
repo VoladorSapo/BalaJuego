@@ -146,7 +146,7 @@ public abstract class AEnemyBehaviour : MonoBehaviour,IDetectable
     public virtual void playAnimation(string animNameEnd,Action action = null)
     {
         string animFull = "enemy" + animNameEnd;
-        anim.Play(animFull);
+        if (anim.HasState(animFull)) anim.Play(animFull);
         print("enemy" + animNameEnd);
         if(action != null)
         {

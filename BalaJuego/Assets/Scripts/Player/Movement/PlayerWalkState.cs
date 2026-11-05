@@ -9,8 +9,8 @@ public class PlayerWalkState : PlayerBaseState
     public override void OnEnter()
     {
         base.OnEnter();
-        player.UpdateAnimatorBool("isRunning", true);
-        player.UpdateAnimatorBool("isGround", true);
+        AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isRunning", true);
+        AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isGround", true);
         musicManager.Instance.StartWalking();
     }
     public override void Update()

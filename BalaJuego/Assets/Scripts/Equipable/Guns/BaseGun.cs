@@ -97,7 +97,7 @@ public class BaseGun : ABaseEquipable, IGun
         shooting = false;
         currentBullets = startBullets;
         bulletCount.text = currentBullets.ToString();
-        anim.Play("gunIdle");
+        if(anim.HasState("gunIdle")) anim.Play("gunIdle");
 
     }
     public virtual int getBullets() => currentBullets;

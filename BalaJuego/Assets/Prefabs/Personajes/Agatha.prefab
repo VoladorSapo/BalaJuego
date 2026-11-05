@@ -2941,9 +2941,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 1
   fullCharacter: {fileID: 3052987210979176980}
+  bodyAnim: {fileID: 0}
   headAnim: {fileID: 2928602978529188245}
   armAnim: {fileID: 8789493773982289791}
   parentAnim: {fileID: 3044306764865592801}
+  animators:
+  - key: parent
+    value: {fileID: 3044306764865592801}
+  - key: head
+    value: {fileID: 2928602978529188245}
+  - key: arm
+    value: {fileID: 8789493773982289791}
   notTurn: {fileID: 8817943855520556392}
   shouldRotate: 0
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -9921,7 +9929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveX: 0
-  trueMagnitude: 0.4
   calcVelocity: {x: 0, y: 0}
   groundCast: {fileID: 1007856941145358727}
   rb2d: {fileID: 4773227239308888931}
@@ -9933,7 +9940,8 @@ MonoBehaviour:
   <groundDecceleration>k__BackingField: 50
   <turnDecceleration>k__BackingField: 100
   <airDecceleration>k__BackingField: 30
-  <jumpForce>k__BackingField: 8
+  jumpForce: 0
+  jumpForceSlowDown: 0
   <normalGravity>k__BackingField: 4
   <fallGravity>k__BackingField: 8
   <rollAcceleration>k__BackingField: 100
@@ -9955,9 +9963,7 @@ MonoBehaviour:
   <maxFallVelocity>k__BackingField: 10
   Head: {fileID: 8567168156605546741}
   gunOBJ: {fileID: 1060920710229837519}
-  headAnim: {fileID: 2928602978529188245}
-  armAnim: {fileID: 8789493773982289791}
-  parentAnim: {fileID: 3044306764865592801}
+  Animators: []
   particles: {fileID: 0}
   layerGoThroughOnDodge:
     serializedVersion: 2
@@ -10072,7 +10078,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   <equipmentParent>k__BackingField: {fileID: 2854619547812020326}
   currentEquipment: {fileID: 0}
-  slowDownMagnitude: 0.2
   textoaviso: {fileID: 3833163824546946754}
   playerInput: {fileID: 22484205660860321}
   clickable:
