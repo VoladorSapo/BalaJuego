@@ -315,8 +315,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.017302718, y: 0}
-  m_Radius: 1.0133185
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1
 --- !u!114 &2703806193311381132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8164,10 +8164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 8495180782676464857}
-  bodyAnim: {fileID: 0}
-  headAnim: {fileID: 0}
-  armAnim: {fileID: 0}
-  parentAnim: {fileID: 0}
   animators:
   - key: parent
     value: {fileID: 1323886114722974759}
@@ -8507,8 +8503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 1323886114722974759}
   differentFirstShootCadence: 1
-  <firstShootCadence>k__BackingField: 0.5
-  <shootCadence>k__BackingField: 1.5
+  <firstShootCadence>k__BackingField: 0.65
+  <shootCadence>k__BackingField: 2
   <shootCadenceRandomRange>k__BackingField: 0.25
   <timeMagnitude>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 976643818112589819}
@@ -8644,7 +8640,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.012819665, y: 0}
-  m_Radius: 0.65
+  m_Radius: 0.77
 --- !u!114 &346098697177776192
 MonoBehaviour:
   m_ObjectHideFlags: 0
