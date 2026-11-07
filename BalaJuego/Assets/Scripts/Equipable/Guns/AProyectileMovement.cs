@@ -29,6 +29,11 @@ public abstract class AProyectileMovement :MonoBehaviour, IProyectile
         timeMagnitude = time.getMagnitude();
         time.subscribeToTimeChange(changeTimeMagnitude);
         source = GetComponent<IEffectSource>();
+        bool defaultMoving = moving;
+        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        if (respawnController != null)
+            respawnController.subscribeToRespawnAction(() => moving = defaultMoving);
+
     }
     protected void Update()
     {

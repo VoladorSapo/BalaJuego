@@ -37,7 +37,7 @@ public class PlayerInteractor : CharacterInteractor
 
     [SerializeField] Animator anim;
 
-[SerializeField]    GameObject[] hidewhenMelee;
+[field:SerializeField]   public GameObject[] hidewhenMelee {  get; private set; }
 
 [SerializeField]  public  bool hasBottle;
     float stopBufferTimeCurrent;
@@ -182,16 +182,19 @@ public class PlayerInteractor : CharacterInteractor
     {
         executionCamera.SetActive(true);
         musicManager.Instance.PlaySoundPitch("snd_melee");
-        foreach (GameObject item in hidewhenMelee)
-        {
-            item.SetActive(false);
-        }
-        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-        GetComponent<PlayerMove>().isMeleeing = true;
-        GetComponent<PlayerLife>().setInvincibility(true);
-
+        GetComponent<PlayerMove>().playerMoveStateMachine.SetState(new PlayerExecuteState(null));
         enemyMelee = enemy;
         enemy.GetComponent<ACharacterLife>().meleeDeath();
+    }
+    public void endMeleeAnim()
+    {
+        GetComponent<PlayerMove>().playerMoveStateMachine.ForceEndState(new PlayerExecuteState(null));
+        //foreach (GameObject item in hidewhenMelee)
+        //{
+        //    item.SetActive(true);
+        //}
+
+
     }
     public void getBullet()
     {
@@ -210,17 +213,7 @@ public class PlayerInteractor : CharacterInteractor
         GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
         bulletPick.Play();
     }
-    public void endMeleeAnim()
-    {
-        foreach (GameObject item in hidewhenMelee)
-        {
-            item.SetActive(true);
-        }
-        GetComponentInChildren<IGun>().getAnim().Play("gunReload");
-        GetComponent<PlayerMove>().isMeleeing = false;
-        GetComponent<PlayerLife>().setInvincibility(false);
-
-    }
+   
     public void endReloadAnim()
     {
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();

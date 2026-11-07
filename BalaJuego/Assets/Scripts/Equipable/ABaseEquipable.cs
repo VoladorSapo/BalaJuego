@@ -9,32 +9,15 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
     [SerializeField] Vector3 positionWhenEquipped;
     [SerializeField] Vector3 rotationWhenEquipped;
 
-   public CharacterInteractor owner { get;private set; }
-
-    protected void Start()
-    {
-        initialPos = transform.position;
-    }
-    public virtual void resTart(LevelAreaController _area)
-    {
-
-        area = _area;
-        transform.position = initialPos;
-
-    }
+    public CharacterInteractor owner { get;private set; }
 
     public virtual void Grab(CharacterInteractor character)
     {
         musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
-        if (area)
-        {
-            area.destroyBottle(this);
-        }
         character.getEquipment(gameObject);
         setAsEquipment(character.equipmentParent);
         owner = character;
     }
-
 
     public virtual void setAsEquipment(Transform equipmentParent)
     {
@@ -51,14 +34,12 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
         transform.parent = null;
         owner.loseEquipment();
         Destroy(gameObject);
-
     }
 
     public void throwOut()
     {
         IProyectile proyectile = GetComponent<IProyectile>();
         proyectile.DeactivateMovement();
-
     }
 
 }

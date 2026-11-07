@@ -81293,8 +81293,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: jumpForceSlowDownMagnitude
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: <jumpForceSlowTimeMultiplier>k__BackingField
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854326341974724435, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: detectParent
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6144351892642108707, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_Color.b
@@ -92183,7 +92191,7 @@ MonoBehaviour:
   <turnDecceleration>k__BackingField: 0
   <airDecceleration>k__BackingField: 0
   jumpForce: 0
-  jumpForceSlowDown: 0
+  jumpForceSlowDownMagnitude: 0
   <normalGravity>k__BackingField: 0
   <fallGravity>k__BackingField: 0
   <rollAcceleration>k__BackingField: 0
@@ -92201,7 +92209,6 @@ MonoBehaviour:
   <jumpBufferTime>k__BackingField: 0
   jumping: 0
   falling: 0
-  isMeleeing: 0
   <maxFallVelocity>k__BackingField: 0
   Head: {fileID: 0}
   gunOBJ: {fileID: 0}
@@ -112889,7 +112896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6334990230608845096, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_Name
-      value: enemy
+      value: enemyone
       objectReference: {fileID: 0}
     - target: {fileID: 8495180782676464857, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119834,6 +119841,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 8134237703247852584, guid: 2de4154776622534d9b878e10d787f3b, type: 3}
+      propertyPath: respawn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

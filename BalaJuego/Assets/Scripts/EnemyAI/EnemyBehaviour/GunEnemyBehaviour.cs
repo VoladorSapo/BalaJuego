@@ -18,7 +18,7 @@ public class GunEnemyBehaviour : AEnemyBehaviour
         EnemyStunedState stuned = new EnemyStunedState(this);
         stateMachine.AddTransition(idle, shoot, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
         stateMachine.AddTransition(shoot, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
-        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee), "Empty");
+        stateMachine.AddAnyTransition(stuned, new FuncPredicate(() => Charshoot.getBullets() == 0 && canBeKilledMelee),true, "Empty");
         stateMachine.AddEndTransition(stuned, idle, new FuncPredicate(() => detectorManager.detectorDictionary["out"].getCount() == 0));
         stateMachine.AddEndTransition(stuned, shoot, new FuncPredicate(() => detectorManager.detectorDictionary["in"].getCount() > 0));
 

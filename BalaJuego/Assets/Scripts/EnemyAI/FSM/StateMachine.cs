@@ -17,7 +17,7 @@ public class StateMachine
         var transition = GetTransition();
         if (transition != null)
         {
-            ChangeState(transition.To,transition.Data);
+            ChangeState(transition.To,transition.allowPreExit,transition.Data);
         }
         //Debug.Log(current?.State?.ToString());
         current?.State?.Update();
@@ -46,13 +46,13 @@ public class StateMachine
         {
             throw new Exception("Default State not Set exception");
         }
-        SetState(defaultState,defaultData);
+        SetState(defaultState,false,defaultData);
     }
-    public void SetState(IState state, string Data = "")
+    public void SetState(IState state, bool allowPreExit = true, string Data = "")
     {
         if (current != null)
         {
-            ChangeState((IState)state, Data);
+            ChangeState((IState)state,allowPreExit, Data);
         }
         else
         {
@@ -67,12 +67,12 @@ public class StateMachine
         }
 
     }
-    public void ForceSetState(IState state,string Data = "")
+    public void ForceSetState(IState state, bool allowPreExit = true, string Data = "")
     {
         GetOrAddNode(state);
         if (current != null)
         {
-            ChangeState((IState)state, Data);
+            ChangeState((IState)state,allowPreExit, Data);
         }
         else
         {
@@ -95,10 +95,10 @@ public class StateMachine
        var transition = GetEndTransition();
         if (transition != null)
         {
-            ChangeState(transition.To,transition.Data);
+            ChangeState(transition.To,transition.allowPreExit,transition.Data);
         }
     }
-    void ChangeState(IState state,string Data = "")
+    void ChangeState(IState state,bool allowPreExit = true,string Data = "")
     {
         if (state == current.State) return;
 
@@ -115,7 +115,7 @@ public class StateMachine
             nextState?.OnEnter();
             current = nodes[state.GetIdCode()];
         };
-        if (current.State.hasPreExitAction())
+        if (current.State.hasPreExitAction() && allowPreExit)
         {
             current.State.preExit(trueEndState);
         }
@@ -150,18 +150,18 @@ public class StateMachine
         return null;
     }
 
-    public void AddTransition(IState from, IState to, IPredicate condition, string Data = "")
+    public void AddTransition(IState from, IState to, IPredicate condition, bool allowPreExit = true, string Data = "")
     {
-        GetOrAddNode(from).AddTransition(GetOrAddNode(to).State, condition,Data);
+        GetOrAddNode(from).AddTransition(GetOrAddNode(to).State, condition,allowPreExit,Data);
     }
-    public void AddEndTransition(IState from, IState to, IPredicate condition, string Data = "")
+    public void AddEndTransition(IState from, IState to, IPredicate condition, bool allowPreExit = true, string Data = "")
     {
-        GetOrAddNode(from).AddEndTransition(GetOrAddNode(to).State, condition, Data);
+        GetOrAddNode(from).AddEndTransition(GetOrAddNode(to).State, condition,allowPreExit, Data);
     }
 
-    public void AddAnyTransition(IState to, IPredicate condition, string Data = "")
+    public void AddAnyTransition(IState to, IPredicate condition, bool allowPreExit = true, string Data = "")
     {
-        anyTransitions.Add(new Transition(GetOrAddNode(to).State, condition, Data));
+        anyTransitions.Add(new Transition(GetOrAddNode(to).State, condition,allowPreExit, Data));
     }
 
     StateNode GetOrAddNode(IState state)
@@ -197,12 +197,12 @@ class StateNode
         EndTransitions = new HashSet<ITransition>();
     }
 
-    public void AddTransition(IState state, IPredicate condition, string Data = "")
+    public void AddTransition(IState state, IPredicate condition, bool allowPreExit = true,string Data = "")
     {
-        Transitions.Add(new Transition(state, condition,Data));
+        Transitions.Add(new Transition(state, condition,allowPreExit,Data));
     }
-    public void AddEndTransition(IState state, IPredicate condition, string Data = "")
+    public void AddEndTransition(IState state, IPredicate condition, bool allowPreExit = true, string Data = "")
     {
-        EndTransitions.Add(new Transition(state, condition,Data));
+        EndTransitions.Add(new Transition(state, condition,allowPreExit, Data));
     }
 }

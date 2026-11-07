@@ -23,8 +23,8 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public float turnDecceleration { get; private set; }
     [field: SerializeField] public float airDecceleration { get; private set; }
     [SerializeField] float jumpForce;
-    [SerializeField] float jumpForceSlowDown;
-    public float JumpForce => timeMagnitude == 1 ? jumpForce : jumpForceSlowDown;
+    [SerializeField] float jumpForceSlowDownMagnitude;
+    public float JumpForce => timeMagnitude == 1 ? jumpForce : jumpForce * jumpForceSlowDownMagnitude;
 
     [field: SerializeField] public float normalGravity { get; private set; }
     [field: SerializeField] public float fallGravity { get; private set; }
@@ -32,6 +32,7 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public float rollAcceleration { get; private set; }
     [field: SerializeField] public float maxRollSpeed { get; private set; }
     [field: SerializeField] public float rollMaxSpeedTime { get; private set; }
+    
 
     public bool DEBUG_endOnWalkSpeed;
     public bool DEBUG_dodgewhenwalkspeedismax;
@@ -50,7 +51,6 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] bool jumping, falling;
 
-    public bool isMeleeing;
 
   public  float coyoteTimeCurrent { get; set; }
   public  float jumpBufferTimeCurrent { get; set; }
@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] GameObject particles;
 
-    StateMachine playerMoveStateMachine;
+  public  StateMachine playerMoveStateMachine { get; private set; }
     //ParticleSystem dustWalk, dustJump,
     //    dustFall;
     bool isRotating;
@@ -97,6 +97,7 @@ public class PlayerMove : MonoBehaviour
         PlayerJumpState jump = new PlayerJumpState(this);
         PlayerFallState fall = new PlayerFallState(this);
         PlayerDodgeRollState roll = new PlayerDodgeRollState(this);
+        PlayerExecuteState execute = new PlayerExecuteState(this);
 
 
         FuncPredicate canJump = new FuncPredicate(() => coyoteTimeCurrent > 0 && jumpBufferTimeCurrent > 0);
@@ -123,6 +124,9 @@ public class PlayerMove : MonoBehaviour
         playerMoveStateMachine.AddEndTransition(roll, fall, notOnGround);
         playerMoveStateMachine.AddEndTransition(roll, walk, anyMove);
         playerMoveStateMachine.AddEndTransition(roll, idle, noMove);
+        playerMoveStateMachine.AddEndTransition(execute, fall, notOnGround);
+        playerMoveStateMachine.AddEndTransition(execute, walk, anyMove);
+        playerMoveStateMachine.AddEndTransition(execute, idle, noMove);
 
 
         playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() =>rb2d.linearVelocity.y<0));
@@ -140,7 +144,6 @@ public class PlayerMove : MonoBehaviour
     {
         setUpMoveStateMachine();
         timeMagnitude = 1;
-        isMeleeing = false;
         rb2d = GetComponent<Rigidbody2D>();
         playerInput=GetComponent<PlayerInput>();
         playerLife = GetComponent<PlayerLife>();
@@ -236,8 +239,6 @@ public class PlayerMove : MonoBehaviour
         playerShoot.restart();
         playerLife.restart();
         canMove = true;
-        isMeleeing = false;
-
     }
     void changeState(object sender, stateData data)
     {

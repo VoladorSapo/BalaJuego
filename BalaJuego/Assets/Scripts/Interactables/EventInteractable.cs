@@ -39,8 +39,16 @@ public class EventInteractable : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        isSelect = false;
+        restart();
+        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        if (respawnController != null)
+            respawnController.subscribeToRespawnAction(restart);
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(onStateChange);
+    }
+    public void restart()
+    {
+        isSelect = false;
+
     }
 
     private void onStateChange(object sender, stateData e)

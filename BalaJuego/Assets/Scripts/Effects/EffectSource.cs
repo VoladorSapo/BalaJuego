@@ -37,6 +37,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
     [Header("Debug")]
     [SerializeField] bool canHit;
 
+    DestroyRespawnController destroyController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -71,14 +72,21 @@ public class EffectSource : MonoBehaviour, IEffectSource
     private void Awake()
     {
        // setHover(false);
-        canHit = canHitDefault;
         proyectile = GetComponent<IProyectile>();
         if (proyectile != null)
         {
             proyectile.setActivateEvent(setInteractor);
         }
+        destroyController = GetComponent<DestroyRespawnController>();
+        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        if (respawnController != null)
+            respawnController.subscribeToRespawnAction(restart);
+        restart();
     }
-
+    public virtual void restart()
+    {
+        canHit = canHitDefault;
+    }
     protected virtual void Start()
     {
 
@@ -128,7 +136,14 @@ public class EffectSource : MonoBehaviour, IEffectSource
             GetComponent<Collider2D>().enabled = false;
             // print("destroy");
             canHit = false;
-            Destroy(gameObject, 0.5f);
+            if(destroyController != null)
+            {
+                destroyController.Destroy(0.5f);
+            }
+            else
+            {
+                Destroy(gameObject, 0.5f);
+            }
             if (anim)
             {
                 anim.Play("bulletDestroy");

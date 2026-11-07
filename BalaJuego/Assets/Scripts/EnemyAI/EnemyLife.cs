@@ -12,7 +12,7 @@ public class EnemyLife : ACharacterLife
     public override void Die()
     {
         dead = true;
-        behaviour.stateMachine.ForceSetState(new EnemyDeadState(behaviour));
+        behaviour.stateMachine.ForceSetState(new EnemyDeadState(behaviour),false);
         GetComponent<AEnemyBehaviour>().stunedCollider.enabled = false;
         // collider.gameObject.SetActive(false);
         if (melee)
@@ -54,8 +54,9 @@ public class EnemyLife : ACharacterLife
         {
             PlayerMove player = ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerMove>();
             transform.position = player.transform.position + new Vector3(bodyMovePos.x * -player.transform.localScale.x, bodyMovePos.y, bodyMovePos.z);
-            transform.localScale = new Vector3(player.runningDirection, 1, 1);
-            GetComponent<Rigidbody2D>().isKinematic = true;
+            int scalex = player.transform.position.x > transform.position.x ? -1 : 1;
+            transform.localScale = new Vector3(scalex, 1, 1);
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         }
         if (GetComponent<AEnemyBehaviour>().area != null)
         {
@@ -85,6 +86,9 @@ public class EnemyLife : ACharacterLife
         GetComponent<AEnemyBehaviour>().enabled = true;
         GetComponent<AEnemyBehaviour>().setColor(false);
         GetComponent<AEnemyBehaviour>().stunedCollider.enabled = true;
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
 
 
     }

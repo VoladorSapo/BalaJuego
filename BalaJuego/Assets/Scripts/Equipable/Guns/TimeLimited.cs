@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using Unity.Jobs;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class TimeLimited : MonoBehaviour
 {
@@ -10,6 +14,7 @@ public class TimeLimited : MonoBehaviour
     float leftLifeTime;
     bool timeRunning;
 
+    DestroyRespawnController destroyRespawnController;
     private void Awake()
     {
         IProyectile proyectileMovement = GetComponent<IProyectile>();
@@ -17,6 +22,7 @@ public class TimeLimited : MonoBehaviour
         {
             proyectileMovement.setActivateEvent((CharacterInteractor interactor) => ActivateTime());
         }
+        destroyRespawnController = GetComponent<DestroyRespawnController>();
     }
     private void Start()
     {
@@ -33,7 +39,14 @@ public class TimeLimited : MonoBehaviour
             {
                 ServiceLocator.Instance.Get<IsoftLock>().checkAll();
                 // print("destroy");
-                Destroy(gameObject);
+                if (destroyRespawnController != null)
+                {
+                    destroyRespawnController.Destroy();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
