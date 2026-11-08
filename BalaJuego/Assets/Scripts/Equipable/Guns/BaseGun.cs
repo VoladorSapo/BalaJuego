@@ -31,7 +31,6 @@ public class BaseGun : ABaseEquipable, IGun
         Assert.IsNotNull(bullet);
         Assert.IsNotNull(bullet.GetComponent< IEffectSource>());
         rotate = GetComponent<gunRotate>();
-        anim = GetComponentInChildren<Animator>();
         gunEnemyController = GetComponentInParent<GunEnemyBehaviour>();
         if (bulletCount != null)
         {
@@ -62,7 +61,7 @@ public class BaseGun : ABaseEquipable, IGun
                 }
                 else
                 {
-                    anim.Play("Gunshot", -1, 0);
+                    anim.Play("gunShoot", anim.GetLayerIndex("B_Arm_Actions"));
                 }
                 return true;
             }
@@ -97,7 +96,7 @@ public class BaseGun : ABaseEquipable, IGun
         shooting = false;
         currentBullets = startBullets;
         bulletCount.text = currentBullets.ToString();
-        anim.Play("gunIdle");
+        //if(anim.HasState("gunIdle")) anim.Play("gunIdle");
 
     }
     public virtual int getBullets() => currentBullets;

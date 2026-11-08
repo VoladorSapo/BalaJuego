@@ -1841,7 +1841,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9e7dc1b18e6cd49b166dacd1c9e64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectParent: 0
   reachableObjects: []
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &105416303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1857,6 +1862,7 @@ MonoBehaviour:
   color: {r: 0, g: 1, b: 0.92302203, a: 0.2901961}
   sphereSize: 13.83
   useScale: 1
+  onSelected: 1
 --- !u!4 &111584004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 870089694401125022, guid: 764b99ceae0425c4c85c558e7d8e6542, type: 3}
@@ -3481,6 +3487,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   sphereSize: 0
   useScale: 0
+  onSelected: 1
 --- !u!114 &130666613 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1690854785696709629, guid: 0b923b3ce0727bc4ea9e0573ae81c057, type: 3}
@@ -81309,6 +81316,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1526738469
       objectReference: {fileID: 0}
+    - target: {fileID: 6516374522455647756, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_Name
+      value: executionCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 7039631446769860590, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -81321,7 +81332,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Agatha
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6162893027825946036, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+    - {fileID: 8861879679829217979, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -81383,6 +81396,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   sphereSize: 0
   useScale: 1
+  onSelected: 1
 --- !u!1 &544566296
 GameObject:
   m_ObjectHideFlags: 0
@@ -81522,6 +81536,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   sphereSize: 0
   useScale: 1
+  onSelected: 1
 --- !u!1001 &578251021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82754,6 +82769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73475c599639eb64995743a9a9c56c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectParent: 0
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!58 &773390176
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -122014,26 +122034,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  points:
-  - {x: -0.07, y: 4.09, z: 0}
-  - {x: -0.96, y: 3.42, z: 0}
-  - {x: -1.7, y: 2.46, z: 0}
-  - {x: -2.52, y: 1.43, z: 0}
-  - {x: -2.87, y: 0.06, z: 0}
-  - {x: -2.52, y: -1.43, z: 0}
-  - {x: -1.7, y: -2.46, z: 0}
-  - {x: -0.96, y: -3.42, z: 0}
-  - {x: -0.11, y: -4.36, z: 0}
-  - {x: 0.96, y: -3.42, z: 0}
-  - {x: 1.7, y: -2.46, z: 0}
-  - {x: 2.52, y: -1.43, z: 0}
-  - {x: 2.81, y: 0.06, z: 0}
-  - {x: 2.52, y: 1.43, z: 0}
-  - {x: 1.7, y: 2.46, z: 0}
-  - {x: 0.96, y: 3.42, z: 0}
-  changePointThreshold: 0.1
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 0.32
+  defaultObjectiveUpdate: 0
+  objectiveUpdateTime: 0
+  timeMagnitude: 0
+  currentObjective: {fileID: 0}
+  <currentObjectivePos>k__BackingField: {x: 0, y: 0, z: 0}
+  objetiveUpdate: 0
+  currentObjectiveUpdateTime: 0
 --- !u!114 &1893564048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123075,6 +123082,7 @@ MonoBehaviour:
   color: {r: 0.2566619, g: 1, b: 0, a: 1}
   sphereSize: 0.35
   useScale: 1
+  onSelected: 1
 --- !u!1 &2019072224
 GameObject:
   m_ObjectHideFlags: 0
@@ -123552,6 +123560,7 @@ MonoBehaviour:
   color: {r: 0, g: 1, b: 0.92302203, a: 0.2901961}
   sphereSize: 13.83
   useScale: 1
+  onSelected: 1
 --- !u!1 &472761819562319234
 GameObject:
   m_ObjectHideFlags: 0
@@ -123984,6 +123993,7 @@ MonoBehaviour:
   color: {r: 0.9810977, g: 0, b: 1, a: 1}
   sphereSize: 0.2
   useScale: 0
+  onSelected: 1
 --- !u!212 &3126374514449474735
 SpriteRenderer:
   serializedVersion: 3
@@ -124649,6 +124659,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1103279981}
+    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+      propertyPath: Target.CustomLookAtTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3030687074948514779, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
       propertyPath: transitionTime
       value: 3
@@ -124713,7 +124731,9 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 1784441811}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+    - {fileID: 3648706299692881926, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -124793,7 +124813,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9e7dc1b18e6cd49b166dacd1c9e64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectParent: 0
   reachableObjects: []
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6971863432479453679
 GameObject:
   m_ObjectHideFlags: 0

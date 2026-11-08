@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -70,10 +67,11 @@ public class PlayerMove : MonoBehaviour
     PlayerInteractor shoot;
 
     [Header("Animator")]
-    //public Animator bodyAnim;
-    public Animator headAnim;
-    public Animator armAnim;
-    public Animator parentAnim;
+    public Animator anim;
+    //public Animator headAnim;
+    //public Animator armAnim;
+    //public Animator parentAnim;
+    //[SerializeField] public Dictionary<string, Animator> Animators;
 
    public float timeMagnitude { get; private set; }
 
@@ -180,7 +178,8 @@ public class PlayerMove : MonoBehaviour
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, 0);
         rb2d.gravityScale = 0;
         coyoteTimeCurrent = coyoteTime;
-        UpdateAnimatorBool("isGround", true);
+        //AnimatorExtensions.UpdateAnimatorBool(Animators, "isGround", true);
+        anim.SetBool("isGround", true);
     }
     // Update is called once per frame
     void Update()
@@ -205,9 +204,10 @@ public class PlayerMove : MonoBehaviour
         if (canMove)
         {
             playerMoveStateMachine.FixedUpdate();
-            UpdateAnimatorFloat("velocity", calcVelocity.x);
-
-            UpdateAnimatorFloat("verticalVelocity", calcVelocity.y);
+            //AnimatorExtensions.UpdateAnimatorFloat(Animators, "velocity", calcVelocity.x);
+            anim.SetFloat("velocity", calcVelocity.x);
+            //AnimatorExtensions.UpdateAnimatorFloat(Animators, "verticalVelocity", calcVelocity.y);
+            anim.SetFloat("verticalVelocity", calcVelocity.y);
         }
     }
 
@@ -266,8 +266,8 @@ public class PlayerMove : MonoBehaviour
             default:
                 canMove = false;
                 rb2d.linearVelocity = new Vector2(0, rb2d.linearVelocity.y);
-                UpdateAnimatorBool("isRunning", false);
-
+                //AnimatorExtensions.UpdateAnimatorBool(Animators, "isRunning", false);
+                anim.SetBool("isRunning", false);
                 break;
 
 
@@ -296,7 +296,8 @@ public class PlayerMove : MonoBehaviour
             rb2d.linearVelocity *= new Vector2(trueMagnitude, 1);
 
         }
-        UpdateAnimatorSpeed(use);
+        //AnimatorExtensions.UpdateAnimatorSpeed(Animators, use);
+        anim.speed =  use;
         //if (data.currentMagnitude != 1)
         //{
         //    normalGravity = mult = 1.5f;
@@ -311,35 +312,6 @@ public class PlayerMove : MonoBehaviour
         //}
     }
 
-    public void UpdateAnimatorFloat(string property, float value)
-    {
-        //bodyAnim.SetFloat(property, value);
-        headAnim.SetFloat(property, value);
-        armAnim.SetFloat(property, value);
-        parentAnim.SetFloat(property, value);
-    }
-    public void PlayAnimation(string animationName)
-    {
-        headAnim.Play(animationName);
-        armAnim.Play(animationName);
-        parentAnim.Play(animationName);
-    }
-    public void UpdateAnimatorBool(string property, bool value)
-    {
-        //bodyAnim.SetBool(property, value);
-        headAnim.SetBool(property, value);
-        armAnim.SetBool(property, value);
-        parentAnim.SetBool(property, value);
-    }
-    public void UpdateAnimatorSpeed(float speed)
-    {
-        //bodyAnim.speed = speed;
-        headAnim.speed = speed;
-        armAnim.speed = speed;
-        parentAnim.speed = speed;
-    }
-
-
     public void setGoThroughEnemies(bool goThroughEnemies)
     {
         if (goThroughEnemies)
@@ -352,5 +324,6 @@ public class PlayerMove : MonoBehaviour
 
         }
     }
+
 }
 

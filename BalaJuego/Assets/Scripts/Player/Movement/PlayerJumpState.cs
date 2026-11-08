@@ -18,8 +18,8 @@ public class PlayerJumpState : PlayerBaseState
         rb2d.AddForce(Vector2.up * player.JumpForce, ForceMode2D.Impulse);
         Debug.Log("addforce");
         player.coyoteTimeCurrent = player.jumpBufferTimeCurrent = 0;
-        player.UpdateAnimatorBool("isGround", false);
-
+        //AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isGround", false);
+        player.anim.SetBool("isGround", false);
     }
     public override void Update()
     {

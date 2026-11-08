@@ -113,7 +113,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
-  anim: {fileID: 2650032920086899954}
+  anim: {fileID: 0}
   effects:
   - type: 2
     stat: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinearProyectileMovement
   z: -0.36
-  <speed>k__BackingField: 5
+  <speed>k__BackingField: 30
   <moving>k__BackingField: 0
 --- !u!1 &6389520299271862978
 GameObject:
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8232454336980611751}
   - component: {fileID: 2233878733796832633}
-  - component: {fileID: 2650032920086899954}
+  - component: {fileID: 507862949225182331}
   m_Layer: 14
   m_Name: sprite
   m_TagString: Untagged
@@ -213,11 +213,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1526738469
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: bc2a0bb3030d98146a08caaca2dde42d, type: 3}
+  m_Sprite: {fileID: -849304981, guid: 0664687eb2e865d43b72ebf586dd605b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -228,7 +228,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!95 &2650032920086899954
+--- !u!95 &507862949225182331
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -318,8 +318,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04, y: 0}
-  m_Size: {x: 0.61, y: 1.32}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.83, y: 1.32}
   m_Direction: 0
 --- !u!114 &8733646786065645229
 MonoBehaviour:

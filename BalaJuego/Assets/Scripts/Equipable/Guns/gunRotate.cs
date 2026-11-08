@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
@@ -9,11 +10,9 @@ public class gunRotate : MonoBehaviour
     [SerializeField] Transform fullCharacter;
 
     [Header("Animator")]
-    //public Animator bodyAnim;
-    public Animator headAnim;
-    public Animator armAnim;
-    public Animator parentAnim;
-    string currentStm = "MID";
+    //[SerializeField] public Dictionary<string, Animator> animators;
+    [SerializeField] Animator anim;
+    //string currentStm = "MID";
 
     [SerializeField] Transform notTurn;
 
@@ -27,7 +26,7 @@ public class gunRotate : MonoBehaviour
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
-            headAnim.SetFloat("cursorY", mousePos.y);
+            //animators["head"].SetFloat("cursorY", mousePos.y);
             mousePos.z = 10;
             setRotation(Camera.main.ScreenToWorldPoint(mousePos));
         }
@@ -45,16 +44,16 @@ public class gunRotate : MonoBehaviour
     {
         if (direction > 0)
         {
-            UpdateAnimatorBool("direction", true);
-
+            //AnimatorExtensions.UpdateAnimatorBool(animators,"direction", true);
+            if (anim.HasParameter("direction")) anim.SetBool("direction", true);
             fullCharacter.localScale = new Vector3(-1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 180, notTurn.eulerAngles.z);
 
         }
         else if (direction < 0)
         {
-            UpdateAnimatorBool("direction", false);
-
+            //AnimatorExtensions.UpdateAnimatorBool(animators, "direction", false);
+            if (anim.HasParameter("direction")) anim.SetBool("direction", false);
             fullCharacter.localScale = new Vector3(1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 0, notTurn.eulerAngles.z);
         }
@@ -96,27 +95,6 @@ public class gunRotate : MonoBehaviour
                 gameStateRotate = false;
                 break;
         }
-    }
-    public void UpdateAnimatorFloat(string property, float value)
-    {
-        //if (bodyAnim != null) { bodyAnim.SetFloat(property, value); }
-        if (headAnim != null) { headAnim.SetFloat(property, value); }
-        if (armAnim != null) { armAnim.SetFloat(property, value); }
-        if (parentAnim != null) { parentAnim.SetFloat(property, value); }
-    }
-    public void UpdateAnimatorBool(string property, bool value)
-    {
-        //if (bodyAnim != null) { bodyAnim.SetBool(property, value); }
-        if (headAnim != null) { headAnim.SetBool(property, value); }
-        if (armAnim != null) { armAnim.SetBool(property, value); }
-        if (parentAnim != null) { parentAnim.SetBool(property, value); }
-    }
-    public void UpdateAnimatorSpeed(float speed)
-    {
-        //if (bodyAnim != null) { bodyAnim.speed = speed; }
-        if (headAnim != null) { headAnim.speed = speed; }
-        if (armAnim != null) { armAnim.speed = speed; }
-        if (parentAnim != null) { parentAnim.speed = speed; }
     }
 
 }

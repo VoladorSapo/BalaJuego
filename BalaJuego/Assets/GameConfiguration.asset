@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GameConfiguration
   m_EditorClassIdentifier: Assembly-CSharp::GameConfiguration
   <canStopTimeWithGunFull>k__BackingField: 1
-  <slowDownTimeMagnitude>k__BackingField: 0.2
-  <slowDownTimeMagnitudeAgatha>k__BackingField: 0.4
+  <slowDownTimeMagnitude>k__BackingField: 0.1
+  <slowDownTimeMagnitudeAgatha>k__BackingField: 0.25
   <interactableGameStates>k__BackingField: 010000000300000006000000i
   <shootAndUseEquipmentStates>k__BackingField: 010000000300000006000000i
   <stopTimeStates>k__BackingField: 01000000i

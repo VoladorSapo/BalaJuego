@@ -316,7 +316,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!114 &2703806193311381132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8040,11 +8040,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1795015496778214284}
   - component: {fileID: 3895307047293268116}
-  - component: {fileID: 6750251097799536809}
   - component: {fileID: 3210919228967687699}
   - component: {fileID: 9054033260984113442}
-  - component: {fileID: 7384941448199862996}
-  - component: {fileID: 1460614305772369386}
   m_Layer: 0
   m_Name: BackArm
   m_TagString: Untagged
@@ -8122,34 +8119,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.93, y: 0.43}
+  m_Size: {x: 1.46875, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!95 &6750251097799536809
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4787871131937498700}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c1df05bf4c42a8447972766910ddc439, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3210919228967687699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8164,9 +8139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 8495180782676464857}
-  headAnim: {fileID: 0}
-  armAnim: {fileID: 0}
-  parentAnim: {fileID: 0}
+  anim: {fileID: 1323886114722974759}
   notTurn: {fileID: 870089694401125022}
   shouldRotate: 1
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -8186,41 +8159,15 @@ MonoBehaviour:
   initialPos: {x: 0, y: 0, z: 0}
   positionWhenEquipped: {x: 0, y: 0, z: 0}
   rotationWhenEquipped: {x: 0, y: 0, z: 0}
-  startBullets: 1
+  startBullets: 5
   currentBullets: 0
   spawnPoint: {fileID: 4444866350372652667}
   character: {fileID: 6334990230608845096}
-  <anim>k__BackingField: {fileID: 0}
+  <anim>k__BackingField: {fileID: 1323886114722974759}
   shooting: 0
   bullet: {fileID: 4778922938256658580, guid: 9edd249629eec8e4299c3c10923a784c, type: 3}
   bulletCount: {fileID: 4989959374442703076}
   DestroyWhenOutOfBullets: 0
---- !u!114 &7384941448199862996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4787871131937498700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3b810d4e976d44fadf19d851a0593e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles: []
---- !u!114 &1460614305772369386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4787871131937498700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6912cd8c020b04aa0d743c26769064, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frame: 0
 --- !u!1 &4919535236377916357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8474,7 +8421,7 @@ MonoBehaviour:
   maxLife: 1
   dead: 0
   team: 1
-  anim: {fileID: 0}
+  anim: {fileID: 1323886114722974759}
   melee: 0
   spriteParent: {fileID: 3249136476636654881}
   CorpseBlockProjectile: 0
@@ -8498,10 +8445,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <anim>k__BackingField: {fileID: 1323886114722974759}
-  differentFirstShootCadence: 0
-  <firstShootCadence>k__BackingField: 0.1
+  differentFirstShootCadence: 1
+  <firstShootCadence>k__BackingField: 0.65
   <shootCadence>k__BackingField: 2
-  <shootCadenceRandomRange>k__BackingField: 0.5
+  <shootCadenceRandomRange>k__BackingField: 0.25
   <timeMagnitude>k__BackingField: 0
   <stunedCollider>k__BackingField: {fileID: 976643818112589819}
   <area>k__BackingField: {fileID: 0}
@@ -8635,8 +8582,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.012819665, y: 0}
+  m_Radius: 0.77
 --- !u!114 &346098697177776192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11410,8 +11357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3721518735285433016}
   - component: {fileID: 3442535773444254043}
-  - component: {fileID: 6203919551400563947}
-  - component: {fileID: 8200135220389464450}
+  - component: {fileID: 6973548142363262680}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -11494,7 +11440,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &6203919551400563947
+--- !u!114 &6973548142363262680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11503,32 +11449,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 8298916624352723955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6912cd8c020b04aa0d743c26769064, type: 3}
+  m_Script: {fileID: 11500000, guid: f4d566fedf7ca7549a953abeceda7288, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  frame: 0
---- !u!95 &8200135220389464450
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8298916624352723955}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91f27b816f1eaf048987b28097af4394, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHeadSpriteController
+  currentFace: 1
+  faces:
+  - faceName: 0 IDLE_01
+    spriteUp: {fileID: 1496420296, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: -1329430542, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: -1931800190, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+  - faceName: 1 IDLE_02
+    spriteUp: {fileID: 2055822599, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: -495163918, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: -601498112, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+  - faceName: 2 IDLE_03
+    spriteUp: {fileID: 2126171681, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: 1980003877, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: 2017939164, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+  - faceName: 3 DROP
+    spriteUp: {fileID: -1574457657, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: -1114903190, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: -1865477378, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+  - faceName: 4 ANGRY_01
+    spriteUp: {fileID: -583530258, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: -422714674, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: -1418063374, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+  - faceName: 5 ANGRY_02
+    spriteUp: {fileID: 671320211, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: -1648885784, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: 372169911, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+  - faceName: 6 CLOSE_EYES
+    spriteUp: {fileID: -1314285307, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteMid: {fileID: -1314285307, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
+    spriteDown: {fileID: -1314285307, guid: de936fb79fa62b14eaa6dfb17e505405, type: 3}
 --- !u!1 &8532510345718816628
 GameObject:
   m_ObjectHideFlags: 0

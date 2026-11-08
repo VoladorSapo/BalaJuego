@@ -11,8 +11,8 @@ public class PlayerInteractor : CharacterInteractor
 {
 
     //[SerializeField] private float slowDownMagnitude;
-  [SerializeField]  TMP_Text textoaviso;
-   public IGun shoot { get; private set; }
+    [SerializeField] TMP_Text textoaviso;
+    public IGun shoot { get; private set; }
     [SerializeField] private PlayerInput playerInput;
 
     IGameState stateManager;
@@ -20,10 +20,10 @@ public class PlayerInteractor : CharacterInteractor
     [SerializeField] LayerMask clickable;
 
     ObjectDetector<IInteractable> grabDetector;
-  botleDetector botleDetector;
+    botleDetector botleDetector;
 
 
-  public  EnemyDetector stunedDetector;
+    public EnemyDetector stunedDetector;
 
 
     [SerializeField] bool reloading;
@@ -39,7 +39,7 @@ public class PlayerInteractor : CharacterInteractor
 
 [field:SerializeField]   public GameObject[] hidewhenMelee {  get; private set; }
 
-[SerializeField]  public  bool hasBottle;
+    [SerializeField] public bool hasBottle;
     float stopBufferTimeCurrent;
     [SerializeField] float stopBufferTime;
 
@@ -52,12 +52,12 @@ public class PlayerInteractor : CharacterInteractor
 
 
     //If player is in a state where they can shoot (not rolling, stuned, etc)
-    private bool canShoot;
+    [SerializeField] private bool canShoot;
 
     private void Awake()
     {
 
-        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineVirtualCamera>().gameObject;
+        executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineCamera>().gameObject;
         playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;
     }
@@ -76,7 +76,7 @@ public class PlayerInteractor : CharacterInteractor
         reloading = false;
         grabDetector.gameObject.SetActive(false);
 
-         playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
 
     }
     private void Update()
@@ -111,7 +111,7 @@ public class PlayerInteractor : CharacterInteractor
         }
         if (playerInput.InteractDown)
         {
-            if (!reloading &&canShoot && settingManager.Instance.gameConfiguration.interactableGameStates.Contains(stateManager.getState()))
+            if (!reloading && canShoot && settingManager.Instance.gameConfiguration.interactableGameStates.Contains(stateManager.getState()))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
                 if (hit)
@@ -119,12 +119,12 @@ public class PlayerInteractor : CharacterInteractor
                     IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
                     print(hit.collider.gameObject.name + " " + interactableObject + " " + grabDetector.reachableObjects.Contains(interactableObject));
 
-                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) &&  interactableObject.CanInteract())
+                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && interactableObject.CanInteract())
                     {
                         print("interact");
                         interactableObject.interact(this);
                     }
-                    
+
                 }
             }
         }
@@ -164,18 +164,18 @@ public class PlayerInteractor : CharacterInteractor
         }
         if (playerInput.MeleeDown)
         {
-            if(stunedDetector.reachableObjects.Count > 0 && GetComponent<PlayerMove>().onGround)
+            if (stunedDetector.reachableObjects.Count > 0 && GetComponent<PlayerMove>().onGround)
             {
                 killMelee(stunedDetector.reachableObjects[0].getObj().GetComponent<ACharacterLife>());
             }
         }
-       // print(playerInput.PauseDown);
+        // print(playerInput.PauseDown);
         if (playerInput.PauseDown)
         {
             ServiceLocator.Instance.Get<IGameState>().Pause();
         }
 
-        
+
 
     }
     public void killMelee(ACharacterLife enemy)
@@ -201,7 +201,8 @@ public class PlayerInteractor : CharacterInteractor
         musicManager.Instance.PlaySoundPitch("snd_reload");
         reloading = true;
         bulletPick.Play();
-        GetComponentInChildren<IGun>().getAnim().Play("gunReload");
+        anim.Play("gunReload", anim.GetLayerIndex("B_Arm_Actions"));
+        anim.GetComponent<AnimatorLayerManager>().PickLayer("Base_gun");
         changePlayerGun(true);
         ServiceLocator.Instance.Get<ITimeManager>().changeTimeMagnitude(1);
 
@@ -210,7 +211,8 @@ public class PlayerInteractor : CharacterInteractor
     {
         base.getEquipment(interactableObj);
         reloading = false;
-        GetComponentInChildren<IGun>().getAnim().Play("bottlePick");
+        anim.Play("armGrabObject", anim.GetLayerIndex("B_Arm_Actions"));
+        anim.GetComponent<AnimatorLayerManager>().PickLayer("Grab_Obj_01");
         bulletPick.Play();
     }
    
@@ -222,11 +224,15 @@ public class PlayerInteractor : CharacterInteractor
     public void throwObject()
     {
         print("throwObject");
+        anim.Play("armThrowObject", anim.GetLayerIndex("B_Arm_Actions"));
+        if (shoot.getBullets() == 0) anim.GetComponent<AnimatorLayerManager>().ResetPickfromLayers();
+        else anim.GetComponent<AnimatorLayerManager>().PickLayer("Base_gun");
         currentEquipment.SetActive(true);
         IProyectile equipmentProyectile = currentEquipment.GetComponent<IProyectile>();
         loseEquipment();
         equipmentProyectile.ActivateProyectileMovement(GetComponent<CharacterInteractor>(), GetComponentInChildren<BaseGun>().spawnPoint.position, GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
-        GetComponentInChildren<IGun>().getAnim().Play("gunIdle");
+        if (anim.HasState("gunIdle")) anim.Play("gunIdle");
+
     }
     void changeState(object sender, stateData data)
     {
@@ -268,7 +274,7 @@ public class PlayerInteractor : CharacterInteractor
         }
         textoaviso.enabled = false;
     }
-    
+
     public void returnToNormalCamera()
     {
         executionCamera.SetActive(false);

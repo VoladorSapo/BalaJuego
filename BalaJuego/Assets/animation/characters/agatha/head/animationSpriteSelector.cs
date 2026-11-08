@@ -9,12 +9,12 @@ public class animationSpriteSelector : MonoBehaviour
     public int frame;
 void Awake()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Frame", (float)frame);
+        //anim.SetFloat("Frame", (float)frame);
     }
 }

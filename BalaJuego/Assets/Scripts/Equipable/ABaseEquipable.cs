@@ -13,6 +13,7 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
 
     public virtual void Grab(CharacterInteractor character)
     {
+        GetComponentInChildren<Animator>().Play("onGrab");
         musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
         character.getEquipment(gameObject);
         setAsEquipment(character.equipmentParent);
