@@ -9965,18 +9965,21 @@ MonoBehaviour:
   <playerInput>k__BackingField: {fileID: 0}
   <playerLife>k__BackingField: {fileID: 0}
   <playerShoot>k__BackingField: {fileID: 0}
-  <maxSpeed>k__BackingField: 10
-  <acceleration>k__BackingField: 20
-  <groundDecceleration>k__BackingField: 50
-  <turnDecceleration>k__BackingField: 100
+  <maxSpeed>k__BackingField: 13
+  <acceleration>k__BackingField: 60
+  <groundDecceleration>k__BackingField: 80
+  <turnDecceleration>k__BackingField: 60
   <airDecceleration>k__BackingField: 30
-  jumpForce: 0
-  jumpForceSlowDown: 0
-  <normalGravity>k__BackingField: 4
-  <fallGravity>k__BackingField: 8
-  <rollAcceleration>k__BackingField: 100
-  <maxRollSpeed>k__BackingField: 20
-  <rollMaxSpeedTime>k__BackingField: 0.1
+  jumpForce: 10
+  jumpForceSlowDownMagnitude: 0
+  <normalGravity>k__BackingField: 5
+  <fallGravity>k__BackingField: 7.5
+  <rollAcceleration>k__BackingField: 600
+  <maxRollSpeed>k__BackingField: 300
+  <rollTime>k__BackingField: 0
+  <rollAccelerationTimeProportion>k__BackingField: 0.2
+  <rollMaxSpeedTimeProportion>k__BackingField: 0.6
+  <rollDeccelerationTimeProportion>k__BackingField: 0.2
   DEBUG_endOnWalkSpeed: 1
   DEBUG_dodgewhenwalkspeedismax: 0
   DEBUG_canDodgeHeavy: 0
@@ -9989,7 +9992,6 @@ MonoBehaviour:
   <jumpBufferTime>k__BackingField: 0.3
   jumping: 0
   falling: 0
-  isMeleeing: 0
   <maxFallVelocity>k__BackingField: 10
   Head: {fileID: 8567168156605546741}
   gunOBJ: {fileID: 1060920710229837519}
@@ -10117,10 +10119,7 @@ MonoBehaviour:
   reloading: 0
   BottlePrefab: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
   anim: {fileID: 3044306764865592801}
-  hidewhenMelee:
-  - {fileID: 246704284570004590}
-  - {fileID: 1060920710229837519}
-  - {fileID: 6468833475734050191}
+  <hidewhenMelee>k__BackingField: []
   hasBottle: 0
   stopBufferTime: 0.2
   bulletPick: {fileID: 5748250929452123459}
