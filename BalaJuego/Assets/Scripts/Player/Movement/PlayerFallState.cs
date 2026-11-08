@@ -10,8 +10,8 @@ public class PlayerFallState : PlayerBaseState
     {
         base.OnEnter();
         rb2d.gravityScale = player.fallGravity * player.timeMagnitude;
-        AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isGround", false);
-
+        //AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isGround", false);
+        player.anim.SetBool("isGround", false);
 
     }
     public override void FixedUpdate()

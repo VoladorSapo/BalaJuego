@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -61,11 +57,11 @@ public class PlayerMove : MonoBehaviour
     PlayerInteractor shoot;
 
     [Header("Animator")]
-    //public Animator bodyAnim;
+    public Animator anim;
     //public Animator headAnim;
     //public Animator armAnim;
     //public Animator parentAnim;
-    [SerializeField] public Dictionary<string, Animator> Animators;
+    //[SerializeField] public Dictionary<string, Animator> Animators;
 
    public float timeMagnitude { get; private set; }
 
@@ -169,7 +165,8 @@ public class PlayerMove : MonoBehaviour
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, 0);
         rb2d.gravityScale = 0;
         coyoteTimeCurrent = coyoteTime;
-        AnimatorExtensions.UpdateAnimatorBool(Animators, "isGround", true);
+        //AnimatorExtensions.UpdateAnimatorBool(Animators, "isGround", true);
+        anim.SetBool("isGround", true);
     }
     // Update is called once per frame
     void Update()
@@ -194,9 +191,10 @@ public class PlayerMove : MonoBehaviour
         if (canMove)
         {
             playerMoveStateMachine.FixedUpdate();
-            AnimatorExtensions.UpdateAnimatorFloat(Animators, "velocity", calcVelocity.x);
-
-            AnimatorExtensions.UpdateAnimatorFloat(Animators, "verticalVelocity", calcVelocity.y);
+            //AnimatorExtensions.UpdateAnimatorFloat(Animators, "velocity", calcVelocity.x);
+            anim.SetFloat("velocity", calcVelocity.x);
+            //AnimatorExtensions.UpdateAnimatorFloat(Animators, "verticalVelocity", calcVelocity.y);
+            anim.SetFloat("verticalVelocity", calcVelocity.y);
         }
     }
 
@@ -257,8 +255,8 @@ public class PlayerMove : MonoBehaviour
             default:
                 canMove = false;
                 rb2d.linearVelocity = new Vector2(0, rb2d.linearVelocity.y);
-                AnimatorExtensions.UpdateAnimatorBool(Animators, "isRunning", false);
-
+                //AnimatorExtensions.UpdateAnimatorBool(Animators, "isRunning", false);
+                anim.SetBool("isRunning", false);
                 break;
 
 
@@ -287,7 +285,8 @@ public class PlayerMove : MonoBehaviour
             rb2d.linearVelocity *= new Vector2(trueMagnitude, 1);
 
         }
-        AnimatorExtensions.UpdateAnimatorSpeed(Animators, use);
+        //AnimatorExtensions.UpdateAnimatorSpeed(Animators, use);
+        anim.speed =  use;
         //if (data.currentMagnitude != 1)
         //{
         //    normalGravity = mult = 1.5f;

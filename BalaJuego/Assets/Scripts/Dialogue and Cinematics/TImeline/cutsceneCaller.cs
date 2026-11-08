@@ -123,9 +123,12 @@ public class cutsceneCaller : MonoBehaviour
             hasStarted = true;
             player = collision.GetComponent<PlayerMove>();
             int dir = player.transform.position.x > startPos.position.x ? 1 : -1;
-            AnimatorExtensions.UpdateAnimatorFloat(player.Animators, "velocity", dir);
-            AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isRunning", true);
-            AnimatorExtensions.UpdateAnimatorBool(player.Animators, "direction", player.transform.position.x > startPos.position.x);
+            //AnimatorExtensions.UpdateAnimatorFloat(player.Animators, "velocity", dir);
+            player.anim.SetFloat("velocity", dir);
+            //AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isRunning", true);
+            player.anim.SetBool("isRunning", true);
+            //AnimatorExtensions.UpdateAnimatorBool(player.Animators, "direction", player.transform.position.x > startPos.position.x);
+            player.anim.SetBool("direction", player.transform.position.x > startPos.position.x);
             player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
 
 

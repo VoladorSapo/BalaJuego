@@ -12,8 +12,10 @@ public class PlayerIdleState : PlayerBaseState
     public override void OnEnter()
     {
         base.OnEnter();
-        AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isRunning", false);
-        AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isGround", true);
+        //AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isRunning", false);
+        player.anim.SetBool("isRunning", false);
+        //AnimatorExtensions.UpdateAnimatorBool(player.Animators, "isGround", true);
+        player.anim.SetBool("isGround", true);
         musicManager.Instance.StopWalking();
     }
     public override void Update()

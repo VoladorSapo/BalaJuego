@@ -5,6 +5,7 @@ public class Throwable : ABaseEquipable, IEquipable
     public override void Action(CharacterInteractor shooter, float angle)
     {
         shooter.GetComponent<PlayerInteractor>().throwObject();
+        GetComponentInChildren<Animator>().Play("onThrow");
         transform.parent = null;
         musicManager.Instance.PlaySoundPitch("snd_lanzabotella");
     }

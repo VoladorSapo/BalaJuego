@@ -17,7 +17,8 @@ public class PlayerDodgeRollState : PlayerBaseState
     {
         base.OnEnter();
         Debug.Log("START ROLL");
-        AnimatorExtensions.PlayAnimation(player.Animators, "roll");
+        //AnimatorExtensions.PlayAnimation(player.Animators, "roll");
+        player.anim.Play("roll");
         player.playerShoot.setCanShoot(false);
 
         dodgeRollDirection = player.MoveX == 0 ? -(int)player.transform.localScale.x : player.MoveX;

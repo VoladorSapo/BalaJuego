@@ -1,0 +1,849 @@
+fileFormatVersion: 2
+guid: f974fe1caccc20b40a0a7babe74bb448
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3636994231071567321
+    second: AGATHA_FRONT_ARM_0
+  - first:
+      213: -5548837115257614153
+    second: AGATHA_FRONT_ARM_1
+  - first:
+      213: 908303515631274717
+    second: AGATHA_FRONT_ARM_2
+  - first:
+      213: 5512682177363231507
+    second: AGATHA_FRONT_ARM_3
+  - first:
+      213: -9049948303641103376
+    second: AGATHA_FRONT_ARM_4
+  - first:
+      213: -5605821220454601946
+    second: AGATHA_FRONT_ARM_5
+  - first:
+      213: 4627827917113811623
+    second: AGATHA_FRONT_ARM_6
+  - first:
+      213: -6514168914591321541
+    second: AGATHA_FRONT_ARM_7
+  - first:
+      213: -3786101322342347793
+    second: AGATHA_FRONT_ARM_8
+  - first:
+      213: 5589042946107033720
+    second: AGATHA_FRONT_ARM_9
+  - first:
+      213: 3360290882759810886
+    second: AGATHA_FRONT_ARM_10
+  - first:
+      213: -4653857945652620170
+    second: AGATHA_FRONT_ARM_11
+  - first:
+      213: -3081091327520689451
+    second: AGATHA_FRONT_ARM_12
+  - first:
+      213: 9150414425049793089
+    second: AGATHA_FRONT_ARM_13
+  - first:
+      213: 7471774826282189446
+    second: AGATHA_FRONT_ARM_14
+  - first:
+      213: 5276911334032272320
+    second: AGATHA_FRONT_ARM_15
+  - first:
+      213: 1170844852795669331
+    second: AGATHA_FRONT_ARM_16
+  - first:
+      213: 6668614670217896534
+    second: AGATHA_FRONT_ARM_17
+  - first:
+      213: 2526884273162012056
+    second: AGATHA_FRONT_ARM_18
+  - first:
+      213: 8361831676561183119
+    second: AGATHA_FRONT_ARM_19
+  - first:
+      213: 3080831519835350172
+    second: AGATHA_FRONT_ARM_20
+  - first:
+      213: -762382848239289844
+    second: AGATHA_FRONT_ARM_21
+  - first:
+      213: -5964796813949340139
+    second: AGATHA_FRONT_ARM_22
+  - first:
+      213: 6245543704508640610
+    second: AGATHA_FRONT_ARM_23
+  - first:
+      213: 7998787074364612435
+    second: AGATHA_FRONT_ARM_24
+  - first:
+      213: 2479894155794514695
+    second: AGATHA_FRONT_ARM_25
+  - first:
+      213: -103565121533293421
+    second: AGATHA_FRONT_ARM_26
+  - first:
+      213: -9039939952249532966
+    second: AGATHA_FRONT_ARM_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 325
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72295d6340dc68dc0800000000000000
+      internalID: -3636994231071567321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 325
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0119cea029ef2b0800000000000000
+      internalID: -5548837115257614153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 325
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddac07d2c31fa9c00800000000000000
+      internalID: 908303515631274717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 325
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313cc5d9b3bf08c40800000000000000
+      internalID: 5512682177363231507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 325
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3b2dd67ff186280800000000000000
+      internalID: -9049948303641103376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 260
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62be4780d4f1432b0800000000000000
+      internalID: -5605821220454601946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_6
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 260
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a26439a8f8593040800000000000000
+      internalID: 4627827917113811623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_7
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 260
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3274eeb2e50995a0800000000000000
+      internalID: -6514168914591321541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_8
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 260
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: febc52e28e0157bc0800000000000000
+      internalID: -3786101322342347793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 260
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878cc1d82f4409d40800000000000000
+      internalID: 5589042946107033720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 195
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fd1e811c622ae20800000000000000
+      internalID: 3360290882759810886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_11
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 195
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6741f3a0bdc2a6fb0800000000000000
+      internalID: -4653857945652620170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 195
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2b79e03c3cd35d0800000000000000
+      internalID: -3081091327520689451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_13
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 195
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14204b8407dccfe70800000000000000
+      internalID: 9150414425049793089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_14
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 195
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682814a0e9311b760800000000000000
+      internalID: 7471774826282189446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cbe93866ea5b3940800000000000000
+      internalID: 5276911334032272320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_16
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 130
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35bfaf1b03daf3010800000000000000
+      internalID: 1170844852795669331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_17
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 130
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 652eb42f5bdab8c50800000000000000
+      internalID: 6668614670217896534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_18
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 130
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895c752cbdb411320800000000000000
+      internalID: 2526884273162012056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_19
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 130
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f81d9016b913b0470800000000000000
+      internalID: 8361831676561183119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94ec90c1ff41ca20800000000000000
+      internalID: 3080831519835350172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 65
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ab8dbb6d87b65f0800000000000000
+      internalID: -762382848239289844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_22
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 65
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516fa2b86e8c83da0800000000000000
+      internalID: -5964796813949340139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_23
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 65
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d2a60b8e0aca650800000000000000
+      internalID: 6245543704508640610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_24
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 65
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f1d79f676610f60800000000000000
+      internalID: 7998787074364612435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70303bc789a5a6220800000000000000
+      internalID: 2479894155794514695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_26
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c43e71210109ef0800000000000000
+      internalID: -103565121533293421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AGATHA_FRONT_ARM_27
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 65
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5677111, y: 0.6599135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add0e43528eab8280800000000000000
+      internalID: -9039939952249532966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5737e89a4df1a7c43b06922d0e8f03d2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":6.0},"gridSpriteSize":{"x":65.0,"y":65.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5677111148834229,"y":0.6599134802818298},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AGATHA_FRONT_ARM_0: -3636994231071567321
+      AGATHA_FRONT_ARM_1: -5548837115257614153
+      AGATHA_FRONT_ARM_10: 3360290882759810886
+      AGATHA_FRONT_ARM_11: -4653857945652620170
+      AGATHA_FRONT_ARM_12: -3081091327520689451
+      AGATHA_FRONT_ARM_13: 9150414425049793089
+      AGATHA_FRONT_ARM_14: 7471774826282189446
+      AGATHA_FRONT_ARM_15: 5276911334032272320
+      AGATHA_FRONT_ARM_16: 1170844852795669331
+      AGATHA_FRONT_ARM_17: 6668614670217896534
+      AGATHA_FRONT_ARM_18: 2526884273162012056
+      AGATHA_FRONT_ARM_19: 8361831676561183119
+      AGATHA_FRONT_ARM_2: 908303515631274717
+      AGATHA_FRONT_ARM_20: 3080831519835350172
+      AGATHA_FRONT_ARM_21: -762382848239289844
+      AGATHA_FRONT_ARM_22: -5964796813949340139
+      AGATHA_FRONT_ARM_23: 6245543704508640610
+      AGATHA_FRONT_ARM_24: 7998787074364612435
+      AGATHA_FRONT_ARM_25: 2479894155794514695
+      AGATHA_FRONT_ARM_26: -103565121533293421
+      AGATHA_FRONT_ARM_27: -9039939952249532966
+      AGATHA_FRONT_ARM_3: 5512682177363231507
+      AGATHA_FRONT_ARM_4: -9049948303641103376
+      AGATHA_FRONT_ARM_5: -5605821220454601946
+      AGATHA_FRONT_ARM_6: 4627827917113811623
+      AGATHA_FRONT_ARM_7: -6514168914591321541
+      AGATHA_FRONT_ARM_8: -3786101322342347793
+      AGATHA_FRONT_ARM_9: 5589042946107033720
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

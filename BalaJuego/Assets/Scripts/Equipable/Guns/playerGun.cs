@@ -13,4 +13,6 @@
         base.Awake();
         playerShoot = gameObject.GetComponentInParent<PlayerInteractor>();
     }
+
+    
 }

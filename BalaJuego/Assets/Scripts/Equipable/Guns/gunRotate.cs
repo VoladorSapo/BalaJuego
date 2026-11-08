@@ -10,8 +10,9 @@ public class gunRotate : MonoBehaviour
     [SerializeField] Transform fullCharacter;
 
     [Header("Animator")]
-    [SerializeField] public Dictionary<string, Animator> animators;
-    string currentStm = "MID";
+    //[SerializeField] public Dictionary<string, Animator> animators;
+    [SerializeField] Animator anim;
+    //string currentStm = "MID";
 
     [SerializeField] Transform notTurn;
 
@@ -25,7 +26,7 @@ public class gunRotate : MonoBehaviour
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
-            animators["head"].SetFloat("cursorY", mousePos.y);
+            //animators["head"].SetFloat("cursorY", mousePos.y);
             mousePos.z = 10;
             setRotation(Camera.main.ScreenToWorldPoint(mousePos));
         }
@@ -43,16 +44,16 @@ public class gunRotate : MonoBehaviour
     {
         if (direction > 0)
         {
-            AnimatorExtensions.UpdateAnimatorBool(animators,"direction", true);
-
+            //AnimatorExtensions.UpdateAnimatorBool(animators,"direction", true);
+            if (anim.HasParameter("direction")) anim.SetBool("direction", true);
             fullCharacter.localScale = new Vector3(-1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 180, notTurn.eulerAngles.z);
 
         }
         else if (direction < 0)
         {
-            AnimatorExtensions.UpdateAnimatorBool(animators, "direction", false);
-
+            //AnimatorExtensions.UpdateAnimatorBool(animators, "direction", false);
+            if (anim.HasParameter("direction")) anim.SetBool("direction", false);
             fullCharacter.localScale = new Vector3(1, 1, 1);
             notTurn.eulerAngles = new Vector3(notTurn.eulerAngles.x, 0, notTurn.eulerAngles.z);
         }
