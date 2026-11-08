@@ -212,7 +212,7 @@ public class PlayerInteractor : CharacterInteractor
         base.getEquipment(interactableObj);
         reloading = false;
         anim.Play("armGrabObject", anim.GetLayerIndex("B_Arm_Actions"));
-        anim.GetComponent<AnimatorLayerManager>().PickLayer("Grab_Obj_01");
+        anim.GetComponent<AnimatorLayerManager>().PickLayer("Grab_Object");
         bulletPick.Play();
     }
    
