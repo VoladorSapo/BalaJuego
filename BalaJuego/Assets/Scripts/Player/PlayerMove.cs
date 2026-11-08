@@ -29,14 +29,24 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public float normalGravity { get; private set; }
     [field: SerializeField] public float fallGravity { get; private set; }
 
+    [Header("Roll")]
     [field: SerializeField] public float rollAcceleration { get; private set; }
     [field: SerializeField] public float maxRollSpeed { get; private set; }
-    [field: SerializeField] public float rollMaxSpeedTime { get; private set; }
-    
+
+    [field: SerializeField] public float rollTime { get; private set; }
+
+    [field: SerializeField, Range(0.00f, 1.00f)] public float rollAccelerationTimeProportion { get; private set; }
+    [field: SerializeField, Range(0.00f, 1.00f)] public float rollMaxSpeedTimeProportion { get; private set; }
+    [field: SerializeField, Range(0.00f, 1.00f)] public float rollDeccelerationTimeProportion { get; private set; }
+
 
     public bool DEBUG_endOnWalkSpeed;
     public bool DEBUG_dodgewhenwalkspeedismax;
     public bool DEBUG_canDodgeHeavy;
+
+    [Header("")]
+
+    
 
 
     [SerializeField] LayerMask groudLayers;

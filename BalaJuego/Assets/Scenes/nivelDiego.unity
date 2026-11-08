@@ -81293,12 +81293,36 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollTime>k__BackingField
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: jumpForceSlowDownMagnitude
       value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollMaxSpeedTime>k__BackingField
+      value: 0.526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollAccelerationTime>k__BackingField
+      value: 0.301
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollMaxSpeedTimeProportion>k__BackingField
+      value: 0.502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: <jumpForceSlowTimeMultiplier>k__BackingField
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollAccelerationTimeProportion>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919584621338682050, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <rollDeccelerationTimeProportion>k__BackingField
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5854326341974724435, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: detectParent
@@ -92196,7 +92220,10 @@ MonoBehaviour:
   <fallGravity>k__BackingField: 0
   <rollAcceleration>k__BackingField: 0
   <maxRollSpeed>k__BackingField: 0
-  <rollMaxSpeedTime>k__BackingField: 0
+  <rollTime>k__BackingField: 0
+  <rollAccelerationTimeProportion>k__BackingField: 0
+  <rollMaxSpeedTimeProportion>k__BackingField: 0
+  <rollDeccelerationTimeProportion>k__BackingField: 0
   DEBUG_endOnWalkSpeed: 0
   DEBUG_dodgewhenwalkspeedismax: 0
   DEBUG_canDodgeHeavy: 0
