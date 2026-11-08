@@ -25,6 +25,9 @@ public class PlayerMove : MonoBehaviour
 
     [field: SerializeField] public float normalGravity { get; private set; }
     [field: SerializeField] public float fallGravity { get; private set; }
+    [field: SerializeField] public float jumpCutProportion { get; private set; }
+
+    
 
     [Header("Roll")]
     [field: SerializeField] public float rollAcceleration { get; private set; }
@@ -122,7 +125,7 @@ public class PlayerMove : MonoBehaviour
         playerMoveStateMachine.AddTransition(idle, walk, anyMove);
         playerMoveStateMachine.AddTransition(walk, idle, noMove);
         
-        playerMoveStateMachine.AddTransition(idle, jump, canJump);
+        playerMoveStateMachine.AddTransition(idle, jump, canJump); 
         playerMoveStateMachine.AddTransition(walk, jump, canJump);
         playerMoveStateMachine.AddTransition(walk, roll, canRoll);
         playerMoveStateMachine.AddTransition(idle, roll, canRoll);
@@ -137,7 +140,9 @@ public class PlayerMove : MonoBehaviour
         playerMoveStateMachine.AddEndTransition(execute, idle, noMove);
 
 
-        playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() =>rb2d.linearVelocity.y<0));
+        playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() =>rb2d.linearVelocity.y<0 ));
+        playerMoveStateMachine.AddTransition(jump, fall, new FuncPredicate(() => playerInput.JumpUp),true, "JumpUp");
+
 
         playerMoveStateMachine.AddTransition(idle, fall, notOnGround);
         playerMoveStateMachine.AddTransition(walk, fall, notOnGround);

@@ -24,13 +24,18 @@ public class PlayerJumpState : PlayerBaseState
     public override void Update()
     {
         base.Update();
-      
+       
     }
     public override void FixedUpdate()
     {
         base.FixedUpdate();
         float useAccel = (Mathf.Abs(player.calcVelocity.x) == 0 || Mathf.Sign(player.calcVelocity.x) == player.MoveX) ? player.acceleration : player.turnDecceleration;
         player.calcVelocity.x = Mathf.MoveTowards(player.calcVelocity.x, player.MoveX * player.maxSpeed * player.timeMagnitude, useAccel * Time.fixedDeltaTime * player.timeMagnitude);
+        //if (player.playerInput.JumpUp)
+        //{
+        //    Debug.Log("CUTJUMP");
+        //    player.calcVelocity.y = player.calcVelocity.y * player.cutJumpProportion;
+        //}
         rb2d.linearVelocity = player.calcVelocity;
     }
 }

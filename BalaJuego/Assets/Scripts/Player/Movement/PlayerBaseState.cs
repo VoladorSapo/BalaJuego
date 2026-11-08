@@ -36,7 +36,7 @@ public abstract class PlayerBaseState: IState
         return false;
     }
 
-    public void SetUp(string Data)
+    public virtual void SetUp(string Data)
     {
     }
 
