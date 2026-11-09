@@ -13,6 +13,9 @@
         base.Awake();
         playerShoot = gameObject.GetComponentInParent<PlayerInteractor>();
     }
+    protected override void shootAnim()
+    {
+        anim.Play("weaponShoot", anim.GetLayerIndex("B_Arm_Actions"));
+    }
 
-    
 }

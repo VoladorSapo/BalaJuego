@@ -55,20 +55,24 @@ public class BaseGun : ABaseEquipable, IGun
             if (currentBullets > 0)
             {
                 shooting = true;
-                if (gunEnemyController != null)
-                {
-                    gunEnemyController.playAnimation("Load");
-                }
-                else
-                {
-                    anim.Play("gunShoot", anim.GetLayerIndex("B_Arm_Actions"));
-                }
+                shootAnim();
                 return true;
             }
             runOutOfBullets();
             return false;
         }
         return false;
+    }
+    protected virtual void shootAnim()
+    {
+        if (gunEnemyController != null)
+        {
+            gunEnemyController.playAnimation("Load");
+        }
+        else
+        {
+            anim.Play("gunShoot", anim.GetLayerIndex("B_Arm_Actions"));
+        }
     }
     public virtual void spawnBullet()
     {
