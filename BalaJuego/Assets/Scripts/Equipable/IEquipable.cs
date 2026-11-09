@@ -8,5 +8,9 @@ public interface IEquipable
 
     public void Grab(CharacterInteractor interactor);
 
+    public bool isFrontArmed();
+
+    public RuntimeAnimatorController GetAnimator();
+
 
 }

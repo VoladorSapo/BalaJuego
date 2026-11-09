@@ -8142,7 +8142,9 @@ MonoBehaviour:
   anim: {fileID: 1323886114722974759}
   notTurn: {fileID: 870089694401125022}
   shouldRotate: 1
-  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
+  backArm: {fileID: 1795015496778214284}
+  frontArm: {fileID: 1795015496778214284}
+  frontArmOn: 0
 --- !u!114 &9054033260984113442
 MonoBehaviour:
   m_ObjectHideFlags: 0

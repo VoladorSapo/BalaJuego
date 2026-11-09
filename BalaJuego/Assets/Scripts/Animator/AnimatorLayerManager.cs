@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class AnimatorLayerManager : MonoBehaviour
 {
@@ -22,5 +21,16 @@ public class AnimatorLayerManager : MonoBehaviour
         {
             anim.SetLayerWeight(anim.GetLayerIndex(layer), 0);
         }
+    }
+
+     public void SwapAnim(RuntimeAnimatorController runtimeAnimatorController)
+    {
+        var info = anim.GetCurrentAnimatorStateInfo(0);
+        int hash = info.fullPathHash;
+        float t = info.normalizedTime;
+
+        anim.runtimeAnimatorController = runtimeAnimatorController;
+        anim.Play(hash, 0, t);
+        anim.Update(0f);
     }
 }

@@ -9,6 +9,9 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
     [SerializeField] Vector3 positionWhenEquipped;
     [SerializeField] Vector3 rotationWhenEquipped;
 
+    [SerializeField] RuntimeAnimatorController animatorForAgatha;
+    [SerializeField] bool frontArmed;
+
     public CharacterInteractor owner { get;private set; }
 
     public virtual void Grab(CharacterInteractor character)
@@ -16,7 +19,7 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
         GetComponentInChildren<Animator>().Play("onGrab");
         musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
         character.getEquipment(gameObject);
-        setAsEquipment(character.equipmentParent);
+        setAsEquipment(frontArmed ? character.frontequipmentParent : character.backequipmentParent);
         owner = character;
     }
 
@@ -43,4 +46,6 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
         proyectile.DeactivateMovement();
     }
 
+    public bool isFrontArmed() => frontArmed;
+    public RuntimeAnimatorController GetAnimator() => animatorForAgatha;
 }

@@ -12,7 +12,6 @@ public class PlayerInteractor : CharacterInteractor
 
     //[SerializeField] private float slowDownMagnitude;
     [SerializeField] TMP_Text textoaviso;
-    public IGun shoot { get; private set; }
     [SerializeField] private PlayerInput playerInput;
 
     IGameState stateManager;
@@ -54,9 +53,10 @@ public class PlayerInteractor : CharacterInteractor
     //If player is in a state where they can shoot (not rolling, stuned, etc)
     [SerializeField] private bool canShoot;
 
-    private void Awake()
+    protected override void Awake()
     {
 
+        base.Awake();
         executionCamera = GetComponentInChildren<Unity.Cinemachine.CinemachineCamera>().gameObject;
         playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;

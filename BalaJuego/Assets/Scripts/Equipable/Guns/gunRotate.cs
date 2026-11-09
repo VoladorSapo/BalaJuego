@@ -18,7 +18,10 @@ public class gunRotate : MonoBehaviour
 
     bool gameStateRotate;
   [SerializeField] protected bool shouldRotate;
-    [SerializeField] Quaternion defaultRotation;
+
+    [SerializeField] Transform backArm;
+    [SerializeField] Transform frontArm;
+    [field:SerializeField] public bool frontArmOn {  get; set; }
     private void FixedUpdate()
     {
 
@@ -61,12 +64,13 @@ public class gunRotate : MonoBehaviour
 
         if (shouldRotate)
         {
-            transform.rotation = Quaternion.AngleAxis(angle, reference);
+            frontArm.rotation = frontArmOn ?  Quaternion.AngleAxis(angle, reference) : Quaternion.identity;
+            backArm.rotation = !frontArmOn ? Quaternion.AngleAxis(angle, reference) : Quaternion.identity;
         }
         else
         {
-            transform.rotation = defaultRotation;
-
+            backArm.rotation = Quaternion.identity;
+            frontArm.rotation = Quaternion.identity;
         }
     }
     protected virtual void Start()
@@ -96,5 +100,6 @@ public class gunRotate : MonoBehaviour
                 break;
         }
     }
+
 
 }

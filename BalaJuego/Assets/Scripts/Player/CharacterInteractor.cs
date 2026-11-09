@@ -4,11 +4,17 @@ using UnityEngine.Events;
 
 public class CharacterInteractor:MonoBehaviour, IDetectable
 {
-    [field:SerializeField] public Transform equipmentParent { get; private set; }
+    public IGun shoot { get; protected set; }
+
+    [field:SerializeField] public Transform backequipmentParent { get; private set; }
+    [field: SerializeField] public Transform frontequipmentParent { get; private set; }
+
 
     protected UnityEvent<characterGunChangeData> playerGunChangeEvent;
     [SerializeField] protected GameObject currentEquipment;
 
+    [SerializeField] protected gunRotate gunRotate;
+    AnimatorLayerManager animatorLayerManager;
     public void changePlayerGun(bool _hasAnything, IEquipable _equipment = null)
     {
         var anim = GetComponentsInChildren<Animator>(true)[1].GetComponent<AnimatorLayerManager>();
@@ -37,6 +43,8 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
         IEquipable equipable = interactableObj.GetComponent<IEquipable>();
         changePlayerGun(true, equipable);
         currentEquipment = interactableObj;
+        gunRotate.frontArmOn = equipable.isFrontArmed();
+        animatorLayerManager.SwapAnim(equipable.GetAnimator());
     }
 
     internal void loseEquipment()
@@ -46,4 +54,10 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
     }
 
     public GameObject getObj() => gameObject;
+
+    protected virtual void Awake()
+    {
+        animatorLayerManager = GetComponentInChildren<AnimatorLayerManager>();
+        gunRotate = GetComponentInChildren<gunRotate>();
+    }
 }
