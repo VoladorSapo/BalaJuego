@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2534503266039321681}
   - component: {fileID: 2540831603545915990}
   - component: {fileID: 5390330334031164956}
+  - component: {fileID: 487804098232822409}
   m_Layer: 14
   m_Name: botella
   m_TagString: Botella
@@ -90,6 +91,9 @@ MonoBehaviour:
   initialPos: {x: 0, y: 0, z: 0}
   positionWhenEquipped: {x: 0, y: 0, z: 0}
   rotationWhenEquipped: {x: 0, y: 0, z: 0}
+  animatorForAgatha: {fileID: 9100000, guid: 3c9d23005b8658a4e8b1c098a5ac1439, type: 2}
+  frontArmed: 0
+  animatorLayerName: Grab_Object
 --- !u!114 &2540831603545915990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +139,19 @@ MonoBehaviour:
   z: -0.36
   <speed>k__BackingField: 30
   <moving>k__BackingField: 0
+--- !u!114 &487804098232822409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051294939465296080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05180bb6980b1cb40bc43ad5aa7c33bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyRespawnController
+  respawn: 1
 --- !u!1 &6389520299271862978
 GameObject:
   m_ObjectHideFlags: 0
