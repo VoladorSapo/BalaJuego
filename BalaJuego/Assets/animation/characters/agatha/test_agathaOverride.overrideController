@@ -9,5 +9,7 @@ AnimatorOverrideController:
   m_Name: test_agathaOverride
   m_Controller: {fileID: 9100000, guid: 3c9d23005b8658a4e8b1c098a5ac1439, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: c1fc1384f30dcb849ab05f913aa93d4c, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ba6d28c1e3b975b4294be2661fb8ba76, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 608f6130d244f5b429df70e5ddac1f83, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 608f6130d244f5b429df70e5ddac1f83, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0258dbcf70fa00b46afd0e12a829f44c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0258dbcf70fa00b46afd0e12a829f44c, type: 2}

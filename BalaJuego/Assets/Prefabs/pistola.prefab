@@ -47,6 +47,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   sphereSize: 0.1
   useScale: 1
+  onSelected: 1
 --- !u!1 &7944476416486132030
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,8 +116,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.93092644, y: 0.048477348}
-  m_Size: {x: 2.391853, y: 0.9655037}
+  m_Offset: {x: 0.020749323, y: -0.080044165}
+  m_Size: {x: 2.6231005, y: 1.1255964}
   m_Direction: 1
 --- !u!114 &644569328024168802
 MonoBehaviour:
@@ -224,6 +225,9 @@ MonoBehaviour:
   initialPos: {x: 0, y: 0, z: 0}
   positionWhenEquipped: {x: 0, y: 0, z: 0}
   rotationWhenEquipped: {x: 0, y: 0, z: 0}
+  animatorForAgatha: {fileID: 22100000, guid: f9c128157c8fac44e9de5e420c17d617, type: 2}
+  frontArmed: 1
+  animatorLayerName: Grab_Weapon
   startBullets: 3
   currentBullets: 3
   spawnPoint: {fileID: 4555447123814428488}
@@ -300,12 +304,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1526738469
+  m_SortingLayer: 1
+  m_SortingOrder: 7
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1575327541, guid: 3ba6b7a3276c9a34081ce1b2f475dd7d, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.066408694, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 026162438c836c14d8975ec47242923c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

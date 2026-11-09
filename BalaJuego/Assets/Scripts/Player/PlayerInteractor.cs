@@ -34,9 +34,9 @@ public class PlayerInteractor : CharacterInteractor
 
     ACharacterLife enemyMelee;
 
-    [SerializeField] Animator anim;
+    [field: SerializeField] public Animator anim { get; private set; }
 
-[field:SerializeField]   public GameObject[] hidewhenMelee {  get; private set; }
+    [field:SerializeField]   public GameObject[] hidewhenMelee {  get; private set; }
 
     [SerializeField] public bool hasBottle;
     float stopBufferTimeCurrent;
@@ -211,8 +211,8 @@ public class PlayerInteractor : CharacterInteractor
     {
         base.getEquipment(interactableObj);
         reloading = false;
-      //  anim.Play("armGrabObject", anim.GetLayerIndex("B_Arm_Actions"));
-      //  anim.GetComponent<AnimatorLayerManager>().PickLayer("Grab_Object");
+        //anim.Play("armGrabObject", anim.GetLayerIndex("B_Arm_Actions"));
+        //anim.GetComponent<AnimatorLayerManager>().PickLayer("Grab_Object");
         bulletPick.Play();
     }
    

@@ -141,6 +141,7 @@ public class BaseGun : ABaseEquipable, IGun
     {
         this.character = character.gameObject;
         base.Grab(character);
+        anim = character.GetComponent<PlayerInteractor>().anim;
         bulletCount = character.GetComponentInChildren<TMP_Text>();
         bulletCount.text = currentBullets.ToString();
 

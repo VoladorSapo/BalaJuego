@@ -2314,6 +2314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorSwapTest
   defaultAnim: {fileID: 9100000, guid: 3c9d23005b8658a4e8b1c098a5ac1439, type: 2}
   customAnim: {fileID: 22100000, guid: f9c128157c8fac44e9de5e420c17d617, type: 2}
+--- !u!95 &486061946 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3044306764865592801, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+  m_PrefabInstance: {fileID: 1670321243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &538594058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2362,45 +2367,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4555447123814428488, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4555447123814428488, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5816841347831708237, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639252660807917918, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017796970094217730, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017796970094217730, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7746555503233191627, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 026162438c836c14d8975ec47242923c, type: 3}
     - target: {fileID: 8108026381848045358, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: frontArmed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8108026381848045358, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: animatorForAgatha
-      value: 
-      objectReference: {fileID: 9100000, guid: 3c9d23005b8658a4e8b1c098a5ac1439, type: 2}
-    - target: {fileID: 8108026381848045358, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      propertyPath: animatorLayerName
-      value: Grab_Weapon
+      propertyPath: startBullets
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8824179077550148770, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
       propertyPath: m_Name
@@ -2409,10 +2378,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8824179077550148770, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2079451336}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
 --- !u!1001 &548444986
 PrefabInstance:
@@ -64496,6 +64462,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2356750998145561350, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: <anim>k__BackingField
+      value: 
+      objectReference: {fileID: 486061946}
     - target: {fileID: 2825804036634818131, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: fadeInTime
       value: 0.2
@@ -64508,6 +64478,10 @@ PrefabInstance:
       propertyPath: shockwaveTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3044306764865592801, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c9d23005b8658a4e8b1c098a5ac1439, type: 2}
     - target: {fileID: 3052987210979176980, guid: 630ac26a14f12b841a82f3563b70cfd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21
@@ -67167,24 +67141,6 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!1 &2079451331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8824179077550148770, guid: 90f8fb3bc54e0bd4092c94b7bdb94275, type: 3}
-  m_PrefabInstance: {fileID: 538594058}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2079451336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079451331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05180bb6980b1cb40bc43ad5aa7c33bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyRespawnController
-  respawn: 1
 --- !u!1 &2081345229
 GameObject:
   m_ObjectHideFlags: 0
