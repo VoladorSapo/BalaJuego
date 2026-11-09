@@ -10,12 +10,22 @@ public class DestroyRespawnController : MonoBehaviour
     Vector3 startPosition;
     Transform startParent;
     Vector3 startRotation;
+    SpriteRenderer spriteRenderer;
+
+    string defaultsortinglayer;
+    int defaultsortingorder;
     private void Start()
     {
         startPosition = transform.position;
         startRotation = transform.eulerAngles;
         respawnAction = () => { };
         startParent = transform.parent;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        if(spriteRenderer != null)
+        {
+            defaultsortinglayer = spriteRenderer.sortingLayerName;
+            defaultsortingorder = spriteRenderer.sortingOrder;
+        }
         timer = ServiceLocator.Instance.Get<ITimeManager>();
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(InvokeRespawn);
         if (respawn)
@@ -33,6 +43,11 @@ public class DestroyRespawnController : MonoBehaviour
         transform.parent = startParent;
         transform.position = startPosition;
         transform.eulerAngles = startRotation;
+        if(spriteRenderer != null)
+        {
+            spriteRenderer.sortingLayerName = defaultsortinglayer;
+            spriteRenderer.sortingOrder = defaultsortingorder;
+        }
         respawnAction.Invoke();
     }
     public void Destroy(float time = 0)

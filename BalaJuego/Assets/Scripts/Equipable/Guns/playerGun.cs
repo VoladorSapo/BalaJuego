@@ -15,7 +15,7 @@
     }
     protected override void shootAnim()
     {
-        anim.Play("weaponShoot", anim.GetLayerIndex("B_Arm_Actions"));
+        anim.Play("gunShoot", anim.GetLayerIndex("B_Arm_Actions"));
     }
 
 }

@@ -71,7 +71,7 @@ public class BaseGun : ABaseEquipable, IGun
         }
         else
         {
-            anim.Play("gunShoot", anim.GetLayerIndex("B_Arm_Actions"));
+            anim.Play("weaponShoot", anim.GetLayerIndex("B_Arm_Actions"));
         }
     }
     public virtual void spawnBullet()

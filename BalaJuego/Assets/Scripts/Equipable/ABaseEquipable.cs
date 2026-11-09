@@ -19,8 +19,8 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
     {
         GetComponentInChildren<Animator>().Play("onGrab");
         musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
-        character.getEquipment(gameObject);
         setAsEquipment(frontArmed ? character.frontequipmentParent : character.backequipmentParent);
+        character.getEquipment(gameObject);
         owner = character;
     }
 
