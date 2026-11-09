@@ -11,6 +11,7 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
 
     [SerializeField] RuntimeAnimatorController animatorForAgatha;
     [SerializeField] bool frontArmed;
+    [SerializeField] string animatorLayerName;
 
     public CharacterInteractor owner { get;private set; }
 
@@ -48,4 +49,6 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
 
     public bool isFrontArmed() => frontArmed;
     public RuntimeAnimatorController GetAnimator() => animatorForAgatha;
+
+    public string getAnimatorLayerName() => animatorLayerName;
 }

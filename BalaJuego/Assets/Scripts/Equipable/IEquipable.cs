@@ -12,5 +12,7 @@ public interface IEquipable
 
     public RuntimeAnimatorController GetAnimator();
 
+    public string getAnimatorLayerName();
+
 
 }

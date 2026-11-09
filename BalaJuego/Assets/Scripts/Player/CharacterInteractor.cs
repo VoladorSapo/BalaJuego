@@ -45,6 +45,7 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
         currentEquipment = interactableObj;
         gunRotate.frontArmOn = equipable.isFrontArmed();
         animatorLayerManager.SwapAnim(equipable.GetAnimator());
+        animatorLayerManager.PickLayer(equipable.getAnimatorLayerName());
     }
 
     internal void loseEquipment()
