@@ -11,6 +11,7 @@ public class AnimatorLayerManager : MonoBehaviour
     }
     public void PickLayer(string targetLayer)
     {
+        Debug.Log("PICK LAYER" + targetLayer);
         ResetPickfromLayers();
         anim.SetLayerWeight(anim.GetLayerIndex(targetLayer), 1);
     }
