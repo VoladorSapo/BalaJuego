@@ -3,11 +3,22 @@
 public class SizeHover : ABaseHover
 {
     [SerializeField] SpriteRenderer sprite;
+    private MaterialPropertyBlock mpb;
+
+    private static readonly int OutlineSizeId = Shader.PropertyToID("_OutlineSize");
+    private static readonly int OutlineColorId = Shader.PropertyToID("_OutlineColor");
+
+    [SerializeField] private Color outlineColor = Color.white;
+
     [SerializeField] float HoverSize;
     Vector3 ogSize;
     Vector3 hoveredSize;
 
-
+    private void Awake()
+    {
+        mpb = new MaterialPropertyBlock();
+        SetOutline(false);
+    }
     private void Start()
     {
         ogSize = sprite.transform.localScale;
@@ -15,6 +26,15 @@ public class SizeHover : ABaseHover
     }
     public override void setHover(bool set)
     {
-      sprite.transform.localScale = set ? hoveredSize : ogSize;
+        sprite.transform.parent.localScale = set ? hoveredSize : ogSize;
+        SetOutline(set);
+    }
+
+    private void SetOutline(bool on)
+    {
+        sprite.GetPropertyBlock(mpb);               // conserva lo que ya puso el SpriteRenderer (_MainTex)
+        mpb.SetColor(OutlineColorId, outlineColor);
+        mpb.SetFloat(OutlineSizeId, on ? 1f : 0f);
+        sprite.SetPropertyBlock(mpb);
     }
 }
