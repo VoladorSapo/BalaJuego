@@ -12241,6 +12241,7 @@ GameObject:
   - component: {fileID: 6327611237262435966}
   - component: {fileID: 1300012947871662887}
   - component: {fileID: 577087160044572397}
+  - component: {fileID: 5683815602466354808}
   m_Layer: 14
   m_Name: Bala
   m_TagString: Bullet
@@ -12493,6 +12494,19 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &5683815602466354808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778922938256658580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05180bb6980b1cb40bc43ad5aa7c33bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyRespawnController
+  respawn: 0
 --- !u!1 &5276558439313912093
 GameObject:
   m_ObjectHideFlags: 0
@@ -12671,6 +12685,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canInteract: 1
+  onlyInteractableOnce: 1
 --- !u!1 &6537344418045284242
 GameObject:
   m_ObjectHideFlags: 0

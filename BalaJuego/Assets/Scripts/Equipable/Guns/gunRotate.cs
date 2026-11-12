@@ -38,7 +38,7 @@ public class gunRotate : MonoBehaviour
     {
         Vector3 direction = obj - fullCharacter.position;
 
-        Vector3 gunDirection = obj - transform.position;
+        Vector3 gunDirection = obj - (frontArmOn ? frontArm.position : backArm.position);
         float angle = Mathf.Round(Mathf.Atan2(gunDirection.y, Mathf.Abs(gunDirection.x)) * Mathf.Rad2Deg);
         // print(obj +" "+ fullCharacter.position + " "+direction+" "+angle);
         setRotationAngle(direction.x, angle);

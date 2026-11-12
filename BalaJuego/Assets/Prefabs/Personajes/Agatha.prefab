@@ -156,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 96954170879293477}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5380001, y: 0.2720003, z: 0}
+  m_LocalPosition: {x: -1.13, y: 0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2792,6 +2792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1319140817180629563}
   - component: {fileID: 5734667672390154846}
+  - component: {fileID: 3318943342184874069}
   m_Layer: 0
   m_Name: back_arm
   m_TagString: Untagged
@@ -2876,6 +2877,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &3318943342184874069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060920710229837519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318848d4a35f3c14c948fb9cd79b4d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  positionWhenEquipped: {x: 0, y: 0, z: 0}
+  rotationWhenEquipped: {x: 0, y: 0, z: 0}
+  animatorForAgatha: {fileID: 0}
+  frontArmed: 0
+  animatorLayerName: 
+  startBullets: 0
+  currentBullets: 0
+  spawnPoint: {fileID: 4343821551712420905}
+  character: {fileID: 8799275002827292154}
+  <anim>k__BackingField: {fileID: 3044306764865592801}
+  shooting: 0
+  bullet: {fileID: 213489049314182832, guid: ef47b3a005a3e7642b2c432bb8e768cd, type: 3}
+  bulletCount: {fileID: 1993152138652490845}
+  DestroyWhenOutOfBullets: 0
 --- !u!1 &1285673212739279301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6452,7 +6481,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6217108927246936048}
   - component: {fileID: 3350687364669548992}
-  - component: {fileID: 8501785953248665980}
   m_Layer: 2
   m_Name: arms
   m_TagString: Untagged
@@ -6498,34 +6526,6 @@ MonoBehaviour:
   backArm: {fileID: 1319140817180629563}
   frontArm: {fileID: 1268076701235001989}
   <frontArmOn>k__BackingField: 0
---- !u!114 &8501785953248665980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309521700254141029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318848d4a35f3c14c948fb9cd79b4d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  area: {fileID: 0}
-  initialPos: {x: 0, y: 0, z: 0}
-  positionWhenEquipped: {x: 0, y: 0, z: 0}
-  rotationWhenEquipped: {x: 0, y: 0, z: 0}
-  animatorForAgatha: {fileID: 0}
-  frontArmed: 0
-  animatorLayerName: 
-  startBullets: 0
-  currentBullets: 0
-  spawnPoint: {fileID: 4343821551712420905}
-  character: {fileID: 8799275002827292154}
-  <anim>k__BackingField: {fileID: 3044306764865592801}
-  shooting: 0
-  bullet: {fileID: 213489049314182832, guid: ef47b3a005a3e7642b2c432bb8e768cd, type: 3}
-  bulletCount: {fileID: 1993152138652490845}
-  DestroyWhenOutOfBullets: 0
 --- !u!1 &6372787413453018646
 GameObject:
   m_ObjectHideFlags: 0

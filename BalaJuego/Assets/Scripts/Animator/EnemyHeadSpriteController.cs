@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyHeadSpriteController : AHeadSpriteController
 {
 
-    void LateUpdate()
+    protected override void LateUpdate()
     {
         base.LateUpdate();
 

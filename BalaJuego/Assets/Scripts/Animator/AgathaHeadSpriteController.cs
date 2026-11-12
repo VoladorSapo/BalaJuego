@@ -12,7 +12,7 @@ public class AgathaHeadSpriteController : AHeadSpriteController
     float RelAngle;
     Camera cam;
 
-    void LateUpdate()
+  protected override void LateUpdate()
     {
         if (cam == null) cam = Camera.main;
         Vector3 mousePos = Input.mousePosition;

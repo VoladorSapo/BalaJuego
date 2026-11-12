@@ -61,16 +61,15 @@ public class PlayerInteractor : CharacterInteractor
         playerGunChangeEvent = new UnityEvent<characterGunChangeData>();
         enemyMelee = null;
     }
-    private void Start()
+    protected override void Start()
     {
         textoaviso.enabled = false;
         hasBottle = false;
         executionCamera.SetActive(false);
-        shoot = GetComponentInChildren<IGun>();
         stateManager = ServiceLocator.Instance.Get<IGameState>();
         grabDetector = GetComponentInChildren<ObjectDetector<IInteractable>>();
         //botleDetector = GetComponentInChildren<botleDetector>();
-
+        base.Start();
         stunedDetector = GetComponentInChildren<EnemyDetector>();
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);
         reloading = false;
@@ -290,6 +289,14 @@ public class PlayerInteractor : CharacterInteractor
     public void setCanShoot(bool _canShoot)
     {
         canShoot = _canShoot;
+    }
+
+    public override IGun getGun()
+    {
+        if(currentEquipment != null && currentEquipment.GetComponent<IGun>() != null){
+            return currentEquipment.GetComponent<IGun>();
+        }
+        return base.getGun();
     }
 }
 

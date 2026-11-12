@@ -67,11 +67,14 @@ public class animationEventCaller : MonoBehaviour
     }
     public void gunSpawnBullet()
     {
-        GetComponentInChildren<BaseGun>().spawnBullet();
+
+        print(GetComponentInParent<CharacterInteractor>());
+        print(GetComponentInParent<CharacterInteractor>().getGun());
+        GetComponentInParent<CharacterInteractor>().getGun().spawnBullet();
     }
     public void gunEndShoot()
     {
-        GetComponentInChildren<BaseGun>().endShootAnim();
+        GetComponentInParent<CharacterInteractor>().getGun().endShootAnim();
     }
     public void callCameraShakeEnemy()
     {

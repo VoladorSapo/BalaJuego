@@ -17,6 +17,9 @@ public interface IGun : IEquipable
     public void restart();
 
     public void setShooting(bool _shoot);
+    public void spawnBullet();
+    public void endShootAnim();
+
 
 
 }

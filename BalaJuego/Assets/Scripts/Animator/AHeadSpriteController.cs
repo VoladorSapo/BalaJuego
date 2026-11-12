@@ -37,7 +37,7 @@ public abstract class AHeadSpriteController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    protected void LateUpdate()
+    protected virtual void LateUpdate()
     {
 
         spriteRenderer.sprite = faces[currentFace].GetSprite(lookingAt);

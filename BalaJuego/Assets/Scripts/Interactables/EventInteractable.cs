@@ -20,6 +20,9 @@ public class EventInteractable : MonoBehaviour, IInteractable
 
     bool isSelect;
    [SerializeField] private bool canInteract;
+    [SerializeField] private bool onlyInteractableOnce = true;
+
+    private bool canInteractDefault;
 
     public GameObject getObj() => gameObject;
 
@@ -27,6 +30,11 @@ public class EventInteractable : MonoBehaviour, IInteractable
 
     public void interact(PlayerInteractor player)
     {
+        if (onlyInteractableOnce)
+        {
+            canInteract = false;
+            mouseLeave?.Invoke();
+        }
         interactEvent.Invoke(player);
     }
     public void setOnRadius(bool set)
@@ -42,6 +50,7 @@ public class EventInteractable : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        canInteractDefault = canInteract;
         restart();
         DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
         if (respawnController != null)
@@ -51,7 +60,7 @@ public class EventInteractable : MonoBehaviour, IInteractable
     public void restart()
     {
         isSelect = false;
-
+        canInteract = canInteractDefault;
     }
 
     private void onStateChange(object sender, stateData e)

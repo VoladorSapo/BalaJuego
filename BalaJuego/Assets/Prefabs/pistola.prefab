@@ -159,6 +159,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canInteract: 1
+  onlyInteractableOnce: 1
 --- !u!114 &5013603173532344431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +187,7 @@ GameObject:
   - component: {fileID: 8108026381848045358}
   - component: {fileID: 6639252660807917918}
   - component: {fileID: 7746555503233191627}
+  - component: {fileID: 2791783228094705162}
   m_Layer: 14
   m_Name: pistola
   m_TagString: Botella
@@ -320,3 +322,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &2791783228094705162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824179077550148770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05180bb6980b1cb40bc43ad5aa7c33bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyRespawnController
+  respawn: 1

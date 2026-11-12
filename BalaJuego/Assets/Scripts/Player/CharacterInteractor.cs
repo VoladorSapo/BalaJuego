@@ -36,6 +36,11 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
         playerGunChangeEvent?.RemoveListener(response);
 
     }
+    protected virtual void Start()
+    {
+        shoot = GetComponentInChildren<IGun>();
+
+    }
 
     public virtual void getEquipment(GameObject interactableObj)
     {
@@ -64,4 +69,6 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
         animatorLayerManager = GetComponentInChildren<AnimatorLayerManager>();
         gunRotate = GetComponentInChildren<gunRotate>();
     }
+
+    public virtual IGun getGun() => shoot;
 }
