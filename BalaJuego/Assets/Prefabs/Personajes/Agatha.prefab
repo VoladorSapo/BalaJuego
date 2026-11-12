@@ -155,12 +155,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96954170879293477}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.538, y: 0.272, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8930111, y: 0.77500093, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1319140817180629563}
+  m_Father: {fileID: 6217108927246936048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081317822174796929
 MonoBehaviour:
@@ -212,10 +212,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3864902074976410432}
-  - {fileID: 1319140817180629563}
+  - {fileID: 6217108927246936048}
   - {fileID: 3668143606905191652}
   - {fileID: 8282066054282955415}
-  - {fileID: 1268076701235001989}
   m_Father: {fileID: 3052987210979176980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4685477122474193355
@@ -2793,8 +2792,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1319140817180629563}
   - component: {fileID: 5734667672390154846}
-  - component: {fileID: 762390997353206681}
-  - component: {fileID: 7160610800271785794}
   m_Layer: 0
   m_Name: back_arm
   m_TagString: Untagged
@@ -2815,10 +2812,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4343821551712420905}
-  - {fileID: 583251676810229063}
   - {fileID: 2854619547812020326}
-  m_Father: {fileID: 8268686315388526863}
+  m_Father: {fileID: 6217108927246936048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5734667672390154846
 SpriteRenderer:
@@ -2880,54 +2875,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &762390997353206681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060920710229837519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e82839ec715da1449df7803c705d6d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followMouse: 1
-  fullCharacter: {fileID: 3052987210979176980}
-  anim: {fileID: 3044306764865592801}
-  notTurn: {fileID: 8817943855520556392}
-  shouldRotate: 0
-  backArm: {fileID: 1319140817180629563}
-  frontArm: {fileID: 1268076701235001989}
-  <frontArmOn>k__BackingField: 0
---- !u!114 &7160610800271785794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060920710229837519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318848d4a35f3c14c948fb9cd79b4d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  area: {fileID: 0}
-  initialPos: {x: 0, y: 0, z: 0}
-  positionWhenEquipped: {x: 0, y: 0, z: 0}
-  rotationWhenEquipped: {x: 0, y: 0, z: 0}
-  animatorForAgatha: {fileID: 0}
-  frontArmed: 0
-  animatorLayerName: 
-  startBullets: 0
-  currentBullets: 0
-  spawnPoint: {fileID: 4343821551712420905}
-  character: {fileID: 8799275002827292154}
-  <anim>k__BackingField: {fileID: 3044306764865592801}
-  shooting: 0
-  bullet: {fileID: 213489049314182832, guid: ef47b3a005a3e7642b2c432bb8e768cd, type: 3}
-  bulletCount: {fileID: 1993152138652490845}
-  DestroyWhenOutOfBullets: 0
 --- !u!1 &1285673212739279301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,11 +3008,11 @@ Transform:
   m_GameObject: {fileID: 1311076019901442457}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.2910024, y: 0.12999994, z: -0.13}
+  m_LocalPosition: {x: -1.6460133, y: 0.63300073, z: -0.13}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1319140817180629563}
+  m_Father: {fileID: 6217108927246936048}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &5748250929452123459
 ParticleSystem:
@@ -6426,14 +6373,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5932730020464032195}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4844, y: 0.5451, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4843998, y: 0.5450996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1614469836712473295}
   - {fileID: 4908344948775849398}
-  m_Father: {fileID: 8268686315388526863}
+  m_Father: {fileID: 6217108927246936048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8500202087895852127
 SpriteRenderer:
@@ -6495,6 +6442,91 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &6309521700254141029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6217108927246936048}
+  - component: {fileID: 3350687364669548992}
+  - component: {fileID: 8501785953248665980}
+  m_Layer: 2
+  m_Name: arms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6217108927246936048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309521700254141029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4343821551712420905}
+  - {fileID: 583251676810229063}
+  - {fileID: 1319140817180629563}
+  - {fileID: 1268076701235001989}
+  m_Father: {fileID: 8268686315388526863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3350687364669548992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309521700254141029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e82839ec715da1449df7803c705d6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followMouse: 1
+  fullCharacter: {fileID: 3052987210979176980}
+  anim: {fileID: 3044306764865592801}
+  notTurn: {fileID: 8817943855520556392}
+  shouldRotate: 0
+  backArm: {fileID: 1319140817180629563}
+  frontArm: {fileID: 1268076701235001989}
+  <frontArmOn>k__BackingField: 0
+--- !u!114 &8501785953248665980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309521700254141029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318848d4a35f3c14c948fb9cd79b4d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  positionWhenEquipped: {x: 0, y: 0, z: 0}
+  rotationWhenEquipped: {x: 0, y: 0, z: 0}
+  animatorForAgatha: {fileID: 0}
+  frontArmed: 0
+  animatorLayerName: 
+  startBullets: 0
+  currentBullets: 0
+  spawnPoint: {fileID: 4343821551712420905}
+  character: {fileID: 8799275002827292154}
+  <anim>k__BackingField: {fileID: 3044306764865592801}
+  shooting: 0
+  bullet: {fileID: 213489049314182832, guid: ef47b3a005a3e7642b2c432bb8e768cd, type: 3}
+  bulletCount: {fileID: 1993152138652490845}
+  DestroyWhenOutOfBullets: 0
 --- !u!1 &6372787413453018646
 GameObject:
   m_ObjectHideFlags: 0
@@ -10260,16 +10292,16 @@ MonoBehaviour:
   <backequipmentParent>k__BackingField: {fileID: 2854619547812020326}
   <frontequipmentParent>k__BackingField: {fileID: 1614469836712473295}
   currentEquipment: {fileID: 0}
-  gunRotate: {fileID: 0}
+  gunRotate: {fileID: 3350687364669548992}
   textoaviso: {fileID: 3833163824546946754}
   playerInput: {fileID: 22484205660860321}
   clickable:
     serializedVersion: 2
     m_Bits: 128
-  stunedDetector: {fileID: 0}
+  stunedDetector: {fileID: 5854326341974724435}
   reloading: 0
   BottlePrefab: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
-  <anim>k__BackingField: {fileID: 0}
+  <anim>k__BackingField: {fileID: 3044306764865592801}
   <hidewhenMelee>k__BackingField:
   - {fileID: 1060920710229837519}
   - {fileID: 6468833475734050191}
