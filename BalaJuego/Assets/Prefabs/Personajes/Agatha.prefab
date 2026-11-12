@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4343821551712420905}
   - component: {fileID: 1081317822174796929}
   m_Layer: 0
-  m_Name: Gizmo
+  m_Name: base_gun_bullet_origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,11 +156,11 @@ Transform:
   m_GameObject: {fileID: 96954170879293477}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8930111, y: 0.77500093, z: 0}
+  m_LocalPosition: {x: -1.5380001, y: 0.2720003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6217108927246936048}
+  m_Father: {fileID: 1319140817180629563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081317822174796929
 MonoBehaviour:
@@ -2812,6 +2812,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4343821551712420905}
   - {fileID: 2854619547812020326}
   m_Father: {fileID: 6217108927246936048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5399,7 +5400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01abb5884d15c234c859bbb2ec6e0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 2a429c9831718f0499e89e7dfa725e02, type: 2}
   shockwaveTime: 1
   warpCurve:
     serializedVersion: 2
@@ -6473,7 +6473,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4343821551712420905}
   - {fileID: 583251676810229063}
   - {fileID: 1319140817180629563}
   - {fileID: 1268076701235001989}
