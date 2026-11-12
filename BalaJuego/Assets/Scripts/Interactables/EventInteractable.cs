@@ -25,7 +25,10 @@ public class EventInteractable : MonoBehaviour, IInteractable
 
     public bool inSelect() => isSelect;
 
-    public void interact(PlayerInteractor player) => interactEvent.Invoke(player);
+    public void interact(PlayerInteractor player)
+    {
+        interactEvent.Invoke(player);
+    }
     public void setOnRadius(bool set)
     {
         if(isSelect && !set)

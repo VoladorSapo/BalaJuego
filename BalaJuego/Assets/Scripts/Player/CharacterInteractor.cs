@@ -50,10 +50,11 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
 
     internal void loseEquipment()
     {
-        currentEquipment.transform.parent = null;
-        currentEquipment = null;
         IEquipable equipable = currentEquipment.GetComponent<IEquipable>();
         equipable.resetLayers();
+        currentEquipment.transform.parent = null;
+        currentEquipment = null;
+       
     }
 
     public GameObject getObj() => gameObject;
