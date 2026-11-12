@@ -11,7 +11,8 @@ public class TimestopEffects : MonoBehaviour
     Coroutine warpCoroutine, fadeInCoroutine, fadeOutCoroutine;
 
     [Header("SHOCKWAVE")]
-    Material mat;
+    SpriteRenderer rend;
+    private MaterialPropertyBlock mpb;
     private static int waveDistance = Shader.PropertyToID("_WaveDistance");
     private static int ringSpawn = Shader.PropertyToID("_RingSpawn");
     GameObject shockWaveRenderer;
@@ -27,8 +28,9 @@ public class TimestopEffects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mpb = new MaterialPropertyBlock();
         shockWaveRenderer = Camera.main.transform.Find("ShockwaveRenderer").gameObject;
-        mat = shockWaveRenderer.GetComponent<SpriteRenderer>().material;
+        rend = shockWaveRenderer.GetComponent<SpriteRenderer>();
         backGroundLight = Camera.main.gameObject.GetComponentsInChildren<Light2D>(true)[0];
         defaultIntensity = backGroundLight.intensity;
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(CallWarp);
@@ -56,7 +58,9 @@ public class TimestopEffects : MonoBehaviour
        
         if (warpCoroutine != null)
         {
-            mat.SetFloat(waveDistance, -.6f);
+            rend.GetPropertyBlock(mpb);
+            mpb.SetFloat(waveDistance, -.6f);
+            rend.SetPropertyBlock(mpb);
             StopAllCoroutines();
         }
         if (e.currentMagnitude < 1)
@@ -65,7 +69,9 @@ public class TimestopEffects : MonoBehaviour
             Vector3 posicionViewport = Camera.main.WorldToViewportPoint(transform.position);
             float screenX = posicionViewport.x;
             float screenY = posicionViewport.y;
-            mat.SetVector(ringSpawn, new Vector2(screenX, screenY));
+            rend.GetPropertyBlock(mpb);
+            mpb.SetVector(ringSpawn, new Vector2(screenX, screenY));
+            rend.SetPropertyBlock(mpb);
             warpCoroutine = StartCoroutine(WarpCoroutine(-.6f, 1f));
         }
         else
@@ -118,7 +124,9 @@ public class TimestopEffects : MonoBehaviour
         Vector3 posicionViewport = Camera.main.WorldToViewportPoint(transform.position);
         float screenX = posicionViewport.x;
         float screenY = posicionViewport.y;
-        mat.SetVector(ringSpawn, new Vector2(screenX, screenY));
+        rend.GetPropertyBlock(mpb);
+        mpb.SetVector(ringSpawn, new Vector2(screenX, screenY));
+        rend.SetPropertyBlock(mpb);
         float elapsedTime = 0f;
         while (elapsedTime < shockwaveTime)
         {
@@ -126,11 +134,15 @@ public class TimestopEffects : MonoBehaviour
             float normalizedTime = elapsedTime / shockwaveTime;
             float curveProgress = warpCurve.Evaluate(normalizedTime);
             float currentDistance = Mathf.Lerp(v1, v2, curveProgress);
-            mat.SetFloat(waveDistance, currentDistance);
+            rend.GetPropertyBlock(mpb);
+            mpb.SetFloat(waveDistance, currentDistance);
+            rend.SetPropertyBlock(mpb);
 
             yield return null;
         }
-        mat.SetFloat(waveDistance, v2);
+        rend.GetPropertyBlock(mpb);
+        mpb.SetFloat(waveDistance, v2);
+        rend.GetPropertyBlock(mpb);
         shockWaveRenderer.SetActive(false);
     }
 }
