@@ -11,8 +11,7 @@ public class TimestopEffects : MonoBehaviour
     Coroutine warpCoroutine, fadeInCoroutine, fadeOutCoroutine;
 
     [Header("SHOCKWAVE")]
-    [SerializeField] Material mat;
-    private Renderer rend;
+    Material mat;
     private static int waveDistance = Shader.PropertyToID("_WaveDistance");
     private static int ringSpawn = Shader.PropertyToID("_RingSpawn");
     GameObject shockWaveRenderer;
@@ -29,7 +28,7 @@ public class TimestopEffects : MonoBehaviour
     void Start()
     {
         shockWaveRenderer = Camera.main.transform.Find("ShockwaveRenderer").gameObject;
-
+        mat = shockWaveRenderer.GetComponent<SpriteRenderer>().material;
         backGroundLight = Camera.main.gameObject.GetComponentsInChildren<Light2D>(true)[0];
         defaultIntensity = backGroundLight.intensity;
         ServiceLocator.Instance.Get<ITimeManager>().subscribeToTimeChange(CallWarp);
@@ -72,6 +71,7 @@ public class TimestopEffects : MonoBehaviour
         else
         {
             Debug.Log("REANUDAR TIEMPO");
+            backGroundLight.intensity = defaultIntensity;
             shockWaveRenderer.SetActive(false);
         }
     }
