@@ -2925,7 +2925,7 @@ MonoBehaviour:
   character: {fileID: 8799275002827292154}
   <anim>k__BackingField: {fileID: 3044306764865592801}
   shooting: 0
-  bullet: {fileID: 4778922938256658580, guid: 1b803f14a3e73e446a9e0764661fdc8b, type: 3}
+  bullet: {fileID: 213489049314182832, guid: ef47b3a005a3e7642b2c432bb8e768cd, type: 3}
   bulletCount: {fileID: 1993152138652490845}
   DestroyWhenOutOfBullets: 0
 --- !u!1 &1285673212739279301
@@ -10269,7 +10269,7 @@ MonoBehaviour:
   stunedDetector: {fileID: 0}
   reloading: 0
   BottlePrefab: {fileID: 2051294939465296080, guid: 306974ec23836c241a7caf037daf433a, type: 3}
-  anim: {fileID: 3044306764865592801}
+  <anim>k__BackingField: {fileID: 0}
   <hidewhenMelee>k__BackingField:
   - {fileID: 1060920710229837519}
   - {fileID: 6468833475734050191}

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class EffectSource : MonoBehaviour, IEffectSource
@@ -7,24 +9,20 @@ public class EffectSource : MonoBehaviour, IEffectSource
     [Header("Data")]
     [SerializeField] bool canHurtAll;
 
-        [SerializeField] protected bool destroyOnHit = true;
+    [SerializeField] protected bool destroyOnHit = true;
 
-
+    CinemachineImpulseSource impulseSource;
 
 
     [SerializeField] bool canHitDefault;
 
-   [SerializeField] protected ACharacterLife owner;
+    [SerializeField] protected ACharacterLife owner;
     [SerializeField] protected HittableType hitType = HittableType.onlyOtherTeam;
 
 
     [Header("Particles")]
     [SerializeField] Transform collisionParticleParent;
-
-    [SerializeField] protected ParticleSystem hitParticle;
-    [SerializeField] protected ParticleSystem impactParticle;
-
-  //  public bool inSelect;
+    //  public bool inSelect;
 
 
     [SerializeField] LayerMask obstacleLayer;
@@ -43,7 +41,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
     {
         if (!canHit)
         {
-            return;  
+            return;
         }
 
         IHittable hittable = collision.gameObject.GetComponent<IHittable>();
@@ -71,7 +69,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
 
     private void Awake()
     {
-       // setHover(false);
+        // setHover(false);
         proyectile = GetComponent<IProyectile>();
         if (proyectile != null)
         {
@@ -90,40 +88,39 @@ public class EffectSource : MonoBehaviour, IEffectSource
     protected virtual void Start()
     {
 
-        
-       
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+
 
     }
     public virtual void hitSomething(GameObject obj)
     {
-        print("hit " +gameObject.name);
+        print("hit " + gameObject.name + " " + obj.name);
         //Animacion o algo
-        
+
         if (obj.GetComponent<ACharacterLife>() != null)
         {
-            if (hitParticle)
+            Vector3 dir = -transform.right;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            var particles = obj.GetComponentsInChildren<ParticleSystem>(true)[0];
+            if (particles != null)
             {
-                float bulletAngle = transform.eulerAngles.z;
-                var particles = obj.GetComponentInChildren<ParticleSystem>(true);
-                if (particles != null)
+                Debug.Log($"PARTICULAS {particles.name} ROTADAS");
+                var shape = particles.shape;
+                particles.gameObject.SetActive(true);
+                if(angle < 10 && angle > -10)
                 {
-                    particles.gameObject.SetActive(true);
-                    particles.Play();
-                    if (transform.eulerAngles.z < 10 && transform.eulerAngles.z > -10)
-                    {
-                        particles.transform.eulerAngles = new Vector3(-25, -particles.transform.eulerAngles.y, -particles.transform.eulerAngles.z);
-                    }
-                    else
-
-                        particles.transform.eulerAngles = new Vector3(transform.eulerAngles.z, -particles.transform.eulerAngles.y, -particles.transform.eulerAngles.z);
+                    shape.rotation = new Vector3(0, 65, 0f);
                 }
-                musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
-            } 
+                shape.rotation = new Vector3(0, 90 - angle, 0f);
+                particles.Play();
+
+            }
+            ServiceLocator.Instance.Get<IHitStop>().HitStop(.05f);
+            Shake(.5f, .6f);
+            musicManager.Instance.PlaySoundPitch("snd_contacto_enemigo");
         }
         else
         {
-            if (impactParticle)
-                impactParticle.Play();
             musicManager.Instance.PlaySoundPitch("snd_contacto_obstaculo");
         }
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
@@ -136,7 +133,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
             GetComponent<Collider2D>().enabled = false;
             // print("destroy");
             canHit = false;
-            if(destroyController != null)
+            if (destroyController != null)
             {
                 destroyController.Destroy(0.5f);
             }
@@ -150,7 +147,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
             }
         }
     }
-  
+
 
     public ACharacterLife.Team getTeam() => owner.GetComponent<ACharacterLife>().team;
 
@@ -158,7 +155,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
 
     private void OnDestroy()
     {
-     //   print("DestroyBullet"+gameObject.name);
+        //   print("DestroyBullet"+gameObject.name);
         ServiceLocator.Instance.Get<IsoftLock>().checkAll();
     }
 
@@ -204,7 +201,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
     }
 
 
-    
+
     public void ActivateSource(bool activate)
     {
         GetComponent<Collider2D>().enabled = activate;
@@ -216,6 +213,23 @@ public class EffectSource : MonoBehaviour, IEffectSource
         owner = shooter.GetComponent<ACharacterLife>();
         ActivateSource(true);
     }
+
+    public void Shake(float force = 1f, float delay = 0)
+    {
+        if (delay > 0)
+        {
+            StartCoroutine(ShakeDelay(force, delay));
+        }
+        Debug.Log("SHAKE " + force);
+        impulseSource.GenerateImpulse(force);
+    }
+
+    IEnumerator ShakeDelay(float force, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Shake(force, 0);
+    }
+
 }
 public enum HittableType
 {
@@ -259,7 +273,7 @@ public class EffectEditor
             case EffectTypes.AddShield:
                 return new HatEffect(stat);
             case EffectTypes.Stun:
-                return new StunEffect(infinite,duration);
+                return new StunEffect(infinite, duration);
         }
         return new DamageEffect(stat);
     }

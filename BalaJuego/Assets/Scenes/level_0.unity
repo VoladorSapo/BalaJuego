@@ -2529,29 +2529,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Priority.Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Priority.m_Value
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_LegacyPriority
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_StreamingVersion
-      value: 20241001
-      objectReference: {fileID: 0}
-    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1670321244}
-    - target: {fileID: 393681503408305210, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Target.CustomLookAtTarget
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3030687074948514779, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
       propertyPath: cameraConfinerCollider
       value: 
@@ -2596,89 +2576,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4155504609654096180, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4565815978160458015, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
       propertyPath: m_Name
       value: Virtual Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Damping.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Damping.y
-      value: 23.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Lookahead.Time
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: TargetOffset.y
-      value: 0.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Lookahead.Smoothing
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.DeadZone.Size.x
-      value: 0.103125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.DeadZone.Size.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.ScreenPosition.x
-      value: -0.000000018626451
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.ScreenPosition.y
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.HardLimits.Size.x
-      value: 0.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.HardLimits.Size.y
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6497531928116281655, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Composition.HardLimits.Offset.y
-      value: -0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1670321244}
-    - target: {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Priority.Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: Priority.m_Value
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_LegacyPriority
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_StreamingVersion
-      value: 20241001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6875304646535791013, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
-    - {fileID: 3648706299692881926, guid: c0fe149341a64e74fb96eb68567a9bcf, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

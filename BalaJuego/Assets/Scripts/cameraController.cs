@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class cameraController : MonoBehaviour
 {
     Unity.Cinemachine.CinemachineConfiner2D confiner;
 
-  [SerializeField]  PolygonCollider2D cameraConfinerCollider;
+    [SerializeField] PolygonCollider2D cameraConfinerCollider;
 
- [SerializeField]   Vector2[] Startvectors;
+    [SerializeField] Vector2[] Startvectors;
 
     [SerializeField] Vector2[] fromPoints;
     [SerializeField] Vector2[] currentPoints;
@@ -17,13 +18,16 @@ public class cameraController : MonoBehaviour
     [SerializeField] float transitionTime = 10;
     [SerializeField] float transitionTimePassed = 2;
 
+    private CinemachineImpulseListener impulseSource;
+
     // Start is called before the first frame update
     void Start()
     {
-       ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaEnd(endArea);
+        ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaEnd(endArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToAreaStart(startArea);
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(restart);
         confiner = GetComponent<Unity.Cinemachine.CinemachineConfiner2D>();
+        impulseSource = GetComponent<CinemachineImpulseListener>();
         Startvectors = cameraConfinerCollider.points;
         fromPoints = cameraConfinerCollider.points;
         currentPoints = cameraConfinerCollider.points;
@@ -33,7 +37,7 @@ public class cameraController : MonoBehaviour
     void restart()
     {
         transitionTimePassed = transitionTime + 1;
-        cameraConfinerCollider.SetPath(0,Startvectors);
+        cameraConfinerCollider.SetPath(0, Startvectors);
 
         confiner.InvalidateCache();
 
@@ -49,7 +53,7 @@ public class cameraController : MonoBehaviour
                 currentPoints[i] = Vector2.Lerp(fromPoints[i], toPoints[i], transitionTimePassed / transitionTime);
             }
 
-            cameraConfinerCollider.SetPath(0,currentPoints);
+            cameraConfinerCollider.SetPath(0, currentPoints);
 
             confiner.InvalidateCache();
         }
@@ -63,10 +67,10 @@ public class cameraController : MonoBehaviour
         fromPoints = cameraConfinerCollider.points;
         float upY = Mathf.Max(data.nextArea.endCollider.transform.position.y + data.nextArea.endCollider.size.y / 2, data.endArea.startCollider.transform.position.y + data.endArea.startCollider.size.y / 2);
         float downY = Mathf.Min(data.nextArea.endCollider.transform.position.y - data.nextArea.endCollider.size.y / 2, data.endArea.startCollider.transform.position.y - data.endArea.startCollider.size.y / 2);
-        float leftX = Mathf.Min(data.nextArea.endCollider.transform.position.x , data.endArea.startCollider.transform.position.x);
+        float leftX = Mathf.Min(data.nextArea.endCollider.transform.position.x, data.endArea.startCollider.transform.position.x);
         float RightX = Mathf.Max(data.nextArea.endCollider.transform.position.x, data.endArea.startCollider.transform.position.x);
 
-       
+
         print("Rightx" + RightX);
         toPoints[0] = new Vector2(leftX, upY);
         toPoints[1] = new Vector2(leftX, downY);
@@ -74,15 +78,15 @@ public class cameraController : MonoBehaviour
         toPoints[3] = new Vector2(RightX, upY);
         transitionTimePassed = 0;
 
-   //     cameraConfinerCollider.SetPath(0, new[] {
-   //         new Vector2(leftX, upY),
-   //            new Vector2(leftX, downY),
-   //               new Vector2(RightX, downY),
-   //new Vector2(RightX, upY), });
+        //     cameraConfinerCollider.SetPath(0, new[] {
+        //         new Vector2(leftX, upY),
+        //            new Vector2(leftX, downY),
+        //               new Vector2(RightX, downY),
+        //new Vector2(RightX, upY), });
 
-   //     confiner.InvalidateCache();
+        //     confiner.InvalidateCache();
     }
-    
+
     void startArea(object sender, LevelAreaController data)
     {
         //print("cambio "+data.name + " " + data.endCollider.name);
@@ -104,5 +108,6 @@ public class cameraController : MonoBehaviour
 
 
     }
+
 
 }
