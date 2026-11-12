@@ -13,6 +13,6 @@ public interface IEquipable
     public RuntimeAnimatorController GetAnimator();
 
     public string getAnimatorLayerName();
-
-
+    void setLayers(string layerName, int layerOrder);
+    void resetLayers();
 }

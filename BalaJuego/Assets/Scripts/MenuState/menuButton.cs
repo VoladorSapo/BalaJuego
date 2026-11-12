@@ -9,7 +9,7 @@ public class menuButton : MonoBehaviour
     [SerializeField] string name;
     void Start()
     {
-        menu = FindObjectOfType<MenuController>();
+        menu = FindAnyObjectByType<MenuController>();
 
     }
 

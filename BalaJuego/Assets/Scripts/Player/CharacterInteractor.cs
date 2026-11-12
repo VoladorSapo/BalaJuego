@@ -52,6 +52,8 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
     {
         currentEquipment.transform.parent = null;
         currentEquipment = null;
+        IEquipable equipable = currentEquipment.GetComponent<IEquipable>();
+        equipable.resetLayers();
     }
 
     public GameObject getObj() => gameObject;

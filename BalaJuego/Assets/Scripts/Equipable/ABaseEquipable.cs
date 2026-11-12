@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class ABaseEquipable:MonoBehaviour,IEquipable
+public abstract class ABaseEquipable : MonoBehaviour, IEquipable
 {
     [SerializeField] LevelAreaController area;
 
@@ -13,8 +13,23 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
     [SerializeField] bool frontArmed;
     [SerializeField] string animatorLayerName;
 
-    public CharacterInteractor owner { get;private set; }
+    SpriteRenderer spriteRenderer;
+    string defaultsortinglayer;
+    int defaultsortingorder;
 
+    public CharacterInteractor owner { get;private set; }
+    protected virtual void Start()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        if (spriteRenderer != null)
+        {
+            defaultsortinglayer = spriteRenderer.sortingLayerName;
+            defaultsortingorder = spriteRenderer.sortingOrder;
+        }
+        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        if (respawnController != null)
+            respawnController.subscribeToRespawnAction(resetLayers);
+    }
     public virtual void Grab(CharacterInteractor character)
     {
         GetComponentInChildren<Animator>().Play("onGrab");
@@ -51,4 +66,22 @@ public abstract class ABaseEquipable:MonoBehaviour,IEquipable
     public RuntimeAnimatorController GetAnimator() => animatorForAgatha;
 
     public string getAnimatorLayerName() => animatorLayerName;
+
+    public void setLayers(string layerName, int layerOrder)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingLayerName = layerName;
+            spriteRenderer.sortingOrder = layerOrder;
+        }
+    }
+
+    public void resetLayers()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingLayerName = defaultsortinglayer;
+            spriteRenderer.sortingOrder = defaultsortingorder;
+        }
+    }
 }

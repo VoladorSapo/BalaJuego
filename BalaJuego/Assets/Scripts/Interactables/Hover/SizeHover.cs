@@ -26,7 +26,14 @@ public class SizeHover : ABaseHover
     }
     public override void setHover(bool set)
     {
-        sprite.transform.parent.localScale = set ? hoveredSize : ogSize;
+        if (sprite.transform.parent != null)
+        {
+            sprite.transform.parent.localScale = set ? hoveredSize : ogSize;
+        }
+        else
+        {
+            sprite.transform.localScale = set ? hoveredSize : ogSize;
+        }
         SetOutline(set);
     }
 

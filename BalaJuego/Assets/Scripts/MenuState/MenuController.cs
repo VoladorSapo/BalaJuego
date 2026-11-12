@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         SetState(new MainMenuState(this));
-        FindObjectOfType<TimerManager>().Reset();
+        FindAnyObjectByType<TimerManager>().Reset();
         skipCutsceneTogle.isOn = settingManager.Instance.skipCutscenes;
         skipTutorialTogge.isOn = settingManager.Instance.skipTutorial;
     }

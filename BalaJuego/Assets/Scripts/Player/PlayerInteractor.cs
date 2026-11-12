@@ -77,7 +77,7 @@ public class PlayerInteractor : CharacterInteractor
         grabDetector.gameObject.SetActive(false);
 
         playerInput = GetComponent<PlayerInput>();
-
+ 
     }
     private void Update()
     {
@@ -214,6 +214,8 @@ public class PlayerInteractor : CharacterInteractor
         //anim.Play("armGrabObject", anim.GetLayerIndex("B_Arm_Actions"));
         //anim.GetComponent<AnimatorLayerManager>().PickLayer("Grab_Object");
         bulletPick.Play();
+        IEquipable equipable = interactableObj.GetComponent<IEquipable>();
+        equipable.setLayers("Player", 7);
     }
    
     public void endReloadAnim()
