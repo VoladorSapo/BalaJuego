@@ -102,6 +102,7 @@ public class TimestopEffects : MonoBehaviour
             StopCoroutine(fadeInCoroutine);
         }
         float targetIntensity = defaultIntensity;
+        if(gameObject.activeSelf)
         fadeInCoroutine = StartCoroutine(FadeLightIntensity(backGroundLight.intensity, targetIntensity, fadeInTime));
     }
 

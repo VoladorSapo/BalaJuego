@@ -75,11 +75,9 @@ public class EffectSource : MonoBehaviour, IEffectSource
         {
             proyectile.setActivateEvent(setInteractor);
         }
+        impulseSource = GetComponent<CinemachineImpulseSource>();
         destroyController = GetComponent<DestroyRespawnController>();
-        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
-        if (respawnController != null)
-            respawnController.subscribeToRespawnAction(restart);
-        restart();
+
     }
     public virtual void restart()
     {
@@ -88,8 +86,10 @@ public class EffectSource : MonoBehaviour, IEffectSource
     protected virtual void Start()
     {
 
-        impulseSource = GetComponent<CinemachineImpulseSource>();
-
+        if (destroyController != null)
+            destroyController.subscribeToRespawnAction(restart);
+        restart();
+        anim = GetComponentInChildren<Animator>();  
 
     }
     public virtual void hitSomething(GameObject obj)
@@ -143,7 +143,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
             }
             if (anim)
             {
-                anim.Play("bulletDestroy");
+                anim.Play("Crash");
             }
         }
     }
@@ -221,7 +221,8 @@ public class EffectSource : MonoBehaviour, IEffectSource
             StartCoroutine(ShakeDelay(force, delay));
         }
         Debug.Log("SHAKE " + force);
-        impulseSource.GenerateImpulse(force);
+        if (impulseSource != null)
+            impulseSource.GenerateImpulse(force);
     }
 
     IEnumerator ShakeDelay(float force, float delay)

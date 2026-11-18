@@ -73,6 +73,10 @@ public class gunRotate : MonoBehaviour
             frontArm.rotation = Quaternion.identity;
         }
     }
+    public Vector3 getRotation()
+    {
+        return frontArmOn ? frontArm.eulerAngles : backArm.eulerAngles;
+    }
     protected virtual void Start()
     {
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(changeState);

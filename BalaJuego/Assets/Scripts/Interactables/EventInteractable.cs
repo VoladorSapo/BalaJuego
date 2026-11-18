@@ -52,7 +52,7 @@ public class EventInteractable : MonoBehaviour, IInteractable
     {
         canInteractDefault = canInteract;
         restart();
-        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        DestroyRespawnController respawnController = GetComponentInParent<DestroyRespawnController>();
         if (respawnController != null)
             respawnController.subscribeToRespawnAction(restart);
         ServiceLocator.Instance.Get<IGameState>().subscribeToStateChange(onStateChange);

@@ -36,9 +36,19 @@ public class BaseGun : ABaseEquipable, IGun
         {
             bulletCount.text = currentBullets.ToString();
         }
-
+       
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        if (respawnController != null)
+        {
+            print("restartgun");
+            respawnController.subscribeToRespawnAction(restart);
+        }
+    }
     public virtual void addBullets(int bul)
     {
         shooting = false;
@@ -97,9 +107,11 @@ public class BaseGun : ABaseEquipable, IGun
     }
     public virtual void restart()
     {
+        print("restartGUN");
         shooting = false;
         currentBullets = startBullets;
-        bulletCount.text = currentBullets.ToString();
+        if (bulletCount)
+            bulletCount.text = currentBullets.ToString();
         //if(anim.HasState("gunIdle")) anim.Play("gunIdle");
 
     }

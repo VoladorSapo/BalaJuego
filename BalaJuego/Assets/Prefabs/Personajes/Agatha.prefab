@@ -10306,6 +10306,7 @@ MonoBehaviour:
   - {fileID: 6468833475734050191}
   - {fileID: 8567168156605546741}
   - {fileID: 5932730020464032195}
+  - {fileID: 246704284570004590}
   hasBottle: 0
   stopBufferTime: 0.2
   bulletPick: {fileID: 5748250929452123459}
