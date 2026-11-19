@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class DestroyRespawnController : MonoBehaviour
 {
-  [SerializeField]  bool respawn;
+    [SerializeField] bool respawn;
     Action respawnAction;
     ITimeManager timer;
     Vector3 startPosition;
     Transform startParent;
     Vector3 startRotation;
     SpriteRenderer spriteRenderer;
+    Coroutine destroy;
 
-  
     private void Start()
     {
         startPosition = transform.position;
         startRotation = transform.eulerAngles;
         respawnAction = () => { };
         startParent = transform.parent;
-     
+
         timer = ServiceLocator.Instance.Get<ITimeManager>();
         ServiceLocator.Instance.Get<ILevelController>().subscribeToRestart(InvokeRespawn);
         if (respawn)
         {
-            respawnAction += ()=>gameObject.SetActive(true);
+            respawnAction += () => gameObject.SetActive(true);
         }
         else
         {
@@ -34,19 +34,21 @@ public class DestroyRespawnController : MonoBehaviour
     }
     public void InvokeRespawn()
     {
+        if (destroy != null)
+            StopCoroutine(destroy);
         transform.parent = startParent;
         transform.position = startPosition;
         transform.eulerAngles = startRotation;
-       
+
         respawnAction.Invoke();
     }
     public void Destroy(float time = 0)
     {
-      StartCoroutine(delayDestroy(time));
+        destroy = StartCoroutine(delayDestroy(time));
     }
     IEnumerator delayDestroy(float time = 0)
     {
-        yield return new WaitForSeconds(time/ timer.getMagnitude());
+        yield return new WaitForSeconds(time / timer.getMagnitude());
         if (respawn)
         {
             this.gameObject.SetActive(false);
@@ -62,12 +64,12 @@ public class DestroyRespawnController : MonoBehaviour
     }
     public void subscribeToRespawnAction(Action action)
     {
-        if(respawn)
-        respawnAction+= action;
+        if (respawn)
+            respawnAction += action;
     }
     public void unsubscribeToRespawnAction(Action action)
     {
-        if(respawn)
-        respawnAction -= action;
+        if (respawn)
+            respawnAction -= action;
     }
 }

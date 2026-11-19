@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2540831603545915990}
   - component: {fileID: 5390330334031164956}
   - component: {fileID: 487804098232822409}
+  - component: {fileID: 738676500145301190}
+  - component: {fileID: 4013417889970818201}
   m_Layer: 14
   m_Name: botella
   m_TagString: Botella
@@ -112,11 +114,9 @@ MonoBehaviour:
   owner: {fileID: 0}
   hitType: 2
   collisionParticleParent: {fileID: 0}
-  hitParticle: {fileID: 0}
-  impactParticle: {fileID: 0}
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2112
   anim: {fileID: 0}
   effects:
   - type: 2
@@ -152,6 +152,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyRespawnController
   respawn: 1
+--- !u!50 &738676500145301190
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051294939465296080}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &4013417889970818201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051294939465296080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8869f4ba04ad6943b2d689698323e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThrowOutEquipmentController
+  throwForce: 10
+  throwAngle: {x: 0, y: 1}
 --- !u!1 &6389520299271862978
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +252,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67cac9567f97bd24f8e67ed171d1ec38, type: 2}
+  - {fileID: 2100000, guid: 5982da6d4c838354f8f77ef318d0229d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -402,6 +443,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canInteract: 1
+  onlyInteractableOnce: 1
 --- !u!114 &1499912740795597831
 MonoBehaviour:
   m_ObjectHideFlags: 0

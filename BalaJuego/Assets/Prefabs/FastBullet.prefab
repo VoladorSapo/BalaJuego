@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778922938256658580, guid: 9edd249629eec8e4299c3c10923a784c, type: 3}
       propertyPath: m_Name
-      value: fastBullet
+      value: FastBullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

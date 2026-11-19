@@ -88,11 +88,31 @@ public class PlayerInteractor : CharacterInteractor
         //{
         //    shootBufferTimeCurrent -= Time.deltaTime;   
         //}
+        bool hasInteracted = false;
+        if (playerInput.InteractDown)
+        {
+            if (!reloading && canShoot && settingManager.Instance.gameConfiguration.interactableGameStates.Contains(stateManager.getState()))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
+                if (hit)
+                {
+                    IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
+                    print(hit.collider.gameObject.name + " " + interactableObject + " " + grabDetector.reachableObjects.Contains(interactableObject));
 
+                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && interactableObject.CanInteract())
+                    {
+                        hasInteracted = true;
+                        print("interact");
+                        interactableObject.interact(this);
+                    }
+
+                }
+            }
+        }
         if (playerInput.ShootDown)
         {
             print("shootpressed");
-            if (!reloading && canShoot && settingManager.Instance.gameConfiguration.shootAndUseEquipmentStates.Contains(stateManager.getState()))
+            if (!hasInteracted && !reloading && canShoot && settingManager.Instance.gameConfiguration.shootAndUseEquipmentStates.Contains(stateManager.getState()))
             {
                 if (currentEquipment != null)
                 {
@@ -108,25 +128,7 @@ public class PlayerInteractor : CharacterInteractor
                 }
             }
         }
-        if (playerInput.InteractDown)
-        {
-            if (!reloading && canShoot && settingManager.Instance.gameConfiguration.interactableGameStates.Contains(stateManager.getState()))
-            {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, clickable);
-                if (hit)
-                {
-                    IInteractable interactableObject = hit.collider.GetComponentInParent<IInteractable>();
-                    print(hit.collider.gameObject.name + " " + interactableObject + " " + grabDetector.reachableObjects.Contains(interactableObject));
-
-                    if (interactableObject != null && grabDetector.reachableObjects.Contains(interactableObject) && interactableObject.CanInteract())
-                    {
-                        print("interact");
-                        interactableObject.interact(this);
-                    }
-
-                }
-            }
-        }
+       
         if (playerInput.StopTimeDown)
         {
             stopBufferTimeCurrent = stopBufferTime;
@@ -226,13 +228,19 @@ public class PlayerInteractor : CharacterInteractor
     {
         print("throwObject");
         anim.Play("armThrowObject", anim.GetLayerIndex("B_Arm_Actions"));
-        if (shoot.getBullets() == 0) anim.GetComponent<AnimatorLayerManager>().ResetPickfromLayers();
-        else anim.GetComponent<AnimatorLayerManager>().PickLayer("Base_gun");
+        //if (shoot.getBullets() == 0)
+        //{
+        //    anim.GetComponent<AnimatorLayerManager>().ResetPickfromLayers();
+        //}
+        //else
+        //{
+        //    anim.GetComponent<AnimatorLayerManager>().PickLayer("Base_gun");
+        //}
         currentEquipment.SetActive(true);
         IProyectile equipmentProyectile = currentEquipment.GetComponent<IProyectile>();
         loseEquipment();
-        equipmentProyectile.ActivateProyectileMovement(GetComponent<CharacterInteractor>(), GetComponentInChildren<BaseGun>().spawnPoint.position, GetComponentInChildren<gunRotate>().transform.eulerAngles.z);
-        if (anim.HasState("gunIdle")) anim.Play("gunIdle");
+        equipmentProyectile.ActivateProyectileMovement(GetComponent<CharacterInteractor>(), GetComponentInChildren<BaseGun>().spawnPoint.position, GetComponentInChildren<gunRotate>().getRotation().z);
+       // if (anim.HasState("gunIdle")) anim.Play("gunIdle");
 
     }
     void changeState(object sender, stateData data)
@@ -249,6 +257,13 @@ public class PlayerInteractor : CharacterInteractor
             grabDetector.gameObject.SetActive(false);
 
         }
+        if(data.currentState == IGameState.gameState.SlowDown)
+        {
+            if(currentEquipment != null)
+            {
+                currentEquipment.GetComponent<IEquipable>().throwOut();
+            }
+        }
     }
     public void restart()
     {
@@ -262,6 +277,7 @@ public class PlayerInteractor : CharacterInteractor
         enemyMelee = null;
         hasBottle = false;
         canShoot = true;
+        currentEquipment = null;
     }
     IEnumerator waitTurnOFfBulletAdvice()
     {

@@ -12334,7 +12334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canHurtAll: 0
   destroyOnHit: 1
-  canHitDefault: 0
+  canHitDefault: 1
   owner: {fileID: 0}
   hitType: 2
   collisionParticleParent: {fileID: 7442808983424984639}
@@ -12347,7 +12347,7 @@ MonoBehaviour:
     stat: 1
     infinite: 0
     duration: 0
-  canHit: 0
+  canHit: 1
 --- !u!70 &203304381074826425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

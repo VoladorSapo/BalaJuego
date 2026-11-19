@@ -18,6 +18,7 @@ public class AnimatorLayerManager : MonoBehaviour
     
     public void ResetPickfromLayers()
     {
+        print("resetpickfromlayers");
         foreach (var layer in pickfromLayers)
         {
             anim.SetLayerWeight(anim.GetLayerIndex(layer), 0);

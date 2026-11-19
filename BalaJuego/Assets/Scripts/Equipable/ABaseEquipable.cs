@@ -16,23 +16,34 @@ public abstract class ABaseEquipable : MonoBehaviour, IEquipable
     SpriteRenderer spriteRenderer;
     string defaultsortinglayer;
     int defaultsortingorder;
+    DestroyRespawnController respawnController;
+
+    protected Animator anim;
 
     public CharacterInteractor owner { get;private set; }
     protected virtual void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        anim = GetComponentInChildren<Animator>();
         if (spriteRenderer != null)
         {
             defaultsortinglayer = spriteRenderer.sortingLayerName;
             defaultsortingorder = spriteRenderer.sortingOrder;
         }
-        DestroyRespawnController respawnController = GetComponent<DestroyRespawnController>();
+        respawnController = GetComponent<DestroyRespawnController>();
         if (respawnController != null)
-            respawnController.subscribeToRespawnAction(resetLayers);
+        {
+            respawnController.subscribeToRespawnAction(restart);
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null)
+            {
+                respawnController.subscribeToRespawnAction(() => rigidbody.bodyType = RigidbodyType2D.Kinematic);
+            }
+        }
     }
     public virtual void Grab(CharacterInteractor character)
     {
-        GetComponentInChildren<Animator>().Play("onGrab");
+        anim.Play("onGrab");
         musicManager.Instance.PlaySoundPitch("snd_pick", 0.2f);
         setAsEquipment(frontArmed ? character.frontequipmentParent : character.backequipmentParent);
         character.getEquipment(gameObject);
@@ -53,13 +64,29 @@ public abstract class ABaseEquipable : MonoBehaviour, IEquipable
     {
         transform.parent = null;
         owner.loseEquipment();
-        Destroy(gameObject);
+
+        if (respawnController != null)
+        {
+            respawnController.Destroy(0.5f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void throwOut()
     {
-        IProyectile proyectile = GetComponent<IProyectile>();
-        proyectile.DeactivateMovement();
+      
+        transform.parent = null;
+        owner.loseEquipment();
+        ThrowOutEquipmentController throwOut = GetComponent<ThrowOutEquipmentController>();
+        if (throwOut != null)
+        {
+            Debug.Log("throOut");
+            throwOut.throwOut(owner);
+        }
+        owner = null;
     }
 
     public bool isFrontArmed() => frontArmed;
@@ -76,7 +103,12 @@ public abstract class ABaseEquipable : MonoBehaviour, IEquipable
         }
     }
 
-    public void resetLayers()
+    void restart()
+    {
+        anim.Play("Idle");
+        resetLayers();
+    }
+   public void resetLayers()
     {
         if (spriteRenderer != null)
         {

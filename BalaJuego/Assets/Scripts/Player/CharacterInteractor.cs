@@ -17,10 +17,20 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
     AnimatorLayerManager animatorLayerManager;
     public void changePlayerGun(bool _hasAnything, IEquipable _equipment = null)
     {
-        var anim = GetComponentsInChildren<Animator>(true)[1].GetComponent<AnimatorLayerManager>();
+        var anim = GetComponentsInChildren<Animator>(true)[1];
         if (anim != null)
         {
-            if (!_hasAnything) anim.ResetPickfromLayers();
+            if (!_hasAnything)
+            {
+                if (shoot.getBullets() == 0)
+                {
+                    anim.GetComponent<AnimatorLayerManager>().ResetPickfromLayers();
+                }
+                else
+                {
+                    anim.GetComponent<AnimatorLayerManager>().PickLayer("Base_gun");
+                }
+            }
         }
 
         print("changeplayergun" + _hasAnything);
@@ -59,7 +69,8 @@ public class CharacterInteractor:MonoBehaviour, IDetectable
         equipable.resetLayers();
         currentEquipment.transform.parent = null;
         currentEquipment = null;
-       
+        animatorLayerManager.ResetPickfromLayers();
+        changePlayerGun(false);
     }
 
     public GameObject getObj() => gameObject;
