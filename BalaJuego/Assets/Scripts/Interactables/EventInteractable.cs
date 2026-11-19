@@ -41,7 +41,7 @@ public class EventInteractable : MonoBehaviour, IInteractable
     {
         if(isSelect && !set)
         {
-            print(gameObject.name);
+        //    print(gameObject.name);
             mouseLeave?.Invoke();
         }
         isSelect = set;

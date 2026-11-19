@@ -109,7 +109,7 @@ public class StateMachine
             previousState?.OnExit();
             if (nextState != null)
             {
-                Debug.Log(Data);
+            //    Debug.Log(Data);
                 nextState.SetUp(Data);
             }
             nextState?.OnEnter();

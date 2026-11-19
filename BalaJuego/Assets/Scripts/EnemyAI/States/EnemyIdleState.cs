@@ -8,7 +8,7 @@ public class EnemyIdleState : BaseEnemyState
 
     public override void OnEnter()
     { 
-        Debug.Log("start Idle");
+    //    Debug.Log("start Idle");
         enemy.playAnimation("Idle");
     }
     public override void Update()

@@ -94,7 +94,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
     }
     public virtual void hitSomething(GameObject obj)
     {
-        print("hit " + gameObject.name + " " + obj.name);
+       // print("hit " + gameObject.name + " " + obj.name);
         //Animacion o algo
 
         if (obj.GetComponent<ACharacterLife>() != null)

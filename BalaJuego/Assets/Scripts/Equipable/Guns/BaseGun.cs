@@ -94,10 +94,10 @@ public class BaseGun : ABaseEquipable, IGun
         }
         bulletCount.text = currentBullets.ToString();
         IProyectile bul =   Instantiate(bullet, spawnPoint.position, Quaternion.identity).GetComponent<IProyectile>();
-        print(bul == null);
-        print(character == null);
-        print(rotate == null);
-        print(spawnPoint == null);
+        //print(bul == null);
+        //print(character == null);
+        //print(rotate == null);
+        //print(spawnPoint == null);
         bul.ActivateProyectileMovement(character.GetComponent<CharacterInteractor>(), spawnPoint.position, transform.eulerAngles.z);
     }
     

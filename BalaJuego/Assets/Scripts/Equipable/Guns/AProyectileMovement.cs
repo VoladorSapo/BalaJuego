@@ -76,7 +76,7 @@ public abstract class AProyectileMovement :MonoBehaviour, IProyectile
 
     public void setActivateEvent(Action<CharacterInteractor> activateSource)
     {
-        print("setActivateEvent");
+       // print("setActivateEvent");
         activateEvent += activateSource;
     }
     protected abstract void Move();

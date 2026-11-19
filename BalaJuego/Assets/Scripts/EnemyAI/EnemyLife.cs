@@ -8,6 +8,8 @@ public class EnemyLife : ACharacterLife
     [SerializeField] ParticleSystem hitParticles;
     [SerializeField] Vector3 bodyMovePos;
 
+    [SerializeField] GameObject agathaExecutionEndPosition;
+
     AEnemyBehaviour behaviour;
     public override void Die()
     {
