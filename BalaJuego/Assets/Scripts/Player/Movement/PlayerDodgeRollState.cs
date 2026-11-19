@@ -21,7 +21,7 @@ public class PlayerDodgeRollState : PlayerBaseState
         Debug.Log("START ROLL");
         //AnimatorExtensions.PlayAnimation(player.Animators, "roll");
         player.anim.Play("roll");
-        player.playerShoot.setCanShoot(false);
+        player.playerInteractor.setCanShoot(false);
 
         dodgeRollDirection = player.MoveX == 0 ? -(int)player.transform.localScale.x : player.MoveX;
         if (!player.DEBUG_dodgewhenwalkspeedismax)
@@ -134,7 +134,7 @@ public class PlayerDodgeRollState : PlayerBaseState
         base.OnExit();
         player.playerLife.setInvincibility(false);
         player.setGoThroughEnemies(false);
-        player.playerShoot.setCanShoot(true);
+        player.playerInteractor.setCanShoot(true);
 
     }
 }

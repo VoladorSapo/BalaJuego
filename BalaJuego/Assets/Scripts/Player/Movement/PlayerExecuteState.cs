@@ -14,7 +14,8 @@ public class PlayerExecuteState : PlayerBaseState
         player.calcVelocity = Vector2.zero;
         rb2d.gravityScale = 0;
         rb2d.linearVelocity = player.calcVelocity;
-        foreach(GameObject o in player.playerShoot.hidewhenMelee)
+        player.transform.position = player.playerInteractor.enemyMelee.agathaExecutionEndPosition.position;
+        foreach (GameObject o in player.playerInteractor.hidewhenMelee)
         {
             o.SetActive(false);
         }
@@ -24,7 +25,7 @@ public class PlayerExecuteState : PlayerBaseState
         base.OnExit();
 
         player.playerLife.setInvincibility(false);
-        foreach (GameObject o in player.playerShoot.hidewhenMelee)
+        foreach (GameObject o in player.playerInteractor.hidewhenMelee)
         {
             o.SetActive(true);
         }

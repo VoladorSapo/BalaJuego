@@ -32,7 +32,7 @@ public class PlayerInteractor : CharacterInteractor
     [SerializeField] GameObject BottlePrefab;
 
 
-    ACharacterLife enemyMelee;
+ public   EnemyLife enemyMelee {  get; private set; }
 
     [field: SerializeField] public Animator anim { get; private set; }
 
@@ -183,11 +183,12 @@ public class PlayerInteractor : CharacterInteractor
     {
         executionCamera.SetActive(true);
         musicManager.Instance.PlaySoundPitch("snd_melee");
+        enemyMelee = enemy.GetComponent<EnemyLife>();
         GetComponent<PlayerMove>().playerMoveStateMachine.SetState(new PlayerExecuteState(null));
-        enemyMelee = enemy;
-        enemy.GetComponent<ACharacterLife>().meleeDeath();
+       
+        enemyMelee.meleeDeath();
     }
-    public void endMeleeAnim(Vector3 position)
+    public void endMeleeAnim()
     {
         GetComponent<PlayerMove>().playerMoveStateMachine.ForceEndState(new PlayerExecuteState(null));
         //foreach (GameObject item in hidewhenMelee)

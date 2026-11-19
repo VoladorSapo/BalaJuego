@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gizmo : MonoBehaviour
 {
-    [SerializeField] Color color;
+    [SerializeField] Color color = Color.white;
     [SerializeField] float sphereSize;
     [SerializeField] bool useScale;
     [SerializeField] bool onSelected = true;
