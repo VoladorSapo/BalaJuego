@@ -1008,12 +1008,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followMouse: 0
   fullCharacter: {fileID: 5988426921671149051}
-  headAnim: {fileID: 0}
-  armAnim: {fileID: 0}
-  parentAnim: {fileID: 0}
+  anim: {fileID: 0}
   notTurn: {fileID: 651952408337212115}
   shouldRotate: 1
-  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
+  backArm: {fileID: 918552060047317622}
+  frontArm: {fileID: 0}
+  <frontArmOn>k__BackingField: 0
 --- !u!114 &2618457596880164459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1030,9 @@ MonoBehaviour:
   initialPos: {x: 0, y: 0, z: 0}
   positionWhenEquipped: {x: 0, y: 0, z: 0}
   rotationWhenEquipped: {x: 0, y: 0, z: 0}
+  animatorForAgatha: {fileID: 0}
+  frontArmed: 0
+  animatorLayerName: 
   startBullets: 3
   currentBullets: 0
   spawnPoint: {fileID: 918552060047317622}
@@ -1257,6 +1260,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectParent: 0
+  reachableObjects: []
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!50 &6890118011846996362
 Rigidbody2D:
   serializedVersion: 5
@@ -8754,6 +8762,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectParent: 0
+  reachableObjects: []
+  debugLogs: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!50 &6493755904253765972
 Rigidbody2D:
   serializedVersion: 5
@@ -8919,7 +8932,6 @@ MonoBehaviour:
   gun: {fileID: 3109127042206431554}
   head: {fileID: 8320887686129835568}
   countText: {fileID: 1105325720718463490}
-  hitParticles: {fileID: 3177142566214750459}
   bodyMovePos: {x: 1.57, y: 0.26, z: 0}
 --- !u!114 &6445257809431961130
 MonoBehaviour:
@@ -8958,8 +8970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8c6862c523add41bc06913a8dd7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterInteractor
-  <equipmentParent>k__BackingField: {fileID: 7988480769348205001}
+  <backequipmentParent>k__BackingField: {fileID: 0}
+  <frontequipmentParent>k__BackingField: {fileID: 0}
   currentEquipment: {fileID: 0}
+  gunRotate: {fileID: 0}
 --- !u!114 &8160312585768928152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9015,26 +9029,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  points:
-  - {x: -0.07, y: 4.09, z: 0}
-  - {x: -0.96, y: 3.42, z: 0}
-  - {x: -1.7, y: 2.46, z: 0}
-  - {x: -2.52, y: 1.43, z: 0}
-  - {x: -2.87, y: 0.06, z: 0}
-  - {x: -2.52, y: -1.43, z: 0}
-  - {x: -1.7, y: -2.46, z: 0}
-  - {x: -0.96, y: -3.42, z: 0}
-  - {x: -0.11, y: -4.36, z: 0}
-  - {x: 0.96, y: -3.42, z: 0}
-  - {x: 1.7, y: -2.46, z: 0}
-  - {x: 2.52, y: -1.43, z: 0}
-  - {x: 2.81, y: 0.06, z: 0}
-  - {x: 2.52, y: 1.43, z: 0}
-  - {x: 1.7, y: 2.46, z: 0}
-  - {x: 0.96, y: 3.42, z: 0}
-  changePointThreshold: 0.1
-  color: {r: 1, g: 0, b: 0, a: 1}
-  radius: 0.32
+  defaultObjectiveUpdate: 0
+  objectiveUpdateTime: 0
+  timeMagnitude: 0
+  currentObjective: {fileID: 0}
+  <currentObjectivePos>k__BackingField: {x: 0, y: 0, z: 0}
+  objetiveUpdate: 0
+  currentObjectiveUpdateTime: 0
 --- !u!1 &8193552729787629280
 GameObject:
   m_ObjectHideFlags: 0

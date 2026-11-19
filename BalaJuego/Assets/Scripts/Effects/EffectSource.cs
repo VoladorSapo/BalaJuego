@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using NUnit.Framework.Constraints;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Cinemachine;
@@ -22,6 +23,7 @@ public class EffectSource : MonoBehaviour, IEffectSource
 
     [Header("Particles")]
     [SerializeField] Transform collisionParticleParent;
+    [SerializeField] GameObject hitEnemyParticles;
     //  public bool inSelect;
 
 
@@ -96,9 +98,15 @@ public class EffectSource : MonoBehaviour, IEffectSource
     {
         print("hit " + gameObject.name + " " + obj.name);
         //Animacion o algo
-
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         if (obj.GetComponent<ACharacterLife>() != null)
         {
+            
+            if (hitEnemyParticles != null)
+            {
+                var hitParticles = Instantiate(hitEnemyParticles, transform.position, new Quaternion(0, 0, 0, 0), obj.transform).GetComponent<ParticleSystem>();
+                hitParticles.Play();
+            }
             Vector3 dir = -transform.right;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             var particles = obj.GetComponentsInChildren<ParticleSystem>(true)[0];

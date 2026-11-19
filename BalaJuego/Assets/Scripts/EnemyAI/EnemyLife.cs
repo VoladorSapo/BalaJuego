@@ -5,7 +5,6 @@ public class EnemyLife : ACharacterLife
     [SerializeField] GameObject gun;
     [SerializeField] GameObject head;
     [SerializeField] GameObject countText;
-    [SerializeField] ParticleSystem hitParticles;
     [SerializeField] Vector3 bodyMovePos;
 
     AEnemyBehaviour behaviour;
@@ -44,7 +43,7 @@ public class EnemyLife : ACharacterLife
                 head?.SetActive(false);
             }
             anim.Play("enemyDie");
-            hitParticles.Play();
+            //hitParticles.Play();
             //Animacion morir
         }
     }

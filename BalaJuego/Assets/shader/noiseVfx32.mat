@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: noiseVfx
+  m_Name: noiseVfx32
   m_Shader: {fileID: -6465566751694194690, guid: 481a244c47faa894b8b1b01ae10aaa51, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _NoiseSpeed: 8
     - _NoiseStrenght: 0.01
-    - _Pixel: 48
+    - _Pixel: 32
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
