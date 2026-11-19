@@ -14802,8 +14802,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   hitType: 2
   collisionParticleParent: {fileID: 7442808983424984639}
-  hitParticle: {fileID: 1690490075298846511}
-  impactParticle: {fileID: 0}
+  hitEnemyParticles: {fileID: 2536017701364433931, guid: f344c6dd04aaade419750bc318a37cb6, type: 3}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 32832
@@ -15019,6 +15018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SizeHover
   sprite: {fileID: 2607897979270731590}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
   HoverSize: 1.5
 --- !u!114 &8566102992529787181
 MonoBehaviour:
@@ -15084,6 +15084,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canInteract: 1
+  onlyInteractableOnce: 1
 --- !u!1 &6537344418045284242
 GameObject:
   m_ObjectHideFlags: 0

@@ -12338,6 +12338,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   hitType: 2
   collisionParticleParent: {fileID: 7442808983424984639}
+  hitEnemyParticles: {fileID: 2536017701364433931, guid: f344c6dd04aaade419750bc318a37cb6, type: 3}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 32832
