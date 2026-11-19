@@ -19,8 +19,9 @@ public class animationEventCaller : MonoBehaviour
     }
     public void endMeleeAnim()
     {
-        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerInteractor>().endMeleeAnim();
-        GetComponentInParent<EnemyLife>().Die();
+        EnemyLife enemyLife = GetComponentInParent<EnemyLife>();
+        ServiceLocator.Instance.Get<ILevelController>().getPlayer().GetComponent<PlayerInteractor>().endMeleeAnim(enemyLife.agathaExecutionEndPosition.transform.position);
+        enemyLife.Die();
 
     }
     public void throwBottle()

@@ -187,7 +187,7 @@ public class PlayerInteractor : CharacterInteractor
         enemyMelee = enemy;
         enemy.GetComponent<ACharacterLife>().meleeDeath();
     }
-    public void endMeleeAnim()
+    public void endMeleeAnim(Vector3 position)
     {
         GetComponent<PlayerMove>().playerMoveStateMachine.ForceEndState(new PlayerExecuteState(null));
         //foreach (GameObject item in hidewhenMelee)
