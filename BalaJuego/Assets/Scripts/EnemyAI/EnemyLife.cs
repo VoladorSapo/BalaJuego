@@ -7,7 +7,7 @@ public class EnemyLife : ACharacterLife
     [SerializeField] GameObject countText;
     [SerializeField] Vector3 bodyMovePos;
 
-    [SerializeField] GameObject agathaExecutionEndPosition;
+    [field:SerializeField] public GameObject agathaExecutionEndPosition {  get; private set; }
 
     AEnemyBehaviour behaviour;
     public override void Die()
